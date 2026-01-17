@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Begin Your Private Support — Personalized Onboarding</title>
+<meta name="description" content="A deeply personal, private companion — daily human support tailored to your work, relationships, health, and inner life. Designed for readers in the US & Europe." />
+
+<!-- Fonts: Playfair Display (headlines) + Inter (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg-1: #07060a;
+    --bg-2: #0f1116;
+    --panel: rgba(22,22,26,0.65);
+    --gold-1: #d4af37;   /* soft gold */
+    --bronze: #b8842f;   /* bronze tone */
+    --muted: #c8d3e0;
+    --glass: rgba(255,255,255,0.03);
+    --radius: 14px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:
+      radial-gradient(800px 300px at 10% 8%, rgba(212,175,55,0.03), transparent),
+      linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+    color: #eef2f7;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding: 36px 18px;
+    display:flex;
+    justify-content:center;
+  }
+
+  .container{
+    width:100%;
+    max-width:980px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.013), rgba(255,255,255,0.008));
+    border-radius: 18px;
+    padding: 36px;
+    box-shadow: 0 30px 80px rgba(3,3,6,0.6);
+    border: 1px solid rgba(255,255,255,0.03);
+    backdrop-filter: blur(6px);
+  }
+
+  header{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+  }
+  .brand{
+    display:flex;
+    gap:14px;
+    align-items:center;
+  }
+  .badge{
+    width:64px;height:64px;border-radius:12px;
+    background: linear-gradient(135deg, rgba(212,175,55,0.07), rgba(184,130,47,0.03));
+    display:grid;place-items:center;
+    border:1px solid rgba(212,175,55,0.06);
+  }
+  .brand h1{
+    font-family: "Playfair Display", serif;
+    font-size:1.45rem;
+    color:var(--gold-1);
+    letter-spacing:-0.6px;
+  }
+  .brand p{ color:var(--muted); font-size:0.95rem; margin-top:4px; }
+
+  .intro{
+    margin-top:22px;
+    text-align:center;
+  }
+  h2.lead{
+    font-family:"Playfair Display", serif;
+    font-size:2.2rem;
+    color:#f7ecd7;
+    margin-bottom:12px;
+    line-height:1.05;
+  }
+  p.lead-note{
+    color:#dfe7ef;
+    max-width:88ch;
+    margin: 0 auto 18px;
+    line-height:1.8;
+    font-size:1.02rem;
+  }
+
+  .panel{
+    margin-top:24px;
+    background:var(--panel);
+    border-radius:12px;
+    padding:20px;
+    border: 1px solid rgba(212,175,55,0.06);
+  }
+  .panel small{ color:var(--muted); display:block; margin-bottom:10px; }
+
+  .benefits{
+    display:flex;
+    gap:18px;
+    margin-top:18px;
+  }
+  .benefit{
+    flex:1;
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006));
+    border-radius:10px;
+    padding:14px;
+    border-left:4px solid rgba(180,132,47,0.92);
+  }
+  .benefit h4{ font-family:"Playfair Display", serif; color:var(--gold-1); margin-bottom:8px; font-size:1.02rem; }
+  .benefit p{ color:#dbe7f6; font-size:0.98rem; line-height:1.6; }
+
+  form{ margin-top:28px; }
+  label{ display:block; margin-top:26px; font-weight:600; color:#e8eef7; }
+  .hint{ font-size:0.9rem; color:var(--muted); margin-top:6px; font-style:italic; }
+
+  textarea, input[type="text"], input[type="email"], select {
+    width:100%;
+    margin-top:10px;
+    padding:16px;
+    font-size:1rem;
+    font-family:inherit;
+    border:1px solid rgba(255,255,255,0.04);
+    border-radius:10px;
+    background: #0f1116;
+    color:#f8fbff;
+    transition: all .22s ease;
+    resize:vertical;
+    line-height:1.6;
+  }
+  textarea{ min-height:140px; }
+  textarea:focus, input:focus, select:focus{
+    outline:none;
+    border-color: var(--bronze);
+    box-shadow: 0 10px 30px rgba(184,130,47,0.08);
+  }
+
+  .char-count{ text-align:right; margin-top:6px; color:var(--muted); font-size:0.9rem; }
+
+  .grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:12px;
+  }
+
+  .radio-group, .checkbox-group{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:12px;
+  }
+  .chip{
+    background: rgba(255,255,255,0.02);
+    border:1px solid rgba(255,255,255,0.03);
+    padding:8px 12px;
+    border-radius:999px;
+    color:var(--muted);
+    cursor:pointer;
+    user-select:none;
+    font-weight:500;
+  }
+
+  .controls{
+    margin-top:28px;
+    display:flex;
+    gap:12px;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+
+  .btn-submit{
+    padding:16px 30px;
+    border-radius:12px;
+    background: linear-gradient(135deg, var(--gold-1), #f7de98 80%);
+    border:none;
+    color:#0d0a06;
+    font-weight:800;
+    font-size:1rem;
+    cursor:pointer;
+    box-shadow: 0 12px 36px rgba(196,150,50,0.12);
+  }
+  .btn-submit:hover{ transform:translateY(-3px); }
+
+  .muted-note{
+    color:var(--muted);
+    font-size:0.95rem;
+  }
+
+  .consent{
+    margin-top:18px;
+    color:var(--muted);
+    font-size:0.92rem;
+  }
+
+  footer{
+    margin-top:34px;
+    color:#97a6b8;
+    text-align:center;
+    font-size:0.95rem;
+    line-height:1.6;
+  }
+
+  @media (max-width:900px){
+    .benefits{ flex-direction:column; }
+    .grid-2{ grid-template-columns:1fr; }
+    header{ gap:8px; }
+    .brand h1{ font-size:1.18rem; }
+  }
+
+  /* accessible focus ring */
+  :focus{ outline: 3px solid rgba(212,175,55,0.12); outline-offset:4px; border-radius:8px; }
+</style>
+</head>
+
+<body>
+  <div class="container" role="main" aria-labelledby="page-title">
+    <header>
+      <div class="brand" aria-hidden="false">
+        <div class="badge" aria-hidden="true">
+          <!-- monogram -->
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="22" height="22" rx="5" fill="rgba(212,175,55,0.04)"/>
+            <path d="M6 15c2-3 6-8 11-6" stroke="#d4af37" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1 id="page-title">Begin Your Private Support</h1>
+          <p>Personal daily messages crafted for how you actually live — work, family, health, and heart.</p>
+        </div>
+      </div>
+
+      <div style="text-align:right;color:var(--muted)">
+        <div style="font-weight:600;color:var(--gold-1)">Private · Tailored · Daily</div>
+        <div style="margin-top:6px;font-size:0.92rem">Designed for people in the US & Europe</div>
+      </div>
+    </header>
+
+    <div class="intro">
+      <h2 class="lead">This is not a form. This is a conversation — started by you.</h2>
+      <p class="lead-note">
+        The answers you give here help shape messages written to your life: the work you do, the family you hold, the illnesses you manage,
+        the risks you dream of taking. We will never sell your data. You can skip questions, revise answers, or pause delivery anytime.
+      </p>
+    </div>
+
+    <div class="panel" aria-live="polite">
+      <small>How this helps</small>
+      <div class="benefits" role="list">
+        <div class="benefit" role="listitem">
+          <h4>Personalized daily presence</h4>
+          <p>Short reflections, practical micro-steps, and quiet permission to feel — delivered when you choose.</p>
+        </div>
+        <div class="benefit" role="listitem">
+          <h4>Work, family & health</h4>
+          <p>Advice and steadiness that respects professional pressure, family complexity, and physical reality.</p>
+        </div>
+        <div class="benefit" role="listitem">
+          <h4>Risk with care</h4>
+          <p>Gentle prompts to try what matters — career moves, important conversations, or creative risks — with support behind you.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FORM ===== -->
+    <form name="onboarding" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-labelledby="page-title" role="form">
+      <input type="hidden" name="form-name" value="onboarding">
+      <input type="text" name="bot-field" style="display:none" aria-hidden="true">
+
+      <!-- Section: Core experience -->
+      <label for="change_needed">
+        1) Right now, which part of your life feels quietly unsustainable or stretched thin?
+      </label>
+      <div class="hint">(Workload, caring for others, chronic illness, or a relationship — tell us what truly drains you.)</div>
+      <textarea id="change_needed" name="change_needed" placeholder="Example: 'I lead a 30-person team and take every escalation home. I sleep but never rest.' — or write your own." oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <label for="repeating_pattern">
+        2) What pattern keeps repeating — the one that costs you energy, even when you know it will?
+      </label>
+      <div class="hint">(e.g., saying yes to extra work, avoiding hard conversations, over-preparing to prove your worth.)</div>
+      <textarea id="repeating_pattern" name="repeating_pattern" placeholder="Be specific — patterns help us give precise, humane daily support." oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <label for="inner_voice">
+        3) What harsh sentence do you most often tell yourself when things slow or go wrong?
+      </label>
+      <div class="hint">(This may be a single line your inner voice repeats — share it honestly, as if whispering to a trusted person.)</div>
+      <textarea id="inner_voice" name="inner_voice" placeholder="Example: 'If I slow down, I will lose respect / fail my team / be abandoned.'" oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <label for="forgotten_truth">
+        4) What true thing about you do you forget under pressure?
+      </label>
+      <div class="hint">(A value, a strength, or a quality that steadies you when remembered.)</div>
+      <textarea id="forgotten_truth" name="forgotten_truth" placeholder="Example: 'I am compassionate. I learn quickly. My presence matters.' " oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <!-- Section: The unsaid and the brave -->
+      <label for="unsaid_truth">
+        5) What do you almost never say out loud — even to those closest to you?
+      </label>
+      <div class="hint">(Fears, desires, or small truths you keep private — we hold them with care.)</div>
+      <textarea id="unsaid_truth" name="unsaid_truth" placeholder="If you prefer, write one sentence: 'I secretly want...' " oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <label for="desired_feeling">
+        6) This month, how would you most like to *be* — at work, with family, and with yourself?
+      </label>
+      <div class="hint">(Focus on presence and feeling, not tasks. E.g., 'calm under pressure', 'less reactive', 'gentler with myself'.)</div>
+      <textarea id="desired_feeling" name="desired_feeling" placeholder="Describe the way you want to show up." oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <label for="support_style">
+        7) What kind of support would actually help — emotional, practical, or both?
+      </label>
+      <div class="hint">(Examples: daily micro-practices, short decision prompts, a question to reflect on at lunch, or a phrase to remember when stressed.)</div>
+      <textarea id="support_style" name="support_style" placeholder="Be concrete where you can — we'll use this to shape your messages." oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <!-- Section: Tone & boundaries -->
+      <label for="message_feel">
+        8) How should your daily message feel when you read it?
+      </label>
+      <div class="hint">(e.g., 'like a calm guide', 'a clear mirror', 'a practical coach', 'a caring friend'. Pick phrases.)</div>
+      <textarea id="message_feel" name="message_feel" placeholder="List 1–3 tones you want in your messages." oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <label for="red_lines">
+        9) What tone, words, or approaches should we never use with you?
+      </label>
+      <div class="hint">(Pushy sales language, spiritual platitudes, shaming, or hustle culture — tell us your limits.)</div>
+      <textarea id="red_lines" name="red_lines" placeholder="Example: 'No pressure, no forcing, no toxic positivity' " oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <!-- Section: Protection & triggers -->
+      <label for="protect_this_month">
+        10) What is the one thing you most need to protect this month to feel whole and safe?
+      </label>
+      <div class="hint">(A boundary, a relationship, a window of rest, or a health routine.)</div>
+      <textarea id="protect_this_month" name="protect_this_month" placeholder="Example: 'My mornings — protected for 60 minutes of rest' " oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <label for="before_stopping">
+        11) What usually happens inside you right before you want to give up or stop?
+      </label>
+      <div class="hint">(Bodily sensations, thoughts, or a specific moment you recognize.)</div>
+      <textarea id="before_stopping" name="before_stopping" placeholder="Describe the sequence that signals you need help." oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <label for="fear_of_improvement">
+        12) What do you fear might be lost if things actually improve?
+      </label>
+      <div class="hint">(E.g., identity tied to busyness, relationships that rely on your availability.)</div>
+      <textarea id="fear_of_improvement" name="fear_of_improvement" placeholder="Naming this helps us write messages that feel safe." oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <!-- Section: Emotion, family, health -->
+      <label for="how_to_feel">
+        13) Beyond goals, how do you want to feel day-to-day — at work, in relationships, in your body?
+      </label>
+      <div class="hint">(List feelings you want more of: ease, curiosity, steadiness, courage.)</div>
+      <textarea id="how_to_feel" name="how_to_feel" placeholder="This shapes the tone and exercises in your messages." oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <label for="never_forget">
+        14) (Optional) One thing you never want us to forget about you — a line that captures your essence or struggle.
+      </label>
+      <div class="hint">(This becomes a touchstone we gently reference in your messages.)</div>
+      <textarea id="never_forget" name="never_forget" placeholder="A phrase, value, or short memory." oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <!-- NEW: Encouragement to risk & experiment -->
+      <label for="bold_step">
+        15) If you could try one brave thing in the next 30 days (career, relationship, health, creative), what would it be?
+      </label>
+      <div class="hint">(This is optional — we can help you plan small, careful steps and hold you through it.)</div>
+      <textarea id="bold_step" name="bold_step" placeholder="Example: 'Apply for a role I think I'm underqualified for' or 'Ask for a week of remote work to care for my parent' " oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <!-- NEW: Immediate supports & triggers -->
+      <label for="triggers">
+        16) Are there words, topics, or experiences that are immediate triggers for you (trauma, loss, medical crises)? If yes, please name them briefly so we avoid harm.
+      </label>
+      <div class="hint">(Optional; naming triggers helps us keep messages safe and sensitive.)</div>
+      <textarea id="triggers" name="triggers" placeholder="e.g., 'loss of a parent', 'hospital stays', 'domestic conflict' " oninput="updateCount(this)"></textarea>
+      <div class="char-count">0 characters | 0 words</div>
+
+      <!-- NEW: Priorities selector -->
+      <label>
+        17) Which areas should we prioritize when writing your messages? (select up to 3)
+      </label>
+      <div class="grid-2" role="group" aria-label="Priority areas">
+        <div>
+          <label class="chip"><input type="checkbox" name="priority[]" value="work" style="display:none"> Work & Career</label>
+          <label class="chip"><input type="checkbox" name="priority[]" value="family" style="display:none"> Family & Care</label>
+          <label class="chip"><input type="checkbox" name="priority[]" value="health" style="display:none"> Physical Health</label>
+        </div>
+        <div>
+          <label class="chip"><input type="checkbox" name="priority[]" value="mental" style="display:none"> Mental & Emotional</label>
+          <label class="chip"><input type="checkbox" name="priority[]" value="risk" style="display:none"> Risk & Growth</label>
+          <label class="chip"><input type="checkbox" name="priority[]" value="relationships" style="display:none"> Relationships</label>
+        </div>
+      </div>
+      <div class="hint" style="margin-top:8px">(Tip: Choose the 1–3 areas that, if steadied, would make the biggest difference.)</div>
+
+      <!-- Personal details -->
+      <div class="grid-2">
+        <div>
+          <label for="name">Your preferred name</label>
+          <input id="name" name="name" type="text" placeholder="What should we call you? (Your real name or a safe name)">
+        </div>
+        <div>
+          <label for="email">Email (confirmation)</label>
+          <input id="email" name="email" type="email" placeholder="we already have this — confirm to link messages" >
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label for="timezone">Time zone / City</label>
+          <input id="timezone" name="timezone" type="text" placeholder="e.g., New York, London, Berlin">
+        </div>
+        <div>
+          <label for="delivery_time">When should your message arrive?</label>
+          <select id="delivery_time" name="delivery_time">
+            <option>Morning (before the day begins)</option>
+            <option>Midday (a steadying pause)</option>
+            <option>Evening (to reflect and reset)</option>
+            <option>Flexible — send when it fits</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin-top:18px">
+        <label for="frequency">Message frequency</label>
+        <div class="radio-group" role="radiogroup" aria-label="Message frequency">
+          <label class="chip" onclick="selectRadio(this)"><input type="radio" name="frequency" value="daily" checked style="display:none"> Daily</label>
+          <label class="chip" onclick="selectRadio(this)"><input type="radio" name="frequency" value="every-other-day" style="display:none"> Every other day</label>
+          <label class="chip" onclick="selectRadio(this)"><input type="radio" name="frequency" value="three-times-week" style="display:none"> 3x / week</label>
+        </div>
+        <div class="hint">(You can change frequency any time in settings.)</div>
+      </div>
+
+      <div class="consent">
+        <p class="muted-note">
+          We keep your responses private and never sell them. Messages are written by a small human team.  
+          Data is stored securely and you can request deletion anytime. By submitting you consent to receive messages to the email provided.
+        </p>
+      </div>
+
+      <div class="controls">
+        <button class="btn-submit" type="submit">Begin your private support</button>
+        <div style="margin-left:auto" class="muted-note">You can pause or update preferences anytime.</div>
+      </div>
+
+      <div style="margin-top:22px" class="muted-note">
+        If you'd like, you can also support this work via Ko-fi after onboarding — supporters occasionally receive bonus follow-ups and optional 1:1 check-ins.
+      </div>
+    </form>
+
+    <footer>
+      These messages are written with care — not automation pretending to be presence.  You are not alone.
+    </footer>
+  </div>
+
+<script>
+  // Attach character & word counters to every textarea
+  function updateCount(el){
+    const charCount = el.value.length;
+    const wordCount = el.value.trim() === '' ? 0 : el.value.trim().split(/\s+/).length;
+    // find the next .char-count sibling (scan forward)
+    let next = el.nextElementSibling;
+    while(next && !next.classList.contains('char-count')) {
+      next = next.nextElementSibling;
+    }
+    if(next && next.classList.contains('char-count')) {
+      next.innerText = `${charCount} characters | ${wordCount} words`;
+    }
+  }
+
+  // initialize counters for existing textareas
+  document.querySelectorAll('textarea').forEach(t => {
+    updateCount(t);
+    // ensure oninput is set (in case pasted)
+    t.addEventListener('input', () => updateCount(t));
+  });
+
+  // Manage "chip" radio & checkbox simple UX (visual only)
+  function selectRadio(el){
+    const inp = el.querySelector('input[type="radio"]');
+    if(!inp) return;
+    const name = inp.name;
+    document.querySelectorAll(`input[type="radio"][name="${name}"]`).forEach(r => {
+      if(r !== inp) (r.closest('.chip')||r.parentNode).style.boxShadow = 'none';
+    });
+    inp.checked = true;
+    el.style.boxShadow = '0 8px 24px rgba(184,130,47,0.08)';
+  }
+
+  // make chips toggleable for checkboxes
+  document.querySelectorAll('.chip input[type="checkbox"]').forEach(cb => {
+    const parent = cb.closest('.chip');
+    parent.addEventListener('click', () => {
+      cb.checked = !cb.checked;
+      parent.style.boxShadow = cb.checked ? '0 8px 24px rgba(184,130,47,0.08)' : 'none';
+    });
+  });
+
+  // make the label chips clickable (for those without inputs visible)
+  document.querySelectorAll('.chip').forEach(chip=>{
+    const inp = chip.querySelector('input');
+    if(!inp) return;
+    chip.style.cursor = 'pointer';
+  });
+</script>
+</body>
+  </html>
