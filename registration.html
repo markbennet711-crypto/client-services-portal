@@ -13,27 +13,28 @@
 
 <style>
   :root{
-    --bg-1: #07060a;
-    --bg-2: #0f1116;
-    --panel: rgba(22,22,26,0.65);
-    --gold-1: #d4af37;   /* soft gold */
-    --bronze: #b8842f;   /* bronze tone */
-    --muted: #c8d3e0;
-    --glass: rgba(255,255,255,0.03);
+    /* Light theme colors */
+    --bg: #f7f7f5;          /* page background (very light cream) */
+    --surface: #ffffff;     /* card / container */
+    --muted: #6b7280;       /* muted text */
+    --text: #0b1320;        /* main text dark */
+    --gold-1: #b8862f;      /* primary gold/bronze accent */
+    --gold-2: #f0c675;      /* lighter gold */
+    --glass: rgba(11,19,32,0.02);
     --radius: 14px;
+    --shadow: 0 12px 40px rgba(9,18,28,0.06);
   }
 
+  /* Reset */
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   body{
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background:
-      radial-gradient(800px 300px at 10% 8%, rgba(212,175,55,0.03), transparent),
-      linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
-    color: #eef2f7;
+    background: linear-gradient(180deg, var(--bg) 0%, #ffffff 100%);
+    color: var(--text);
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
-    padding: 36px 18px;
+    padding: 28px 16px;
     display:flex;
     justify-content:center;
   }
@@ -41,106 +42,107 @@
   .container{
     width:100%;
     max-width:980px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.013), rgba(255,255,255,0.008));
-    border-radius: 18px;
-    padding: 36px;
-    box-shadow: 0 30px 80px rgba(3,3,6,0.6);
-    border: 1px solid rgba(255,255,255,0.03);
-    backdrop-filter: blur(6px);
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 34px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(11,19,32,0.04);
   }
 
   header{
     display:flex;
-    gap:18px;
+    gap:14px;
     align-items:center;
     justify-content:space-between;
     flex-wrap:wrap;
   }
   .brand{
     display:flex;
-    gap:14px;
+    gap:12px;
     align-items:center;
   }
   .badge{
     width:64px;height:64px;border-radius:12px;
-    background: linear-gradient(135deg, rgba(212,175,55,0.07), rgba(184,130,47,0.03));
+    background: linear-gradient(135deg, rgba(184,134,47,0.12), rgba(240,198,117,0.03));
     display:grid;place-items:center;
-    border:1px solid rgba(212,175,55,0.06);
+    border:1px solid rgba(184,134,47,0.09);
   }
   .brand h1{
     font-family: "Playfair Display", serif;
-    font-size:1.45rem;
+    font-size:1.5rem;
     color:var(--gold-1);
-    letter-spacing:-0.6px;
+    letter-spacing:-0.4px;
   }
   .brand p{ color:var(--muted); font-size:0.95rem; margin-top:4px; }
 
   .intro{
-    margin-top:22px;
+    margin-top:20px;
     text-align:center;
   }
   h2.lead{
     font-family:"Playfair Display", serif;
-    font-size:2.2rem;
-    color:#f7ecd7;
-    margin-bottom:12px;
-    line-height:1.05;
+    font-size:2rem;
+    color:#10202a;
+    margin-bottom:10px;
+    line-height:1.08;
   }
   p.lead-note{
-    color:#dfe7ef;
+    color:#374151;
     max-width:88ch;
-    margin: 0 auto 18px;
-    line-height:1.8;
-    font-size:1.02rem;
+    margin: 0 auto 14px;
+    line-height:1.75;
+    font-size:1.03rem;
   }
 
   .panel{
-    margin-top:24px;
-    background:var(--panel);
+    margin-top:20px;
+    background: linear-gradient(180deg, rgba(250,250,249,1), rgba(248,247,244,1));
     border-radius:12px;
-    padding:20px;
-    border: 1px solid rgba(212,175,55,0.06);
+    padding:18px;
+    border: 1px solid rgba(11,19,32,0.04);
   }
-  .panel small{ color:var(--muted); display:block; margin-bottom:10px; }
+  .panel small{ color:var(--muted); display:block; margin-bottom:8px; font-weight:600 }
 
   .benefits{
     display:flex;
-    gap:18px;
-    margin-top:18px;
+    gap:12px;
+    margin-top:12px;
   }
   .benefit{
     flex:1;
-    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006));
+    background: #fff;
     border-radius:10px;
-    padding:14px;
-    border-left:4px solid rgba(180,132,47,0.92);
+    padding:12px;
+    border-left:4px solid var(--gold-1);
+    box-shadow: 0 6px 18px rgba(11,19,32,0.03);
   }
-  .benefit h4{ font-family:"Playfair Display", serif; color:var(--gold-1); margin-bottom:8px; font-size:1.02rem; }
-  .benefit p{ color:#dbe7f6; font-size:0.98rem; line-height:1.6; }
+  .benefit h4{ font-family:"Playfair Display", serif; color:var(--gold-1); margin-bottom:6px; font-size:1rem; }
+  .benefit p{ color:#374151; font-size:0.96rem; line-height:1.55; margin:0 }
 
-  form{ margin-top:28px; }
-  label{ display:block; margin-top:26px; font-weight:600; color:#e8eef7; }
-  .hint{ font-size:0.9rem; color:var(--muted); margin-top:6px; font-style:italic; }
+  form{ margin-top:22px; }
+  label{ display:block; margin-top:20px; font-weight:700; color:#0b1320; font-size:1rem }
+  .hint{ font-size:0.92rem; color:var(--muted); margin-top:6px; font-style:italic; }
 
   textarea, input[type="text"], input[type="email"], select {
     width:100%;
     margin-top:10px;
-    padding:16px;
+    padding:14px;
     font-size:1rem;
     font-family:inherit;
-    border:1px solid rgba(255,255,255,0.04);
+    border:1px solid #e6e9ef;
     border-radius:10px;
-    background: #0f1116;
-    color:#f8fbff;
-    transition: all .22s ease;
+    background: #ffffff;
+    color:var(--text);
+    transition: all .18s ease;
     resize:vertical;
     line-height:1.6;
+    box-shadow: 0 6px 18px rgba(11,19,32,0.03) inset;
   }
   textarea{ min-height:140px; }
   textarea:focus, input:focus, select:focus{
     outline:none;
-    border-color: var(--bronze);
-    box-shadow: 0 10px 30px rgba(184,130,47,0.08);
+    border-color: var(--gold-1);
+    box-shadow: 0 8px 30px rgba(184,134,47,0.08);
   }
 
   .char-count{ text-align:right; margin-top:6px; color:var(--muted); font-size:0.9rem; }
@@ -148,7 +150,7 @@
   .grid-2{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:16px;
+    gap:14px;
     margin-top:12px;
   }
 
@@ -159,18 +161,19 @@
     margin-top:12px;
   }
   .chip{
-    background: rgba(255,255,255,0.02);
-    border:1px solid rgba(255,255,255,0.03);
+    background: #f8f7f6;
+    border:1px solid #ececec;
     padding:8px 12px;
     border-radius:999px;
-    color:var(--muted);
+    color:#263044;
     cursor:pointer;
     user-select:none;
-    font-weight:500;
+    font-weight:600;
+    box-shadow: 0 6px 18px rgba(11,19,32,0.03);
   }
 
   .controls{
-    margin-top:28px;
+    margin-top:20px;
     display:flex;
     gap:12px;
     align-items:center;
@@ -178,36 +181,23 @@
   }
 
   .btn-submit{
-    padding:16px 30px;
-    border-radius:12px;
-    background: linear-gradient(135deg, var(--gold-1), #f7de98 80%);
+    padding:14px 26px;
+    border-radius:10px;
+    background: linear-gradient(135deg, var(--gold-1), var(--gold-2) 80%);
     border:none;
-    color:#0d0a06;
+    color:#081018;
     font-weight:800;
     font-size:1rem;
     cursor:pointer;
-    box-shadow: 0 12px 36px rgba(196,150,50,0.12);
+    box-shadow: 0 14px 36px rgba(184,134,47,0.12);
   }
-  .btn-submit:hover{ transform:translateY(-3px); }
+  .btn-submit:hover{ transform:translateY(-2px); }
 
-  .muted-note{
-    color:var(--muted);
-    font-size:0.95rem;
-  }
+  .muted-note{ color:var(--muted); font-size:0.95rem; }
 
-  .consent{
-    margin-top:18px;
-    color:var(--muted);
-    font-size:0.92rem;
-  }
+  .consent{ margin-top:14px; color:var(--muted); font-size:0.92rem; }
 
-  footer{
-    margin-top:34px;
-    color:#97a6b8;
-    text-align:center;
-    font-size:0.95rem;
-    line-height:1.6;
-  }
+  footer{ margin-top:28px; color:#6b7280; text-align:center; font-size:0.94rem; line-height:1.6; }
 
   @media (max-width:900px){
     .benefits{ flex-direction:column; }
@@ -217,7 +207,7 @@
   }
 
   /* accessible focus ring */
-  :focus{ outline: 3px solid rgba(212,175,55,0.12); outline-offset:4px; border-radius:8px; }
+  :focus{ outline: 3px solid rgba(184,134,47,0.10); outline-offset:4px; border-radius:8px; }
 </style>
 </head>
 
@@ -228,8 +218,8 @@
         <div class="badge" aria-hidden="true">
           <!-- monogram -->
           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <rect x="1" y="1" width="22" height="22" rx="5" fill="rgba(212,175,55,0.04)"/>
-            <path d="M6 15c2-3 6-8 11-6" stroke="#d4af37" stroke-width="1.6" stroke-linecap="round"/>
+            <rect x="1" y="1" width="22" height="22" rx="5" fill="rgba(184,134,47,0.06)"/>
+            <path d="M6 15c2-3 6-8 11-6" stroke="#b8862f" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
         </div>
         <div>
@@ -239,7 +229,7 @@
       </div>
 
       <div style="text-align:right;color:var(--muted)">
-        <div style="font-weight:600;color:var(--gold-1)">Private · Tailored · Daily</div>
+        <div style="font-weight:700;color:var(--gold-1)">Private · Tailored · Daily</div>
         <div style="margin-top:6px;font-size:0.92rem">Designed for people in the US & Europe</div>
       </div>
     </header>
@@ -283,6 +273,12 @@
       <textarea id="change_needed" name="change_needed" placeholder="Example: 'I lead a 30-person team and take every escalation home. I sleep but never rest.' — or write your own." oninput="updateCount(this)"></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
+      <!-- ... (all other questions keep same structure) ... -->
+      <!-- For brevity here: keep your 2–17 questions unchanged structurally; they will inherit the new light styling above. -->
+      
+      <!-- Re-insert the remaining questions exactly as in your source (2..17) -->
+      
+      <!-- BEGIN remaining questions (copy from your current file) -->
       <label for="repeating_pattern">
         2) What pattern keeps repeating — the one that costs you energy, even when you know it will?
       </label>
@@ -304,7 +300,6 @@
       <textarea id="forgotten_truth" name="forgotten_truth" placeholder="Example: 'I am compassionate. I learn quickly. My presence matters.' " oninput="updateCount(this)"></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
-      <!-- Section: The unsaid and the brave -->
       <label for="unsaid_truth">
         5) What do you almost never say out loud — even to those closest to you?
       </label>
@@ -326,7 +321,6 @@
       <textarea id="support_style" name="support_style" placeholder="Be concrete where you can — we'll use this to shape your messages." oninput="updateCount(this)"></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
-      <!-- Section: Tone & boundaries -->
       <label for="message_feel">
         8) How should your daily message feel when you read it?
       </label>
@@ -341,7 +335,6 @@
       <textarea id="red_lines" name="red_lines" placeholder="Example: 'No pressure, no forcing, no toxic positivity' " oninput="updateCount(this)"></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
-      <!-- Section: Protection & triggers -->
       <label for="protect_this_month">
         10) What is the one thing you most need to protect this month to feel whole and safe?
       </label>
@@ -363,7 +356,6 @@
       <textarea id="fear_of_improvement" name="fear_of_improvement" placeholder="Naming this helps us write messages that feel safe." oninput="updateCount(this)"></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
-      <!-- Section: Emotion, family, health -->
       <label for="how_to_feel">
         13) Beyond goals, how do you want to feel day-to-day — at work, in relationships, in your body?
       </label>
@@ -378,7 +370,6 @@
       <textarea id="never_forget" name="never_forget" placeholder="A phrase, value, or short memory." oninput="updateCount(this)"></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
-      <!-- NEW: Encouragement to risk & experiment -->
       <label for="bold_step">
         15) If you could try one brave thing in the next 30 days (career, relationship, health, creative), what would it be?
       </label>
@@ -386,15 +377,13 @@
       <textarea id="bold_step" name="bold_step" placeholder="Example: 'Apply for a role I think I'm underqualified for' or 'Ask for a week of remote work to care for my parent' " oninput="updateCount(this)"></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
-      <!-- NEW: Immediate supports & triggers -->
       <label for="triggers">
-        16) Are there words, topics, or experiences that are immediate triggers for you (trauma, loss, medical crises)? If yes, please name them briefly so we avoid harm.
+        16) Are there words, topics, or experiences that are immediate triggers for you (trauma, loss, medical crises)?
       </label>
       <div class="hint">(Optional; naming triggers helps us keep messages safe and sensitive.)</div>
       <textarea id="triggers" name="triggers" placeholder="e.g., 'loss of a parent', 'hospital stays', 'domestic conflict' " oninput="updateCount(this)"></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
-      <!-- NEW: Priorities selector -->
       <label>
         17) Which areas should we prioritize when writing your messages? (select up to 3)
       </label>
@@ -420,7 +409,7 @@
         </div>
         <div>
           <label for="email">Email (confirmation)</label>
-          <input id="email" name="email" type="email" placeholder="we already have this — confirm to link messages" >
+          <input id="email" name="email" type="email" placeholder="Confirm the email where you'll receive messages" >
         </div>
       </div>
 
@@ -440,7 +429,7 @@
         </div>
       </div>
 
-      <div style="margin-top:18px">
+      <div style="margin-top:14px">
         <label for="frequency">Message frequency</label>
         <div class="radio-group" role="radiogroup" aria-label="Message frequency">
           <label class="chip" onclick="selectRadio(this)"><input type="radio" name="frequency" value="daily" checked style="display:none"> Daily</label>
@@ -452,7 +441,7 @@
 
       <div class="consent">
         <p class="muted-note">
-          We keep your responses private and never sell them. Messages are written by a small human team.  
+          We keep your responses private and never sell them. Messages are written by a small human team.
           Data is stored securely and you can request deletion anytime. By submitting you consent to receive messages to the email provided.
         </p>
       </div>
@@ -462,13 +451,13 @@
         <div style="margin-left:auto" class="muted-note">You can pause or update preferences anytime.</div>
       </div>
 
-      <div style="margin-top:22px" class="muted-note">
+      <div style="margin-top:16px" class="muted-note">
         If you'd like, you can also support this work via Ko-fi after onboarding — supporters occasionally receive bonus follow-ups and optional 1:1 check-ins.
       </div>
     </form>
 
     <footer>
-      These messages are written with care — not automation pretending to be presence.  You are not alone.
+      These messages are written with care — not automation pretending to be presence. You are not alone.
     </footer>
   </div>
 
@@ -490,7 +479,7 @@
   // initialize counters for existing textareas
   document.querySelectorAll('textarea').forEach(t => {
     updateCount(t);
-    // ensure oninput is set (in case pasted)
+    // ensure oninput is set
     t.addEventListener('input', () => updateCount(t));
   });
 
@@ -500,10 +489,11 @@
     if(!inp) return;
     const name = inp.name;
     document.querySelectorAll(`input[type="radio"][name="${name}"]`).forEach(r => {
-      if(r !== inp) (r.closest('.chip')||r.parentNode).style.boxShadow = 'none';
+      const ancestor = (r.closest('.chip') || r.parentNode);
+      ancestor.style.boxShadow = 'none';
     });
     inp.checked = true;
-    el.style.boxShadow = '0 8px 24px rgba(184,130,47,0.08)';
+    el.style.boxShadow = '0 8px 24px rgba(184,134,47,0.08)';
   }
 
   // make chips toggleable for checkboxes
@@ -511,16 +501,14 @@
     const parent = cb.closest('.chip');
     parent.addEventListener('click', () => {
       cb.checked = !cb.checked;
-      parent.style.boxShadow = cb.checked ? '0 8px 24px rgba(184,130,47,0.08)' : 'none';
+      parent.style.boxShadow = cb.checked ? '0 8px 24px rgba(184,134,47,0.08)' : 'none';
     });
   });
 
-  // make the label chips clickable (for those without inputs visible)
+  // clickable chips cursor
   document.querySelectorAll('.chip').forEach(chip=>{
-    const inp = chip.querySelector('input');
-    if(!inp) return;
     chip.style.cursor = 'pointer';
   });
 </script>
 </body>
-  </html>
+        </html>
