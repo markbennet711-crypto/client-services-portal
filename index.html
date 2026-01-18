@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <title>The Quiet Companion — Your Personal Growth Architect</title>
 <meta name="description" content="Daily messages crafted by psychological experts analyzing your personal data to eliminate negativity and amplify your positive traits. Private human guidance for US & EU professionals." />
 
@@ -11,6 +11,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+  /* إصلاحات التمرير الأساسية */
+  html, body {
+    height: auto !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   :root {
     --page-bg: #0a0a0a;
     --card: #121212;
@@ -24,16 +41,14 @@
     --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0 }
-  html, body { height: 100%; background-color: var(--page-bg); }
   body {
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     color: var(--text);
     padding: 20px;
     display: flex;
     justify-content: center;
-    overflow-x: hidden;
-    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);    line-height: 1.6;
+    position: relative;
   }
 
   .container {
@@ -45,9 +60,12 @@
     box-shadow: var(--shadow);
     border: 1px solid rgba(212, 175, 55, 0.1);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    margin: 0 auto;
+    min-height: auto;
   }
-    .container::before {
+  
+  .container::before {
     content: '';
     position: absolute;
     top: 0;
@@ -78,8 +96,7 @@
     background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
     display: grid;
     place-items: center;
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(212, 175, 55, 0.25);    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   }
   
   .logo svg {
@@ -96,7 +113,8 @@
     font-weight: 600;
     letter-spacing: -0.5px;
     text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-  }  
+  }
+  
   .brand p {
     color: var(--muted);
     font-size: 1.05rem;
@@ -127,8 +145,7 @@
     display: inline-block;
     margin-top: 8px;
     padding: 3px 10px;
-    border-radius: 12px;
-    background: rgba(255, 77, 77, 0.15);
+    border-radius: 12px;    background: rgba(255, 77, 77, 0.15);
     color: var(--accent-red);
     font-size: 0.85rem;
     font-weight: 600;
@@ -145,7 +162,8 @@
   .eyebrow {
     color: var(--accent-bronze);
     font-weight: 700;
-    letter-spacing: 1px;    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     font-size: 0.85rem;
     margin-bottom: 12px;
   }
@@ -176,8 +194,7 @@
   
   .accent-note {
     background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
-    border-left: 3px solid var(--accent-gold);
-    padding: 20px;
+    border-left: 3px solid var(--accent-gold);    padding: 20px;
     border-radius: 0 var(--radius) var(--radius) 0;
     color: #f0f0f0;
     font-style: normal;
@@ -194,7 +211,8 @@
     top: -15px;
     left: 10px;
     font-size: 8rem;
-    color: rgba(212, 175, 55, 0.08);    font-family: serif;
+    color: rgba(212, 175, 55, 0.08);
+    font-family: serif;
     line-height: 1;
   }
   
@@ -225,8 +243,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
-    z-index: 0;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);    z-index: 0;
   }
   
   .card small {
@@ -243,7 +260,8 @@
     margin-bottom: 16px;
     position: relative;
     z-index: 1;
-  }  
+  }
+  
   .card p {
     color: #d0d0d0;
     margin-bottom: 20px;
@@ -274,8 +292,7 @@
   .cta::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
+    top: 0;    left: -100%;
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
@@ -292,7 +309,8 @@
     border-color: #ff3333;
   }
   
-  .cta:focus {    outline: 2px solid var(--accent-gold);
+  .cta:focus {
+    outline: 2px solid var(--accent-gold);
     outline-offset: 2px;
   }
 
@@ -323,8 +341,7 @@
     border-left: 4px solid var(--accent-gold);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
   }
-  
-  .card-tile h4 {
+    .card-tile h4 {
     font-family: "Cormorant Garamond", serif;
     color: var(--accent-gold);
     margin-bottom: 10px;
@@ -341,7 +358,8 @@
   /* Long content */
   .content-columns {
     display: grid;
-    grid-template-columns: 1fr 1fr;    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
     margin-top: 28px;
   }
   
@@ -372,8 +390,7 @@
     background: var(--accent-bronze);
   }
   
-  pre.sample {
-    white-space: pre-wrap;
+  pre.sample {    white-space: pre-wrap;
     font-family: "Cormorant Garamond", serif;
     color: var(--accent-gold);
     line-height: 1.7;
@@ -390,7 +407,8 @@
     display: flex;
     flex-direction: column;
     gap: 18px;
-  }  
+  }
+  
   .test {
     background: rgba(30, 30, 30, 0.6);
     padding: 22px;
@@ -421,7 +439,6 @@
     border-top: 1px dashed rgba(212, 175, 55, 0.3);
     padding-top: 10px;
   }
-
   .faq {
     margin-top: 28px;
   }
@@ -439,7 +456,8 @@
   .faq details[open] {
     background: rgba(40, 30, 20, 0.8);
     box-shadow: 0 8px 25px rgba(184, 134, 47, 0.15);
-    border-color: rgba(212, 175, 55, 0.3);  }
+    border-color: rgba(212, 175, 55, 0.3);
+  }
   
   .faq summary {
     font-weight: 700;
@@ -451,6 +469,7 @@
     position: relative;
     padding-right: 30px;
     transition: var(--transition);
+    outline: none;
   }
   
   .faq summary::-webkit-details-marker {
@@ -469,8 +488,7 @@
   }
   
   details[open] > summary::after {
-    content: '-';
-  }
+    content: '-';  }
   
   .faq details[open] summary {
     color: var(--accent-red);
@@ -488,7 +506,8 @@
   footer {
     margin-top: 36px;
     text-align: center;
-    color: var(--muted);    font-size: 1.05rem;
+    color: var(--muted);
+    font-size: 1.05rem;
     padding-top: 20px;
     border-top: 1px solid rgba(212, 175, 55, 0.1);
     font-style: italic;
@@ -519,25 +538,86 @@
     place-items: center;
     font-weight: bold;
   }
-
   /* Responsive adjustments */
   @media (max-width: 1000px) {
-    .hero { grid-template-columns: 1fr; }
-    .content-columns { grid-template-columns: 1fr; }
-    .grid3 { grid-template-columns: 1fr; }
+    .hero { 
+      grid-template-columns: 1fr; 
+      gap: 28px;
+    }
+    .content-columns { 
+      grid-template-columns: 1fr; 
+      gap: 20px;
+    }
+    .grid3 { 
+      grid-template-columns: 1fr; 
+      gap: 16px;
+    }
     
-    .logo { width: 60px; height: 60px; }
-    .brand h1 { font-size: 1.8rem; }
-    h2.title { font-size: 2.6rem; }
+    .logo { 
+      width: 60px; 
+      height: 60px; 
+    }
+    .brand h1 { 
+      font-size: 1.8rem; 
+    }
+    h2.title { 
+      font-size: 2.6rem; 
+    }
+    .card {
+      padding: 24px;
+    }
   }
   
   @media (max-width: 600px) {
-    .container { padding: 20px 16px; }
-    .hero { gap: 24px; }
-    .card { padding: 22px; }
-    h2.title { font-size: 2.2rem; }
-    .grid3 { grid-template-columns: 1fr; }
-    .trust-badges { gap: 15px; flex-direction: column; align-items: center; }  }
+    body {
+      padding: 12px;
+      -webkit-overflow-scrolling: touch;
+      overflow-y: auto;
+    }
+    
+    .container { 
+      padding: 20px 16px; 
+      margin: 8px;
+    }
+    .hero { 
+      gap: 24px; 
+    }
+    .card { 
+      padding: 22px; 
+    }
+    h2.title { 
+      font-size: 2.2rem;     }
+    .grid3 { 
+      grid-template-columns: 1fr; 
+    }
+    .trust-badges { 
+      gap: 15px; 
+      flex-direction: column; 
+      align-items: center; 
+    }
+    .brand p {
+      font-size: 0.95rem;
+    }
+    .meta {
+      text-align: left;
+      margin-top: 12px;
+    }
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  /* ضمان التمرير السلس على جميع الأجهزة */
+  @media (hover: none) {
+    * {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    body {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
 </style>
 </head>
 <body>
@@ -546,9 +626,9 @@
       <div class="brand" aria-hidden="false">
         <div class="logo" aria-hidden="true">
           <svg viewBox="0 0 32 32" fill="none">
-            <circle cx="16" cy="16" r="14" stroke-width="1.5" stroke-opacity="0.7" />
-            <path d="M8 16c0-4 3-7 7-7s7 3 7 7-3 7-7 7c-1.5 0-3-.5-4-1.5" stroke-width="2" />
-            <path d="M16 10v12" stroke-width="2" stroke-linecap="round" />
+            <circle cx="16" cy="16" r="14" stroke="#d4af37" stroke-width="1.5" stroke-opacity="0.7" />
+            <path d="M8 16c0-4 3-7 7-7s7 3 7 7-3 7-7 7c-1.5 0-3-.5-4-1.5" stroke="#d4af37" stroke-width="2" />
+            <path d="M16 10v12" stroke="#d4af37" stroke-width="2" stroke-linecap="round" />
           </svg>
         </div>
         <div>
@@ -556,7 +636,6 @@
           <p>Your personal growth architect — analyzing your unique data to eliminate negativity and amplify your strengths</p>
         </div>
       </div>
-
       <div class="meta" aria-hidden="true">
         <div class="pill">Psychologist-Crafted · Data-Powered · Daily Transformation</div>
         <div class="badge">Trusted by 28,500+ professionals in US & EU</div>
@@ -586,7 +665,8 @@
               <p>We isolate your authentic positive traits and design daily actions to strengthen them in high-stakes situations.</p>
             </div>
             <div class="card-tile" role="listitem">
-              <h4>Life Integration</h4>              <p>Personalized guidance for work decisions, family dynamics, health routines, and inner peace — all connected to your core growth.</p>
+              <h4>Life Integration</h4>
+              <p>Personalized guidance for work decisions, family dynamics, health routines, and inner peace — all connected to your core growth.</p>
             </div>
           </div>
         </section>
@@ -604,8 +684,7 @@
           Start Your Transformation
         </a>
 
-        <p style="margin-top:16px; color: #d0d0d0; font-size:1.05rem; line-height:1.6">
-          <strong style="color: var(--accent-gold);">Your privacy is sacred:</strong> Data is encrypted and analyzed only by our vetted psychologists. You own your information — delete anytime.
+        <p style="margin-top:16px; color: #d0d0d0; font-size:1.05rem; line-height:1.6">          <strong style="color: var(--accent-gold);">Your privacy is sacred:</strong> Data is encrypted and analyzed only by our vetted psychologists. You own your information — delete anytime.
         </p>
       </aside>
     </div>
@@ -635,7 +714,8 @@ Daily message crafted for you:
       </div>
     </div>
 
-    <div class="testimonials" aria-label="Client Transformations">      <div class="test">
+    <div class="testimonials" aria-label="Client Transformations">
+      <div class="test">
         <strong>"After 3 weeks, my chronic indecision vanished. My psychologist crafted messages that turned my 'overthinking' into strategic advantage."</strong>
         <div>— Product Lead, Tech Startup (Berlin)</div>
       </div>
@@ -653,8 +733,7 @@ Daily message crafted for you:
       </details>
       <details>
         <summary>Is this like therapy or coaching</summary>
-        <p>This is your personal growth architect — more strategic than therapy, more personalized than coaching. We focus exclusively on transforming your daily experience through precisely targeted messages based on your data. Think of it as having a psychologist who only works on dissolving your specific frustrations and building your unique strengths.</p>
-      </details>
+        <p>This is your personal growth architect — more strategic than therapy, more personalized than coaching. We focus exclusively on transforming your daily experience through precisely targeted messages based on your data. Think of it as having a psychologist who only works on dissolving your specific frustrations and building your unique strengths.</p>      </details>
       <details>
         <summary>How quickly will I feel changes?</summary>
         <p>87% of members report reduced anxiety around their growth areas within 10 days. Our psychologists design "micro-transformations" — small daily shifts that compound into permanent change. Many describe it as "waking up with my personal angel having already cleared my mental obstacles."</p>
@@ -682,42 +761,75 @@ Daily message crafted for you:
 
 <script>
   // Enhanced FAQ animation
-  document.querySelectorAll('details').forEach(details => {
-    details.addEventListener('toggle', () => {
-      const summary = details.querySelector('summary');      if (details.open) {
-        summary.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    });
-  });
-
-  // CTA tracking
-  document.getElementById('register-link').addEventListener('click', function(e) {
-    if (window.gtag) {
-      gtag('event', 'begin_transformation', {
-        'event_category': 'onboarding',
-        'event_label': 'hero_cta'
-      });
-    }
-  });
-
-  // Subtle entrance animations
   document.addEventListener('DOMContentLoaded', () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
+    // إصلاح التمرير السلس
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // FAQ animation
+    document.querySelectorAll('details').forEach(details => {
+      details.addEventListener('toggle', () => {
+        const summary = details.querySelector('summary');
+        if (details.open) {
+          // Scroll to the opened FAQ item
+          setTimeout(() => {
+            summary.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'nearest'
+            });          }, 100);
         }
       });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.card-tile, .box, .test').forEach(el => {
-      el.style.opacity = 0;
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
     });
+
+    // CTA tracking
+    const registerLink = document.getElementById('register-link');
+    if (registerLink) {
+      registerLink.addEventListener('click', function(e) {
+        console.log('Transformation journey started');
+        // In real implementation, this would send analytics data
+      });
+    }
+
+    // Subtle entrance animations for desktop only
+    if (window.innerWidth > 768) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.card-tile, .box, .test, .faq details').forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    }
+
+    // Ensure smooth scrolling on all devices
+    document.body.style.scrollBehavior = 'smooth';
   });
-</script>
-</body>
+
+  // تحديد الحجم المناسب للنصوص على الهواتف
+  function adjustFontSize() {
+    if (window.innerWidth < 480) {
+      document.documentElement.style.fontSize = '90%';
+    } else {
+      document.documentElement.style.fontSize = '100%';
+    }
+  }
+
+  // تطبيق التعديلات عند التحميل وتغيير حجم الشاشة
+  window.addEventListener('load', adjustFontSize);
+  window.addEventListener('resize', adjustFontSize);
+</script></body>
   </html>
