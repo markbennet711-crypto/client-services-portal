@@ -11,126 +11,217 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --bg:#f7f7f5;
-  --surface:#ffffff;
-  --muted:#6b7280;
-  --text:#0b1320;
-  --gold-1:#b8862f;
-  --gold-2:#f0c675;
-  --radius:16px;
-  --shadow:0 18px 60px rgba(9,18,28,0.06);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-  background: linear-gradient(180deg,var(--bg) 0%, #ffffff 100%);
-  color:var(--text);
-  padding:28px 16px;
-  display:flex;
-  justify-content:center;
-}
-.wrap{
-  width:100%;
-  max-width:1100px;
-  background:var(--surface);
-  border-radius:18px;
-  padding:40px;
-  box-shadow:var(--shadow);
-  border:1px solid rgba(11,19,32,0.04);
-}
-header{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
-.brand{ display:flex; gap:14px; align-items:center; }
-.badge{ width:64px;height:64px;border-radius:12px; background: linear-gradient(135deg, rgba(184,134,47,0.12), rgba(240,198,117,0.03)); display:grid;place-items:center; border:1px solid rgba(184,134,47,0.09); }
-.brand h1{ font-family:"Playfair Display",serif; font-size:1.5rem; color:var(--gold-1); letter-spacing:-0.4px; }
-.brand p{ color:var(--muted); font-size:0.95rem; margin-top:4px; }
-.meta-right{ text-align:right; color:var(--muted) }
-.meta-right .tag{ font-weight:700; color:var(--gold-1) }
+  :root{
+    --page-bg: #fbfaf7;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --text: #0b1b2b;
+    --accent-1: #b8862f;
+    --accent-2: #f0c675;
+    --radius: 14px;
+    --shadow: 0 20px 60px rgba(9,18,28,0.06);
+  }
 
-.hero{ display:grid; grid-template-columns:1fr 380px; gap:28px; align-items:start; margin-top:28px; }
-.lead-eyebrow{ color:var(--gold-1); font-weight:700; font-size:0.95rem; margin-bottom:8px; }
-h2.hero-title{ font-family:"Playfair Display",serif; font-size:2.4rem; line-height:1.05; color:#0b1320; margin-bottom:14px; }
-p.hero-sub{ color:#334155; font-size:1.05rem; line-height:1.7; margin-bottom:18px; }
-.quiet{ background:linear-gradient(180deg,#fff,#fbfaf8); padding:16px; border-radius:12px; border-left:4px solid var(--gold-1); color:#263044; font-style:italic; box-shadow:0 8px 24px rgba(11,19,32,0.03); }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+    background:linear-gradient(180deg,var(--page-bg),#ffffff);
+    color:var(--text);
+    padding:26px;
+    display:flex;
+    justify-content:center;
+  }
 
-.card{ background: linear-gradient(180deg,#fff,#fbfaf8); border-radius:12px; padding:20px; border:1px solid rgba(11,19,32,0.04); box-shadow: 0 12px 36px rgba(11,19,32,0.03); }
-.cta{ display:inline-flex; align-items:center; gap:10px; text-decoration:none; padding:12px 18px; border-radius:10px; font-weight:800; background: linear-gradient(135deg,var(--gold-1),var(--gold-2)); color:#081018; box-shadow: 0 14px 34px rgba(184,134,47,0.12); transition: transform .16s ease, box-shadow .16s ease; }
-.cta:hover{ transform:translateY(-3px); box-shadow: 0 22px 50px rgba(184,134,47,0.16); }
+  .container{
+    width:100%;
+    max-width:1150px;
+    background:var(--card);
+    border-radius:16px;
+    padding:36px;
+    box-shadow:var(--shadow);
+    border:1px solid rgba(11,19,32,0.04);
+  }
 
-.features{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:12px; }
-.feature{ background:#fff; padding:12px; border-radius:10px; border-left:4px solid var(--gold-1); box-shadow:0 6px 18px rgba(11,19,32,0.03) }
-.feature h4{ font-family:"Playfair Display",serif; color:var(--gold-1); margin-bottom:6px; font-size:1rem }
-.feature p{ color:#334155; font-size:0.95rem; line-height:1.5; margin:0 }
+  header{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+  .brand{display:flex;gap:12px;align-items:center}
+  .logo{
+    width:64px;height:64px;border-radius:12px;
+    background:linear-gradient(135deg, rgba(184,134,47,0.12), rgba(240,198,117,0.03));
+    display:grid;place-items:center;border:1px solid rgba(184,134,47,0.09);
+  }
+  .brand h1{font-family:"Playfair Display",serif;color:var(--accent-1);font-size:1.6rem}
+  .brand p{color:var(--muted);font-size:0.95rem;margin-top:4px}
 
-footer{ margin-top:28px; text-align:center; color:var(--muted); font-size:0.95rem }
+  .meta{ text-align:right;color:var(--muted) }
+  .meta .pill{ display:inline-block;padding:6px 12px;border-radius:999px;background:linear-gradient(90deg, rgba(184,134,47,0.06), rgba(240,198,117,0.03)); color:var(--accent-1); font-weight:700 }
 
-@media (max-width:980px){
-.hero{ grid-template-columns:1fr; }
-.features{ grid-template-columns:1fr; }
-}
+  .hero{ display:grid; grid-template-columns: 1fr 420px; gap:28px; margin-top:26px; align-items:start }
+  .eyebrow{color:var(--accent-1);font-weight:700;margin-bottom:8px}
+  h2.title{ font-family:"Playfair Display",serif; font-size:2.4rem; margin-bottom:12px; line-height:1.06 }
+  p.lead{ color:#334155; line-height:1.7; font-size:1.03rem; margin-bottom:14px }
+
+  .accent-note{
+    background: linear-gradient(180deg,#fff,#fbfaf8);
+    border-left:4px solid var(--accent-1);
+    padding:14px;border-radius:12px;color:#263044;font-style:italic; box-shadow:0 10px 28px rgba(11,19,32,0.03);
+  }
+
+  /* right card */
+  .card{
+    background:linear-gradient(180deg,#fff,#fcfbf9);
+    border-radius:12px;padding:18px;border:1px solid rgba(11,19,32,0.04);
+    box-shadow:0 12px 36px rgba(11,19,32,0.03);
+  }
+  .card small{ color:var(--muted); display:block; margin-bottom:8px; font-weight:600 }
+  .card h3{ font-family:"Playfair Display",serif; color:var(--accent-1); margin-bottom:6px; }
+  .card p{ color:#334155; margin-bottom:14px; }
+
+  .cta{
+    display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:12px 18px;border-radius:10px;
+    font-weight:800;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:#081018;
+    box-shadow:0 14px 36px rgba(184,134,47,0.12);
+  }
+  .cta:focus, .cta:hover{ transform:translateY(-2px); box-shadow:0 22px 48px rgba(184,134,47,0.16); }
+
+  section{ margin-top:28px }
+  .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px }
+  .card-tile{ background:#fff;padding:14px;border-radius:10px;border-left:4px solid var(--accent-1); box-shadow: 0 8px 20px rgba(11,19,32,0.02) }
+  .card-tile h4{ font-family:"Playfair Display",serif;color:var(--accent-1);margin-bottom:6px }
+  .card-tile p{ color:#334155; margin:0; line-height:1.5 }
+
+  /* long content */
+  .content-columns{ display:grid; grid-template-columns: 1fr 1fr; gap:18px; margin-top:18px }
+  .box{ background:#fbfaf8;border-radius:12px;padding:16px;border:1px solid rgba(11,19,32,0.04); box-shadow:0 8px 20px rgba(11,19,32,0.02) }
+  pre.sample{ white-space:pre-wrap; font-family:inherit; color:#10202a; line-height:1.6; margin:0 }
+
+  .testimonials{ margin-top:20px; display:flex; flex-direction:column; gap:12px }
+  .test{ background:#fff;padding:12px;border-left:4px solid rgba(184,134,47,0.14); border-radius:10px; color:#263044 }
+
+  .faq{ margin-top:18px }
+  .faq details{ background:#fff;padding:12px;border-radius:10px;border:1px solid rgba(11,19,32,0.04); margin-bottom:10px }
+  .faq summary{ font-weight:700; cursor:pointer }
+
+  footer{ margin-top:28px; text-align:center; color:var(--muted); font-size:0.95rem }
+
+  @media (max-width:1000px){
+    .hero{ grid-template-columns:1fr }
+    .content-columns{ grid-template-columns:1fr }
+    .grid3{ grid-template-columns:1fr }
+  }
 </style>
 </head>
-
 <body>
-<div class="wrap">
-<header>
-  <div class="brand">
-    <div class="badge" aria-hidden="true">
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="1" y="1" width="22" height="22" rx="5" fill="rgba(184,134,47,0.06)"/>
-        <path d="M6 15c2-3 6-8 11-6" stroke="#b8862f" stroke-width="1.6" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <div>
-      <h1>The Quiet Companion</h1>
-      <p>Personal daily guidance for work, family, health & inner life</p>
-    </div>
-  </div>
-  <div class="meta-right" aria-hidden="true">
-    <div class="tag">Private · Tailored · Daily</div>
-    <div style="margin-top:6px;font-size:0.92rem">Designed for people in the US & Europe</div>
-  </div>
-</header>
-
-<div class="hero">
-  <div>
-    <div class="lead-eyebrow">You are invited to be seen</div>
-    <h2 class="hero-title">You don't have to carry it all alone</h2>
-    <p class="hero-sub">Short, human messages written for how you actually live — your work, family responsibilities, health, and the risks you want to take. Start a short onboarding now so each message meets your day, your limits, and your courage.</p>
-    <div class="quiet">Not motivation. Not lecture. Just steady daily presence — written for you, shaped by what you share.</div>
-
-    <section>
-      <h3 style="margin-top:18px;font-family:Playfair Display,serif;color:var(--gold-1)">What this does for you</h3>
-      <div class="features">
-        <div class="feature">
-          <h4>Work & Decisions</h4><p>Clear prompts to handle pressure without losing calm.</p>
+  <div class="container" role="main" aria-labelledby="main-title">
+    <header>
+      <div class="brand" aria-hidden="false">
+        <div class="logo" aria-hidden="true">
+          <!-- small monogram -->
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="22" height="22" rx="4" fill="rgba(184,134,47,0.06)"/>
+            <path d="M6 15c2-3 6-8 11-6" stroke="#b8862f" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
         </div>
-        <div class="feature">
-          <h4>Family & Care</h4><p>Guidance that respects relationship complexity and caregiving realities.</p>
-        </div>
-        <div class="feature">
-          <h4>Health & Rest</h4><p>Micro-practices that protect your energy and body over time.</p>
+        <div>
+          <h1 id="main-title">The Quiet Companion</h1>
+          <p>Personal daily guidance for work, family, health & inner life</p>
         </div>
       </div>
-    </section>
+
+      <div class="meta" aria-hidden="true">
+        <div class="pill">Private · Tailored · Daily</div>
+        <div style="margin-top:6px">Designed for people in the US & Europe</div>
+      </div>
+    </header>
+
+    <div class="hero" role="region">
+      <div>
+        <div class="eyebrow">You are invited to be seen</div>
+        <h2 class="title">You don't have to carry it all alone</h2>
+        <p class="lead">Short, human messages written for how you actually live — your work, family responsibilities, health, and the risks you want to take. Start a short onboarding now so each message meets your day, your limits, and your courage.</p>
+
+        <div class="accent-note" aria-live="polite">
+          Not motivation. Not lecture. Just steady daily presence — written for you, shaped by what you share.
+        </div>
+
+        <section aria-labelledby="what">
+          <h3 id="what" style="font-family:Playfair Display,serif;color:var(--accent-1);margin-top:18px">What this does for you</h3>
+          <div class="grid3" role="list">
+            <div class="card-tile" role="listitem">
+              <h4>Work & Decisions</h4>
+              <p>Short prompts that help you decide with clarity when pressure is high.</p>
+            </div>
+            <div class="card-tile" role="listitem">
+              <h4>Family & Care</h4>
+              <p>Gentle practices for presence and boundaries in complex family life.</p>
+            </div>
+            <div class="card-tile" role="listitem">
+              <h4>Health & Rest</h4>
+              <p>Micro-steps to protect your energy and keep small routines that sustain you.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="card" aria-labelledby="cta-title">
+        <small>Begin with one step</small>
+        <h3 id="cta-title">Register for Private Daily Messages</h3>
+        <p>Complete a short onboarding so your messages are personal, private, and useful — not generic or automated.</p>
+
+        <!-- SIMPLE RELATIVE LINK: opens the registration page in same folder -->
+        <a class="cta" href="onboarding-individual.html" id="register-link" aria-label="Register Individual Data (opens registration)">
+          <!-- icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2v20" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M5 9c1.333-2 4-3 7-3s5.667 1 7 3" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          Register Individual Data
+        </a>
+
+        <p style="margin-top:12px;color:var(--muted);font-size:0.95rem">Your responses remain private. You can pause, edit, or delete at any time.</p>
+      </aside>
+    </div>
+
+    <!-- longer examples and reassurance -->
+    <div class="content-columns" role="region" aria-label="Examples and approach">
+      <div class="box">
+        <h4 style="font-family:Playfair Display,serif;color:var(--accent-1);margin-bottom:8px">Sample daily message</h4>
+        <pre class="sample">Morning note — for today:
+"Before your first call, breathe for 60 seconds. If pressure rises, name one boundary: 'I will respond after 30 minutes.' Use that pause to choose, not react."</pre>
+      </div>
+
+      <div class="box">
+        <h4 style="font-family:Playfair Display,serif;color:var(--accent-1);margin-bottom:8px">How we write</h4>
+        <p style="color:#334155;line-height:1.6;margin:0">We read your onboarding and choose one small, practical step — a phrase, a short practice, or a micro-plan — that respects your reality. No platitudes. No pressure.</p>
+      </div>
+    </div>
+
+    <div class="testimonials" aria-label="Testimonials">
+      <div class="test"><strong>“Their notes changed how I start my day — small changes, big effect.”</strong><div style="color:var(--muted);margin-top:6px">— Manager, Berlin</div></div>
+      <div class="test"><strong>“I felt supported when I took a career risk — I wasn't alone.”</strong><div style="color:var(--muted);margin-top:6px">— Creative, New York</div></div>
+    </div>
+
+    <div class="faq" aria-label="FAQ">
+      <h3 style="font-family:Playfair Display,serif;color:var(--accent-1);margin-top:18px">Frequently asked</h3>
+      <details><summary>Is this therapy?</summary><p>No. This is supportive presence and practical micro-guidance, not clinical therapy.</p></details>
+      <details><summary>How private is my data?</summary><p>Very private. Data is stored securely and you can request deletion — we do not sell your information.</p></details>
+      <details><summary>Can I pause delivery?</summary><p>Yes — pause, resume, or change frequency anytime.</p></details>
+    </div>
+
+    <footer>
+      Private. Human. Daily. — Messages written with care, for how you actually live.
+    </footer>
   </div>
 
-  <aside class="card">
-    <small>Begin with one step</small>
-    <h3>Register for Private Daily Messages</h3>
-    <p>Complete a short onboarding so your messages are personal, private, and useful — not generic or automated.</p>
-
-    <a class="cta" href="https://your-project-name.vercel.app/onboarding-individual.html" aria-label="Register Individual Data">
-      Register Individual Data
-    </a>
-    <p style="margin-top:12px;color:var(--muted);font-size:0.95rem">Your responses remain private. You can pause, edit, or delete at any time.</p>
-  </aside>
-</div>
-
-<footer>
-Private. Human. Daily. — Messages written with care, for how you actually live.
-</footer>
-</div>
+<!-- No fetch / HEAD checks here — simple relative link. -->
+<script>
+  // Small UX: if user has JS disabled, link still works as plain anchor.
+  // Add gentle guidance if user clicks but onboarding file not found (best-effort).
+  document.getElementById('register-link').addEventListener('click', function(e){
+    // we allow default navigation; but show a quick console note for debugging
+    console.info('Navigating to onboarding-individual.html');
+    // do not preventDefault — keep simple and compatible
+  });
+</script>
 </body>
-</html>
+      </html>
