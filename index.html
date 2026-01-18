@@ -677,14 +677,16 @@
         <h3 id="cta-title">Activate Your Personal Growth Architect</h3>
         <p>Complete a 5-minute onboarding. Our psychologists will analyze your responses to build your first personalized message within 24 hours.</p>
 
-        <a class="cta" href="onboarding-individual.html" id="register-link" aria-label="Begin Personal Transformation (opens registration)">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M5 12h14M12 5v14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <!-- الرابط الأصلي يعمل الآن بدون أي تدخل -->
+        <a class="cta" href="onboarding-individual.html" id="register-link" aria-label="Register Individual Data (opens registration)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2v20" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M5 9c1.333-2 4-3 7-3s5.667 1 7 3" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          Start Your Transformation
+          Register Individual Data
         </a>
-
-        <p style="margin-top:16px; color: #d0d0d0; font-size:1.05rem; line-height:1.6">          <strong style="color: var(--accent-gold);">Your privacy is sacred:</strong> Data is encrypted and analyzed only by our vetted psychologists. You own your information — delete anytime.
+        <p style="margin-top:16px; color: #d0d0d0; font-size:1.05rem; line-height:1.6">
+          <strong style="color: var(--accent-gold);">Your privacy is sacred:</strong> Data is encrypted and analyzed only by our vetted psychologists. You own your information — delete anytime.
         </p>
       </aside>
     </div>
@@ -731,9 +733,9 @@ Daily message crafted for you:
         <summary>How do psychologists use my personal data?</summary>
         <p>Our licensed experts analyze ONLY what you share in your secure onboarding. They identify your unique strengths and growth areas, then craft messages that target your specific negativity patterns while amplifying your natural abilities. We never share or sell your data — it exists solely to build your transformation.</p>
       </details>
-      <details>
-        <summary>Is this like therapy or coaching</summary>
-        <p>This is your personal growth architect — more strategic than therapy, more personalized than coaching. We focus exclusively on transforming your daily experience through precisely targeted messages based on your data. Think of it as having a psychologist who only works on dissolving your specific frustrations and building your unique strengths.</p>      </details>
+      <details>        <summary>Is this like therapy or coaching</summary>
+        <p>This is your personal growth architect — more strategic than therapy, more personalized than coaching. We focus exclusively on transforming your daily experience through precisely targeted messages based on your data. Think of it as having a psychologist who only works on dissolving your specific frustrations and building your unique strengths.</p>
+      </details>
       <details>
         <summary>How quickly will I feel changes?</summary>
         <p>87% of members report reduced anxiety around their growth areas within 10 days. Our psychologists design "micro-transformations" — small daily shifts that compound into permanent change. Many describe it as "waking up with my personal angel having already cleared my mental obstacles."</p>
@@ -760,8 +762,8 @@ Daily message crafted for you:
   </div>
 
 <script>
-  // Enhanced FAQ animation
-  document.addEventListener('DOMContentLoaded', () => {
+  // التأكيد على أن الرابط يعمل بشكل طبيعي
+  document.addEventListener('DOMContentLoaded', function() {
     // إصلاح التمرير السلس
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -772,29 +774,28 @@ Daily message crafted for you:
       });
     });
 
+    // التأكد من أن الرابط يعمل بشكل طبيعي بدون عوائق
+    const registerLink = document.getElementById('register-link');
+    if (registerLink) {
+      registerLink.addEventListener('click', function(e) {
+        // لا نمنع السلوك الافتراضي - الرابط يعمل طبيعيًا
+        console.info('Navigating to onboarding-individual.html');
+      });
+    }
     // FAQ animation
     document.querySelectorAll('details').forEach(details => {
       details.addEventListener('toggle', () => {
         const summary = details.querySelector('summary');
         if (details.open) {
-          // Scroll to the opened FAQ item
           setTimeout(() => {
             summary.scrollIntoView({ 
               behavior: 'smooth', 
               block: 'nearest'
-            });          }, 100);
+            });
+          }, 100);
         }
       });
     });
-
-    // CTA tracking
-    const registerLink = document.getElementById('register-link');
-    if (registerLink) {
-      registerLink.addEventListener('click', function(e) {
-        console.log('Transformation journey started');
-        // In real implementation, this would send analytics data
-      });
-    }
 
     // Subtle entrance animations for desktop only
     if (window.innerWidth > 768) {
@@ -830,6 +831,6 @@ Daily message crafted for you:
 
   // تطبيق التعديلات عند التحميل وتغيير حجم الشاشة
   window.addEventListener('load', adjustFontSize);
-  window.addEventListener('resize', adjustFontSize);
-</script></body>
+  window.addEventListener('resize', adjustFontSize);</script>
+</body>
   </html>
