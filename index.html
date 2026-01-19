@@ -1,185 +1,701 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-<meta charset="utf-8" />  
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">  
-<title>The Quiet Companion — Your Personal Growth Architect</title>  
-<meta name="description" content="Daily messages crafted by psychological experts analyzing your personal data to eliminate negativity and amplify your positive traits. Private human guidance for US & EU professionals." />  
-<link rel="preconnect" href="https://fonts.googleapis.com">  
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>The Quiet Companion — Your Personal Growth Architect</title>
+<meta name="description" content="Daily messages crafted by psychological experts analyzing your personal data to eliminate negativity and amplify your positive traits. Private human guidance for US & EU professionals." />
 
-<!-- ✨ NEW: Preload critical fonts for smoother rendering -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>  
-  /* ... [كل الكود الأصلي كما هو] ... */
-
-  /* ✨ NEW: Scarcity & urgency badge */
-  .scarcity-badge {
-    background: linear-gradient(90deg, var(--accent-red), #b33030);
-    color: white;
-    font-weight: 800;
-    padding: 6px 16px;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    display: inline-block;
-    margin-top: 12px;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 12px rgba(255, 77, 77, 0.3);
-    animation: pulse 2s infinite;
+<style>
+  /* إصلاحات التمرير الأساسية */
+  html, body {
+    height: auto !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
   }
 
-  @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.4); }
-    70% { box-shadow: 0 0 0 10px rgba(255, 77, 77, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  /* ✨ NEW: Value comparison highlight */
-  .price-comparison {
-    background: rgba(20, 20, 20, 0.85);
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    border-radius: 12px;
-    padding: 16px;
-    margin-top: 18px;
-    text-align: center;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    color: #e0e0e0;
-    position: relative;    overflow: hidden;
+  :root {
+    --page-bg: #0a0a0a;
+    --card: #121212;
+    --muted: #a0a0a0;
+    --text: #ffffff;
+    --accent-gold: #d4af37;
+    --accent-bronze: #b8862f;
+    --accent-red: #ff4d4d;
+    --radius: 16px;
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .price-comparison::before {
+  body {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    color: var(--text);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);    line-height: 1.6;
+    position: relative;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1150px;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    position: relative;
+    overflow: visible;
+    margin: 0 auto;
+    min-height: auto;
+  }
+  
+  .container::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
   }
 
-  .price-comparison strong {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  
+  .brand {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(212, 175, 55, 0.25);    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  .logo svg {
+    width: 48px;
+    height: 48px;
+    stroke: var(--accent-gold);
+    stroke-width: 1.8;
+  }
+  
+  .brand h1 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent-gold);
+    font-size: 2.1rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  
+  .brand p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-top: 4px;
+    max-width: 500px;
+    line-height: 1.5;
+  }
+
+  .meta {
+    text-align: right;
+    color: var(--muted);
+  }
+  
+  .pill {
+    display: inline-block;
+    padding: 7px 18px;
+    border-radius: 30px;
+    background: rgba(212, 175, 55, 0.12);
     color: var(--accent-gold);
     font-weight: 700;
-  }
-
-  /* ✨ NEW: Personalized feel enhancement */
-  .personalized-tag {
-    display: inline-block;
-    background: rgba(212, 175, 55, 0.1);
-    color: var(--accent-gold);
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    margin-left: 6px;
-    font-weight: 600;
-  }
-
-  /* ✨ NEW: Enhanced CTA with price */
-  .cta-price {
-    display: block;
-    margin-top: 10px;
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .badge {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 3px 10px;
+    border-radius: 12px;    background: rgba(255, 77, 77, 0.15);
+    color: var(--accent-red);
+    font-size: 0.85rem;
     font-weight: 600;
   }
 
-  /* Ensure existing styles remain untouched */
-</style>  
-</head>  
-<body>  
-  <div class="container" role="main" aria-labelledby="main-title">  
-    <header>  
-      <div class="brand" aria-hidden="false">  
-        <div class="logo" aria-hidden="true">  
-          <svg viewBox="0 0 32 32" fill="none">  
-            <circle cx="16" cy="16" r="14" stroke="#d4af37" stroke-width="1.5" stroke-opacity="0.7" />  
-            <path d="M8 16c0-4 3-7 7-7s7 3 7 7-3 7-7 7c-1.5 0-3-.5-4-1.5" stroke="#d4af37" stroke-width="2" />              <path d="M16 10v12" stroke="#d4af37" stroke-width="2" stroke-linecap="round" />  
-          </svg>  
-        </div>  
-        <div>  
-          <h1 id="main-title">The Quiet Companion</h1>  
-          <p>Your personal growth architect — analyzing your unique data to eliminate negativity and amplify your strengths</p>  
-        </div>  
-      </div>  
-      <div class="meta" aria-hidden="true">  
-        <div class="pill">Psychologist-Crafted · Data-Powered · Daily Transformation</div>  
-        <div class="badge">Trusted by 28,500+ professionals in US & EU</div>  
-        <!-- ✨ NEW: Scarcity indicator -->
-        <div class="scarcity-badge">Only 17 spots left this month</div>
-      </div>  
-    </header>  
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 32px;
+    margin-top: 28px;
+    align-items: start;
+  }
+  
+  .eyebrow {
+    color: var(--accent-bronze);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+  
+  h2.title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    line-height: 1.05;
+    background: linear-gradient(to right, var(--accent-gold), var(--accent-bronze));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 15px rgba(184, 134, 47, 0.2);
+  }
+  
+  p.lead {
+    color: #e0e0e0;
+    line-height: 1.75;
+    font-size: 1.15rem;
+    margin-bottom: 22px;
+    max-width: 650px;
+  }
+  
+  strong.highlight {
+    color: var(--accent-gold);
+    font-weight: 600;
+  }
+  
+  .accent-note {
+    background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
+    border-left: 3px solid var(--accent-gold);    padding: 20px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    color: #f0f0f0;
+    font-style: normal;
+    margin: 28px 0;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .accent-note::before {
+    content: '"';
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    font-size: 8rem;
+    color: rgba(212, 175, 55, 0.08);
+    font-family: serif;
+    line-height: 1;
+  }
+  
+  .special-emphasis {
+    display: block;
+    color: var(--accent-red);
+    font-weight: 700;
+    margin-top: 8px;
+    font-size: 1.1rem;
+  }
 
-    <div class="hero" role="region">  
-      <div>  
-        <div class="eyebrow">Your Personal Growth Architect Awaits</div>  
-        <h2 class="title">Your data becomes your transformation</h2>  
-        <p class="lead">Every message is crafted by licensed psychologists who analyze <strong class="highlight">your personal writing</strong> to identify your unique strengths. They build daily guidance that <strong class="highlight">eliminates negativity</strong> and <strong class="highlight">amplifies your positive traits</strong> — like a personal doctor for your mindset, or an angel guiding you toward your best self.</p>  
+  /* Right card - enhanced */
+  .card {
+    background: linear-gradient(160deg, #0f0f0f, #181818);
+    border-radius: var(--radius);
+    padding: 28px;
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(2px);
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);    z-index: 0;
+  }
+  
+  .card small {
+    color: var(--accent-bronze);
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  .card h3 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent-gold);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .card p {
+    color: #d0d0d0;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
 
-        <div class="accent-note" aria-live="polite">  
-          This isn't generic advice. Our experts analyze what <em>you</em> share to create messages that dissolve your specific frustrations while strengthening your natural abilities. Your words become your transformation.  
-          <span class="special-emphasis">Your data stays private. Your growth is permanent.</span>  
-        </div>  
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-red), #cc0000);
+    color: white;
+    box-shadow: 0 10px 30px rgba(255, 77, 77, 0.4);
+    transition: var(--transition);
+    border: 2px solid var(--accent-red);
+    font-size: 1.05rem;
+    z-index: 2;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cta::after {
+    content: '';
+    position: absolute;
+    top: 0;    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+  }
+  
+  .cta:hover::after {
+    left: 100%;
+  }
+  
+  .cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(255, 77, 77, 0.55);
+    border-color: #ff3333;
+  }
+  
+  .cta:focus {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+  }
 
-        <!-- ✨ NEW: Price-value emotional anchor -->
-        <div class="price-comparison">
-          For less than <strong>$1 per day</strong> — just <strong>$30/month</strong> — you receive a world-class psychologist’s daily guidance tailored to <em>your</em> mind.<br>
-          That’s <strong>cheaper than a slice of cake</strong> that vanishes in 5 minutes…<br>
-          but this? This transforms your life <em>every single day</em>.
+  section {
+    margin-top: 32px;
+  }
+  
+  .grid3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 16px;
+  }
+  
+  .card-tile {
+    background: rgba(30, 30, 30, 0.7);
+    padding: 22px;
+    border-radius: 14px;
+    border-left: 4px solid var(--accent-bronze);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    transition: var(--transition);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+  }
+  
+  .card-tile:hover {
+    transform: translateY(-5px);
+    border-left: 4px solid var(--accent-gold);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  }
+    .card-tile h4 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+    font-size: 1.35rem;
+  }
+  
+  .card-tile p {
+    color: #d5d5d5;
+    margin: 0;
+    line-height: 1.6;
+    font-size: 1.02rem;
+  }
+
+  /* Long content */
+  .content-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 28px;
+  }
+  
+  .box {
+    background: rgba(25, 25, 25, 0.8);
+    border-radius: var(--radius);
+    padding: 24px;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+  }
+  
+  .box h4 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent-gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .box h4::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-bronze);
+  }
+  
+  pre.sample {    white-space: pre-wrap;
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent-gold);
+    line-height: 1.7;
+    margin: 0;
+    padding: 18px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border-left: 3px solid var(--accent-bronze);
+    font-size: 1.15rem;
+  }
+
+  .testimonials {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  .test {
+    background: rgba(30, 30, 30, 0.6);
+    padding: 22px;
+    border-left: 3px solid var(--accent-gold);
+    border-radius: 0 12px 12px 0;
+    color: #f5f5f5;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    transition: var(--transition);
+  }
+  
+  .test:hover {
+    transform: translateX(8px);
+    border-left: 3px solid var(--accent-red);
+  }
+
+  .test strong {
+    color: var(--accent-gold);
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+  }
+  
+  .test div {
+    color: var(--muted);
+    margin-top: 10px;
+    font-style: italic;
+    border-top: 1px dashed rgba(212, 175, 55, 0.3);
+    padding-top: 10px;
+  }
+  .faq {
+    margin-top: 28px;
+  }
+  
+  .faq details {
+    background: rgba(25, 25, 25, 0.7);
+    padding: 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(212, 175, 55, 0.12);
+    margin-bottom: 14px;
+    transition: var(--transition);
+    backdrop-filter: blur(3px);
+  }
+  
+  .faq details[open] {
+    background: rgba(40, 30, 20, 0.8);
+    box-shadow: 0 8px 25px rgba(184, 134, 47, 0.15);
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+  
+  .faq summary {
+    font-weight: 700;
+    cursor: pointer;
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent-gold);
+    font-size: 1.25rem;
+    list-style: none;
+    position: relative;
+    padding-right: 30px;
+    transition: var(--transition);
+    outline: none;
+  }
+  
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .faq summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+    color: var(--accent-bronze);
+    transition: var(--transition);
+  }
+  
+  details[open] > summary::after {
+    content: '-';  }
+  
+  .faq details[open] summary {
+    color: var(--accent-red);
+  }
+  
+  .faq p {
+    color: #e0e0e0;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    line-height: 1.6;
+    font-size: 1.05rem;
+  }
+
+  footer {
+    margin-top: 36px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 1.05rem;
+    padding-top: 20px;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    font-style: italic;
+  }
+  
+  .trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  
+  .badge-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: var(--accent-gold);
+  }
+  
+  .badge-icon {
+    width: 24px;
+    height: 24px;
+    background: rgba(212, 175, 55, 0.15);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+  }
+  /* Responsive adjustments */
+  @media (max-width: 1000px) {
+    .hero { 
+      grid-template-columns: 1fr; 
+      gap: 28px;
+    }
+    .content-columns { 
+      grid-template-columns: 1fr; 
+      gap: 20px;
+    }
+    .grid3 { 
+      grid-template-columns: 1fr; 
+      gap: 16px;
+    }
+    
+    .logo { 
+      width: 60px; 
+      height: 60px; 
+    }
+    .brand h1 { 
+      font-size: 1.8rem; 
+    }
+    h2.title { 
+      font-size: 2.6rem; 
+    }
+    .card {
+      padding: 24px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    body {
+      padding: 12px;
+      -webkit-overflow-scrolling: touch;
+      overflow-y: auto;
+    }
+    
+    .container { 
+      padding: 20px 16px; 
+      margin: 8px;
+    }
+    .hero { 
+      gap: 24px; 
+    }
+    .card { 
+      padding: 22px; 
+    }
+    h2.title { 
+      font-size: 2.2rem;     }
+    .grid3 { 
+      grid-template-columns: 1fr; 
+    }
+    .trust-badges { 
+      gap: 15px; 
+      flex-direction: column; 
+      align-items: center; 
+    }
+    .brand p {
+      font-size: 0.95rem;
+    }
+    .meta {
+      text-align: left;
+      margin-top: 12px;
+    }
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  /* ضمان التمرير السلس على جميع الأجهزة */
+  @media (hover: none) {
+    * {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    body {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container" role="main" aria-labelledby="main-title">
+    <header>
+      <div class="brand" aria-hidden="false">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="#d4af37" stroke-width="1.5" stroke-opacity="0.7" />
+            <path d="M8 16c0-4 3-7 7-7s7 3 7 7-3 7-7 7c-1.5 0-3-.5-4-1.5" stroke="#d4af37" stroke-width="2" />
+            <path d="M16 10v12" stroke="#d4af37" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div>
+          <h1 id="main-title">The Quiet Companion</h1>
+          <p>Your personal growth architect — analyzing your unique data to eliminate negativity and amplify your strengths</p>
+        </div>
+      </div>
+      <div class="meta" aria-hidden="true">
+        <div class="pill">Psychologist-Crafted · Data-Powered · Daily Transformation</div>
+        <div class="badge">Trusted by 28,500+ professionals in US & EU</div>
+      </div>
+    </header>
+
+    <div class="hero" role="region">
+      <div>
+        <div class="eyebrow">Your Personal Growth Architect Awaits</div>
+        <h2 class="title">Your data becomes your transformation</h2>
+        <p class="lead">Every message is crafted by licensed psychologists who analyze <strong class="highlight">your personal writing</strong> to identify your unique strengths. They build daily guidance that <strong class="highlight">eliminates negativity</strong> and <strong class="highlight">amplifies your positive traits</strong> — like a personal doctor for your mindset, or an angel guiding you toward your best self.</p>
+
+        <div class="accent-note" aria-live="polite">
+          This isn't generic advice. Our experts analyze what <em>you</em> share to create messages that dissolve your specific frustrations while strengthening your natural abilities. Your words become your transformation.
+          <span class="special-emphasis">Your data stays private. Your growth is permanent.</span>
         </div>
 
-        <section aria-labelledby="what">  
-          <h3 id="what" style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); margin-top: 24px; font-size: 1.9rem">Your transformation pathway</h3>  
-          <div class="grid3" role="list">  
-            <div class="card-tile" role="listitem">  
-              <h4>Negativity Dissolution</h4>  
-              <p>Experts identify negative patterns in your writing and craft precise interventions to dissolve them at the source.</p>  
-            </div>  
-            <div class="card-tile" role="listitem">  
-              <h4>Strength Amplification</h4>  
-              <p>We isolate your authentic positive traits and design daily actions to strengthen them in high-stakes situations.</p>  
-            </div>  
-            <div class="card-tile" role="listitem">  
-              <h4>Life Integration</h4>  
-              <p>Personalized guidance for work decisions, family dynamics, health routines, and inner peace — all connected to your core growth.</p>  
-            </div>  
-          </div>          </section>  
-      </div>  
+        <section aria-labelledby="what">
+          <h3 id="what" style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); margin-top: 24px; font-size: 1.9rem">Your transformation pathway</h3>
+          <div class="grid3" role="list">
+            <div class="card-tile" role="listitem">
+              <h4>Negativity Dissolution</h4>
+              <p>Experts identify negative patterns in your writing and craft precise interventions to dissolve them at the source.</p>
+            </div>
+            <div class="card-tile" role="listitem">
+              <h4>Strength Amplification</h4>
+              <p>We isolate your authentic positive traits and design daily actions to strengthen them in high-stakes situations.</p>
+            </div>
+            <div class="card-tile" role="listitem">
+              <h4>Life Integration</h4>
+              <p>Personalized guidance for work decisions, family dynamics, health routines, and inner peace — all connected to your core growth.</p>
+            </div>
+          </div>
+        </section>
+      </div>
 
-      <aside class="card" aria-labelledby="cta-title">  
-        <small>Begin your transformation</small>  
-        <h3 id="cta-title">Activate Your Personal Growth Architect</h3>  
-        <p>Complete a 5-minute onboarding. Our psychologists will analyze your responses to build your first personalized message within 24 hours.</p>  
+      <aside class="card" aria-labelledby="cta-title">
+        <small>Begin your transformation</small>
+        <h3 id="cta-title">Activate Your Personal Growth Architect</h3>
+        <p>Complete a 5-minute onboarding. Our psychologists will analyze your responses to build your first personalized message within 24 hours.</p>
 
-        <!-- ✨ ENHANCED CTA with price and urgency -->
-        <a class="cta" href="onboarding-individual.html" id="register-link" aria-label="Register Individual Data (opens registration)">  
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">  
-            <path d="M12 2v20" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>  
-            <path d="M5 9c1.333-2 4-3 7-3s5.667 1 7 3" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>  
-          </svg>  
-          Register Individual Data  
-          <span class="cta-price">$30/month — less than $1/day</span>
-        </a>  
-        <p style="margin-top:16px; color: #d0d0d0; font-size:1.05rem; line-height:1.6">  
-          <strong style="color: var(--accent-gold);">Your privacy is sacred:</strong> Data is encrypted and analyzed only by our vetted psychologists. You own your information — delete anytime.  
-        </p>  
-
-        <!-- ✨ NEW: Regret-prevention note -->
-        <p style="margin-top:14px; font-size:0.95rem; color: var(--muted); font-style: italic;">
-          ⚠️ <strong>Don’t wait.</strong> Once this month’s capacity is full, new registrations close until next cycle.<br>
-          Those who delay often say: <em>“I wish I’d started sooner.”</em>
+        <!-- الرابط الأصلي يعمل الآن بدون أي تدخل -->
+        <a class="cta" href="onboarding-individual.html" id="register-link" aria-label="Register Individual Data (opens registration)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2v20" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M5 9c1.333-2 4-3 7-3s5.667 1 7 3" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          Register Individual Data
+        </a>
+        <p style="margin-top:16px; color: #d0d0d0; font-size:1.05rem; line-height:1.6">
+          <strong style="color: var(--accent-gold);">Your privacy is sacred:</strong> Data is encrypted and analyzed only by our vetted psychologists. You own your information — delete anytime.
         </p>
-      </aside>  
-    </div>  
+      </aside>
+    </div>
 
-    <!-- Examples and approach -->  
-    <div class="content-columns" role="region" aria-label="Personalization Process">  
-      <div class="box">  
-        <h4>How psychologists transform your data</h4>  
+    <!-- Examples and approach -->
+    <div class="content-columns" role="region" aria-label="Personalization Process">
+      <div class="box">
+        <h4>How psychologists transform your data</h4>
         <pre class="sample">Your onboarding entry:
-
 "I feel overwhelmed making career decisions. I overthink options but fear missing opportunities."
 
 → Expert analysis identifies:
@@ -190,89 +706,131 @@ Daily message crafted for you:
 "Before your next decision, write ONE core value this choice must honor. Then set a 24-hour deadline. Your thoroughness is strength — deadlines transform it into power."</pre>
       </div>
 
-      <div class="box">  
-        <h4>Why professionals can't quit</h4>  
-        <p style="color:#e0e0e0;line-height:1.7;margin:0">  
-          "This feels like having a world-class psychologist living in my pocket. They don't just give advice — they <em>know</em> my patterns because I've shared them. When stress hits, their message dissolves my anxiety before it takes root. I've tried therapy, apps, coaches — nothing created this permanent shift."   
-          <br><br>            <strong style="color: var(--accent-gold);">— Senior Director, Financial Services (New York)</strong>  
-        </p>  
-      </div>  
-    </div>  
+      <div class="box">
+        <h4>Why professionals can't quit</h4>
+        <p style="color:#e0e0e0;line-height:1.7;margin:0">
+          "This feels like having a world-class psychologist living in my pocket. They don't just give advice — they <em>know</em> my patterns because I've shared them. When stress hits, their message dissolves my anxiety before it takes root. I've tried therapy, apps, coaches — nothing created this permanent shift." 
+          <br><br>
+          <strong style="color: var(--accent-gold);">— Senior Director, Financial Services (New York)</strong>
+        </p>
+      </div>
+    </div>
 
-    <div class="testimonials" aria-label="Client Transformations">  
-      <div class="test">  
-        <strong>"After 3 weeks, my chronic indecision vanished. My psychologist crafted messages that turned my 'overthinking' into strategic advantage."<span class="personalized-tag">Made for me</span></strong>  
-        <div>— Product Lead, Tech Startup (Berlin)</div>  
-      </div>  
-      <div class="test">  
-        <strong>"Messages arrive precisely when I need them most — like my personal angel knows my stress patterns before I do. My relationships transformed."<span class="personalized-tag">Just for me</span></strong>  
-        <div>— Healthcare Executive (London)</div>  
-      </div>  
-    </div>  
+    <div class="testimonials" aria-label="Client Transformations">
+      <div class="test">
+        <strong>"After 3 weeks, my chronic indecision vanished. My psychologist crafted messages that turned my 'overthinking' into strategic advantage."</strong>
+        <div>— Product Lead, Tech Startup (Berlin)</div>
+      </div>
+      <div class="test">
+        <strong>"Messages arrive precisely when I need them most — like my personal angel knows my stress patterns before I do. My relationships transformed."</strong>
+        <div>— Healthcare Executive (London)</div>
+      </div>
+    </div>
 
-    <div class="faq" aria-label="Personalization Process">  
-      <h3 style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); margin-top: 28px; font-size: 2rem">Your growth questions</h3>  
-      <details>  
-        <summary>How do psychologists use my personal data?</summary>  
-        <p>Our licensed experts analyze ONLY what you share in your secure onboarding. They identify your unique strengths and growth areas, then craft messages that target your specific negativity patterns while amplifying your natural abilities. We never share or sell your data — it exists solely to build your transformation.</p>  
-      </details>  
-      <details>        
-        <summary>Is this like therapy or coaching?</summary>  
-        <p>This is your personal growth architect — more strategic than therapy, more personalized than coaching. We focus exclusively on transforming your daily experience through precisely targeted messages based on your data. Think of it as having a psychologist who only works on dissolving your specific frustrations and building your unique strengths.</p>  
-      </details>  
-      <details>  
-        <summary>How quickly will I feel changes?</summary>  
-        <p>87% of members report reduced anxiety around their growth areas within 10 days. Our psychologists design "micro-transformations" — small daily shifts that compound into permanent change. Many describe it as "waking up with my personal angel having already cleared my mental obstacles."</p>  
-      </details>  
-      <!-- ✨ NEW FAQ: Price justification -->
-      <details>  
-        <summary>Why is it $30/month — and is it worth it?</summary>  
-        <p>A single therapy session in New York or London costs $200–$400. Coaching packages start at $500/month. For <strong>less than $1 per day</strong>, you receive daily, deeply personalized guidance from PhD-level psychologists — not algorithms. This isn’t an app. It’s your private growth ecosystem. And yes: thousands say it’s the best $30 they spend each month.</p>  
+    <div class="faq" aria-label="Personalization Process">
+      <h3 style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); margin-top: 28px; font-size: 2rem">Your growth questions</h3>
+      <details>
+        <summary>How do psychologists use my personal data?</summary>
+        <p>Our licensed experts analyze ONLY what you share in your secure onboarding. They identify your unique strengths and growth areas, then craft messages that target your specific negativity patterns while amplifying your natural abilities. We never share or sell your data — it exists solely to build your transformation.</p>
       </details>
-    </div>  
+      <details>        <summary>Is this like therapy or coaching</summary>
+        <p>This is your personal growth architect — more strategic than therapy, more personalized than coaching. We focus exclusively on transforming your daily experience through precisely targeted messages based on your data. Think of it as having a psychologist who only works on dissolving your specific frustrations and building your unique strengths.</p>
+      </details>
+      <details>
+        <summary>How quickly will I feel changes?</summary>
+        <p>87% of members report reduced anxiety around their growth areas within 10 days. Our psychologists design "micro-transformations" — small daily shifts that compound into permanent change. Many describe it as "waking up with my personal angel having already cleared my mental obstacles."</p>
+      </details>
+    </div>
 
-    <footer>  
-      <div>Your private growth ecosystem — where your words become your transformation</div>  
-      <div class="trust-badges">  
-        <div class="badge-item">  
-          <div class="badge-icon">🔒</div>  
-          <span>Bank-Grade Encryption</span>  
-        </div>  
-        <div class="badge-item">  
-          <div class="badge-icon">🧠</div>  
-          <span>PhD Psychologists Only</span>  
-        </div>  
-        <div class="badge-item">  
-          <div class="badge-icon">🇪🇺</div>            <span>GDPR & CCPA Compliant</span>  
-        </div>  
-        <!-- ✨ NEW trust element -->
-        <div class="badge-item">  
-          <div class="badge-icon">⏳</div>  
-          <span>Limited Monthly Access</span>  
+    <footer>
+      <div>Your private growth ecosystem — where your words become your transformation</div>
+      <div class="trust-badges">
+        <div class="badge-item">
+          <div class="badge-icon">🔒</div>
+          <span>Bank-Grade Encryption</span>
         </div>
-      </div>  
+        <div class="badge-item">
+          <div class="badge-icon">🧠</div>
+          <span>PhD Psychologists Only</span>
+        </div>
+        <div class="badge-item">
+          <div class="badge-icon">🇪🇺</div>
+          <span>GDPR & CCPA Compliant</span>
+        </div>
+      </div>
     </footer>
+  </div>
 
-  </div>  
+<script>
+  // التأكيد على أن الرابط يعمل بشكل طبيعي
+  document.addEventListener('DOMContentLoaded', function() {
+    // إصلاح التمرير السلس
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
 
-  <script>  
-  // ... [كل الكود الأصلي كما هو] ...
-  
-  // ✨ NEW: Dynamic scarcity update (optional enhancement)
-  document.addEventListener('DOMContentLoaded', function() {  
-    // Existing code remains...
-    
-    // Simulate dynamic spot count (for realism)
-    const scarcityBadge = document.querySelector('.scarcity-badge');
-    if (scarcityBadge) {
-      const spots = Math.floor(Math.random() * 25) + 5; // 5–29
-      scarcityBadge.textContent = `Only ${spots} spots left this month`;
+    // التأكد من أن الرابط يعمل بشكل طبيعي بدون عوائق
+    const registerLink = document.getElementById('register-link');
+    if (registerLink) {
+      registerLink.addEventListener('click', function(e) {
+        // لا نمنع السلوك الافتراضي - الرابط يعمل طبيعيًا
+        console.info('Navigating to onboarding-individual.html');
+      });
     }
-    
-    // Rest of original script...
+    // FAQ animation
+    document.querySelectorAll('details').forEach(details => {
+      details.addEventListener('toggle', () => {
+        const summary = details.querySelector('summary');
+        if (details.open) {
+          setTimeout(() => {
+            summary.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'nearest'
+            });
+          }, 100);
+        }
+      });
+    });
+
+    // Subtle entrance animations for desktop only
+    if (window.innerWidth > 768) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.card-tile, .box, .test, .faq details').forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    }
+
+    // Ensure smooth scrolling on all devices
+    document.body.style.scrollBehavior = 'smooth';
   });
-  
-  // ... [بقية الكود كما هو] ...
-  </script>  
-</body>  
-  </html>
+
+  // تحديد الحجم المناسب للنصوص على الهواتف
+  function adjustFontSize() {
+    if (window.innerWidth < 480) {
+      document.documentElement.style.fontSize = '90%';
+    } else {
+      document.documentElement.style.fontSize = '100%';
+    }
+  }
+
+  // تطبيق التعديلات عند التحميل وتغيير حجم الشاشة
+  window.addEventListener('load', adjustFontSize);
+  window.addEventListener('resize', adjustFontSize);</script>
+</body>
+    </html>
