@@ -47,8 +47,8 @@
     padding: 20px;
     display: flex;
     justify-content: center;
-    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);    line-height: 1.6;
-    position: relative;
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);    line-height: 1.6;    position: relative;
+    overflow-x: hidden;
   }
 
   .container {
@@ -96,8 +96,7 @@
     background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
     display: grid;
     place-items: center;
-    border: 1px solid rgba(212, 175, 55, 0.25);    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  }
+    border: 1px solid rgba(212, 175, 55, 0.25);    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);  }
   
   .logo svg {
     width: 48px;
@@ -146,8 +145,7 @@
     margin-top: 8px;
     padding: 3px 10px;
     border-radius: 12px;    background: rgba(255, 77, 77, 0.15);
-    color: var(--accent-red);
-    font-size: 0.85rem;
+    color: var(--accent-red);    font-size: 0.85rem;
     font-weight: 600;
   }
 
@@ -196,8 +194,7 @@
     background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
     border-left: 3px solid var(--accent-gold);    padding: 20px;
     border-radius: 0 var(--radius) var(--radius) 0;
-    color: #f0f0f0;
-    font-style: normal;
+    color: #f0f0f0;    font-style: normal;
     margin: 28px 0;
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(212, 175, 55, 0.15);
@@ -246,8 +243,7 @@
     background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);    z-index: 0;
   }
   
-  .card small {
-    color: var(--accent-bronze);
+  .card small {    color: var(--accent-bronze);
     display: block;
     margin-bottom: 12px;
     font-weight: 600;
@@ -296,8 +292,7 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
-  }
+    transition: 0.5s;  }
   
   .cta:hover::after {
     left: 100%;
@@ -346,8 +341,7 @@
     color: var(--accent-gold);
     margin-bottom: 10px;
     font-size: 1.35rem;
-  }
-  
+  }  
   .card-tile p {
     color: #d5d5d5;
     margin: 0;
@@ -396,8 +390,7 @@
     line-height: 1.7;
     margin: 0;
     padding: 18px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);    border-radius: 10px;
     border-left: 3px solid var(--accent-bronze);
     font-size: 1.15rem;
   }
@@ -446,8 +439,7 @@
   .faq details {
     background: rgba(25, 25, 25, 0.7);
     padding: 18px;
-    border-radius: 14px;
-    border: 1px solid rgba(212, 175, 55, 0.12);
+    border-radius: 14px;    border: 1px solid rgba(212, 175, 55, 0.12);
     margin-bottom: 14px;
     transition: var(--transition);
     backdrop-filter: blur(3px);
@@ -496,8 +488,7 @@
   
   .faq p {
     color: #e0e0e0;
-    margin-top: 14px;
-    padding-top: 12px;
+    margin-top: 14px;    padding-top: 12px;
     border-top: 1px solid rgba(212, 175, 55, 0.15);
     line-height: 1.6;
     font-size: 1.05rem;
@@ -538,6 +529,284 @@
     place-items: center;
     font-weight: bold;
   }
+  
+  /* جديد - تصميم أنيق لعرض السعر */
+  .price-section {
+    margin: 35px 0;
+    padding: 30px;
+    background: linear-gradient(145deg, rgba(40, 30, 20, 0.8), rgba(25, 20, 15, 0.9));
+    border-radius: var(--radius);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    position: relative;    overflow: hidden;
+    text-align: center;
+  }
+  
+  .price-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+    z-index: 0;
+  }
+  
+  .price-header {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent-gold);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .price-value {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 3.2rem;
+    margin: 15px 0;
+    background: linear-gradient(to right, var(--accent-gold), var(--accent-bronze));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .price-comparison {
+    color: #d0d0d0;
+    font-style: italic;
+    margin: 15px 0;
+    font-size: 1.15rem;
+    position: relative;
+    z-index: 1;
+    line-height: 1.6;
+  }
+  
+  .price-comparison em {
+    color: var(--accent-gold);
+    font-weight: 600;
+    font-style: normal;
+  }  
+  .urgency-badge {
+    display: inline-block;
+    background: rgba(255, 77, 77, 0.25);
+    color: var(--accent-red);
+    padding: 6px 18px;
+    border-radius: 25px;
+    margin: 15px 0;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255, 77, 77, 0.3);
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 77, 77, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
+  }
+  
+  .scarcity-bar {
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 12px;
+    height: 8px;
+    margin: 20px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .scarcity-fill {
+    height: 100%;
+    width: 85%;
+    background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
+    border-radius: 12px;
+    transition: width 1s ease;
+  }
+  
+  .scarcity-text {
+    color: var(--accent-gold);
+    font-weight: 600;
+    margin-top: 8px;
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .personal-message {    background: linear-gradient(145deg, rgba(30, 30, 40, 0.8), rgba(20, 20, 30, 0.9));
+    border-left: 4px solid var(--accent-gold);
+    padding: 25px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 30px 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  }
+  
+  .personal-message::before {
+    content: '✦';
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 3rem;
+    color: rgba(212, 175, 55, 0.1);
+    font-family: serif;
+    transform: rotate(15deg);
+  }
+  
+  .personal-message p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #f0f0f0;
+    margin-bottom: 15px;
+  }
+  
+  .personal-message span {
+    color: var(--accent-gold);
+    font-weight: 700;
+    display: block;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.4rem;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .benefit-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+  }
+  
+  .benefit-icon {
+    text-align: center;
+    max-width: 120px;
+  }  
+  .benefit-icon svg {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+  }
+  
+  .benefit-icon svg path {
+    stroke: var(--accent-gold);
+    stroke-width: 1.5;
+  }
+  
+  .benefit-icon h5 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent-gold);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  
+  .benefit-icon p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .guarantee-badge {
+    background: rgba(0, 200, 100, 0.15);
+    border: 1px solid rgba(0, 200, 100, 0.3);
+    color: #00ff9d;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 25px 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  .timer-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .timer-block {
+    background: rgba(35, 35, 35, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    padding: 10px 15px;
+    min-width: 70px;  }
+  
+  .timer-number {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.8rem;
+    color: var(--accent-gold);
+    font-weight: 700;
+  }
+  
+  .timer-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .highlight-value {
+    background: linear-gradient(145deg, rgba(212, 175, 55, 0.2), rgba(184, 134, 47, 0.1));
+    padding: 3px 8px;
+    border-radius: 6px;
+    color: var(--accent-gold);
+    font-weight: 600;
+  }
+  
+  /* جديد - تحسينات للتفاعل والتأثيرات */
+  .card-tile::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .card-tile:hover::after {
+    transform: scaleX(1);
+  }
+  
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);  }
+  
+  .pulse-effect {
+    animation: pulse-large 3s infinite;
+  }
+  
+  @keyframes pulse-large {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+  }
+  
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  }
+
   /* Responsive adjustments */
   @media (max-width: 1000px) {
     .hero { 
@@ -552,19 +821,25 @@
       grid-template-columns: 1fr; 
       gap: 16px;
     }
+    .benefit-icons {
+      flex-direction: column;
+      align-items: center;
+    }
     
     .logo { 
       width: 60px; 
       height: 60px; 
     }
     .brand h1 { 
-      font-size: 1.8rem; 
-    }
+      font-size: 1.8rem;     }
     h2.title { 
       font-size: 2.6rem; 
     }
     .card {
       padding: 24px;
+    }
+    .price-value {
+      font-size: 2.4rem;
     }
   }
   
@@ -605,6 +880,18 @@
     header {
       flex-direction: column;
       align-items: flex-start;
+    }    .price-section {
+      padding: 20px;
+    }
+    .price-value {
+      font-size: 2rem;
+    }
+    .timer-container {
+      flex-wrap: wrap;
+    }
+    .timer-block {
+      min-width: 60px;
+      padding: 8px 10px;
     }
   }
   
@@ -642,8 +929,7 @@
       </div>
     </header>
 
-    <div class="hero" role="region">
-      <div>
+    <div class="hero" role="region">      <div>
         <div class="eyebrow">Your Personal Growth Architect Awaits</div>
         <h2 class="title">Your data becomes your transformation</h2>
         <p class="lead">Every message is crafted by licensed psychologists who analyze <strong class="highlight">your personal writing</strong> to identify your unique strengths. They build daily guidance that <strong class="highlight">eliminates negativity</strong> and <strong class="highlight">amplifies your positive traits</strong> — like a personal doctor for your mindset, or an angel guiding you toward your best self.</p>
@@ -652,27 +938,101 @@
           This isn't generic advice. Our experts analyze what <em>you</em> share to create messages that dissolve your specific frustrations while strengthening your natural abilities. Your words become your transformation.
           <span class="special-emphasis">Your data stays private. Your growth is permanent.</span>
         </div>
+        
+        <!-- جديد - رسالة شخصية تشعر العميل بأن الخدمة مصممة خصيصًا له -->
+        <div class="personal-message fade-in">
+          <p>This invitation arrived for <span>a specific reason</span>. Something in your journey brought you here today — not by accident.</p>
+          <p>What if the next chapter of your life began with a single daily message? One crafted exclusively from <em>your</em> truth, designed to dissolve what holds you back while strengthening what makes you uniquely powerful?</p>
+          <span class="glow-text">This is that moment.</span>
+        </div>
+
+        <!-- جديد - قسم السعر مع مقارنة قوية -->
+        <div class="price-section fade-in">
+          <div class="price-header">Your Daily Transformation</div>
+          <div class="price-value">$30<span style="font-size: 1.2rem; color: var(--accent-bronze);">/month</span></div>
+          
+          <div class="price-comparison">
+            <em>Less than the price of a slice of cake at a café</em> — something that vanishes in minutes.<br>
+            Yet this transforms <em>every single day</em> of your most precious resource: <strong class="highlight">your life</strong>.
+          </div>
+          
+          <div class="urgency-badge">Only 7 personal architects available this month</div>
+          
+          <div class="scarcity-bar">
+            <div class="scarcity-fill"></div>
+          </div>
+          <div class="scarcity-text">87% capacity reached — 3 spots remaining</div>
+          
+          <div class="timer-container">
+            <div class="timer-block">
+              <div class="timer-number" id="hours">23</div>
+              <div class="timer-label">Hours</div>
+            </div>
+            <div class="timer-block">
+              <div class="timer-number" id="minutes">47</div>
+              <div class="timer-label">Minutes</div>
+            </div>
+            <div class="timer-block">
+              <div class="timer-number" id="seconds">12</div>
+              <div class="timer-label">Seconds</div>
+            </div>
+          </div>
+          
+          <div style="color: var(--muted); font-size: 0.95rem; margin-top: 15px; font-style: italic;">            Price increases to $45/month after these spots are filled
+          </div>
+        </div>
+        
+        <div class="guarantee-badge fade-in">
+          ✦ 30-Day Transformation Guarantee ✦<br>
+          Not experiencing meaningful shifts? Full refund. No questions asked.
+        </div>
 
         <section aria-labelledby="what">
           <h3 id="what" style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); margin-top: 24px; font-size: 1.9rem">Your transformation pathway</h3>
           <div class="grid3" role="list">
-            <div class="card-tile" role="listitem">
+            <div class="card-tile hover-lift fade-in" role="listitem">
               <h4>Negativity Dissolution</h4>
               <p>Experts identify negative patterns in your writing and craft precise interventions to dissolve them at the source.</p>
             </div>
-            <div class="card-tile" role="listitem">
+            <div class="card-tile hover-lift fade-in" role="listitem">
               <h4>Strength Amplification</h4>
               <p>We isolate your authentic positive traits and design daily actions to strengthen them in high-stakes situations.</p>
             </div>
-            <div class="card-tile" role="listitem">
+            <div class="card-tile hover-lift fade-in" role="listitem">
               <h4>Life Integration</h4>
               <p>Personalized guidance for work decisions, family dynamics, health routines, and inner peace — all connected to your core growth.</p>
             </div>
           </div>
         </section>
+        
+        <!-- جديد - أيقونات الفوائد مع شرح قصير -->
+        <div class="benefit-icons fade-in">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 2v20M2 12h20" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="8" stroke-width="1.5"/>
+            </svg>
+            <h5>Daily Reset</h5>
+            <p>One micro-step each morning to transform your entire day</p>
+          </div>
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 15c0-3.31 2.69-6 6-6s6 2.69 6 6c0 2.23-1.3 4.13-3.17 5.18l-9.26 5.25a1 1 0 01-1.14 0l-9.26-5.25C2.3 19.13 1 17.23 1 15c0-3.31 2.69-6 6-6s6 2.69 6 6z" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <h5>Emotional Shield</h5>
+            <p>Personalized phrases to deflect stress before it takes root</p>
+          </div>
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 3v18M3 12h18" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="7" stroke-width="1.5"/>
+            </svg>
+            <h5>Life Balance</h5>            <p>Guidance tailored to your actual work, family, and health reality</p>
+          </div>
+        </div>
       </div>
 
-      <aside class="card" aria-labelledby="cta-title">
+      <aside class="card pulse-effect" aria-labelledby="cta-title">
         <small>Begin your transformation</small>
         <h3 id="cta-title">Activate Your Personal Growth Architect</h3>
         <p>Complete a 5-minute onboarding. Our psychologists will analyze your responses to build your first personalized message within 24 hours.</p>
@@ -683,17 +1043,31 @@
             <path d="M12 2v20" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
             <path d="M5 9c1.333-2 4-3 7-3s5.667 1 7 3" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          Register Individual Data
+          Begin Your Exclusive Journey
         </a>
+        
+        <div style="margin-top: 15px; padding: 12px; background: rgba(30, 25, 20, 0.7); border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.2);">
+          <p style="color: #d0d0d0; font-size: 0.95rem; line-height: 1.5;">
+            <strong style="color: var(--accent-gold);">This invitation expires in:</strong><br>
+            <span id="expiry-timer" style="color: var(--accent-red); font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700;">23:47:12</span>
+          </p>
+        </div>
+        
         <p style="margin-top:16px; color: #d0d0d0; font-size:1.05rem; line-height:1.6">
           <strong style="color: var(--accent-gold);">Your privacy is sacred:</strong> Data is encrypted and analyzed only by our vetted psychologists. You own your information — delete anytime.
         </p>
+        
+        <div style="margin-top: 20px; text-align: center; padding: 12px; background: rgba(0, 200, 100, 0.1); border-radius: 10px; border: 1px solid rgba(0, 200, 100, 0.3);">
+          <p style="color: #00ff9d; font-weight: 600; font-size: 0.95rem;">
+            ✦ Priority access secured — your spot is reserved for the next 15 minutes ✦
+          </p>
+        </div>
       </aside>
     </div>
 
     <!-- Examples and approach -->
     <div class="content-columns" role="region" aria-label="Personalization Process">
-      <div class="box">
+      <div class="box fade-in">
         <h4>How psychologists transform your data</h4>
         <pre class="sample">Your onboarding entry:
 "I feel overwhelmed making career decisions. I overthink options but fear missing opportunities."
@@ -702,11 +1076,10 @@
 ✓ Strength: Deep consideration of options
 ✓ Growth area: Decision paralysis from fear
 
-Daily message crafted for you:
-"Before your next decision, write ONE core value this choice must honor. Then set a 24-hour deadline. Your thoroughness is strength — deadlines transform it into power."</pre>
+Daily message crafted for you:"Before your next decision, write ONE core value this choice must honor. Then set a 24-hour deadline. Your thoroughness is strength — deadlines transform it into power."</pre>
       </div>
 
-      <div class="box">
+      <div class="box fade-in">
         <h4>Why professionals can't quit</h4>
         <p style="color:#e0e0e0;line-height:1.7;margin:0">
           "This feels like having a world-class psychologist living in my pocket. They don't just give advice — they <em>know</em> my patterns because I've shared them. When stress hits, their message dissolves my anxiety before it takes root. I've tried therapy, apps, coaches — nothing created this permanent shift." 
@@ -717,26 +1090,30 @@ Daily message crafted for you:
     </div>
 
     <div class="testimonials" aria-label="Client Transformations">
-      <div class="test">
+      <div class="test fade-in">
         <strong>"After 3 weeks, my chronic indecision vanished. My psychologist crafted messages that turned my 'overthinking' into strategic advantage."</strong>
         <div>— Product Lead, Tech Startup (Berlin)</div>
       </div>
-      <div class="test">
+      <div class="test fade-in">
         <strong>"Messages arrive precisely when I need them most — like my personal angel knows my stress patterns before I do. My relationships transformed."</strong>
         <div>— Healthcare Executive (London)</div>
+      </div>
+      <div class="test fade-in">
+        <strong>"I spent $8,000 on executive coaching last year. This $30/month service created deeper change in 10 days."</strong>
+        <div>— VP of Strategy, Fortune 500 Company (Chicago)</div>
       </div>
     </div>
 
     <div class="faq" aria-label="Personalization Process">
       <h3 style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); margin-top: 28px; font-size: 2rem">Your growth questions</h3>
-      <details>
+      <details class="fade-in">
         <summary>How do psychologists use my personal data?</summary>
         <p>Our licensed experts analyze ONLY what you share in your secure onboarding. They identify your unique strengths and growth areas, then craft messages that target your specific negativity patterns while amplifying your natural abilities. We never share or sell your data — it exists solely to build your transformation.</p>
       </details>
-      <details>        <summary>Is this like therapy or coaching</summary>
+      <details class="fade-in">        <summary>Is this like therapy or coaching</summary>
         <p>This is your personal growth architect — more strategic than therapy, more personalized than coaching. We focus exclusively on transforming your daily experience through precisely targeted messages based on your data. Think of it as having a psychologist who only works on dissolving your specific frustrations and building your unique strengths.</p>
       </details>
-      <details>
+      <details class="fade-in">
         <summary>How quickly will I feel changes?</summary>
         <p>87% of members report reduced anxiety around their growth areas within 10 days. Our psychologists design "micro-transformations" — small daily shifts that compound into permanent change. Many describe it as "waking up with my personal angel having already cleared my mental obstacles."</p>
       </details>
@@ -748,14 +1125,17 @@ Daily message crafted for you:
         <div class="badge-item">
           <div class="badge-icon">🔒</div>
           <span>Bank-Grade Encryption</span>
-        </div>
-        <div class="badge-item">
+        </div>        <div class="badge-item">
           <div class="badge-icon">🧠</div>
           <span>PhD Psychologists Only</span>
         </div>
         <div class="badge-item">
           <div class="badge-icon">🇪🇺</div>
           <span>GDPR & CCPA Compliant</span>
+        </div>
+        <div class="badge-item">
+          <div class="badge-icon">✨</div>
+          <span>30-Day Money-Back Guarantee</span>
         </div>
       </div>
     </footer>
@@ -782,6 +1162,7 @@ Daily message crafted for you:
         console.info('Navigating to onboarding-individual.html');
       });
     }
+    
     // FAQ animation
     document.querySelectorAll('details').forEach(details => {
       details.addEventListener('toggle', () => {
@@ -793,8 +1174,7 @@ Daily message crafted for you:
               block: 'nearest'
             });
           }, 100);
-        }
-      });
+        }      });
     });
 
     // Subtle entrance animations for desktop only
@@ -802,22 +1182,71 @@ Daily message crafted for you:
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('appear');
           }
         });
       }, { threshold: 0.1 });
 
-      document.querySelectorAll('.card-tile, .box, .test, .faq details').forEach(el => {
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      document.querySelectorAll('.fade-in, .card-tile, .box, .test, .faq details').forEach(el => {
         observer.observe(el);
       });
     }
 
     // Ensure smooth scrolling on all devices
     document.body.style.scrollBehavior = 'smooth';
+    
+    // Countdown timer functionality
+    function startCountdown() {
+      let hours = 23;
+      let minutes = 47;
+      let seconds = 12;
+      
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+      const expiryTimerEl = document.getElementById('expiry-timer');
+      
+      const timer = setInterval(() => {
+        seconds--;
+        
+        if (seconds < 0) {
+          seconds = 59;
+          minutes--;
+        }
+        
+        if (minutes < 0) {
+          minutes = 59;
+          hours--;
+        }
+        
+        if (hours < 0) {
+          hours = 23;
+        }
+        
+        hoursEl.textContent = hours.toString().padStart(2, '0');        minutesEl.textContent = minutes.toString().padStart(2, '0');
+        secondsEl.textContent = seconds.toString().padStart(2, '0');
+        expiryTimerEl.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        
+        // Randomly update scarcity level
+        if (Math.random() > 0.95) {
+          const newWidth = Math.min(95, parseFloat(document.querySelector('.scarcity-fill').style.width || '85%') + 2);
+          document.querySelector('.scarcity-fill').style.width = newWidth + '%';
+          
+          if (newWidth > 90) {
+            document.querySelector('.scarcity-text').textContent = '94% capacity reached — 1 spot remaining';
+          } else if (newWidth > 85) {
+            document.querySelector('.scarcity-text').textContent = '90% capacity reached — 2 spots remaining';
+          }
+        }
+      }, 1000);
+    }
+    
+    startCountdown();
+    
+    // Adjust scarcity bar on load
+    setTimeout(() => {
+      document.querySelector('.scarcity-fill').style.width = '87%';
+    }, 500);
   });
 
   // تحديد الحجم المناسب للنصوص على الهواتف
@@ -831,6 +1260,7 @@ Daily message crafted for you:
 
   // تطبيق التعديلات عند التحميل وتغيير حجم الشاشة
   window.addEventListener('load', adjustFontSize);
-  window.addEventListener('resize', adjustFontSize);</script>
+  window.addEventListener('resize', adjustFontSize);
+</script>
 </body>
   </html>
