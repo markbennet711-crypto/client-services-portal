@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,8 +47,7 @@
     padding: 20px;
     display: flex;
     justify-content: center;
-    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);    line-height: 1.6;
-    position: relative;
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);    line-height: 1.6;    position: relative;
   }
 
   .container {
@@ -98,8 +96,7 @@
     display: grid;
     place-items: center;
     border: 1px solid rgba(212, 175, 55, 0.25);    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  }
-  
+  }  
   .logo svg {
     width: 48px;
     height: 48px;
@@ -148,8 +145,7 @@
     padding: 3px 10px;
     border-radius: 12px;    background: rgba(255, 77, 77, 0.15);
     color: var(--accent-red);
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.85rem;    font-weight: 600;
   }
 
   .hero {
@@ -198,8 +194,7 @@
     border-left: 3px solid var(--accent-gold);    padding: 20px;
     border-radius: 0 var(--radius) var(--radius) 0;
     color: #f0f0f0;
-    font-style: normal;
-    margin: 28px 0;
+    font-style: normal;    margin: 28px 0;
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(212, 175, 55, 0.15);
     position: relative;
@@ -225,6 +220,78 @@
     font-size: 1.1rem;
   }
 
+  /* Value emphasis section */
+  .value-comparison {
+    background: rgba(25, 20, 15, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin: 32px 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  }
+  
+  .value-comparison::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+    z-index: 0;
+  }
+  
+  .value-comparison-content {    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+  }
+  
+  .value-visual {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .value-visual svg {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto 20px;
+  }
+  
+  .value-text {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .value-text h3 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent-gold);
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+  
+  .value-text p {
+    color: #e0e0e0;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+  }
+  
+  .value-highlight {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--accent-gold);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
   /* Right card - enhanced */
   .card {
     background: linear-gradient(160deg, #0f0f0f, #181818);
@@ -271,6 +338,32 @@
     z-index: 1;
   }
 
+  .value-statement {
+    background: rgba(0, 0, 0, 0.4);
+    border-left: 3px solid var(--accent-gold);
+    padding: 16px;    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 20px 0;
+    font-style: normal;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .value-statement::before {
+    content: '✨';
+    position: absolute;
+    top: -5px;
+    right: 15px;
+    font-size: 4rem;
+    opacity: 0.1;
+    color: var(--accent-gold);
+  }
+  
+  .value-statement strong {
+    color: var(--accent-gold);
+    display: block;
+    margin-bottom: 8px;
+  }
+
   .cta {
     display: inline-flex;
     align-items: center;
@@ -297,8 +390,7 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
-  }
+    transition: 0.5s;  }
   
   .cta:hover::after {
     left: 100%;
@@ -347,13 +439,77 @@
     color: var(--accent-gold);
     margin-bottom: 10px;
     font-size: 1.35rem;
-  }
-  
+  }  
   .card-tile p {
     color: #d5d5d5;
     margin: 0;
     line-height: 1.6;
     font-size: 1.02rem;
+  }
+
+  /* Life domains section */
+  .life-domains {
+    margin: 40px 0 25px;
+    text-align: center;
+  }
+  
+  .life-domains h3 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent-gold);
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+  }
+  
+  .domains-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  
+  .domain-card {
+    background: rgba(25, 25, 25, 0.8);
+    border-radius: 14px;
+    padding: 20px 15px;
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    transition: var(--transition);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .domain-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(184, 134, 47, 0.2);
+    border-color: rgba(212, 175, 55, 0.4);
+  }
+  
+  .domain-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 50%;    display: grid;
+    place-items: center;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+  }
+  
+  .domain-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--accent-gold);
+    stroke-width: 1.8;
+  }
+  
+  .domain-card h4 {
+    color: var(--accent-gold);
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+  }
+  
+  .domain-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 
   /* Long content */
@@ -381,8 +537,7 @@
     align-items: center;
     gap: 10px;
   }
-  
-  .box h4::before {
+    .box h4::before {
     content: '';
     display: inline-block;
     width: 8px;
@@ -431,8 +586,7 @@
     display: block;
     margin-bottom: 8px;
     font-size: 1.2rem;
-  }
-  
+  }  
   .test div {
     color: var(--muted);
     margin-top: 10px;
@@ -481,8 +635,7 @@
     content: '+';
     position: absolute;
     right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 50%;    transform: translateY(-50%);
     font-size: 1.8rem;
     color: var(--accent-bronze);
     transition: var(--transition);
@@ -531,8 +684,7 @@
   }
   
   .badge-icon {
-    width: 24px;
-    height: 24px;
+    width: 24px;    height: 24px;
     background: rgba(212, 175, 55, 0.15);
     border-radius: 50%;
     display: grid;
@@ -553,6 +705,9 @@
       grid-template-columns: 1fr; 
       gap: 16px;
     }
+    .domains-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
     
     .logo { 
       width: 60px; 
@@ -567,6 +722,9 @@
     .card {
       padding: 24px;
     }
+    .value-comparison-content {
+      flex-direction: column;
+    }
   }
   
   @media (max-width: 600px) {
@@ -575,8 +733,7 @@
       -webkit-overflow-scrolling: touch;
       overflow-y: auto;
     }
-    
-    .container { 
+        .container { 
       padding: 20px 16px; 
       margin: 8px;
     }
@@ -590,6 +747,9 @@
       font-size: 2.2rem;     }
     .grid3 { 
       grid-template-columns: 1fr; 
+    }
+    .domains-grid {
+      grid-template-columns: 1fr;
     }
     .trust-badges { 
       gap: 15px; 
@@ -607,6 +767,9 @@
       flex-direction: column;
       align-items: flex-start;
     }
+    .value-comparison {
+      padding: 20px 15px;
+    }
   }
   
   /* ضمان التمرير السلس على جميع الأجهزة */
@@ -619,8 +782,7 @@
       -webkit-overflow-scrolling: touch;
     }
   }
-</style>
-</head>
+</style></head>
 <body>
   <div class="container" role="main" aria-labelledby="main-title">
     <header>
@@ -654,6 +816,29 @@
           <span class="special-emphasis">Your data stays private. Your growth is permanent.</span>
         </div>
 
+        <!-- New value comparison section - added exactly as requested -->
+        <div class="value-comparison">
+          <div class="value-comparison-content">
+            <div class="value-visual">
+              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="url(#goldGradient)" stroke-width="3"/>
+                <path d="M70 130C85 145 115 145 130 130L100 100V60" stroke="url(#goldGradient)" stroke-width="4" stroke-linecap="round"/>
+                <defs>
+                  <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#d4af37"/>
+                    <stop offset="100%" stop-color="#b8862f"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); font-size: 3.5rem; font-weight: 700; margin-top: -10px">$30</div>
+            </div>            <div class="value-text">
+              <h3>Your lifelong transformation for less than a piece of cake</h3>
+              <p>Our specialized psychologists invest <strong class="value-highlight">over 12 hours monthly</strong> analyzing your personal data to craft your daily messages. For the price of a slice of cake that disappears in five minutes, you receive a <strong class="value-highlight">permanent personal angel</strong> who walks beside you through every life challenge — dissolving negativity that angers or hurts you while strengthening your unique positive traits across work, family, health, and inner peace.</p>
+              <p style="color: var(--accent-red); font-weight: 600; font-style: italic;">This isn't an app — it's your private psychological architect who knows you intimately and guides you daily toward unshakeable confidence.</p>
+            </div>
+          </div>
+        </div>
+
         <section aria-labelledby="what">
           <h3 id="what" style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); margin-top: 24px; font-size: 1.9rem">Your transformation pathway</h3>
           <div class="grid3" role="list">
@@ -671,12 +856,67 @@
             </div>
           </div>
         </section>
+
+        <!-- New life domains section - added exactly as requested -->
+        <div class="life-domains">
+          <h3>Your personal angel in every life domain</h3>
+          <p style="color: #e0e0e0; max-width: 800px; margin: 12px auto 0; line-height: 1.7">
+            Our psychologists craft messages that transform your experience across all dimensions of life — like a trusted doctor who knows your history and an angel who anticipates your needs before you do.
+          </p>
+          
+          <div class="domains-grid">
+            <div class="domain-card">
+              <div class="domain-icon">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h4>Work & Career</h4>
+              <p>Dissolve decision paralysis and amplify strategic confidence</p>
+            </div>
+            <div class="domain-card">
+              <div class="domain-icon">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2a10 10 0 00-10 10c0 4.4 2.9 8.1 6.9 9.5l.4.2.4-.2c4-.9 6.9-4.7 6.9-9.5a10 10 0 00-10-10z" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+              </div>              <h4>Family & Relationships</h4>
+              <p>Transform conflicts into connection and deepen emotional bonds</p>
+            </div>
+            <div class="domain-card">
+              <div class="domain-icon">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10z" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h4>Health & Vitality</h4>
+              <p>Build sustainable routines that honor your body's unique needs</p>
+            </div>
+            <div class="domain-card">
+              <div class="domain-icon">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="currentColor" stroke-width="1.8" fill="none"/>
+                  <path d="M12 7v6l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h4>Inner Peace</h4>
+              <p>Dissolve anxiety and build unshakeable emotional resilience</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <aside class="card" aria-labelledby="cta-title">
         <small>Begin your transformation</small>
         <h3 id="cta-title">Activate Your Personal Growth Architect</h3>
         <p>Complete a 5-minute onboarding. Our psychologists will analyze your responses to build your first personalized message within 24 hours.</p>
+        
+        <!-- New value statement in CTA card - added exactly as requested -->
+        <div class="value-statement">
+          <strong>For less than a piece of cake that vanishes in 5 minutes...</strong>
+          Our specialized psychologists provide your lifelong transformation — analyzing your personal data to eliminate negativity and amplify your positive traits across all life domains. This is your private angel, always walking beside you.
+        </div>
 
         <!-- الرابط الأصلي يعمل الآن بدون أي تدخل -->
         <a class="cta" href="onboarding-individual.html" id="register-link" aria-label="Register Individual Data (opens registration)">
@@ -689,8 +929,7 @@
         <p style="margin-top:16px; color: #d0d0d0; font-size:1.05rem; line-height:1.6">
           <strong style="color: var(--accent-gold);">Your privacy is sacred:</strong> Data is encrypted and analyzed only by our vetted psychologists. You own your information — delete anytime.
         </p>
-      </aside>
-    </div>
+      </aside>    </div>
 
     <!-- Examples and approach -->
     <div class="content-columns" role="region" aria-label="Personalization Process">
@@ -726,6 +965,11 @@ Daily message crafted for you:
         <strong>"Messages arrive precisely when I need them most — like my personal angel knows my stress patterns before I do. My relationships transformed."</strong>
         <div>— Healthcare Executive (London)</div>
       </div>
+      <!-- New testimonial emphasizing value and angel metaphor - added exactly as requested -->
+      <div class="test">
+        <strong>"I used to buy $30 cakes that were gone in minutes. Now I invest $30/month in my permanent growth angel — a doctor for my soul who erases what hurts me and builds what makes me strong across every area of life. I'd pay 10x this value."</strong>
+        <div>— Marketing Director (Los Angeles)</div>
+      </div>
     </div>
 
     <div class="faq" aria-label="Personalization Process">
@@ -734,12 +978,16 @@ Daily message crafted for you:
         <summary>How do psychologists use my personal data?</summary>
         <p>Our licensed experts analyze ONLY what you share in your secure onboarding. They identify your unique strengths and growth areas, then craft messages that target your specific negativity patterns while amplifying your natural abilities. We never share or sell your data — it exists solely to build your transformation.</p>
       </details>
-      <details>        <summary>Is this like therapy or coaching</summary>
-        <p>This is your personal growth architect — more strategic than therapy, more personalized than coaching. We focus exclusively on transforming your daily experience through precisely targeted messages based on your data. Think of it as having a psychologist who only works on dissolving your specific frustrations and building your unique strengths.</p>
+      <details>        <summary>Is this like therapy or coaching</summary>        <p>This is your personal growth architect — more strategic than therapy, more personalized than coaching. We focus exclusively on transforming your daily experience through precisely targeted messages based on your data. Think of it as having a psychologist who only works on dissolving your specific frustrations and building your unique strengths.</p>
       </details>
       <details>
         <summary>How quickly will I feel changes?</summary>
         <p>87% of members report reduced anxiety around their growth areas within 10 days. Our psychologists design "micro-transformations" — small daily shifts that compound into permanent change. Many describe it as "waking up with my personal angel having already cleared my mental obstacles."</p>
+      </details>
+      <!-- New FAQ item about value - added exactly as requested -->
+      <details>
+        <summary>Why is this only $30 when it provides such deep transformation?</summary>
+        <p>Our specialized psychologists dedicate over 12 hours monthly to your personal transformation — analyzing your data, identifying negativity patterns, and crafting life-changing messages across all domains. For less than a piece of cake that lasts five minutes, you receive a permanent personal angel who dissolves what angers and hurts you while strengthening your core in work, family, health, and inner peace. This human expertise is priceless, yet we keep it accessible because your growth matters more than profit.</p>
       </details>
     </div>
 
@@ -758,6 +1006,11 @@ Daily message crafted for you:
           <div class="badge-icon">🇪🇺</div>
           <span>GDPR & CCPA Compliant</span>
         </div>
+        <!-- New trust badge - added exactly as requested -->
+        <div class="badge-item">
+          <div class="badge-icon" style="background: rgba(255, 77, 77, 0.15); color: var(--accent-red);">❤️</div>
+          <span>Human Experts Only (No AI)</span>
+        </div>
       </div>
     </footer>
   </div>
@@ -774,7 +1027,6 @@ Daily message crafted for you:
         });
       });
     });
-
     // التأكد من أن الرابط يعمل بشكل طبيعي بدون عوائق
     const registerLink = document.getElementById('register-link');
     if (registerLink) {
@@ -809,7 +1061,7 @@ Daily message crafted for you:
         });
       }, { threshold: 0.1 });
 
-      document.querySelectorAll('.card-tile, .box, .test, .faq details').forEach(el => {
+      document.querySelectorAll('.card-tile, .box, .test, .faq details, .value-comparison, .life-domains').forEach(el => {
         el.style.opacity = 0;
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -824,8 +1076,7 @@ Daily message crafted for you:
   // تحديد الحجم المناسب للنصوص على الهواتف
   function adjustFontSize() {
     if (window.innerWidth < 480) {
-      document.documentElement.style.fontSize = '90%';
-    } else {
+      document.documentElement.style.fontSize = '90%';    } else {
       document.documentElement.style.fontSize = '100%';
     }
   }
