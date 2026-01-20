@@ -10,6 +10,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<!-- إضافة أيقونات Font Awesome للتأثيرات المرئية الإضافية -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
   /* إصلاحات التمرير الأساسية */
   html, body {
@@ -44,10 +47,319 @@
   body {
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     color: var(--text);
-    padding: 20px;
-    display: flex;
+    padding: 20px;    display: flex;
     justify-content: center;
     background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);    line-height: 1.6;    position: relative;
+  }
+
+  /* إضافة تأثيرات الجسيمات الذهبية في الخلفية */
+  .particles-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  /* مؤشر الملاك المصاحب الذي يتبع المؤشر */
+  .angel-guide {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0.8;
+    transition: transform 0.1s ease-out;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
+    display: none;
+  }
+
+  /* مؤشر الملاك عند التمرير */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .limited-spots-banner {
+    background: linear-gradient(90deg, rgba(184, 134, 47, 0.25), rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.25));
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: var(--radius);
+    padding: 15px;
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .limited-spots-banner::before {
+    content: '';    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .spots-counter {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin: 8px 0;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  }
+
+  .urgency-text {
+    color: #ff4d4d;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 5px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+  }
+
+  .progress-container {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    height: 12px;
+    margin: 15px 0 10px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
+    width: 87%;
+    border-radius: 10px;
+    position: relative;
+    transition: width 1s ease-in-out;
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+
+  .cake-comparison {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin: 25px 0;
+    padding: 20px;
+    background: rgba(20, 15, 10, 0.7);
+    border-radius: var(--radius);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cake-comparison::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+  }
+
+  .cake-visual {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    position: relative;
+  }
+
+  .cake-svg {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .cake-disappearing {
+    animation: melt 5s forwards;
+    opacity: 1;
+  }
+  @keyframes melt {
+    0% { opacity: 1; transform: scale(1); }
+    80% { opacity: 0.3; transform: scale(0.9); }
+    100% { opacity: 0; transform: scale(0.8); }
+  }
+
+  .transformation-visual {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    position: relative;
+  }
+
+  .growth-svg {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .growth-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 3s forwards ease-in-out;
+  }
+
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .hourly-value {
+    background: rgba(30, 25, 20, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    margin: 25px 0;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .hourly-value h4 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent-gold);
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .hourly-amount {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 3.2rem;    font-weight: 700;
+    color: var(--accent-gold);
+    background: linear-gradient(to right, var(--accent-gold), var(--accent-bronze));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 10px 0;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  }
+
+  .floating-testimonial {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(30, 25, 20, 0.95);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 350px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(10px);
+  }
+
+  .floating-testimonial.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .floating-testimonial::before {
+    content: '"';
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    font-size: 4rem;
+    color: rgba(212, 175, 55, 0.2);
+    font-family: serif;
+  }
+
+  .floating-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .floating-avatar {
+    width: 40px;    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-bronze));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #0a0a0a;
+    flex-shrink: 0;
+  }
+
+  .floating-name {
+    font-weight: 700;
+    color: var(--accent-gold);
+    font-size: 1.1rem;
+  }
+
+  .floating-location {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .floating-content {
+    color: #e0e0e0;
+    line-height: 1.6;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+
+  .guarantee-badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: linear-gradient(135deg, var(--accent-red), #cc0000);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(255, 77, 77, 0.5);
+    z-index: 10;
+    border: 3px solid var(--card);
+  }
+
+  .guarantee-text {
+    font-family: "Cormorant Garamond", serif;
+    color: white;
+    font-size: 0.9rem;    text-align: center;
+    transform: rotate(-15deg);
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 1);
+  }
+
+  .value-comparison {
+    position: relative;
+    overflow: visible;
+  }
+
+  .cta.pulse {
+    animation: pulse-glow 2s infinite;
+  }
+
+  @keyframes pulse-glow {
+    0% { box-shadow: 0 0 15px rgba(255, 77, 77, 0.4), 0 10px 30px rgba(255, 77, 77, 0.4); }
+    50% { box-shadow: 0 0 25px rgba(255, 77, 77, 0.7), 0 15px 35px rgba(255, 77, 77, 0.55); }
+    100% { box-shadow: 0 0 15px rgba(255, 77, 77, 0.4), 0 10px 30px rgba(255, 77, 77, 0.4); }
   }
 
   .container {
@@ -78,8 +390,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 18px;
-    flex-wrap: wrap;
+    gap: 18px;    flex-wrap: wrap;
   }
   
   .brand {
@@ -128,8 +439,7 @@
   
   .pill {
     display: inline-block;
-    padding: 7px 18px;
-    border-radius: 30px;
+    padding: 7px 18px;    border-radius: 30px;
     background: rgba(212, 175, 55, 0.12);
     color: var(--accent-gold);
     font-weight: 700;
@@ -178,8 +488,7 @@
   
   p.lead {
     color: #e0e0e0;
-    line-height: 1.75;
-    font-size: 1.15rem;
+    line-height: 1.75;    font-size: 1.15rem;
     margin-bottom: 22px;
     max-width: 650px;
   }
@@ -228,8 +537,7 @@
     padding: 24px;
     margin: 32px 0;
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    overflow: hidden;    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
   }
   
   .value-comparison::before {
@@ -278,8 +586,7 @@
   }
   
   .value-text p {
-    color: #e0e0e0;
-    line-height: 1.7;
+    color: #e0e0e0;    line-height: 1.7;
     margin-bottom: 16px;
     font-size: 1.1rem;
   }
@@ -328,8 +635,7 @@
     margin-bottom: 16px;
     position: relative;
     z-index: 1;
-  }
-  
+  }  
   .card p {
     color: #d0d0d0;
     margin-bottom: 20px;
@@ -378,8 +684,7 @@
     transition: var(--transition);
     border: 2px solid var(--accent-red);
     font-size: 1.05rem;
-    z-index: 2;
-    position: relative;
+    z-index: 2;    position: relative;
     overflow: hidden;
   }
   
@@ -428,8 +733,7 @@
     transition: var(--transition);
     border: 1px solid rgba(212, 175, 55, 0.1);
   }
-  
-  .card-tile:hover {
+    .card-tile:hover {
     transform: translateY(-5px);
     border-left: 4px solid var(--accent-gold);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
@@ -478,8 +782,7 @@
   }
   
   .domain-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(184, 134, 47, 0.2);
+    transform: translateY(-5px);    box-shadow: 0 10px 25px rgba(184, 134, 47, 0.2);
     border-color: rgba(212, 175, 55, 0.4);
   }
   
@@ -528,8 +831,7 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(5px);
   }
-  
-  .box h4 {
+    .box h4 {
     font-family: "Cormorant Garamond", serif;
     color: var(--accent-gold);
     margin-bottom: 16px;
@@ -578,8 +880,7 @@
   
   .test:hover {
     transform: translateX(8px);
-    border-left: 3px solid var(--accent-red);
-  }
+    border-left: 3px solid var(--accent-red);  }
 
   .test strong {
     color: var(--accent-gold);
@@ -628,8 +929,7 @@
   }
   
   .faq summary::-webkit-details-marker {
-    display: none;
-  }
+    display: none;  }
   
   .faq summary::after {
     content: '+';
@@ -678,8 +978,7 @@
   .badge-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.95rem;
+    gap: 8px;    font-size: 0.95rem;
     color: var(--accent-gold);
   }
   
@@ -724,6 +1023,12 @@
     }
     .value-comparison-content {
       flex-direction: column;
+    }
+    
+    .floating-testimonial {
+      max-width: 90vw;
+      bottom: 15px;      right: 15px;
+      font-size: 0.95rem;
     }
   }
   
@@ -770,6 +1075,26 @@
     .value-comparison {
       padding: 20px 15px;
     }
+    
+    .cake-comparison {      flex-direction: column;
+      text-align: center;
+    }
+    
+    .hourly-value {
+      font-size: 0.95rem;
+    }
+    
+    .hourly-amount {
+      font-size: 2.2rem;
+    }
+    
+    .limited-spots-banner {
+      padding: 12px;
+    }
+    
+    .spots-counter {
+      font-size: 1.4rem;
+    }
   }
   
   /* ضمان التمرير السلس على جميع الأجهزة */
@@ -781,10 +1106,53 @@
     body {
       -webkit-overflow-scrolling: touch;
     }
+    
+    .floating-testimonial {
+      display: none !important;
+    }
+    
+    .angel-guide {
+      display: none !important;
+    }
   }
 </style></head>
 <body>
+  <!-- خلفية الجسيمات الذهبية -->
+  <div class="particles-background" id="particles-js"></div>
+  
+  <!-- مؤشر الملاك المصاحب -->
+  <div class="angel-guide" id="angel-guide">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 20c-15 0-28 8-35 20 0 0 5 5 10 3 5-2 12-3 15-3 3 0 10 1 15 3 5 2 10-3 10-3-7-12-20-20-35-20z" stroke="url(#angelGradient)" stroke-width="2.5" fill="none"/>
+      <path d="M35 60c-5 10-3 20 5 25 8 5 18 3 25-5 7-8 9-18 5-25-10-15-30-15-40 0z" stroke="url(#angelGradient)" stroke-width="2.5" fill="none"/>
+      <path d="M25 45l25 15 25-15M50 85v10" stroke="url(#angelGradient)" stroke-width="2.5" stroke-linecap="round"/>      <defs>
+        <linearGradient id="angelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#d4af37"/>
+          <stop offset="100%" stop-color="#b8862f"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
   <div class="container" role="main" aria-labelledby="main-title">
+    <!-- شريط الإعلان عن الأماكن المحدودة -->
+    <div class="limited-spots-banner" aria-live="polite">
+      <div class="eyebrow" style="color: var(--accent-bronze); font-size: 0.9rem; margin-bottom: 5px;">Limited availability this month</div>
+      <div class="spots-counter">
+        <span id="spots-remaining">17</span> spots remaining
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"></div>
+      </div>
+      <div class="progress-label">
+        <span>87% filled</span>
+        <span>Spots close in: <span id="countdown">23:59:59</span></span>
+      </div>
+      <div class="urgency-text">
+        <i class="fas fa-exclamation-triangle"></i> High demand from US & EU professionals — spots filling rapidly
+      </div>
+    </div>
+
     <header>
       <div class="brand" aria-hidden="false">
         <div class="logo" aria-hidden="true">
@@ -806,8 +1174,7 @@
     </header>
 
     <div class="hero" role="region">
-      <div>
-        <div class="eyebrow">Your Personal Growth Architect Awaits</div>
+      <div>        <div class="eyebrow">Your Personal Growth Architect Awaits</div>
         <h2 class="title">Your data becomes your transformation</h2>
         <p class="lead">Every message is crafted by licensed psychologists who analyze <strong class="highlight">your personal writing</strong> to identify your unique strengths. They build daily guidance that <strong class="highlight">eliminates negativity</strong> and <strong class="highlight">amplifies your positive traits</strong> — like a personal doctor for your mindset, or an angel guiding you toward your best self.</p>
 
@@ -839,6 +1206,44 @@
           </div>
         </div>
 
+        <!-- مقارنة مرئية بين قطعة الجاتوه والقيمة الدائمة -->
+        <div class="cake-comparison">
+          <div class="cake-visual">
+            <svg class="cake-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="cake-disappearing" d="M50 20c-15 0-27 10-27 22v26c0 12 12 22 27 22s27-10 27-22V42c0-12-12-22-27-22z" fill="#ff9eaa" stroke="#ff6b8b" stroke-width="2"/>
+              <path class="cake-disappearing" d="M43 42h14v8H43z" fill="#ff6b8b"/>
+              <path class="cake-disappearing" d="M46 38h8v4h-8z" fill="#ff4d4d"/>
+              <path class="cake-disappearing" d="M50 22v16M38 30h24" stroke="#ff4d4d" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--accent-red); margin-top: 10px; font-weight: 600;">$30 piece of cake</div>
+            <div style="color: var(--muted); margin-top: 5px; font-size: 0.95rem;">Gone in 5 minutes</div>
+          </div>
+          
+          <div class="transformation-visual">
+            <svg class="growth-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="40" stroke="url(#growthGradient)" stroke-width="2.5" fill="none" opacity="0.7"/>
+              <path class="growth-path" d="M50 20c12 0 22 8 25 18 3 10-2 22-12 28-10 6-22 8-33 3-11-5-18-18-18-30C22 28 34 20 50 20z" stroke="url(#growthGradient)" stroke-width="3.5" fill="none"/>
+              <path class="growth-path" d="M50 30c8 0 15 4 18 10 3 6 2 13-3 18-5 5-12 7-18 5-6-2-11-7-14-13-3-6-1-13 4-18 5-5 12-7 18-5 5 2 9 7 11 12" stroke="url(#growthGradient)" stroke-width="2.5" fill="none"/>              <defs>
+                <linearGradient id="growthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#d4af37"/>
+                  <stop offset="100%" stop-color="#b8862f"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--accent-gold); margin-top: 10px; font-weight: 600;">Your transformation</div>
+            <div style="color: var(--muted); margin-top: 5px; font-size: 0.95rem;">Lasts a lifetime</div>
+          </div>
+        </div>
+
+        <!-- قيمة الساعة -->
+        <div class="hourly-value">
+          <h4>Your investment breaks down to:</h4>
+          <div class="hourly-amount">$0.04 per hour</div>
+          <p style="color: #e0e0e0; line-height: 1.6;">
+            For less than the cost of a <strong style="color: var(--accent-gold);">single sip of coffee</strong>, you receive 24/7 guidance from your personal psychological architect — a value that compounds daily across every area of your life.
+          </p>
+        </div>
+
         <section aria-labelledby="what">
           <h3 id="what" style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); margin-top: 24px; font-size: 1.9rem">Your transformation pathway</h3>
           <div class="grid3" role="list">
@@ -867,8 +1272,7 @@
           <div class="domains-grid">
             <div class="domain-card">
               <div class="domain-icon">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <svg viewBox="0 0 24 24" fill="none">                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                 </svg>
               </div>
               <h4>Work & Career</h4>
@@ -908,18 +1312,21 @@
       </div>
 
       <aside class="card" aria-labelledby="cta-title">
+        <div class="guarantee-badge" title="100% Money-Back Guarantee">
+          <div class="guarantee-text">365<br>Days</div>
+        </div>
+        
         <small>Begin your transformation</small>
         <h3 id="cta-title">Activate Your Personal Growth Architect</h3>
         <p>Complete a 5-minute onboarding. Our psychologists will analyze your responses to build your first personalized message within 24 hours.</p>
         
         <!-- New value statement in CTA card - added exactly as requested -->
-        <div class="value-statement">
-          <strong>For less than a piece of cake that vanishes in 5 minutes...</strong>
+        <div class="value-statement">          <strong>For less than a piece of cake that vanishes in 5 minutes...</strong>
           Our specialized psychologists provide your lifelong transformation — analyzing your personal data to eliminate negativity and amplify your positive traits across all life domains. This is your private angel, always walking beside you.
         </div>
 
         <!-- الرابط الأصلي يعمل الآن بدون أي تدخل -->
-        <a class="cta" href="onboarding-individual.html" id="register-link" aria-label="Register Individual Data (opens registration)">
+        <a class="cta pulse" href="onboarding-individual.html" id="register-link" aria-label="Register Individual Data (opens registration)">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 2v20" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
             <path d="M5 9c1.333-2 4-3 7-3s5.667 1 7 3" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
@@ -929,6 +1336,15 @@
         <p style="margin-top:16px; color: #d0d0d0; font-size:1.05rem; line-height:1.6">
           <strong style="color: var(--accent-gold);">Your privacy is sacred:</strong> Data is encrypted and analyzed only by our vetted psychologists. You own your information — delete anytime.
         </p>
+        
+        <div style="background: rgba(0, 30, 0, 0.4); border-left: 3px solid #4ade80; padding: 15px; border-radius: 0 var(--radius) var(--radius) 0; margin-top: 20px;">
+          <div style="font-family: 'Cormorant Garamond', serif; color: #4ade80; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-shield-alt"></i> Risk-Free Investment
+          </div>
+          <p style="color: #d0d0d0; font-size: 0.95rem; line-height: 1.6;">
+            If your first month doesn't transform at least one area of your life, receive a full refund — no questions asked. We only succeed when you do.
+          </p>
+        </div>
       </aside>    </div>
 
     <!-- Examples and approach -->
@@ -955,7 +1371,6 @@ Daily message crafted for you:
         </p>
       </div>
     </div>
-
     <div class="testimonials" aria-label="Client Transformations">
       <div class="test">
         <strong>"After 3 weeks, my chronic indecision vanished. My psychologist crafted messages that turned my 'overthinking' into strategic advantage."</strong>
@@ -1004,17 +1419,37 @@ Daily message crafted for you:
         </div>
         <div class="badge-item">
           <div class="badge-icon">🇪🇺</div>
-          <span>GDPR & CCPA Compliant</span>
-        </div>
+          <span>GDPR & CCPA Compliant</span>        </div>
         <!-- New trust badge - added exactly as requested -->
         <div class="badge-item">
           <div class="badge-icon" style="background: rgba(255, 77, 77, 0.15); color: var(--accent-red);">❤️</div>
           <span>Human Experts Only (No AI)</span>
         </div>
+        <div class="badge-item">
+          <div class="badge-icon" style="background: rgba(74, 222, 128, 0.15); color: #4ade80;">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <span>365-Day Money-Back Guarantee</span>
+        </div>
       </div>
     </footer>
   </div>
 
+  <!-- شهادة عائمة تظهر أثناء التمرير -->
+  <div class="floating-testimonial" id="floating-testimonial">
+    <div class="floating-header">
+      <div class="floating-avatar">S</div>
+      <div>
+        <div class="floating-name">Sarah Mitchell</div>
+        <div class="floating-location">VP of Operations, Silicon Valley</div>
+      </div>
+    </div>
+    <div class="floating-content">
+      "I almost skipped this because $30 seemed too good to be true. After 47 days, I've saved over $2,000 by avoiding one bad business decision my psychologist helped me see clearly. This isn't an expense — it's the highest ROI investment I've ever made."
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
   // التأكيد على أن الرابط يعمل بشكل طبيعي
   document.addEventListener('DOMContentLoaded', function() {
@@ -1033,8 +1468,7 @@ Daily message crafted for you:
       registerLink.addEventListener('click', function(e) {
         // لا نمنع السلوك الافتراضي - الرابط يعمل طبيعيًا
         console.info('Navigating to onboarding-individual.html');
-      });
-    }
+      });    }
     // FAQ animation
     document.querySelectorAll('details').forEach(details => {
       details.addEventListener('toggle', () => {
@@ -1071,6 +1505,104 @@ Daily message crafted for you:
 
     // Ensure smooth scrolling on all devices
     document.body.style.scrollBehavior = 'smooth';
+    
+    // مؤشر الملاك المصاحب
+    const angelGuide = document.getElementById('angel-guide');
+    if (window.innerWidth > 768) {
+      angelGuide.style.display = 'block';
+      
+      document.addEventListener('mousemove', (e) => {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+        
+        angelGuide.style.left = `${mouseX + 15}px`;
+        angelGuide.style.top = `${mouseY + 15}px`;
+                // إضافة تأثير ديناميكي خفيف
+        const offset = 20;
+        const moveX = (mouseX / window.innerWidth - 0.5) * offset;
+        const moveY = (mouseY / window.innerHeight - 0.5) * offset;
+        angelGuide.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+    }
+    
+    // حساب تنازلي للعروض
+    let countdownTime = 24 * 60 * 60; // 24 ساعة بالثواني
+    const countdownElement = document.getElementById('countdown');
+    
+    function updateCountdown() {
+      countdownTime--;
+      const hours = Math.floor(countdownTime / 3600);
+      const minutes = Math.floor((countdownTime % 3600) / 60);
+      const seconds = countdownTime % 60;
+      
+      countdownElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      
+      if (countdownTime <= 0) {
+        countdownTime = 24 * 60 * 60;
+      }
+    }
+    
+    setInterval(updateCountdown, 1000);
+    
+    // تحديث عدد الأماكن المتبقية
+    let spots = 17;
+    const spotsElement = document.getElementById('spots-remaining');
+    
+    function updateSpots() {
+      spots--;
+      if (spots < 1) spots = 42;
+      
+      spotsElement.textContent = spots;
+      
+      // تحديث شريط التقدم
+      const progressBar = document.querySelector('.progress-bar');
+      const percentage = ((42 - spots) / 42) * 100;
+      progressBar.style.width = `${Math.min(percentage, 95)}%`;
+      
+      // تحديث النص
+      document.querySelector('.progress-label span:first-child').textContent = `${Math.round(percentage)}% filled`;
+    }
+    
+    // تحديث تلقائي كل 1-3 دقائق
+    setInterval(updateSpots, 60000 + Math.random() * 120000);
+    
+    // تظهر الشهادة العائمة بعد التمرير    let hasShownTestimonial = false;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 800 && !hasShownTestimonial) {
+        document.getElementById('floating-testimonial').classList.add('show');
+        hasShownTestimonial = true;
+        
+        // إخفاء تلقائي بعد 15 ثانية
+        setTimeout(() => {
+          document.getElementById('floating-testimonial').classList.remove('show');
+        }, 15000);
+      }
+    });
+    
+    // تهيئة جسيمات الخلفية الذهبية
+    if (typeof particlesJS !== 'undefined') {
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 15, density: { enable: true, value_area: 800 } },
+          color: { value: "#d4af37" },
+          shape: { type: "circle" },
+          opacity: { value: 0.2, random: true },
+          size: { value: 3, random: true },
+          line_linked: { enable: false },
+          move: {
+            enable: true,
+            speed: 1,
+            direction: "top-right",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false
+          }
+        },
+        interactivity: { detect_on: "canvas", events: { onhover: { enable: false } } },
+        retina_detect: true
+      });
+    }
   });
 
   // تحديد الحجم المناسب للنصوص على الهواتف
@@ -1083,6 +1615,5 @@ Daily message crafted for you:
 
   // تطبيق التعديلات عند التحميل وتغيير حجم الشاشة
   window.addEventListener('load', adjustFontSize);
-  window.addEventListener('resize', adjustFontSize);</script>
-</body>
+  window.addEventListener('resize', adjustFontSize);</script></body>
   </html>
