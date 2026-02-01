@@ -10,11 +10,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Adding Font Awesome icons for additional visual effects -->
+<!-- إضافة أيقونات Font Awesome للتأثيرات المرئية الإضافية -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-  /* Basic scroll fixes */
+  /* إصلاحات التمرير الأساسية */
   html, body {
     height: auto !important;
     min-height: 100vh;
@@ -47,11 +47,12 @@
   body {
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     color: var(--text);
-    padding: 20px;    display: flex;    justify-content: center;
+    padding: 20px;    display: flex;
+    justify-content: center;
     background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);    line-height: 1.6;    position: relative;
   }
 
-  /* Adding golden particle effects in the background */
+  /* إضافة تأثيرات الجسيمات الذهبية في الخلفية */
   .particles-background {
     position: fixed;
     top: 0;
@@ -63,7 +64,7 @@
     opacity: 0.7;
   }
 
-  /* Accompanying angel indicator that follows the cursor */
+  /* مؤشر الملاك المصاحب الذي يتبع المؤشر */
   .angel-guide {
     position: fixed;
     width: 60px;
@@ -76,7 +77,7 @@
     display: none;
   }
 
-  /* Angel indicator during scrolling */
+  /* مؤشر الملاك عند التمرير */
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
@@ -96,7 +97,8 @@
 
   .limited-spots-banner::before {
     content: '';    position: absolute;
-    top: -50%;    left: -50%;
+    top: -50%;
+    left: -50%;
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
@@ -145,7 +147,8 @@
   }
   .progress-label {
     display: flex;
-    justify-content: space-between;    font-size: 0.9rem;
+    justify-content: space-between;
+    font-size: 0.9rem;
     color: var(--muted);
     margin-top: 5px;
   }
@@ -194,7 +197,8 @@
   @keyframes melt {
     0% { opacity: 1; transform: scale(1); }
     80% { opacity: 0.3; transform: scale(0.9); }
-    100% { opacity: 0; transform: scale(0.8); }  }
+    100% { opacity: 0; transform: scale(0.8); }
+  }
 
   .transformation-visual {
     flex: 1;
@@ -243,7 +247,8 @@
     color: var(--accent-gold);
     background: linear-gradient(to right, var(--accent-gold), var(--accent-bronze));
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;    margin: 10px 0;
+    -webkit-text-fill-color: transparent;
+    margin: 10px 0;
     text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
   }
 
@@ -292,7 +297,8 @@
     background: linear-gradient(135deg, var(--accent-gold), var(--accent-bronze));
     display: flex;
     align-items: center;
-    justify-content: center;    font-weight: bold;
+    justify-content: center;
+    font-weight: bold;
     color: #0a0a0a;
     flex-shrink: 0;
   }
@@ -341,7 +347,8 @@
     text-shadow: 0 0 5px rgba(0, 0, 0, 1);
   }
 
-  .value-comparison {    position: relative;
+  .value-comparison {
+    position: relative;
     overflow: visible;
   }
 
@@ -390,7 +397,8 @@
     display: flex;
     gap: 16px;
     align-items: center;
-  }  
+  }
+  
   .logo {
     width: 72px;
     height: 72px;
@@ -440,6 +448,7 @@
     backdrop-filter: blur(4px);
     border: 1px solid rgba(212, 175, 55, 0.2);
   }
+
   .badge {
     display: inline-block;
     margin-top: 8px;
@@ -488,7 +497,8 @@
     color: var(--accent-gold);
     font-weight: 600;
   }
-    .accent-note {
+  
+  .accent-note {
     background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
     border-left: 3px solid var(--accent-gold);    padding: 20px;
     border-radius: 0 var(--radius) var(--radius) 0;
@@ -537,7 +547,8 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);    z-index: 0;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+    z-index: 0;
   }
   
   .value-comparison-content {    position: relative;
@@ -586,7 +597,8 @@
     color: var(--accent-gold);
     padding: 3px 10px;
     border-radius: 6px;
-    font-weight: 600;  }
+    font-weight: 600;
+  }
   /* Right card - enhanced */
   .card {
     background: linear-gradient(160deg, #0f0f0f, #181818);
@@ -635,7 +647,8 @@
   .value-statement {
     background: rgba(0, 0, 0, 0.4);
     border-left: 3px solid var(--accent-gold);
-    padding: 16px;    border-radius: 0 var(--radius) var(--radius) 0;    margin: 20px 0;
+    padding: 16px;    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 20px 0;
     font-style: normal;
     position: relative;
     overflow: hidden;
@@ -684,7 +697,8 @@
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: 0.5s;  }
   
-  .cta:hover::after {    left: 100%;
+  .cta:hover::after {
+    left: 100%;
   }
   
   .cta:hover {
@@ -733,7 +747,8 @@
   .card-tile p {
     color: #d5d5d5;
     margin: 0;
-    line-height: 1.6;    font-size: 1.02rem;
+    line-height: 1.6;
+    font-size: 1.02rem;
   }
 
   /* Life domains section */
@@ -782,7 +797,8 @@
   }
   
   .domain-icon svg {
-    width: 32px;    height: 32px;
+    width: 32px;
+    height: 32px;
     stroke: var(--accent-gold);
     stroke-width: 1.8;
   }
@@ -831,7 +847,8 @@
     border-radius: 50%;
     background: var(--accent-bronze);
   }
-    pre.sample {    white-space: pre-wrap;
+  
+  pre.sample {    white-space: pre-wrap;
     font-family: "Cormorant Garamond", serif;
     color: var(--accent-gold);
     line-height: 1.7;
@@ -880,7 +897,8 @@
   }
   .faq {
     margin-top: 28px;
-  }  
+  }
+  
   .faq details {
     background: rgba(25, 25, 25, 0.7);
     padding: 18px;
@@ -929,7 +947,8 @@
   .faq details[open] summary {
     color: var(--accent-red);
   }
-    .faq p {
+  
+  .faq p {
     color: #e0e0e0;
     margin-top: 14px;
     padding-top: 12px;
@@ -978,7 +997,8 @@
       gap: 28px;
     }
     .content-columns { 
-      grid-template-columns: 1fr;       gap: 20px;
+      grid-template-columns: 1fr; 
+      gap: 20px;
     }
     .grid3 { 
       grid-template-columns: 1fr; 
@@ -1027,7 +1047,8 @@
     }
     .card { 
       padding: 22px; 
-    }    h2.title { 
+    }
+    h2.title { 
       font-size: 2.2rem;     }
     .grid3 { 
       grid-template-columns: 1fr; 
@@ -1076,7 +1097,8 @@
     }
   }
   
-  /* Ensuring smooth scrolling on all devices */  @media (hover: none) {
+  /* ضمان التمرير السلس على جميع الأجهزة */
+  @media (hover: none) {
     * {
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
@@ -1095,10 +1117,10 @@
   }
 </style></head>
 <body>
-  <!-- Golden particles background -->
+  <!-- خلفية الجسيمات الذهبية -->
   <div class="particles-background" id="particles-js"></div>
   
-  <!-- Accompanying angel indicator -->
+  <!-- مؤشر الملاك المصاحب -->
   <div class="angel-guide" id="angel-guide">
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M50 20c-15 0-28 8-35 20 0 0 5 5 10 3 5-2 12-3 15-3 3 0 10 1 15 3 5 2 10-3 10-3-7-12-20-20-35-20z" stroke="url(#angelGradient)" stroke-width="2.5" fill="none"/>
@@ -1113,7 +1135,7 @@
   </div>
 
   <div class="container" role="main" aria-labelledby="main-title">
-    <!-- Limited spots announcement banner -->
+    <!-- شريط الإعلان عن الأماكن المحدودة -->
     <div class="limited-spots-banner" aria-live="polite">
       <div class="eyebrow" style="color: var(--accent-bronze); font-size: 0.9rem; margin-bottom: 5px;">Limited availability this month</div>
       <div class="spots-counter">
@@ -1125,7 +1147,8 @@
       <div class="progress-label">
         <span>87% filled</span>
         <span>Spots close in: <span id="countdown">23:59:59</span></span>
-      </div>      <div class="urgency-text">
+      </div>
+      <div class="urgency-text">
         <i class="fas fa-exclamation-triangle"></i> High demand from US & EU professionals — spots filling rapidly
       </div>
     </div>
@@ -1174,7 +1197,8 @@
                   </linearGradient>
                 </defs>
               </svg>
-              <div style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); font-size: 3.5rem; font-weight: 700; margin-top: -10px">$30</div>            </div>            <div class="value-text">
+              <div style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); font-size: 3.5rem; font-weight: 700; margin-top: -10px">$30</div>
+            </div>            <div class="value-text">
               <h3>Your lifelong transformation for less than a piece of cake</h3>
               <p>Our specialized psychologists invest <strong class="value-highlight">over 12 hours monthly</strong> analyzing your personal data to craft your daily messages. For the price of a slice of cake that disappears in five minutes, you receive a <strong class="value-highlight">permanent personal angel</strong> who walks beside you through every life challenge — dissolving negativity that angers or hurts you while strengthening your unique positive traits across work, family, health, and inner peace.</p>
               <p style="color: var(--accent-red); font-weight: 600; font-style: italic;">This isn't an app — it's your private psychological architect who knows you intimately and guides you daily toward unshakeable confidence.</p>
@@ -1182,7 +1206,7 @@
           </div>
         </div>
 
-        <!-- Visual comparison between cake slice and permanent value -->
+        <!-- مقارنة مرئية بين قطعة الجاتوه والقيمة الدائمة -->
         <div class="cake-comparison">
           <div class="cake-visual">
             <svg class="cake-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1211,7 +1235,7 @@
           </div>
         </div>
 
-        <!-- Hourly value calculation -->
+        <!-- قيمة الساعة -->
         <div class="hourly-value">
           <h4>Your investment breaks down to:</h4>
           <div class="hourly-amount">$0.04 per hour</div>
@@ -1223,7 +1247,8 @@
         <section aria-labelledby="what">
           <h3 id="what" style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); margin-top: 24px; font-size: 1.9rem">Your transformation pathway</h3>
           <div class="grid3" role="list">
-            <div class="card-tile" role="listitem">              <h4>Negativity Dissolution</h4>
+            <div class="card-tile" role="listitem">
+              <h4>Negativity Dissolution</h4>
               <p>Experts identify negative patterns in your writing and craft precise interventions to dissolve them at the source.</p>
             </div>
             <div class="card-tile" role="listitem">
@@ -1272,7 +1297,8 @@
               <h4>Health & Vitality</h4>
               <p>Build sustainable routines that honor your body's unique needs</p>
             </div>
-            <div class="domain-card">              <div class="domain-icon">
+            <div class="domain-card">
+              <div class="domain-icon">
                 <svg viewBox="0 0 24 24" fill="none">
                   <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="currentColor" stroke-width="1.8" fill="none"/>
                   <path d="M12 7v6l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
@@ -1299,18 +1325,13 @@
           Our specialized psychologists provide your lifelong transformation — analyzing your personal data to eliminate negativity and amplify your positive traits across all life domains. This is your private angel, always walking beside you.
         </div>
 
-        <!-- SECURE KO-FI PAYMENT LINK - MODIFIED FOR SAFETY AND CLARITY -->
-        <a class="cta pulse" 
-           href="https://ko-fi.com/s/cd96925d8f" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           id="register-link" 
-           aria-label="Subscribe now - opens secure Ko-fi payment page in new tab">
+        <!-- الرابط الأصلي يعمل الآن بدون أي تدخل -->
+        <a class="cta pulse" href="onboarding-individual.html" id="register-link" aria-label="Register Individual Data (opens registration)">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 2v20" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
             <path d="M5 9c1.333-2 4-3 7-3s5.667 1 7 3" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          Subscribe Now — $30/month
+          Register Individual Data
         </a>
         <p style="margin-top:16px; color: #d0d0d0; font-size:1.05rem; line-height:1.6">
           <strong style="color: var(--accent-gold);">Your privacy is sacred:</strong> Data is encrypted and analyzed only by our vetted psychologists. You own your information — delete anytime.
@@ -1321,7 +1342,8 @@
             <i class="fas fa-shield-alt"></i> Risk-Free Investment
           </div>
           <p style="color: #d0d0d0; font-size: 0.95rem; line-height: 1.6;">
-            If your first month doesn't transform at least one area of your life, receive a full refund — no questions asked. We only succeed when you do.          </p>
+            If your first month doesn't transform at least one area of your life, receive a full refund — no questions asked. We only succeed when you do.
+          </p>
         </div>
       </aside>    </div>
 
@@ -1370,7 +1392,8 @@ Daily message crafted for you:
       <details>
         <summary>How do psychologists use my personal data?</summary>
         <p>Our licensed experts analyze ONLY what you share in your secure onboarding. They identify your unique strengths and growth areas, then craft messages that target your specific negativity patterns while amplifying your natural abilities. We never share or sell your data — it exists solely to build your transformation.</p>
-      </details>      <details>        <summary>Is this like therapy or coaching?</summary>        <p>This is your personal growth architect — more strategic than therapy, more personalized than coaching. We focus exclusively on transforming your daily experience through precisely targeted messages based on your data. Think of it as having a psychologist who only works on dissolving your specific frustrations and building your unique strengths.</p>
+      </details>
+      <details>        <summary>Is this like therapy or coaching</summary>        <p>This is your personal growth architect — more strategic than therapy, more personalized than coaching. We focus exclusively on transforming your daily experience through precisely targeted messages based on your data. Think of it as having a psychologist who only works on dissolving your specific frustrations and building your unique strengths.</p>
       </details>
       <details>
         <summary>How quickly will I feel changes?</summary>
@@ -1412,14 +1435,15 @@ Daily message crafted for you:
     </footer>
   </div>
 
-  <!-- Floating testimonial that appears during scrolling -->
+  <!-- شهادة عائمة تظهر أثناء التمرير -->
   <div class="floating-testimonial" id="floating-testimonial">
     <div class="floating-header">
       <div class="floating-avatar">S</div>
       <div>
         <div class="floating-name">Sarah Mitchell</div>
         <div class="floating-location">VP of Operations, Silicon Valley</div>
-      </div>    </div>
+      </div>
+    </div>
     <div class="floating-content">
       "I almost skipped this because $30 seemed too good to be true. After 47 days, I've saved over $2,000 by avoiding one bad business decision my psychologist helped me see clearly. This isn't an expense — it's the highest ROI investment I've ever made."
     </div>
@@ -1427,9 +1451,9 @@ Daily message crafted for you:
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
-  // Ensuring the link works normally with secure Ko-fi integration
+  // التأكيد على أن الرابط يعمل بشكل طبيعي
   document.addEventListener('DOMContentLoaded', function() {
-    // Fixing smooth scrolling
+    // إصلاح التمرير السلس
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -1438,14 +1462,13 @@ Daily message crafted for you:
         });
       });
     });
-    // Ensuring the Ko-fi link works normally without obstacles
+    // التأكد من أن الرابط يعمل بشكل طبيعي بدون عوائق
     const registerLink = document.getElementById('register-link');
     if (registerLink) {
       registerLink.addEventListener('click', function(e) {
-        // We do not prevent default behavior - link works normally
-        console.info('✅ Opening Ko-fi payment page in new tab: https://ko-fi.com/s/cd96925d8f');
-      });
-    }
+        // لا نمنع السلوك الافتراضي - الرابط يعمل طبيعيًا
+        console.info('Navigating to onboarding-individual.html');
+      });    }
     // FAQ animation
     document.querySelectorAll('details').forEach(details => {
       details.addEventListener('toggle', () => {
@@ -1468,7 +1491,8 @@ Daily message crafted for you:
           if (entry.isIntersecting) {
             entry.target.style.opacity = 1;
             entry.target.style.transform = 'translateY(0)';
-          }        });
+          }
+        });
       }, { threshold: 0.1 });
 
       document.querySelectorAll('.card-tile, .box, .test, .faq details, .value-comparison, .life-domains').forEach(el => {
@@ -1482,7 +1506,7 @@ Daily message crafted for you:
     // Ensure smooth scrolling on all devices
     document.body.style.scrollBehavior = 'smooth';
     
-    // Accompanying angel indicator
+    // مؤشر الملاك المصاحب
     const angelGuide = document.getElementById('angel-guide');
     if (window.innerWidth > 768) {
       angelGuide.style.display = 'block';
@@ -1493,7 +1517,7 @@ Daily message crafted for you:
         
         angelGuide.style.left = `${mouseX + 15}px`;
         angelGuide.style.top = `${mouseY + 15}px`;
-                // Adding subtle dynamic effect
+                // إضافة تأثير ديناميكي خفيف
         const offset = 20;
         const moveX = (mouseX / window.innerWidth - 0.5) * offset;
         const moveY = (mouseY / window.innerHeight - 0.5) * offset;
@@ -1501,8 +1525,8 @@ Daily message crafted for you:
       });
     }
     
-    // Countdown timer for offers
-    let countdownTime = 24 * 60 * 60; // 24 hours in seconds
+    // حساب تنازلي للعروض
+    let countdownTime = 24 * 60 * 60; // 24 ساعة بالثواني
     const countdownElement = document.getElementById('countdown');
     
     function updateCountdown() {
@@ -1517,9 +1541,10 @@ Daily message crafted for you:
         countdownTime = 24 * 60 * 60;
       }
     }
-        setInterval(updateCountdown, 1000);
     
-    // Update remaining spots
+    setInterval(updateCountdown, 1000);
+    
+    // تحديث عدد الأماكن المتبقية
     let spots = 17;
     const spotsElement = document.getElementById('spots-remaining');
     
@@ -1529,32 +1554,32 @@ Daily message crafted for you:
       
       spotsElement.textContent = spots;
       
-      // Update progress bar
+      // تحديث شريط التقدم
       const progressBar = document.querySelector('.progress-bar');
       const percentage = ((42 - spots) / 42) * 100;
       progressBar.style.width = `${Math.min(percentage, 95)}%`;
       
-      // Update text
+      // تحديث النص
       document.querySelector('.progress-label span:first-child').textContent = `${Math.round(percentage)}% filled`;
     }
     
-    // Automatic update every 1-3 minutes
+    // تحديث تلقائي كل 1-3 دقائق
     setInterval(updateSpots, 60000 + Math.random() * 120000);
     
-    // Show floating testimonial after scrolling    let hasShownTestimonial = false;
+    // تظهر الشهادة العائمة بعد التمرير    let hasShownTestimonial = false;
     window.addEventListener('scroll', () => {
       if (window.scrollY > 800 && !hasShownTestimonial) {
         document.getElementById('floating-testimonial').classList.add('show');
         hasShownTestimonial = true;
         
-        // Auto-hide after 15 seconds
+        // إخفاء تلقائي بعد 15 ثانية
         setTimeout(() => {
           document.getElementById('floating-testimonial').classList.remove('show');
         }, 15000);
       }
     });
     
-    // Initialize golden background particles
+    // تهيئة جسيمات الخلفية الذهبية
     if (typeof particlesJS !== 'undefined') {
       particlesJS('particles-js', {
         particles: {
@@ -1566,7 +1591,8 @@ Daily message crafted for you:
           line_linked: { enable: false },
           move: {
             enable: true,
-            speed: 1,            direction: "top-right",
+            speed: 1,
+            direction: "top-right",
             random: true,
             straight: false,
             out_mode: "out",
@@ -1579,7 +1605,7 @@ Daily message crafted for you:
     }
   });
 
-  // Adjust font size appropriately on mobile devices
+  // تحديد الحجم المناسب للنصوص على الهواتف
   function adjustFontSize() {
     if (window.innerWidth < 480) {
       document.documentElement.style.fontSize = '90%';    } else {
@@ -1587,7 +1613,7 @@ Daily message crafted for you:
     }
   }
 
-  // Apply adjustments on load and resize
+  // تطبيق التعديلات عند التحميل وتغيير حجم الشاشة
   window.addEventListener('load', adjustFontSize);
   window.addEventListener('resize', adjustFontSize);</script></body>
   </html>
