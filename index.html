@@ -14,14 +14,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-  /* Basic scroll fixes */
+  /* إصلاحات حرجة لجميع الأجهزة - مطبقة على جميع العناصر */
   html, body {
     height: auto !important;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     overflow-y: auto;
     position: relative;
     -webkit-overflow-scrolling: touch;
+    width: 100% !important;
+    touch-action: manipulation;
   }
 
   * {
@@ -29,6 +31,8 @@
     margin: 0;
     padding: 0;
     -webkit-tap-highlight-color: transparent;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   :root {
@@ -43,12 +47,13 @@
     --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
     --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
-
   body {
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     color: var(--text);
-    padding: 20px;    display: flex;    justify-content: center;
+    padding: 20px;    display: flex;
+    justify-content: center;
     background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);    line-height: 1.6;    position: relative;
+    width: 100% !important;
   }
 
   /* Adding golden particle effects in the background */
@@ -91,12 +96,12 @@
     margin: 20px 0;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  }
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);  }
 
   .limited-spots-banner::before {
     content: '';    position: absolute;
-    top: -50%;    left: -50%;
+    top: -50%;
+    left: -50%;
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
@@ -140,12 +145,12 @@
     background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
     width: 87%;
     border-radius: 10px;
-    position: relative;
-    transition: width 1s ease-in-out;
+    position: relative;    transition: width 1s ease-in-out;
   }
   .progress-label {
     display: flex;
-    justify-content: space-between;    font-size: 0.9rem;
+    justify-content: space-between;
+    font-size: 0.9rem;
     color: var(--muted);
     margin-top: 5px;
   }
@@ -189,12 +194,12 @@
 
   .cake-disappearing {
     animation: melt 5s forwards;
-    opacity: 1;
-  }
+    opacity: 1;  }
   @keyframes melt {
     0% { opacity: 1; transform: scale(1); }
     80% { opacity: 0.3; transform: scale(0.9); }
-    100% { opacity: 0; transform: scale(0.8); }  }
+    100% { opacity: 0; transform: scale(0.8); }
+  }
 
   .transformation-visual {
     flex: 1;
@@ -238,12 +243,12 @@
   }
 
   .hourly-amount {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 3.2rem;    font-weight: 700;
+    font-family: "Cormorant Garamond", serif;    font-size: 3.2rem;    font-weight: 700;
     color: var(--accent-gold);
     background: linear-gradient(to right, var(--accent-gold), var(--accent-bronze));
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;    margin: 10px 0;
+    -webkit-text-fill-color: transparent;
+    margin: 10px 0;
     text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
   }
 
@@ -287,12 +292,12 @@
   }
 
   .floating-avatar {
-    width: 40px;    height: 40px;
-    border-radius: 50%;
+    width: 40px;    height: 40px;    border-radius: 50%;
     background: linear-gradient(135deg, var(--accent-gold), var(--accent-bronze));
     display: flex;
     align-items: center;
-    justify-content: center;    font-weight: bold;
+    justify-content: center;
+    font-weight: bold;
     color: #0a0a0a;
     flex-shrink: 0;
   }
@@ -336,12 +341,12 @@
     font-family: "Cormorant Garamond", serif;
     color: white;
     font-size: 0.9rem;    text-align: center;
-    transform: rotate(-15deg);
-    font-weight: 700;
+    transform: rotate(-15deg);    font-weight: 700;
     text-shadow: 0 0 5px rgba(0, 0, 0, 1);
   }
 
-  .value-comparison {    position: relative;
+  .value-comparison {
+    position: relative;
     overflow: visible;
   }
 
@@ -367,6 +372,7 @@
     overflow: visible;
     margin: 0 auto;
     min-height: auto;
+    width: 100% !important;
   }
   
   .container::before {
@@ -384,13 +390,13 @@
     align-items: center;
     justify-content: space-between;
     gap: 18px;    flex-wrap: wrap;
-  }
-  
+  }  
   .brand {
     display: flex;
     gap: 16px;
     align-items: center;
-  }  
+  }
+  
   .logo {
     width: 72px;
     height: 72px;
@@ -433,13 +439,13 @@
     display: inline-block;
     padding: 7px 18px;    border-radius: 30px;
     background: rgba(212, 175, 55, 0.12);
-    color: var(--accent-gold);
-    font-weight: 700;
+    color: var(--accent-gold);    font-weight: 700;
     font-size: 0.95rem;
     letter-spacing: 0.5px;
     backdrop-filter: blur(4px);
     border: 1px solid rgba(212, 175, 55, 0.2);
   }
+
   .badge {
     display: inline-block;
     margin-top: 8px;
@@ -482,20 +488,20 @@
     line-height: 1.75;    font-size: 1.15rem;
     margin-bottom: 22px;
     max-width: 650px;
-  }
-  
+  }  
   strong.highlight {
     color: var(--accent-gold);
     font-weight: 600;
   }
-    .accent-note {
+  
+  .accent-note {
     background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
     border-left: 3px solid var(--accent-gold);    padding: 20px;
     border-radius: 0 var(--radius) var(--radius) 0;
     color: #f0f0f0;
     font-style: normal;    margin: 28px 0;
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.15); /* تم إصلاح خطأ "border: px" */
     position: relative;
     overflow: hidden;
   }
@@ -531,13 +537,13 @@
   }
   
   .value-comparison::before {
-    content: '';
-    position: absolute;
+    content: '';    position: absolute;
     top: -50%;
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);    z-index: 0;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+    z-index: 0;
   }
   
   .value-comparison-content {    position: relative;
@@ -580,13 +586,13 @@
     font-size: 1.1rem;
   }
   
-  .value-highlight {
-    display: inline-block;
+  .value-highlight {    display: inline-block;
     background: rgba(212, 175, 55, 0.15);
     color: var(--accent-gold);
     padding: 3px 10px;
     border-radius: 6px;
-    font-weight: 600;  }
+    font-weight: 600;
+  }
   /* Right card - enhanced */
   .card {
     background: linear-gradient(160deg, #0f0f0f, #181818);
@@ -629,13 +635,13 @@
     margin-bottom: 20px;
     line-height: 1.6;
     position: relative;
-    z-index: 1;
-  }
+    z-index: 1;  }
 
   .value-statement {
     background: rgba(0, 0, 0, 0.4);
     border-left: 3px solid var(--accent-gold);
-    padding: 16px;    border-radius: 0 var(--radius) var(--radius) 0;    margin: 20px 0;
+    padding: 16px;    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 20px 0;
     font-style: normal;
     position: relative;
     overflow: hidden;
@@ -673,18 +679,20 @@
     font-size: 1.05rem;
     z-index: 2;    position: relative;
     overflow: hidden;
+    min-height: 56px;
+    touch-action: manipulation;
   }
   
   .cta::after {
-    content: '';
-    position: absolute;
+    content: '';    position: absolute;
     top: 0;    left: -100%;
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: 0.5s;  }
   
-  .cta:hover::after {    left: 100%;
+  .cta:hover::after {
+    left: 100%;
   }
   
   .cta:hover {
@@ -725,15 +733,15 @@
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
   }
     .card-tile h4 {
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
+    font-family: "Cormorant Garamond", serif;    color: var(--accent-gold);
     margin-bottom: 10px;
     font-size: 1.35rem;
   }  
   .card-tile p {
     color: #d5d5d5;
     margin: 0;
-    line-height: 1.6;    font-size: 1.02rem;
+    line-height: 1.6;
+    font-size: 1.02rem;
   }
 
   /* Life domains section */
@@ -774,15 +782,15 @@
   .domain-icon {
     width: 60px;
     height: 60px;
-    margin: 0 auto 15px;
-    background: rgba(212, 175, 55, 0.1);
+    margin: 0 auto 15px;    background: rgba(212, 175, 55, 0.1);
     border-radius: 50%;    display: grid;
     place-items: center;
     border: 1px solid rgba(212, 175, 55, 0.3);
   }
   
   .domain-icon svg {
-    width: 32px;    height: 32px;
+    width: 32px;
+    height: 32px;
     stroke: var(--accent-gold);
     stroke-width: 1.8;
   }
@@ -823,15 +831,15 @@
     align-items: center;
     gap: 10px;
   }
-    .box h4::before {
-    content: '';
+    .box h4::before {    content: '';
     display: inline-block;
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background: var(--accent-bronze);
   }
-    pre.sample {    white-space: pre-wrap;
+  
+  pre.sample {    white-space: pre-wrap;
     font-family: "Cormorant Garamond", serif;
     color: var(--accent-gold);
     line-height: 1.7;
@@ -872,15 +880,15 @@
     font-size: 1.2rem;
   }  
   .test div {
-    color: var(--muted);
-    margin-top: 10px;
+    color: var(--muted);    margin-top: 10px;
     font-style: italic;
     border-top: 1px dashed rgba(212, 175, 55, 0.3);
     padding-top: 10px;
   }
   .faq {
     margin-top: 28px;
-  }  
+  }
+  
   .faq details {
     background: rgba(25, 25, 25, 0.7);
     padding: 18px;
@@ -921,15 +929,15 @@
     font-size: 1.8rem;
     color: var(--accent-bronze);
     transition: var(--transition);
-  }
-  
+  }  
   details[open] > summary::after {
     content: '-';  }
   
   .faq details[open] summary {
     color: var(--accent-red);
   }
-    .faq p {
+  
+  .faq p {
     color: #e0e0e0;
     margin-top: 14px;
     padding-top: 12px;
@@ -970,15 +978,15 @@
     display: grid;
     place-items: center;
     font-weight: bold;
-  }
-  /* Responsive adjustments */
+  }  /* Responsive adjustments */
   @media (max-width: 1000px) {
     .hero { 
       grid-template-columns: 1fr; 
       gap: 28px;
     }
     .content-columns { 
-      grid-template-columns: 1fr;       gap: 20px;
+      grid-template-columns: 1fr; 
+      gap: 20px;
     }
     .grid3 { 
       grid-template-columns: 1fr; 
@@ -1014,20 +1022,24 @@
   
   @media (max-width: 600px) {
     body {
-      padding: 12px;
+      padding: 12px !important;
       -webkit-overflow-scrolling: touch;
       overflow-y: auto;
-    }
-        .container { 
-      padding: 20px 16px; 
+      width: 100% !important;
+      overflow-x: hidden !important;
+    }        .container { 
+      padding: 20px 16px !important; 
       margin: 8px;
+      width: 100% !important;
     }
     .hero { 
       gap: 24px; 
+      grid-template-columns: 1fr !important;
     }
     .card { 
       padding: 22px; 
-    }    h2.title { 
+    }
+    h2.title { 
       font-size: 2.2rem;     }
     .grid3 { 
       grid-template-columns: 1fr; 
@@ -1064,8 +1076,7 @@
     }
     
     .hourly-amount {
-      font-size: 2.2rem;
-    }
+      font-size: 2.2rem;    }
     
     .limited-spots-banner {
       padding: 12px;
@@ -1075,36 +1086,32 @@
       font-size: 1.4rem;
     }
     
-    /* FIX: Mobile-specific fixes */
-    .container {      max-width: 100% !important;
-      width: 100% !important;
-      padding: 16px 12px !important;
+    /* إصلاحات نهائية للهاتف */
+    .container, .hero, .card, .panel, textarea, input, select, .char-count, .hint {
+      overflow-wrap: break-word !important;
+      word-break: break-word !important;
     }
     
-    .hero {
-      grid-template-columns: 1fr !important;
-      gap: 20px !important;
+    .cta, .pay-btn, .btn-submit, .chip {
+      touch-action: manipulation !important;
+      min-height: 56px !important;
     }
     
-    .card {
-      padding: 20px !important;
-    }
-    
-    .cta {
-      padding: 14px 20px !important;
-      font-size: 1rem !important;
-    }
-    
-    .floating-testimonial {
-      bottom: 10px !important;
-      right: 10px !important;
-      max-width: 95vw !important;
-      font-size: 0.9rem !important;
+    textarea, input[type="text"], input[type="email"], select {
+      min-height: 48px !important;
+      padding: 14px !important;
+      font-size: 1.05rem !important;
     }
     
     /* إصلاح خطأ التنسيق الحرجة */
-    .accent-note {
+    .accent-note, .panel, .card, .benefit, .consent, .payment-section {
       border: 1px solid rgba(212, 175, 55, 0.15) !important;
+    }
+    
+    /* منع التمرير الأفقي نهائياً */
+    html, body, .container {
+      overflow-x: hidden !important;
+      width: 100% !important;
     }
   }
   
@@ -1118,14 +1125,14 @@
       -webkit-overflow-scrolling: touch;
     }
     
-    .floating-testimonial {
-      display: none !important;
+    .floating-testimonial {      display: none !important;
     }
     
     .angel-guide {
       display: none !important;
     }
-  }</style></head>
+  }
+</style></head>
 <body>
   <!-- Golden particles background -->
   <div class="particles-background" id="particles-js"></div>
@@ -1167,14 +1174,14 @@
       <div class="brand" aria-hidden="false">
         <div class="logo" aria-hidden="true">
           <svg viewBox="0 0 32 32" fill="none">
-            <circle cx="16" cy="16" r="14" stroke="#d4af37" stroke-width="1.5" stroke-opacity="0.7" />
-            <path d="M8 16c0-4 3-7 7-7s7 3 7 7-3 7-7 7c-1.5 0-3-.5-4-1.5" stroke="#d4af37" stroke-width="2" />
+            <circle cx="16" cy="16" r="14" stroke="#d4af37" stroke-width="1.5" stroke-opacity="0.7" />            <path d="M8 16c0-4 3-7 7-7s7 3 7 7-3 7-7 7c-1.5 0-3-.5-4-1.5" stroke="#d4af37" stroke-width="2" />
             <path d="M16 10v12" stroke="#d4af37" stroke-width="2" stroke-linecap="round" />
           </svg>
         </div>
         <div>
           <h1 id="main-title">The Quiet Companion</h1>
-          <p>Your personal growth architect — analyzing your unique data to eliminate negativity and amplify your strengths</p>        </div>
+          <p>Your personal growth architect — analyzing your unique data to eliminate negativity and amplify your strengths</p>
+        </div>
       </div>
       <div class="meta" aria-hidden="true">
         <div class="pill">Psychologist-Crafted · Data-Powered · Daily Transformation</div>
@@ -1216,14 +1223,14 @@
         </div>
 
         <!-- Visual comparison between cake slice and permanent value -->
-        <div class="cake-comparison">
-          <div class="cake-visual">
+        <div class="cake-comparison">          <div class="cake-visual">
             <svg class="cake-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path class="cake-disappearing" d="M50 20c-15 0-27 10-27 22v26c0 12 12 22 27 22s27-10 27-22V42c0-12-12-22-27-22z" fill="#ff9eaa" stroke="#ff6b8b" stroke-width="2"/>
               <path class="cake-disappearing" d="M43 42h14v8H43z" fill="#ff6b8b"/>
               <path class="cake-disappearing" d="M46 38h8v4h-8z" fill="#ff4d4d"/>
               <path class="cake-disappearing" d="M50 22v16M38 30h24" stroke="#ff4d4d" stroke-width="2" stroke-linecap="round"/>
-            </svg>            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--accent-red); margin-top: 10px; font-weight: 600;">$30 piece of cake</div>
+            </svg>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--accent-red); margin-top: 10px; font-weight: 600;">$30 piece of cake</div>
             <div style="color: var(--muted); margin-top: 5px; font-size: 0.95rem;">Gone in 5 minutes</div>
           </div>
           
@@ -1265,14 +1272,14 @@
             </div>
             <div class="card-tile" role="listitem">
               <h4>Life Integration</h4>
-              <p>Personalized guidance for work decisions, family dynamics, health routines, and inner peace — all connected to your core growth.</p>
-            </div>
+              <p>Personalized guidance for work decisions, family dynamics, health routines, and inner peace — all connected to your core growth.</p>            </div>
           </div>
         </section>
 
         <!-- New life domains section - added exactly as requested -->
         <div class="life-domains">
-          <h3>Your personal angel in every life domain</h3>          <p style="color: #e0e0e0; max-width: 800px; margin: 12px auto 0; line-height: 1.7">
+          <h3>Your personal angel in every life domain</h3>
+          <p style="color: #e0e0e0; max-width: 800px; margin: 12px auto 0; line-height: 1.7">
             Our psychologists craft messages that transform your experience across all dimensions of life — like a trusted doctor who knows your history and an angel who anticipates your needs before you do.
           </p>
           
@@ -1314,14 +1321,14 @@
               <h4>Inner Peace</h4>
               <p>Dissolve anxiety and build unshakeable emotional resilience</p>
             </div>
-          </div>
-        </div>
+          </div>        </div>
       </div>
 
       <aside class="card" aria-labelledby="cta-title">
         <div class="guarantee-badge" title="100% Money-Back Guarantee">
           <div class="guarantee-text">365<br>Days</div>
-        </div>        
+        </div>
+        
         <small>Begin your transformation</small>
         <h3 id="cta-title">Activate Your Personal Growth Architect</h3>
         <p>Complete a 5-minute onboarding. Our psychologists will analyze your responses to build your first personalized message within 24 hours.</p>
@@ -1363,13 +1370,13 @@
         <pre class="sample">Your onboarding entry:
 "I feel overwhelmed making career decisions. I overthink options but fear missing opportunities."
 
-→ Expert analysis identifies:
-✓ Strength: Deep consideration of options
+→ Expert analysis identifies:✓ Strength: Deep consideration of options
 ✓ Growth area: Decision paralysis from fear
 
 Daily message crafted for you:
 "Before your next decision, write ONE core value this choice must honor. Then set a 24-hour deadline. Your thoroughness is strength — deadlines transform it into power."</pre>
       </div>
+
       <div class="box">
         <h4>Why professionals can't quit</h4>
         <p style="color:#e0e0e0;line-height:1.7;margin:0">
@@ -1413,13 +1420,13 @@ Daily message crafted for you:
         <p>Our specialized psychologists dedicate over 12 hours monthly to your personal transformation — analyzing your data, identifying negativity patterns, and crafting life-changing messages across all domains. For less than a piece of cake that lasts five minutes, you receive a permanent personal angel who dissolves what angers and hurts you while strengthening your core in work, family, health, and inner peace. This human expertise is priceless, yet we keep it accessible because your growth matters more than profit.</p>
       </details>
     </div>
-
     <footer>
       <div>Your private growth ecosystem — where your words become your transformation</div>
       <div class="trust-badges">
         <div class="badge-item">
           <div class="badge-icon">🔒</div>
-          <span>Bank-Grade Encryption</span>        </div>
+          <span>Bank-Grade Encryption</span>
+        </div>
         <div class="badge-item">
           <div class="badge-icon">🧠</div>
           <span>PhD Psychologists Only</span>
@@ -1461,14 +1468,14 @@ Daily message crafted for you:
   // Ensuring the link works normally with absolute path
   document.addEventListener('DOMContentLoaded', function() {
     // Fixing smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {      anchor.addEventListener('click', function (e) {
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth'
         });
       });
-    });    
+    });
+    
     // FIXED: Corrected JavaScript syntax - removed extra closing brace
     // Ensuring the onboarding link works normally without obstacles
     const registerLink = document.getElementById('register-link');
@@ -1510,14 +1517,14 @@ Daily message crafted for you:
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
-      });
-    }
+      });    }
 
     // Ensure smooth scrolling on all devices
     document.body.style.scrollBehavior = 'smooth';
     
     // Accompanying angel indicator
-    const angelGuide = document.getElementById('angel-guide');    if (window.innerWidth > 768) {
+    const angelGuide = document.getElementById('angel-guide');
+    if (window.innerWidth > 768) {
       angelGuide.style.display = 'block';
       
       document.addEventListener('mousemove', (e) => {
@@ -1559,14 +1566,14 @@ Daily message crafted for you:
     
     function updateSpots() {
       spots--;
-      if (spots < 1) spots = 42;
-      
+      if (spots < 1) spots = 42;      
       spotsElement.textContent = spots;
       
       // Update progress bar
       const progressBar = document.querySelector('.progress-bar');
       const percentage = ((42 - spots) / 42) * 100;
-      progressBar.style.width = `${Math.min(percentage, 95)}%`;      
+      progressBar.style.width = `${Math.min(percentage, 95)}%`;
+      
       // Update text
       document.querySelector('.progress-label span:first-child').textContent = `${Math.round(percentage)}% filled`;
     }
@@ -1608,14 +1615,14 @@ Daily message crafted for you:
             bounce: false
           }
         },
-        interactivity: { detect_on: "canvas", events: { onhover: { enable: false } } },
-        retina_detect: true
+        interactivity: { detect_on: "canvas", events: { onhover: { enable: false } } },        retina_detect: true
       });
     }
   });
 
   // Adjust font size appropriately on mobile devices
-  function adjustFontSize() {    if (window.innerWidth < 480) {
+  function adjustFontSize() {
+    if (window.innerWidth < 480) {
       document.documentElement.style.fontSize = '90%';    } else {
       document.documentElement.style.fontSize = '100%';
     }
