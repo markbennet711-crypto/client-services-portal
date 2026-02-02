@@ -12,30 +12,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* Global safety for all viewports */
+/* --- Global / Responsive fixes --- */
 html, body {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden; /* prevent horizontal scroll */
+  height: auto !important;
+  min-height: 100vh;
+  overflow-x: hidden !important;
+  overflow-y: auto;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  width: 100% !important;
+  touch-action: manipulation;
   margin: 0;
   padding: 0;
-  -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-*, *::before, *::after {
-  box-sizing: inherit;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Ensure long words/wrapping never overflow */
-body, p, li, label, input, textarea, select, .chip, .benefit p {
+/* Prevent any element from overflowing horizontally */
+* {
+  max-width: 100%;
   overflow-wrap: anywhere;
   word-break: break-word;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
 }
 
 /* Root variables */
@@ -50,31 +57,35 @@ body, p, li, label, input, textarea, select, .chip, .benefit p {
   --radius: 16px;
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
   --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --max-container-width: 1150px;
 }
 
-/* Body styling */
+/* Body */
 body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   color: var(--text);
-  background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);
-  line-height: 1.6;
-  padding: clamp(12px, 2.5vw, 20px);
+  padding: 20px;
   display: flex;
   justify-content: center;
+  background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);
+  line-height: 1.6;
+  position: relative;
+  width: 100% !important;
 }
 
 /* Container */
 .container {
   width: 100%;
-  max-width: 980px;
+  max-width: var(--max-container-width);
   background: var(--card);
   border-radius: var(--radius);
-  padding: clamp(16px, 3.2vw, 32px);
+  padding: 32px;
   box-shadow: var(--shadow);
   border: 1px solid rgba(212, 175, 55, 0.1);
   position: relative;
+  overflow: visible;
   margin: 0 auto;
-  overflow: hidden; /* prevent decorative overflow */
+  min-height: auto;
 }
 
 /* Decorative top bar */
@@ -86,7 +97,6 @@ body {
   right: 0;
   height: 4px;
   background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
-  pointer-events: none;
 }
 
 /* Header */
@@ -102,49 +112,62 @@ header {
   display: flex;
   gap: 16px;
   align-items: center;
+  min-width: 0;
 }
 
 .logo {
-  width: clamp(44px, 7vw, 64px);
-  height: clamp(44px, 7vw, 64px);
+  width: 72px;
+  height: 72px;
   border-radius: 16px;
   background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
   display: grid;
   place-items: center;
   border: 1px solid rgba(212, 175, 55, 0.25);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
 }
 
-.logo svg { width: 48px; height: 48px; stroke: var(--accent-gold); stroke-width: 1.8; }
+.logo svg {
+  width: 48px;
+  height: 48px;
+  stroke: var(--accent-gold);
+  stroke-width: 1.8;
+}
 
 .brand h1 {
   font-family: "Cormorant Garamond", serif;
   color: var(--accent-gold);
-  font-size: clamp(1.2rem, 3.2vw, 1.8rem);
+  font-size: 2.1rem;
   font-weight: 600;
   letter-spacing: -0.5px;
   text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  line-height: 1;
 }
 
 .brand p {
   color: var(--muted);
-  font-size: clamp(0.85rem, 2.6vw, 0.95rem);
+  font-size: 1.05rem;
   margin-top: 4px;
-  max-width: 400px;
+  max-width: 500px;
   line-height: 1.5;
+  min-width: 0;
 }
 
 /* Meta */
-.meta { text-align: right; color: var(--muted); }
+.meta {
+  text-align: right;
+  color: var(--muted);
+  min-width: 0;
+}
 
 .pill {
   display: inline-block;
-  padding: 6px 16px;
+  padding: 7px 18px;
   border-radius: 30px;
   background: rgba(212, 175, 55, 0.12);
   color: var(--accent-gold);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   letter-spacing: 0.5px;
   backdrop-filter: blur(4px);
   border: 1px solid rgba(212, 175, 55, 0.2);
@@ -152,16 +175,16 @@ header {
 
 .badge {
   display: inline-block;
-  margin-top: 6px;
-  padding: 2px 8px;
-  border-radius: 10px;
+  margin-top: 8px;
+  padding: 3px 10px;
+  border-radius: 12px;
   background: rgba(255, 77, 77, 0.15);
   color: var(--accent-red);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
 }
 
-/* Intro */
+/* Intro / Hero */
 .intro {
   margin-top: 24px;
   text-align: center;
@@ -178,47 +201,51 @@ header {
   width: 120px;
   height: 3px;
   background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-  pointer-events: none;
 }
 
 h2.lead {
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.4rem, 5vw, 2.4rem);
+  font-size: 2.4rem;
   color: var(--accent-gold);
   margin-bottom: 16px;
-  line-height: 1.1;
+  line-height: 1.05;
   text-shadow: 0 4px 15px rgba(184, 134, 47, 0.2);
+  word-break: break-word;
 }
 
 p.lead-note {
   color: #d0d0d0;
+  line-height: 1.75;
+  font-size: 1.15rem;
+  margin-bottom: 22px;
   max-width: 800px;
-  margin: 0 auto 18px;
-  line-height: 1.8;
-  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
-  position: relative;
-  z-index: 1;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Sacred note */
+/* Accent note */
 .sacred-note {
   background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
   border-left: 3px solid var(--accent-gold);
-  padding: 16px;
-  border-radius: 0 12px 12px 0;
+  padding: 20px;
+  border-radius: 0 var(--radius) var(--radius) 0;
   color: #f0f0f0;
-  margin: 16px auto;
+  font-style: normal;
+  margin: 28px auto;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(212, 175, 55, 0.15);
-  max-width: 700px;
+  position: relative;
+  overflow: hidden;
+  max-width: 800px;
+  min-width: 0;
 }
 
-/* Panel */
+/* Panel / benefits */
 .panel {
   margin-top: 24px;
   background: linear-gradient(160deg, #0f0f0f, #181818);
-  border-radius: 14px;
-  padding: 20px;
+  border-radius: var(--radius);
+  padding: 28px;
   border: 1px solid rgba(212, 175, 55, 0.18);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
   position: relative;
@@ -229,11 +256,10 @@ p.lead-note {
 .panel::before {
   content: '';
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(1.2);
-  width: 140%;
-  height: 140%;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
   background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
   z-index: 0;
   pointer-events: none;
@@ -249,12 +275,13 @@ p.lead-note {
   z-index: 1;
 }
 
-/* Benefits layout — allow cards to shrink so they don't force horizontal scroll */
+/* Benefits layout that doesn't force horizontal scroll */
 .benefits {
   display: flex;
   gap: 16px;
   margin-top: 16px;
   flex-wrap: wrap;
+  align-items: stretch;
 }
 
 .benefit {
@@ -262,7 +289,7 @@ p.lead-note {
   min-width: 0;
   background: rgba(30, 30, 30, 0.7);
   border-radius: 12px;
-  padding: 18px;
+  padding: 22px;
   border-left: 4px solid var(--accent-bronze);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(4px);
@@ -274,18 +301,21 @@ p.lead-note {
   font-family: "Cormorant Garamond", serif;
   color: var(--accent-gold);
   margin-bottom: 10px;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
 }
 
 .benefit p {
   color: #d5d5d5;
   margin: 0;
   line-height: 1.6;
-  font-size: 0.98rem;
+  font-size: 1.02rem;
 }
 
-/* Form */
-form { margin-top: 28px; }
+/* Form fields */
+form {
+  margin-top: 28px;
+  min-width: 0;
+}
 
 label {
   display: block;
@@ -319,6 +349,7 @@ label::after {
   border-left: 2px solid rgba(212, 175, 55, 0.2);
 }
 
+/* Inputs */
 textarea, input[type="text"], input[type="email"], select {
   width: 100%;
   margin-top: 14px;
@@ -336,7 +367,7 @@ textarea, input[type="text"], input[type="email"], select {
   backdrop-filter: blur(4px);
   min-height: 48px;
   touch-action: manipulation;
-  min-width: 0; /* critical on small screens */
+  min-width: 0;
 }
 
 textarea { min-height: 160px; }
@@ -348,6 +379,7 @@ textarea:focus, input:focus, select:focus {
   background: rgba(30, 30, 30, 0.9);
 }
 
+/* Char count */
 .char-count {
   text-align: right;
   margin-top: 8px;
@@ -357,13 +389,12 @@ textarea:focus, input:focus, select:focus {
   letter-spacing: 0.5px;
 }
 
-/* Grid two columns (desktop), collapses on small screens */
+/* Grid & chips */
 .grid-2 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   margin-top: 18px;
-  align-items: start;
   min-width: 0;
 }
 
@@ -376,10 +407,11 @@ textarea:focus, input:focus, select:focus {
 }
 
 @media (min-width: 768px) {
-  .radio-group, .checkbox-group { flex-direction: row; }
+  .radio-group, .checkbox-group {
+    flex-direction: row;
+  }
 }
 
-/* Chips */
 .chip {
   background: rgba(40, 40, 40, 0.7);
   border: 1px solid rgba(212, 175, 55, 0.2);
@@ -432,7 +464,7 @@ textarea:focus, input:focus, select:focus {
   background: linear-gradient(90deg, var(--accent-gold), var(--accent-bronze));
 }
 
-/* Controls and buttons */
+/* Controls */
 .controls {
   margin-top: 28px;
   display: flex;
@@ -441,7 +473,8 @@ textarea:focus, input:focus, select:focus {
   flex-wrap: wrap;
 }
 
-.btn-submit {
+/* Support both class names used historically */
+.-submit, .btn-submit {
   padding: 16px 32px;
   border-radius: 14px;
   background: linear-gradient(135deg, var(--accent-gold), var(--accent-bronze));
@@ -472,104 +505,204 @@ textarea:focus, input:focus, select:focus {
 }
 
 .btn-submit:hover::after { left: 100%; }
-.btn-submit:hover { transform: translateY(-3px); box-shadow: 0 18px 42px rgba(212,175,55,0.4); }
+.btn-submit:hover { transform: translateY(-3px); box-shadow: 0 18px 42px rgba(212, 175, 55, 0.4); }
 .btn-submit:active { transform: translateY(1px); }
 
-/* Consent, footer, payment */
-.muted-note { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
-.consent { margin-top: 20px; padding: 20px; background: rgba(30,30,30,0.7); border-radius: 14px; border: 1px solid rgba(212,175,55,0.15); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
-.consent p { color:#d0d0d0; line-height:1.7; font-size:0.98rem; }
+/* Consent & footer */
+.muted-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.consent {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(30, 30, 30, 0.7);
+  border-radius: 14px;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.consent p {
+  color: #d0d0d0;
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
 .consent strong { color: var(--accent-gold); }
 
-footer { margin-top:32px; text-align:center; color:var(--muted); font-size:1.05rem; padding-top:24px; border-top:1px solid rgba(212,175,55,0.1); font-style:italic; line-height:1.6; }
+footer {
+  margin-top: 32px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.05rem;
+  padding-top: 20px;
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+  font-style: italic;
+}
 
-.trust-badges { display:flex; justify-content:center; gap:25px; margin-top:16px; flex-wrap:wrap; }
-.badge-item { display:flex; align-items:center; gap:8px; font-size:0.95rem; color:var(--accent-gold); }
-.badge-icon { width:24px; height:24px; background:rgba(212,175,55,0.15); border-radius:50%; display:grid; place-items:center; font-weight:bold; }
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.badge-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: var(--accent-gold);
+}
+
+.badge-icon {
+  width: 24px;
+  height: 24px;
+  background: rgba(212, 175, 55, 0.15);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+}
 
 /* Payment section */
 .payment-section {
   margin: 30px 0;
   padding: 25px;
-  background: rgba(30,30,30,0.7);
+  background: rgba(30, 30, 30, 0.7);
   border-radius: 14px;
-  border: 1px solid rgba(212,175,55,0.15);
+  border: 1px solid rgba(212, 175, 55, 0.15);
   position: relative;
   overflow: hidden;
 }
 
 .payment-section::before {
-  content:'';
-  position:absolute;
-  top:0; left:0; right:0;
-  height:3px;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
   background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
 }
 
-.status-badge { background: rgba(255,77,77,0.15); color: var(--accent-red); padding:6px 15px; border-radius:20px; display:inline-block; font-weight:600; margin-bottom:15px; }
-.status-badge.paid { background: rgba(0,200,100,0.15); color: #00ff9d; }
-
-/* IMPORTANT: make the payment button an anchor so clicking always navigates */
-.pay-btn {
-  display:inline-flex; align-items:center; gap:10px; padding:14px 28px;
-  background: linear-gradient(135deg, var(--accent-red), #cc0000);
-  color:white; text-decoration:none; border-radius:12px; font-weight:800; font-size:1.05rem;
-  margin-bottom:15px; transition: var(--transition); border:2px solid var(--accent-red);
-  font-family:"Cormorant Garamond", serif; min-height:56px; touch-action: manipulation;
+.status-badge {
+  background: rgba(255, 77, 77, 0.15);
+  color: var(--accent-red);
+  padding: 6px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
-.pay-btn:hover { transform: translateY(-3px); box-shadow: 0 18px 42px rgba(255,77,77,0.4); border-color:#ff3333; }
-.pay-btn svg { stroke: white; stroke-width: 2; flex-shrink: 0; }
+
+.status-badge.paid {
+  background: rgba(0, 200, 100, 0.15);
+  color: #00ff9d;
+}
+
+/* Make payment button an anchor (will navigate) */
+.pay-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--accent-red), #cc0000);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-bottom: 15px;
+  transition: var(--transition);
+  border: 2px solid var(--accent-red);
+  font-family: "Cormorant Garamond", serif;
+  min-height: 56px;
+  touch-action: manipulation;
+}
+
+.pay-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(255, 77, 77, 0.4);
+  border-color: #ff3333;
+}
+
+.pay-btn svg {
+  stroke: white;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
 
 /* Success message */
 .success-message {
-  display:none; text-align:center; padding:40px; background: rgba(40,60,40,0.8); border-radius:14px; border:1px solid rgba(0,200,100,0.3); margin-top:20px;
+  display: none;
+  text-align: center;
+  padding: 40px;
+  background: rgba(40, 60, 40, 0.8);
+  border-radius: 14px;
+  border: 1px solid rgba(0, 200, 100, 0.3);
+  margin-top: 20px;
 }
-.success-message h2 { color:#00ff9d; font-family:"Cormorant Garamond", serif; margin-bottom:15px; font-size:1.8rem; }
-.success-message p { font-size:1.2rem; line-height:1.6; margin:15px 0; color:#d0d0d0; }
-.success-message .note { color:var(--accent-bronze); margin-top:15px; font-style:italic; }
+
+.success-message h2 {
+  color: #00ff9d;
+  font-family: "Cormorant Garamond", serif;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+.success-message p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 15px 0;
+  color: #d0d0d0;
+}
+
+.success-message .note {
+  color: var(--accent-bronze);
+  margin-top: 15px;
+  font-style: italic;
+}
 
 /* Responsive adjustments */
-@media (max-width: 900px) {
-  .benefits { flex-direction: column; }
-  .grid-2 { grid-template-columns: 1fr; }
-  header { gap: 8px; }
-  .brand h1 { font-size: 1.5rem; }
-  h2.lead { font-size: 2.0rem; }
-  .pay-btn { width: 100%; justify-content:center; }
+@media (max-width: 1000px) {
+  .brand h1 { font-size: 1.8rem; }
+  h2.lead { font-size: 2.6rem; }
+  .container { padding: 24px; }
+  .benefit { padding: 20px; }
 }
 
 @media (max-width: 600px) {
   body { padding: 12px !important; }
   .container { padding: 20px 16px !important; margin: 8px; width: 100% !important; }
   .brand h1 { font-size: 1.3rem; }
-  h2.lead { font-size: 1.8rem; }
-  .meta { text-align:left; margin-top:12px; }
+  h2.lead { font-size: 2.2rem; }
+  .meta { text-align: left; margin-top: 12px; }
   header { flex-direction: column; align-items: flex-start; }
-  .controls { flex-direction: column; width:100%; }
-  .btn-submit { width:100% !important; justify-content:center; }
-  .muted-note { text-align:center; width:100%; }
-  .grid-2 { grid-template-columns: 1fr !important; gap:16px !important; }
-  textarea, input[type="text"], input[type="email"], select { min-height:48px !important; padding:14px !important; font-size:1.05rem !important; }
-  textarea { min-height:140px !important; }
-  .chip { padding:12px 16px !important; font-size:0.95rem !important; min-height:44px !important; }
-  .pay-btn, .btn-submit { width:100% !important; padding:16px 24px !important; font-size:1.15rem !important; min-height:56px !important; }
-  label { font-size:1.15rem !important; }
-  .hint { font-size:0.9rem !important; }
-
-  /* Lock horizontal overflow */
+  .benefits { gap: 12px; }
+  .panel { padding: 18px; }
+  .payment-section { padding: 18px; }
+  .grid-2 { grid-template-columns: 1fr !important; gap: 16px !important; }
+  textarea, input[type="text"], input[type="email"], select { min-height: 48px !important; padding: 14px !important; font-size: 1.05rem !important; }
+  textarea { min-height: 140px !important; }
+  .chip { padding: 12px 16px !important; font-size: 0.95rem !important; min-height: 44px !important; }
+  .pay-btn, .btn-submit { width: 100% !important; padding: 16px 24px !important; font-size: 1.15rem !important; min-height: 56px !important; }
+  label { font-size: 1.05rem !important; }
+  .hint { font-size: 0.9rem !important; }
   html, body, .container { overflow-x: hidden !important; width: 100% !important; }
-
-  /* Ensure every element can shrink */
-  * { max-width: 100% !important; box-sizing: border-box; }
+  * { max-width: 100% !important; }
 }
 
-/* Ensure smooth tap on touch devices */
+/* Smooth scrolling for all devices */
 @media (hover: none) {
   * { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
   body { -webkit-overflow-scrolling: touch; }
 }
 
-/* Simple entrance animation */
+/* Entrance animation */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -811,7 +944,7 @@ footer { margin-top:32px; text-align:center; color:var(--muted); font-size:1.05r
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 20px; align-items: center; margin-top: 20px;">
-          <!-- Payment link: clicking this anchor will open Ko-fi in the same tab/window -->
+          <!-- Clicking this anchor will navigate to Ko-fi in the same tab as requested -->
           <a href="https://ko-fi.com/s/cd96925d8f"
              target="_self"
              rel="noopener noreferrer"
@@ -874,151 +1007,170 @@ footer { margin-top:32px; text-align:center; color:var(--muted); font-size:1.05r
   </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Smooth scrolling + safe overscroll
-  document.body.style.scrollBehavior = 'smooth';
-  document.body.style.overscrollBehavior = 'contain';
+  // Core interactive behavior
+  document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling
+    document.body.style.scrollBehavior = 'smooth';
+    document.body.style.overscrollBehavior = 'contain';
 
-  // Payment check via URL params
-  const urlParams = new URLSearchParams(window.location.search);
-  const paymentSuccess = urlParams.get('payment');
-  const clientEmail = urlParams.get('email');
+    // Read URL params to detect payment return
+    const urlParams = new URLSearchParams(window.location.search);
+    const paymentSuccess = urlParams.get('payment');
+    const clientEmail = urlParams.get('email');
 
-  const paymentStatusBadge = document.getElementById('payment-status-badge');
-  const submitBtn = document.getElementById('submit-btn');
-  const paymentStatusInput = document.getElementById('payment-status');
-  const emailInput = document.getElementById('email');
-  const successContainer = document.getElementById('success-container');
+    const paymentStatusBadge = document.getElementById('payment-status-badge');
+    const submitBtn = document.getElementById('submit-btn');
+    const paymentStatusInput = document.getElementById('payment-status');
+    const emailInput = document.getElementById('email');
+    const successContainer = document.getElementById('success-container');
 
-  if (paymentSuccess === 'success' && clientEmail) {
-    paymentStatusBadge.textContent = '✓ Subscription confirmed';
-    paymentStatusBadge.classList.add('paid');
+    if (paymentSuccess === 'success' && clientEmail) {
+      // Mark paid
+      paymentStatusBadge.textContent = '✓ Subscription confirmed';
+      paymentStatusBadge.classList.add('paid');
 
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = 'Begin Your Sacred Transformation';
+      // Enable submit
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Begin Your Sacred Transformation';
 
-    paymentStatusInput.value = 'completed';
+      // Set hidden input
+      paymentStatusInput.value = 'completed';
 
-    if (emailInput) { emailInput.value = clientEmail; }
+      // Fill email if present
+      if (emailInput) {
+        emailInput.value = clientEmail;
+      }
 
-    setTimeout(() => {
-      alert('✅ Thank you for subscribing! Complete your profile below to receive your first message tomorrow.');
-    }, 300);
-  }
+      // Optional user feedback
+      setTimeout(() => {
+        try { alert('✅ Thank you for subscribing! Complete your profile below to receive your first message tomorrow.'); } catch (e) {}
+      }, 300);
+    }
 
-  // Entrance animation for labels/benefits/panel/intro
-  const elements = document.querySelectorAll('label, .benefit, .panel, .intro');
-  elements.forEach((el, index) => {
-    setTimeout(() => el.classList.add('fade-in'), 200 * index);
-  });
+    // Entrance animations
+    const elements = document.querySelectorAll('label, .benefit, .panel, .intro');
+    elements.forEach((el, index) => {
+      setTimeout(() => {
+        el.classList.add('fade-in');
+      }, 150 * index);
+    });
 
-  // Character / word counters
-  function updateCount(el) {
-    const charCount = el.value.length;
-    const wordCount = el.value.trim() === '' ? 0 : el.value.trim().split(/\s+/).length;
-    let next = el.nextElementSibling;
-    while (next && !next.classList.contains('char-count')) next = next.nextElementSibling;
-    if (next && next.classList.contains('char-count')) next.innerText = `${charCount} characters | ${wordCount} words`;
-  }
+    // Character counters
+    function updateCount(el) {
+      const charCount = el.value.length;
+      const wordCount = el.value.trim() === '' ? 0 : el.value.trim().split(/\s+/).length;
+      let next = el.nextElementSibling;
+      while (next && !next.classList.contains('char-count')) next = next.nextElementSibling;
+      if (next && next.classList.contains('char-count')) next.innerText = `${charCount} characters | ${wordCount} words`;
+    }
+    document.querySelectorAll('textarea').forEach(t => {
+      updateCount(t);
+      t.addEventListener('input', () => updateCount(t));
+    });
 
-  document.querySelectorAll('textarea').forEach(t => {
-    updateCount(t);
-    t.addEventListener('input', () => updateCount(t));
-  });
-
-  // Setup chip controls (radios & checkboxes)
-  function setupChips() {
-    document.querySelectorAll('.radio-group .chip').forEach(chip => {
-      chip.addEventListener('click', function() {
-        const input = this.querySelector('input[type="radio"]');
-        if (!input) return;
-        const name = input.name;
-        document.querySelectorAll(`.radio-group .chip input[type="radio"][name="${name}"]`).forEach(r => {
-          const chipEl = r.closest('.chip');
-          if (chipEl) chipEl.classList.remove('active');
+    // Chip controls
+    function setupChips() {
+      // radio-like chips
+      document.querySelectorAll('.radio-group .chip').forEach(chip => {
+        chip.addEventListener('click', function() {
+          const input = this.querySelector('input[type="radio"]');
+          if (!input) return;
+          const name = input.name;
+          document.querySelectorAll(`.radio-group .chip input[type="radio"][name="${name}"]`).forEach(r => {
+            const chipEl = r.closest('.chip');
+            if (chipEl) chipEl.classList.remove('active');
+          });
+          input.checked = true;
+          this.classList.add('active');
         });
-        input.checked = true;
-        this.classList.add('active');
       });
+
+      // checkbox chips
+      document.querySelectorAll('.checkbox-group .chip, .grid-2 .chip').forEach(chip => {
+        chip.addEventListener('click', function(e) {
+          // allow internal input clicks to behave normally
+          const input = this.querySelector('input[type="checkbox"]');
+          if (!input) return;
+          input.checked = !input.checked;
+          this.classList.toggle('active', input.checked);
+        });
+      });
+    }
+    setupChips();
+
+    // Font size adjust for small screens
+    function adjustFontSize() {
+      if (window.innerWidth < 480) document.documentElement.style.fontSize = '90%';
+      else document.documentElement.style.fontSize = '100%';
+    }
+    window.addEventListener('load', adjustFontSize);
+    window.addEventListener('resize', adjustFontSize);
+
+    // Warn before unload if form modified and payment not completed
+    let formModified = false;
+    document.querySelectorAll('textarea, input[type="text"], input[type="email"], select').forEach(el => {
+      el.addEventListener('change', () => { formModified = true; });
+      el.addEventListener('input', () => { formModified = true; });
     });
 
-    document.querySelectorAll('.checkbox-group .chip, .grid-2 .chip').forEach(chip => {
-      chip.addEventListener('click', function() {
-        const input = this.querySelector('input[type="checkbox"]');
-        if (!input) return;
-        input.checked = !input.checked;
-        this.classList.toggle('active', input.checked);
-      });
+    window.addEventListener('beforeunload', (e) => {
+      if (formModified && paymentStatusInput && paymentStatusInput.value !== 'completed') {
+        e.preventDefault();
+        e.returnValue = 'You have unsaved data. If you leave, your responses won\'t be saved until you complete your subscription.';
+      }
     });
-  }
-  setupChips();
 
-  // Submit button handler (logging)
-  if (submitBtn) submitBtn.addEventListener('click', () => console.info('Transformation journey initiated'));
-
-  // Responsive font-size tweak
-  function adjustFontSize() {
-    if (window.innerWidth < 480) document.documentElement.style.fontSize = '90%';
-    else document.documentElement.style.fontSize = '100%';
-  }
-  window.addEventListener('load', adjustFontSize);
-  window.addEventListener('resize', adjustFontSize);
-
-  // Warn user when leaving with unsaved data (if payment not completed)
-  let formModified = false;
-  document.querySelectorAll('textarea, input[type="text"], input[type="email"], select').forEach(el => {
-    el.addEventListener('change', () => formModified = true);
-  });
-
-  window.addEventListener('beforeunload', (e) => {
-    if (formModified && paymentStatusInput && paymentStatusInput.value !== 'completed') {
-      e.preventDefault();
-      e.returnValue = 'You have unsaved data. If you leave, your responses won\'t be saved until you complete your subscription.';
+    // Ensure payment anchor always navigates (target=_self) — keep default navigation
+    const paymentBtn = document.getElementById('payment-btn');
+    if (paymentBtn) {
+      paymentBtn.addEventListener('click', function(e) {
+        // DO NOT prevent default. Force navigation as a fallback:
+        const href = this.getAttribute('href');
+        if (href) {
+          // using setTimeout to allow normal anchor behavior in most browsers,
+          // but also ensure navigation in rare cases where default is blocked.
+          setTimeout(() => { try { window.location.href = href; } catch (err) {} }, 200);
+        }
+      });
     }
   });
 
-  // Ensure the Ko-fi anchor always opens when clicked (kept minimal for compatibility)
-  const paymentBtn = document.getElementById('payment-btn');
-  if (paymentBtn) {
-    paymentBtn.addEventListener('click', function (e) {
-      console.info('Opening Ko-fi subscription link');
-      // No preventDefault — allow normal navigation (target="_self" will navigate in same tab)
-    });
-  }
-});
+  // Form submission validation
+  document.querySelector('form').addEventListener('submit', function(e) {
+    const paymentStatus = document.getElementById('payment-status');
+    const emailEl = document.getElementById('email');
+    const nameEl = document.getElementById('name');
+    const email = emailEl ? emailEl.value.trim() : '';
+    const name = nameEl ? nameEl.value.trim() : '';
 
-// Form submit validation
-document.querySelector('form').addEventListener('submit', function(e) {
-  const paymentStatus = document.getElementById('payment-status');
-  const emailEl = document.getElementById('email');
-  const nameEl = document.getElementById('name');
-  const email = emailEl ? emailEl.value.trim() : '';
-  const name = nameEl ? nameEl.value.trim() : '';
+    // Payment must be completed
+    if (!paymentStatus || paymentStatus.value !== 'completed') {
+      e.preventDefault();
+      alert('⚠️ Please complete your $30 subscription on Ko-fi first to send your data.');
+      document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
 
-  if (!paymentStatus || paymentStatus.value !== 'completed') {
-    e.preventDefault();
-    alert('⚠️ Please complete your $30 subscription on Ko-fi first to send your data.');
-    document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth' });
-    return;
-  }
+    // Basic required fields
+    if (!email || !name) {
+      e.preventDefault();
+      alert('⚠️ Please provide your name and email to begin your transformation.');
+      return;
+    }
 
-  if (!email || !name) {
-    e.preventDefault();
-    alert('⚠️ Please provide your name and email to begin your transformation.');
-    return;
-  }
+    // Email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      e.preventDefault();
+      alert('⚠️ Please enter a valid email address.');
+      return;
+    }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    e.preventDefault();
-    alert('⚠️ Please enter a valid email address.');
-    return;
-  }
+    // At this point the form can submit normally (Netlify or backend)
+    console.info('Form submitted successfully - transformation begins');
 
-  console.info('Form submitted successfully - transformation begins');
-
-  // Production: send to webhook / backend here (left commented for safety)
-});
+    // If you want to POST to a webhook instead of normal form submission, implement here.
+  });
 </script>
 </body>
 </html>
