@@ -12,799 +12,569 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-  /* أساسيات التمرير - مُحسّنة للهواتف */
-  html, body {
-    height: auto !important;
-    min-height: 100vh;
-    overflow-x: hidden !important;
-    overflow-y: auto;
-    position: relative;
-    -webkit-overflow-scrolling: touch;
-    width: 100% !important;
-    touch-action: manipulation;
-    padding: 0;
-    margin: 0;
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    -webkit-tap-highlight-color: transparent;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    max-width: 100%;
-  }
-
-  :root {
-    /* ألوان فاخرة - خلفية سوداء مع لمسات ذهبية وبرونزية */
-    --page-bg: #0a0a0a;
-    --card: #121212;
-    --muted: #a0a0a0;
-    --text: #ffffff;
-    --accent-gold: #d4af37;
-    --accent-bronze: #b8862f;
-    --accent-red: #ff4d4d;
-    --radius: 16px;
-    --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  body {
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    color: var(--text);
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);
-    line-height: 1.6;
-    position: relative;
-    width: 100% !important;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 980px;
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 32px;
-    box-shadow: var(--shadow);
-    border: 1px solid rgba(212, 175, 55, 0.1);
-    position: relative;
-    overflow: visible;
-    margin: 0 auto;
-    min-height: auto;
-    width: 100% !important;
-  }
-
-  .container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
-  }
-
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    flex-wrap: wrap;
-  }
-
-  .brand {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-  }
-
-  .logo {
-    width: 64px;
-    height: 64px;
-    border-radius: 16px;
-    background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
-    display: grid;
-    place-items: center;
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  }
-
-  .logo svg {
-    width: 36px;
-    height: 36px;
-    stroke: var(--accent-gold);
-    stroke-width: 1.8;
-  }
-
-  .brand h1 {
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
-    font-size: 1.8rem;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-  }
-
-  .brand p {
-    color: var(--muted);
-    font-size: 0.95rem;
-    margin-top: 4px;
-    max-width: 400px;
-    line-height: 1.5;
-  }
-
-  .meta {
-    text-align: right;
-    color: var(--muted);
-  }
-
-  .pill {
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 30px;
-    background: rgba(212, 175, 55, 0.12);
-    color: var(--accent-gold);
-    font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-  }
-
-  .badge {
-    display: inline-block;
-    margin-top: 6px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    background: rgba(255, 77, 77, 0.15);
-    color: var(--accent-red);
-    font-size: 0.8rem;
-    font-weight: 600;
-  }
-
-  .intro {
-    margin-top: 24px;
-    text-align: center;
-    position: relative;
-    padding: 24px 0;
-  }
-
-  .intro::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-  }
-
-  h2.lead {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 2.4rem;
-    color: var(--accent-gold);
-    margin-bottom: 16px;
-    line-height: 1.1;
-    text-shadow: 0 4px 15px rgba(184, 134, 47, 0.2);
-  }
-
-  p.lead-note {
-    color: #d0d0d0;
-    max-width: 800px;
-    margin: 0 auto 18px;
-    line-height: 1.8;
-    font-size: 1.1rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .sacred-note {
-    background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
-    border-left: 3px solid var(--accent-gold);
-    padding: 16px;
-    border-radius: 0 12px 12px 0;
-    color: #f0f0f0;
-    font-style: normal;
-    margin: 16px auto;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    max-width: 700px;
-  }
-
-  .panel {
-    margin-top: 24px;
-    background: linear-gradient(160deg, #0f0f0f, #181818);
-    border-radius: 14px;
-    padding: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.18);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(2px);
-  }
-
-  .panel::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
-    z-index: 0;
-  }
-
-  .panel small {
-    color: var(--accent-bronze);
-    display: block;
-    margin-bottom: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    position: relative;
-    z-index: 1;
-  }
-  .benefits {
-    display: flex;
-    gap: 16px;
-    margin-top: 16px;
-    flex-wrap: wrap;
-  }
-
-  .benefit {
-    flex: 1;
-    min-width: 250px;
-    background: rgba(30, 30, 30, 0.7);
-    border-radius: 12px;
-    padding: 18px;
-    border-left: 4px solid var(--accent-bronze);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(4px);
-    transition: var(--transition);
-    border: 1px solid rgba(212, 175, 55, 0.1);
-  }
-
-  .benefit:hover {
-    transform: translateY(-3px);
-    border-left: 4px solid var(--accent-gold);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
-  }
-
-  .benefit h4 {
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-  }
-
-  .benefit p {
-    color: #d5d5d5;
-    margin: 0;
-    line-height: 1.6;
-    font-size: 0.98rem;
-  }
-
-  form {
-    margin-top: 28px;
-  }
-
-  label {
-    display: block;
-    margin-top: 24px;
-    font-weight: 700;
-    color: var(--accent-gold);
-    font-size: 1.15rem;
-    font-family: "Cormorant Garamond", serif;
-    line-height: 1.4;
-    position: relative;
-    padding-bottom: 6px;
-  }
-
-  label::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-bronze), transparent);
-  }
-  .hint {
-    font-size: 0.95rem;
-    color: var(--muted);
-    margin-top: 10px;
-    font-style: italic;
-    line-height: 1.6;
-    padding-left: 8px;
-    border-left: 2px solid rgba(212, 175, 55, 0.2);
-  }
-
-  textarea, input[type="text"], input[type="email"], select {
-    width: 100%;
-    margin-top: 14px;
-    padding: 16px;
-    font-size: 1.05rem;
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 12px;
-    background: rgba(25, 25, 25, 0.8);
-    color: var(--text);
-    transition: var(--transition);
-    resize: vertical;
-    line-height: 1.6;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) inset;
-    backdrop-filter: blur(4px);
-    min-height: 48px;
-    touch-action: manipulation;
-  }
-
-  textarea {
-    min-height: 160px;
-  }
-
-  textarea:focus, input:focus, select:focus {
-    outline: none;
-    border-color: var(--accent-gold);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3), 0 8px 30px rgba(184, 134, 47, 0.25);
-    background: rgba(30, 30, 30, 0.9);
-  }
-
-  .char-count {
-    text-align: right;
-    margin-top: 8px;
-    color: var(--accent-bronze);
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
-
-  .grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 18px;
-  }
-
-  .radio-group, .checkbox-group {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 16px;
-    flex-direction: column;
-  }
-
-  @media (min-width: 768px) {
-    .radio-group, .checkbox-group {
-      flex-direction: row;
-    }
-  }
-
-  .chip {
-    background: rgba(40, 40, 40, 0.7);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    padding: 12px 18px;
-    border-radius: 14px;
-    color: var(--text);
-    cursor: pointer;
-    user-select: none;
-    font-weight: 600;
-    font-size: 1.02rem;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(3px);
-    position: relative;
-    overflow: hidden;
-    min-height: 44px;
-    touch-action: manipulation;
-  }
-
-  .chip::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-bronze), transparent);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-  }
-
-  .chip:hover::before {
-    transform: scaleX(1);
-  }
-
-  .chip:hover {
-    transform: translateY(-2px);
-    border-color: var(--accent-gold);
-  }
-
-  .chip.active {
-    background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
-    border-color: var(--accent-gold);
-    box-shadow: 0 8px 25px rgba(184, 134, 47, 0.25);
-  }
-
-  .chip input {
-    display: none;
-  }
-
-  .chip.active::before {
-    transform: scaleX(1);
-    background: linear-gradient(90deg, var(--accent-gold), var(--accent-bronze));
-  }
-
-  .controls {
-    margin-top: 28px;
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-submit {
-    padding: 16px 32px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, var(--accent-gold), var(--accent-bronze));
-    border: none;
-    color: #081018;
-    font-weight: 800;
-    font-size: 1.1rem;
-    cursor: pointer;
-    box-shadow: 0 14px 36px rgba(212, 175, 55, 0.3);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-    font-family: "Cormorant Garamond", serif;
-    letter-spacing: -0.5px;
-    min-height: 56px;
-    touch-action: manipulation;
-  }
-
-  .btn-submit::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
-  }
-
-  .btn-submit:hover::after {
-    left: 100%;
-  }
-
-  .btn-submit:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 42px rgba(212, 175, 55, 0.4);
-  }
-
-  .btn-submit:active {
-    transform: translateY(1px);
-  }
-
-  .muted-note {
-    color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-  .consent {
-    margin-top: 20px;
-    padding: 20px;
-    background: rgba(30, 30, 30, 0.7);
-    border-radius: 14px;
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  }
-
-  .consent p {
-    color: #d0d0d0;
-    line-height: 1.7;
-    font-size: 0.98rem;
-  }
-
-  .consent strong {
-    color: var(--accent-gold);
-  }
-
-  footer {
-    margin-top: 32px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 1.05rem;
-    padding-top: 24px;
-    border-top: 1px solid rgba(212, 175, 55, 0.1);
-    font-style: italic;
-    line-height: 1.6;
-  }
-
-  .trust-badges {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 16px;
-    flex-wrap: wrap;
-  }
-
-  .badge-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.95rem;
-    color: var(--accent-gold);
-  }
-
-  .badge-icon {
-    width: 24px;
-    height: 24px;
-    background: rgba(212, 175, 55, 0.15);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-weight: bold;
-  }
-
-  /* قسم الدفع الجديد */
-  .payment-section {
-    margin: 30px 0;
-    padding: 25px;
-    background: rgba(30, 30, 30, 0.7);
-    border-radius: 14px;
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .payment-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
-  }
-
-  .status-badge {
-    background: rgba(255, 77, 77, 0.15);
-    color: var(--accent-red);
-    padding: 6px 15px;
-    border-radius: 20px;
-    display: inline-block;
-    font-weight: 600;
-    margin-bottom: 15px;
-  }
-
-  .status-badge.paid {
-    background: rgba(0, 200, 100, 0.15);
-    color: #00ff9d;
-  }
-
-  .pay-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 28px;
-    background: linear-gradient(135deg, var(--accent-red), #cc0000);
-    color: white;
-    text-decoration: none;
-    border-radius: 12px;
-    font-weight: 800;
-    font-size: 1.05rem;
-    margin-bottom: 15px;
-    transition: var(--transition);
-    border: 2px solid var(--accent-red);
-    font-family: "Cormorant Garamond", serif;
-    min-height: 56px;
-    touch-action: manipulation;
-  }
-
-  .pay-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 42px rgba(255, 77, 77, 0.4);
-    border-color: #ff3333;
-  }
-
-  .pay-btn svg {
-    stroke: white;
-    stroke-width: 2;
-    flex-shrink: 0;
-  }
-
-  .success-message {
-    display: none;
-    text-align: center;
-    padding: 40px;
-    background: rgba(40, 60, 40, 0.8);
-    border-radius: 14px;
-    border: 1px solid rgba(0, 200, 100, 0.3);
-    margin-top: 20px;
-  }
-
-  .success-message h2 {
-    color: #00ff9d;
-    font-family: "Cormorant Garamond", serif;
-    margin-bottom: 15px;
-    font-size: 1.8rem;
-  }
-
-  .success-message p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin: 15px 0;
-    color: #d0d0d0;
-  }
-
-  .success-message .note {
-    color: var(--accent-bronze);
-    margin-top: 15px;
-    font-style: italic;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 900px) {
-    .benefits {
-      flex-direction: column;
-    }
-    .grid-2 {
-      grid-template-columns: 1fr;
-    }
-    header {
-      gap: 8px;
-    }
-    .brand h1 {
-      font-size: 1.5rem;
-    }
-    h2.lead {
-      font-size: 2.0rem;
-    }
-    .pay-btn {
-      width: 100%;
-      justify-content: center;
-    }
-  }
-
-  @media (max-width: 600px) {
-    body {
-      padding: 12px !important;
-      -webkit-overflow-scrolling: touch;
-      overflow-y: auto;
-      width: 100% !important;
-      overflow-x: hidden !important;
-    }
-
-    .container {
-      padding: 20px 16px !important;
-      margin: 8px;
-      width: 100% !important;
-    }
-
-    .brand h1 {
-      font-size: 1.3rem;
-    }
-
-    h2.lead {
-      font-size: 1.8rem;
-    }
-    .meta {
-      text-align: left;
-      margin-top: 12px;
-    }
-
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .controls {
-      flex-direction: column;
-      width: 100%;
-    }
-
-    .btn-submit {
-      width: 100% !important;
-      justify-content: center;
-    }
-
-    .muted-note {
-      text-align: center;
-      width: 100%;
-    }
-
-    /* إصلاحات نهائية للهاتف */
-    .grid-2 {
-      grid-template-columns: 1fr !important;
-      gap: 16px !important;
-    }
-
-    textarea, input[type="text"], input[type="email"], select {
-      min-height: 48px !important;
-      padding: 14px !important;
-      font-size: 1.05rem !important;
-    }
-
-    textarea {
-      min-height: 140px !important;
-    }
-
-    .chip {
-      padding: 12px 16px !important;
-      font-size: 0.95rem !important;
-      min-height: 44px !important;
-    }
-
-    .pay-btn, .btn-submit {
-      width: 100% !important;
-      padding: 16px 24px !important;
-      font-size: 1.15rem !important;
-      min-height: 56px !important;
-    }
-
-    label {
-      font-size: 1.15rem !important;
-    }
-
-    .hint {
-      font-size: 0.9rem !important;
-    }
-
-    /* إصلاح خطأ التنسيق */
-    .sacred-note, .panel, .card, .benefit, .consent, .payment-section {
-      border: 1px solid rgba(212, 175, 55, 0.15) !important;
-    }
-
-    /* منع التمرير الأفقي */
-    html, body, .container {
-      overflow-x: hidden !important;
-      width: 100% !important;
-    }
-
-    /* تأكيد تأثيرات التمرير */
-    body {
-      overscroll-behavior: none;
-    }
-
-    /* ضمان عرض كامل على الهواتف */
-    * {
-      max-width: 100% !important;
-    }
-  }
-
-  /* ضمان التمرير السلس على جميع الأجهزة */
-  @media (hover: none) {
-    * {
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
-    }
-    body {
-      -webkit-overflow-scrolling: touch;
-    }
-  }
-
-  /* تأثيرات إدخال أنيقة */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .fade-in {
-    animation: fadeInUp 0.6s ease forwards;
-  }
+/* Global safety for all viewports */
+html, body {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden; /* prevent horizontal scroll */
+  margin: 0;
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Ensure long words/wrapping never overflow */
+body, p, li, label, input, textarea, select, .chip, .benefit p {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+/* Root variables */
+:root {
+  --page-bg: #0a0a0a;
+  --card: #121212;
+  --muted: #a0a0a0;
+  --text: #ffffff;
+  --accent-gold: #d4af37;
+  --accent-bronze: #b8862f;
+  --accent-red: #ff4d4d;
+  --radius: 16px;
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Body styling */
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color: var(--text);
+  background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);
+  line-height: 1.6;
+  padding: clamp(12px, 2.5vw, 20px);
+  display: flex;
+  justify-content: center;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 980px;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: clamp(16px, 3.2vw, 32px);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden; /* prevent decorative overflow */
+}
+
+/* Decorative top bar */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
+  pointer-events: none;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.logo {
+  width: clamp(44px, 7vw, 64px);
+  height: clamp(44px, 7vw, 64px);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.logo svg { width: 48px; height: 48px; stroke: var(--accent-gold); stroke-width: 1.8; }
+
+.brand h1 {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--accent-gold);
+  font-size: clamp(1.2rem, 3.2vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.brand p {
+  color: var(--muted);
+  font-size: clamp(0.85rem, 2.6vw, 0.95rem);
+  margin-top: 4px;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+/* Meta */
+.meta { text-align: right; color: var(--muted); }
+
+.pill {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 30px;
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--accent-gold);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(255, 77, 77, 0.15);
+  color: var(--accent-red);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Intro */
+.intro {
+  margin-top: 24px;
+  text-align: center;
+  position: relative;
+  padding: 24px 0;
+}
+
+.intro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+  pointer-events: none;
+}
+
+h2.lead {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.4rem, 5vw, 2.4rem);
+  color: var(--accent-gold);
+  margin-bottom: 16px;
+  line-height: 1.1;
+  text-shadow: 0 4px 15px rgba(184, 134, 47, 0.2);
+}
+
+p.lead-note {
+  color: #d0d0d0;
+  max-width: 800px;
+  margin: 0 auto 18px;
+  line-height: 1.8;
+  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+  position: relative;
+  z-index: 1;
+}
+
+/* Sacred note */
+.sacred-note {
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
+  border-left: 3px solid var(--accent-gold);
+  padding: 16px;
+  border-radius: 0 12px 12px 0;
+  color: #f0f0f0;
+  margin: 16px auto;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  max-width: 700px;
+}
+
+/* Panel */
+.panel {
+  margin-top: 24px;
+  background: linear-gradient(160deg, #0f0f0f, #181818);
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+}
+
+.panel::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.panel small {
+  color: var(--accent-bronze);
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Benefits layout — allow cards to shrink so they don't force horizontal scroll */
+.benefits {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.benefit {
+  flex: 1 1 280px;
+  min-width: 0;
+  background: rgba(30, 30, 30, 0.7);
+  border-radius: 12px;
+  padding: 18px;
+  border-left: 4px solid var(--accent-bronze);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  transition: var(--transition);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.benefit h4 {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--accent-gold);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.benefit p {
+  color: #d5d5d5;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
+/* Form */
+form { margin-top: 28px; }
+
+label {
+  display: block;
+  margin-top: 24px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  font-size: 1.15rem;
+  font-family: "Cormorant Garamond", serif;
+  line-height: 1.4;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+label::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-bronze), transparent);
+}
+
+.hint {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-top: 10px;
+  font-style: italic;
+  line-height: 1.6;
+  padding-left: 8px;
+  border-left: 2px solid rgba(212, 175, 55, 0.2);
+}
+
+textarea, input[type="text"], input[type="email"], select {
+  width: 100%;
+  margin-top: 14px;
+  padding: 16px;
+  font-size: 1.05rem;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  background: rgba(25, 25, 25, 0.8);
+  color: var(--text);
+  transition: var(--transition);
+  resize: vertical;
+  line-height: 1.6;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) inset;
+  backdrop-filter: blur(4px);
+  min-height: 48px;
+  touch-action: manipulation;
+  min-width: 0; /* critical on small screens */
+}
+
+textarea { min-height: 160px; }
+
+textarea:focus, input:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3), 0 8px 30px rgba(184, 134, 47, 0.25);
+  background: rgba(30, 30, 30, 0.9);
+}
+
+.char-count {
+  text-align: right;
+  margin-top: 8px;
+  color: var(--accent-bronze);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Grid two columns (desktop), collapses on small screens */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 18px;
+  align-items: start;
+  min-width: 0;
+}
+
+.radio-group, .checkbox-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .radio-group, .checkbox-group { flex-direction: row; }
+}
+
+/* Chips */
+.chip {
+  background: rgba(40, 40, 40, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 12px 18px;
+  border-radius: 14px;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  font-size: 1.02rem;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px);
+  position: relative;
+  overflow: hidden;
+  min-height: 44px;
+  touch-action: manipulation;
+  min-width: 0;
+}
+
+.chip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-bronze), transparent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.chip:hover::before { transform: scaleX(1); }
+.chip:hover { transform: translateY(-2px); border-color: var(--accent-gold); }
+
+.chip.active {
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
+  border-color: var(--accent-gold);
+  box-shadow: 0 8px 25px rgba(184, 134, 47, 0.25);
+}
+
+.chip input { display: none; }
+
+.chip.active::before {
+  transform: scaleX(1);
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-bronze));
+}
+
+/* Controls and buttons */
+.controls {
+  margin-top: 28px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-submit {
+  padding: 16px 32px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-bronze));
+  border: none;
+  color: #081018;
+  font-weight: 800;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 14px 36px rgba(212, 175, 55, 0.3);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: -0.5px;
+  min-height: 56px;
+  touch-action: manipulation;
+}
+
+.btn-submit::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+.btn-submit:hover::after { left: 100%; }
+.btn-submit:hover { transform: translateY(-3px); box-shadow: 0 18px 42px rgba(212,175,55,0.4); }
+.btn-submit:active { transform: translateY(1px); }
+
+/* Consent, footer, payment */
+.muted-note { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+.consent { margin-top: 20px; padding: 20px; background: rgba(30,30,30,0.7); border-radius: 14px; border: 1px solid rgba(212,175,55,0.15); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+.consent p { color:#d0d0d0; line-height:1.7; font-size:0.98rem; }
+.consent strong { color: var(--accent-gold); }
+
+footer { margin-top:32px; text-align:center; color:var(--muted); font-size:1.05rem; padding-top:24px; border-top:1px solid rgba(212,175,55,0.1); font-style:italic; line-height:1.6; }
+
+.trust-badges { display:flex; justify-content:center; gap:25px; margin-top:16px; flex-wrap:wrap; }
+.badge-item { display:flex; align-items:center; gap:8px; font-size:0.95rem; color:var(--accent-gold); }
+.badge-icon { width:24px; height:24px; background:rgba(212,175,55,0.15); border-radius:50%; display:grid; place-items:center; font-weight:bold; }
+
+/* Payment section */
+.payment-section {
+  margin: 30px 0;
+  padding: 25px;
+  background: rgba(30,30,30,0.7);
+  border-radius: 14px;
+  border: 1px solid rgba(212,175,55,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.payment-section::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:3px;
+  background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
+}
+
+.status-badge { background: rgba(255,77,77,0.15); color: var(--accent-red); padding:6px 15px; border-radius:20px; display:inline-block; font-weight:600; margin-bottom:15px; }
+.status-badge.paid { background: rgba(0,200,100,0.15); color: #00ff9d; }
+
+/* IMPORTANT: make the payment button an anchor so clicking always navigates */
+.pay-btn {
+  display:inline-flex; align-items:center; gap:10px; padding:14px 28px;
+  background: linear-gradient(135deg, var(--accent-red), #cc0000);
+  color:white; text-decoration:none; border-radius:12px; font-weight:800; font-size:1.05rem;
+  margin-bottom:15px; transition: var(--transition); border:2px solid var(--accent-red);
+  font-family:"Cormorant Garamond", serif; min-height:56px; touch-action: manipulation;
+}
+.pay-btn:hover { transform: translateY(-3px); box-shadow: 0 18px 42px rgba(255,77,77,0.4); border-color:#ff3333; }
+.pay-btn svg { stroke: white; stroke-width: 2; flex-shrink: 0; }
+
+/* Success message */
+.success-message {
+  display:none; text-align:center; padding:40px; background: rgba(40,60,40,0.8); border-radius:14px; border:1px solid rgba(0,200,100,0.3); margin-top:20px;
+}
+.success-message h2 { color:#00ff9d; font-family:"Cormorant Garamond", serif; margin-bottom:15px; font-size:1.8rem; }
+.success-message p { font-size:1.2rem; line-height:1.6; margin:15px 0; color:#d0d0d0; }
+.success-message .note { color:var(--accent-bronze); margin-top:15px; font-style:italic; }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .benefits { flex-direction: column; }
+  .grid-2 { grid-template-columns: 1fr; }
+  header { gap: 8px; }
+  .brand h1 { font-size: 1.5rem; }
+  h2.lead { font-size: 2.0rem; }
+  .pay-btn { width: 100%; justify-content:center; }
+}
+
+@media (max-width: 600px) {
+  body { padding: 12px !important; }
+  .container { padding: 20px 16px !important; margin: 8px; width: 100% !important; }
+  .brand h1 { font-size: 1.3rem; }
+  h2.lead { font-size: 1.8rem; }
+  .meta { text-align:left; margin-top:12px; }
+  header { flex-direction: column; align-items: flex-start; }
+  .controls { flex-direction: column; width:100%; }
+  .btn-submit { width:100% !important; justify-content:center; }
+  .muted-note { text-align:center; width:100%; }
+  .grid-2 { grid-template-columns: 1fr !important; gap:16px !important; }
+  textarea, input[type="text"], input[type="email"], select { min-height:48px !important; padding:14px !important; font-size:1.05rem !important; }
+  textarea { min-height:140px !important; }
+  .chip { padding:12px 16px !important; font-size:0.95rem !important; min-height:44px !important; }
+  .pay-btn, .btn-submit { width:100% !important; padding:16px 24px !important; font-size:1.15rem !important; min-height:56px !important; }
+  label { font-size:1.15rem !important; }
+  .hint { font-size:0.9rem !important; }
+
+  /* Lock horizontal overflow */
+  html, body, .container { overflow-x: hidden !important; width: 100% !important; }
+
+  /* Ensure every element can shrink */
+  * { max-width: 100% !important; box-sizing: border-box; }
+}
+
+/* Ensure smooth tap on touch devices */
+@media (hover: none) {
+  * { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+  body { -webkit-overflow-scrolling: touch; }
+}
+
+/* Simple entrance animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeInUp 0.6s ease forwards; }
 </style>
 </head>
 <body>
@@ -812,7 +582,7 @@
     <header>
       <div class="brand" aria-hidden="false">
         <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <rect x="1" y="1" width="22" height="22" rx="5" fill="rgba(184,134,47,0.06)"/>
             <path d="M6 15c2-3 6-8 11-6" stroke="#d4af37" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
@@ -844,7 +614,8 @@
       <small>How your words become your growth</small>
       <div class="benefits" role="list">
         <div class="benefit" role="listitem">
-          <h4>Negativity Dissolution</h4>          <p>Our psychologists identify negative patterns in your writing and craft precise daily interventions to dissolve them at their source.</p>
+          <h4>Negativity Dissolution</h4>
+          <p>Our psychologists identify negative patterns in your writing and craft precise daily interventions to dissolve them at their source.</p>
         </div>
         <div class="benefit" role="listitem">
           <h4>Strength Amplification</h4>
@@ -893,7 +664,8 @@
       <div class="char-count">0 characters | 0 words</div>
 
       <label for="unsaid_truth">
-        5) What truth lives in your heart but rarely leaves your lips?      </label>
+        5) What truth lives in your heart but rarely leaves your lips?
+      </label>
       <div class="hint">(The desire, fear, or dream you keep private — the part of you that longs to be seen but stays hidden for safety.)</div>
       <textarea id="unsaid_truth" name="unsaid_truth" placeholder="If I could whisper one thing no one knows: 'I secretly long for...'"></textarea>
       <div class="char-count">0 characters | 0 words</div>
@@ -927,7 +699,7 @@
       <div class="char-count">0 characters | 0 words</div>
 
       <label for="protect_this_month">
-        1 What sacred space do you need to protect this month to feel whole?
+        10) What sacred space do you need to protect this month to feel whole?
       </label>
       <div class="hint">(A morning ritual, an hour of quiet, a boundary with work, or time for your body — the small space where your soul can breathe.)</div>
       <textarea id="protect_this_month" name="protect_this_month" placeholder="This month, I commit to protecting..."></textarea>
@@ -1030,7 +802,7 @@
         <div class="hint">(Like tending a garden, small daily care creates deep roots. You can change this anytime.)</div>
       </div>
 
-      <!-- قسم الدفع الجديد -->
+      <!-- Payment section -->
       <div class="payment-section">
         <div style="text-align: center;">
           <div class="status-badge" id="payment-status-badge">
@@ -1039,14 +811,14 @@
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 20px; align-items: center; margin-top: 20px;">
-          <!-- الرابط الصحيح لـ Ko-fi -->
+          <!-- Payment link: clicking this anchor will open Ko-fi in a new tab/window -->
           <a href="https://ko-fi.com/s/cd96925d8f"
              target="_blank"
              rel="noopener noreferrer"
              class="pay-btn"
              id="payment-btn"
              aria-label="Pay $30 monthly subscription on secure Ko-fi page">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.5 4.5 3 7.5 3c1.54 0 3.15.67 4.5 1.78C13.35 3.67 14.96 3 16.5 3 19.5 3 22 5.5 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="white" stroke-width="1.5" fill="none"/>
             </svg>
             Pay $30 Monthly Subscription
@@ -1102,207 +874,154 @@
   </div>
 
 <script>
-  // تحسينات التمرير والوظائف
-  document.addEventListener('DOMContentLoaded', function() {
-    // إصلاح التمرير السلس
-    document.body.style.scrollBehavior = 'smooth';
-    document.body.style.overscrollBehavior = 'contain';
+document.addEventListener('DOMContentLoaded', function() {
+  // Smooth scrolling + safe overscroll
+  document.body.style.scrollBehavior = 'smooth';
+  document.body.style.overscrollBehavior = 'contain';
 
-    // التحقق من حالة الدفع عند تحميل الصفحة
-    const urlParams = new URLSearchParams(window.location.search);
-    const paymentSuccess = urlParams.get('payment');
-    const clientEmail = urlParams.get('email');
+  // Payment check via URL params
+  const urlParams = new URLSearchParams(window.location.search);
+  const paymentSuccess = urlParams.get('payment');
+  const clientEmail = urlParams.get('email');
 
-    const paymentStatusBadge = document.getElementById('payment-status-badge');
-    const submitBtn = document.getElementById('submit-btn');
-    const paymentStatusInput = document.getElementById('payment-status');
-    const emailInput = document.getElementById('email');
-    const successContainer = document.getElementById('success-container');
+  const paymentStatusBadge = document.getElementById('payment-status-badge');
+  const submitBtn = document.getElementById('submit-btn');
+  const paymentStatusInput = document.getElementById('payment-status');
+  const emailInput = document.getElementById('email');
+  const successContainer = document.getElementById('success-container');
 
-    if (paymentSuccess === 'success' && clientEmail) {
-      // تحديث حالة الدفع
-      paymentStatusBadge.textContent = '✓ Subscription confirmed';
-      paymentStatusBadge.classList.add('paid');
+  if (paymentSuccess === 'success' && clientEmail) {
+    paymentStatusBadge.textContent = '✓ Subscription confirmed';
+    paymentStatusBadge.classList.add('paid');
 
-      // تفعيل زر الإرسال
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = 'Begin Your Sacred Transformation';
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'Begin Your Sacred Transformation';
 
-      // تحديث حالة الدفع في النموذج
-      paymentStatusInput.value = 'completed';
+    paymentStatusInput.value = 'completed';
 
-      // ملء حقل البريد الإلكتروني
-      if (emailInput) {
-        emailInput.value = clientEmail;
-      }
+    if (emailInput) { emailInput.value = clientEmail; }
 
-      // إظهار رسالة تأكيد
-      setTimeout(() => {
-        alert('✅ Thank you for subscribing! Complete your profile below to receive your first message tomorrow.');
-      }, 300);
-    }
+    setTimeout(() => {
+      alert('✅ Thank you for subscribing! Complete your profile below to receive your first message tomorrow.');
+    }, 300);
+  }
 
-    // إضافة تأثيرات إدخال أنيقة
-    const elements = document.querySelectorAll('label, .benefit, .panel, .intro');
-    elements.forEach((el, index) => {
-      // تأخير بسيط لإنشاء تأثير متتالي
-      setTimeout(() => {
-        el.classList.add('fade-in');
-      }, 200 * index);
-    });
-
-    // عداد الأحرف والكلمات
-    function updateCount(el) {
-      const charCount = el.value.length;
-      const wordCount = el.value.trim() === '' ? 0 : el.value.trim().split(/\s+/).length;
-      let next = el.nextElementSibling;
-      while(next && !next.classList.contains('char-count')) {
-        next = next.nextElementSibling;
-      }
-      if(next && next.classList.contains('char-count')) {
-        next.innerText = `${charCount} characters | ${wordCount} words`;
-      }
-    }
-
-    // تهيئة العدادات
-    document.querySelectorAll('textarea').forEach(t => {
-      updateCount(t);
-      t.addEventListener('input', () => updateCount(t));
-    });
-
-    // تفعيل وإلغاء تفعيل الرقائق (chips)
-    function setupChips() {
-      // radio chips
-      document.querySelectorAll('.radio-group .chip').forEach(chip => {
-        chip.addEventListener('click', function() {
-          const input = this.querySelector('input[type="radio"]');
-          if (!input) return;
-
-          const name = input.name;
-          document.querySelectorAll(`.radio-group .chip input[type="radio"][name="${name}"]`).forEach(r => {
-            const chipEl = r.closest('.chip');
-            if (chipEl) chipEl.classList.remove('active');
-          });
-
-          input.checked = true;
-          this.classList.add('active');
-        });
-      });
-      // checkbox chips
-      document.querySelectorAll('.checkbox-group .chip, .grid-2 .chip').forEach(chip => {
-        chip.addEventListener('click', function() {
-          const input = this.querySelector('input[type="checkbox"]');
-          if (!input) return;
-          input.checked = !input.checked;
-          this.classList.toggle('active', input.checked);
-        });
-      });
-    }
-
-    setupChips();
-
-    // التحكم في الزر الرئيسي
-    if (submitBtn) {
-      submitBtn.addEventListener('click', function() {
-        console.log('Transformation journey initiated');
-      });
-    }
-
-    // التحكم في حجم الخطوط على الهواتف
-    function adjustFontSize() {
-      if (window.innerWidth < 480) {
-        document.documentElement.style.fontSize = '90%';
-      } else {
-        document.documentElement.style.fontSize = '100%';
-      }
-    }
-
-    window.addEventListener('load', adjustFontSize);
-    window.addEventListener('resize', adjustFontSize);
-
-    // تحذير عند محاولة مغادرة الصفحة مع بيانات غير محفوظة
-    let formModified = false;
-    document.querySelectorAll('textarea, input[type="text"], input[type="email"], select').forEach(el => {
-      el.addEventListener('change', () => {
-        formModified = true;
-      });
-    });
-
-    window.addEventListener('beforeunload', (e) => {
-      if (formModified && paymentStatusInput.value !== 'completed') {
-        e.preventDefault();
-        e.returnValue = 'You have unsaved data. If you leave, your responses won\'t be saved until you complete your subscription.';
-      }
-    });
+  // Entrance animation for labels/benefits/panel/intro
+  const elements = document.querySelectorAll('label, .benefit, .panel, .intro');
+  elements.forEach((el, index) => {
+    setTimeout(() => el.classList.add('fade-in'), 200 * index);
   });
 
-  // وظيفة الإرسال الإضافية للتأكد من العمل الصحيح
-  document.querySelector('form').addEventListener('submit', function(e) {
-    const paymentStatus = document.getElementById('payment-status');
-    const email = document.getElementById('email') ? document.getElementById('email').value : '';
-    const name = document.getElementById('name') ? document.getElementById('name').value : '';
-    // التحقق من حالة الدفع
-    if (paymentStatus.value !== 'completed') {
+  // Character / word counters
+  function updateCount(el) {
+    const charCount = el.value.length;
+    const wordCount = el.value.trim() === '' ? 0 : el.value.trim().split(/\s+/).length;
+    let next = el.nextElementSibling;
+    while (next && !next.classList.contains('char-count')) next = next.nextElementSibling;
+    if (next && next.classList.contains('char-count')) next.innerText = `${charCount} characters | ${wordCount} words`;
+  }
+
+  document.querySelectorAll('textarea').forEach(t => {
+    updateCount(t);
+    t.addEventListener('input', () => updateCount(t));
+  });
+
+  // Setup chip controls (radios & checkboxes)
+  function setupChips() {
+    document.querySelectorAll('.radio-group .chip').forEach(chip => {
+      chip.addEventListener('click', function() {
+        const input = this.querySelector('input[type="radio"]');
+        if (!input) return;
+        const name = input.name;
+        document.querySelectorAll(`.radio-group .chip input[type="radio"][name="${name}"]`).forEach(r => {
+          const chipEl = r.closest('.chip');
+          if (chipEl) chipEl.classList.remove('active');
+        });
+        input.checked = true;
+        this.classList.add('active');
+      });
+    });
+
+    document.querySelectorAll('.checkbox-group .chip, .grid-2 .chip').forEach(chip => {
+      chip.addEventListener('click', function() {
+        const input = this.querySelector('input[type="checkbox"]');
+        if (!input) return;
+        input.checked = !input.checked;
+        this.classList.toggle('active', input.checked);
+      });
+    });
+  }
+  setupChips();
+
+  // Submit button handler (logging)
+  if (submitBtn) submitBtn.addEventListener('click', () => console.info('Transformation journey initiated'));
+
+  // Responsive font-size tweak
+  function adjustFontSize() {
+    if (window.innerWidth < 480) document.documentElement.style.fontSize = '90%';
+    else document.documentElement.style.fontSize = '100%';
+  }
+  window.addEventListener('load', adjustFontSize);
+  window.addEventListener('resize', adjustFontSize);
+
+  // Warn user when leaving with unsaved data (if payment not completed)
+  let formModified = false;
+  document.querySelectorAll('textarea, input[type="text"], input[type="email"], select').forEach(el => {
+    el.addEventListener('change', () => formModified = true);
+  });
+
+  window.addEventListener('beforeunload', (e) => {
+    if (formModified && paymentStatusInput && paymentStatusInput.value !== 'completed') {
       e.preventDefault();
-      alert('⚠️ Please complete your $30 subscription on Ko-fi first to send your data.');
-      // التمرير إلى قسم الدفع
-      document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth' });
-      return;
+      e.returnValue = 'You have unsaved data. If you leave, your responses won\'t be saved until you complete your subscription.';
     }
+  });
 
-    if (!email || !name) {
-      e.preventDefault();
-      alert('⚠️ Please provide your name and email to begin your transformation.');
-      return;
-    }
+  // Ensure the Ko-fi anchor always opens when clicked (some mobile browsers block programmatic opens from non-interactive events)
+  const paymentBtn = document.getElementById('payment-btn');
+  if (paymentBtn) {
+    paymentBtn.addEventListener('click', function (e) {
+      // anchor default behavior will open Ko-fi because it is an <a href="..."> with target="_blank"
+      // we keep this handler minimal for compatibility and log the click
+      console.info('Opening Ko-fi subscription link');
+      // No preventDefault — allow normal navigation
+    });
+  }
+});
 
-    // التحقق من البريد الإلكتروني
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      e.preventDefault();
-      alert('⚠️ Please enter a valid email address.');
-      return;
-    }
+// Form submit validation
+document.querySelector('form').addEventListener('submit', function(e) {
+  const paymentStatus = document.getElementById('payment-status');
+  const emailEl = document.getElementById('email');
+  const nameEl = document.getElementById('name');
+  const email = emailEl ? emailEl.value.trim() : '';
+  const name = nameEl ? nameEl.value.trim() : '';
 
-    console.log('Form submitted successfully - transformation begins');
-
-    // في الإنتاج الفعلي، سيتم إرسال البيانات إلى Make.com هنا:
-    /*
+  if (!paymentStatus || paymentStatus.value !== 'completed') {
     e.preventDefault();
+    alert('⚠️ Please complete your $30 subscription on Ko-fi first to send your data.');
+    document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
 
-    const formData = new FormData(this);
-    const formObject = Object.fromEntries(formData.entries());
+  if (!email || !name) {
+    e.preventDefault();
+    alert('⚠️ Please provide your name and email to begin your transformation.');
+    return;
+  }
 
-    fetch('https://hook.make.com/your-webhook-url', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formObject)
-    })
-    .then(response => {
-      if (response.ok) {
-        // إخفاء النموذج وإظهار رسالة النجاح
-        this.style.display = 'none';
-        document.getElementById('success-container').style.display = 'block';
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    e.preventDefault();
+    alert('⚠️ Please enter a valid email address.');
+    return;
+  }
 
-        // إرسال إشارة إلى Google Analytics (اختياري)
-        if (window.gtag) {
-          gtag('event', 'onboarding_complete', {
-            'event_category': 'subscription',
-            'value': 30
-          });
-        }
-      } else {
-        throw new Error('Failed to save data');
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('There was an issue saving your data. Please try again.');
-    });
-    */
-  });
+  console.info('Form submitted successfully - transformation begins');
+
+  // Production: send to webhook / backend here (left commented for safety)
+});
 </script>
 </body>
-  </html>
+</html>
+```0
