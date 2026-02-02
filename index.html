@@ -495,7 +495,7 @@
     color: #f0f0f0;
     font-style: normal;    margin: 28px 0;
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-    border: px solid rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.15);
     position: relative;
     overflow: hidden;
   }
@@ -1280,7 +1280,7 @@
               <h4>Work & Career</h4>
               <p>Dissolve decision paralysis and amplify strategic confidence</p>
             </div>
-            <div class="domain">
+            <div class="domain-card">
               <div class="domain-icon">
                 <svg viewBox="0 0 24 24" fill="none">
                   <path d="M12 2a10 10 0 00-10 10c0 4.4 2.9 8.1 6.9 9.5l.4.2.4-.2c4-.9 6.9-4.7 6.9-9.5a10 10 0 00-10-10z" stroke="currentColor" stroke-width="1.8"/>
@@ -1326,18 +1326,16 @@
           Our specialized psychologists provide your lifelong transformation — analyzing your personal data to eliminate negativity and amplify your positive traits across all life domains. This is your private angel, always walking beside you.
         </div>
 
-        <!-- CORRECTED KO-FI LINK: Properly formatted for mobile -->
+        <!-- CORRECTED: Link to onboarding form (NOT directly to Ko-fi) -->
         <a class="cta pulse" 
-           href="https://ko-fi.com/s/cd96925d8f?embed=true&ref=landing" 
-           target="_blank" 
-           rel="noopener noreferrer" 
+           href="onboarding-individual.html" 
            id="register-link" 
-           aria-label="Subscribe now - opens secure Ko-fi payment page in new tab">
+           aria-label="Begin your transformation journey - opens secure onboarding form">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 2v20" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
             <path d="M5 9c1.333-2 4-3 7-3s5.667 1 7 3" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          Subscribe Now — $30/month
+          Begin Your Transformation
         </a>
         <p style="margin-top:16px; color: #d0d0d0; font-size:1.05rem; line-height:1.6">
           <strong style="color: var(--accent-gold);">Your privacy is sacred:</strong> Data is encrypted and analyzed only by our vetted psychologists. You own your information — delete anytime.
@@ -1370,9 +1368,9 @@ Daily message crafted for you:
 
       <div class="box">
         <h4>Why professionals can't quit</h4>
-        <p style="color:#e0e0e0;line-height:1.7;margin:0">          "This feels like having a world-class psychologist living in my pocket. They don't just give advice — they <em>know</em> my patterns because I've shared them. When stress hits, their message dissolves my anxiety before it takes root. I've tried therapy, apps, coaches — nothing created this permanent shift." 
-          <br><br>
-          <strong style="color: var(--accent-gold);">— Senior Director, Financial Services (New York)</strong>
+        <p style="color:#e0e0e0;line-height:1.7;margin:0">
+          "This feels like having a world-class psychologist living in my pocket. They don't just give advice — they <em>know</em> my patterns because I've shared them. When stress hits, their message dissolves my anxiety before it takes root. I've tried therapy, apps, coaches — nothing created this permanent shift." 
+          <br><br>          <strong style="color: var(--accent-gold);">— Senior Director, Financial Services (New York)</strong>
         </p>
       </div>
     </div>
@@ -1419,9 +1417,9 @@ Daily message crafted for you:
           <span>Bank-Grade Encryption</span>
         </div>
         <div class="badge-item">
-          <div class="badge-icon">🧠</div>          <span>PhD Psychologists Only</span>
-        </div>
-        <div class="badge-item">
+          <div class="badge-icon">🧠</div>
+          <span>PhD Psychologists Only</span>
+        </div>        <div class="badge-item">
           <div class="badge-icon">🇪🇺</div>
           <span>GDPR & CCPA Compliant</span>        </div>
         <!-- New trust badge - added exactly as requested -->
@@ -1466,11 +1464,11 @@ Daily message crafted for you:
         });
       });
     });
-    // Ensuring the Ko-fi link works normally without obstacles
+    // Ensuring the onboarding link works normally without obstacles
     const registerLink = document.getElementById('register-link');
-    if (registerLink) {      registerLink.addEventListener('click', function(e) {
-        // We do NOT prevent default behavior - link works normally
-        console.info('✅ Opening Ko-fi payment page in new tab: https://ko-fi.com/s/cd96925d8f?embed=true&ref=landing');
+    if (registerLink) {
+      registerLink.addEventListener('click', function(e) {
+        // We do NOT prevent default behavior - link works normally        console.info('✅ Navigating to onboarding form: onboarding-individual.html');
       });
     }
     // FAQ animation
@@ -1517,9 +1515,9 @@ Daily message crafted for you:
       
       document.addEventListener('mousemove', (e) => {
         const mouseX = e.clientX;
-        const mouseY = e.clientY;        
-        angelGuide.style.left = `${mouseX + 15}px`;
-        angelGuide.style.top = `${mouseY + 15}px`;
+        const mouseY = e.clientY;
+        
+        angelGuide.style.left = `${mouseX + 15}px`;        angelGuide.style.top = `${mouseY + 15}px`;
                 // Adding subtle dynamic effect
         const offset = 20;
         const moveX = (mouseX / window.innerWidth - 0.5) * offset;
@@ -1566,9 +1564,9 @@ Daily message crafted for you:
       document.querySelector('.progress-label span:first-child').textContent = `${Math.round(percentage)}% filled`;
     }
     
-    // Automatic update every 1-3 minutes    setInterval(updateSpots, 60000 + Math.random() * 120000);
-    
-    // Show floating testimonial after scrolling
+    // Automatic update every 1-3 minutes
+    setInterval(updateSpots, 60000 + Math.random() * 120000);
+        // Show floating testimonial after scrolling
     let hasShownTestimonial = false;
     window.addEventListener('scroll', () => {
       if (window.scrollY > 800 && !hasShownTestimonial) {
@@ -1615,9 +1613,9 @@ Daily message crafted for you:
       document.documentElement.style.fontSize = '100%';
     }
   }
+
   // Apply adjustments on load and resize
-  window.addEventListener('load', adjustFontSize);
-  window.addEventListener('resize', adjustFontSize);
+  window.addEventListener('load', adjustFontSize);  window.addEventListener('resize', adjustFontSize);
 </script>
 </body>
   </html>
