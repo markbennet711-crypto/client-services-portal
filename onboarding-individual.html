@@ -14,116 +14,173 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-  /* =========================
+  /* ---------------------------
      Global resets + mobile safety
-     ========================= */
-  html,body {
-    margin:0;
-    padding:0;
-    height:auto !important;
-    min-height:100vh;
-    width:100% !important;
-    max-width:100vw !important;
-    overflow-x:hidden !important;
+     --------------------------- */
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: auto !important;
+    min-height: 100vh;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: 100%;
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     background: radial-gradient(circle at top right, rgba(212,175,55,0.06) 0%, #050505 100%);
-    color:#fff;
+    color: #fff;
     touch-action: manipulation;
   }
-  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-  :root{
-    --page-bg:#0a0a0a;
-    --card:#121212;
-    --muted:#a0a0a0;
-    --text:#ffffff;
-    --accent-gold:#d4af37;
-    --accent-bronze:#b8862f;
-    --accent-red:#ff4d4d;
-    --radius:16px;
-    --shadow: 0 10px 40px rgba(0,0,0,0.6);
-    --transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+  /* Make sure no text spills out anywhere */
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+    max-width: 100% !important;
   }
 
-  /* Container */
+  :root {
+    --page-bg: #0a0a0a;
+    --card: #121212;
+    --muted: #a0a0a0;
+    --text: #ffffff;
+    --accent-gold: #d4af37;
+    --accent-bronze: #b8862f;
+    --accent-red: #ff4d4d;
+    --radius: 16px;
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    --gutter: 24px; /* horizontal padding to ensure words never touch edges */
+  }
+
+  /* Container centered with horizontal gutters to prevent overflow */
   .container {
-    width:100%;
-    max-width:1200px;
-    margin:18px auto;
-    padding:26px;
-    background:var(--card);
-    border-radius:var(--radius);
-    border:1px solid rgba(212,175,55,0.08);
-    box-shadow:var(--shadow);
-    position:relative;
-    overflow:visible;
+    width: 100%;
+    max-width: 1200px;
+    margin: 18px auto;
+    padding: 28px var(--gutter);
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid rgba(212,175,55,0.08);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: visible;
   }
-  .container::before{ content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--accent-bronze),var(--accent-gold)); border-radius:inherit; }
+  .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
+    border-radius: 8px;
+  }
 
   /* Header */
   header { display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; }
-  .brand { display:flex; gap:16px; align-items:center; }
-  .logo { width:72px; height:72px; border-radius:16px; background:linear-gradient(145deg, rgba(212,175,55,0.12), rgba(184,134,47,0.08)); display:grid; place-items:center; border:1px solid rgba(212,175,55,0.22); box-shadow:0 4px 20px rgba(0,0,0,0.35); }
-  .brand h1 { font-family:"Cormorant Garamond", serif; color:var(--accent-gold); font-size:2.1rem; margin:0; font-weight:600; }
-  .brand p { margin:0; color:var(--muted); max-width:540px; line-height:1.45; }
+  .brand { display:flex; gap:16px; align-items:center; min-width: 0; } /* min-width:0 prevents grid overflow */
+  .logo { width:72px; height:72px; border-radius:16px; background:linear-gradient(145deg, rgba(212,175,55,0.12), rgba(184,134,47,0.08)); display:grid; place-items:center; border:1px solid rgba(212,175,55,0.22); box-shadow:0 4px 20px rgba(0,0,0,0.35); flex-shrink:0; }
+  .brand h1 { font-family:"Cormorant Garamond", serif; color:var(--accent-gold); font-size:clamp(1.4rem, 3.5vw, 2.1rem); margin:0; font-weight:600; line-height:1.05; }
+  .brand p { margin:0; color:var(--muted); max-width:580px; line-height:1.45; text-align:left; }
 
   .pill { display:inline-block; padding:7px 18px; border-radius:30px; background:rgba(212,175,55,0.12); color:var(--accent-gold); font-weight:700; font-size:0.95rem; border:1px solid rgba(212,175,55,0.15); }
   .badge { display:inline-block; margin-top:8px; padding:4px 10px; border-radius:12px; background:rgba(255,77,77,0.12); color:var(--accent-red); font-weight:600; font-size:0.85rem; }
 
-  /* Hero & layout */
-  .hero { display:grid; grid-template-columns:1fr 420px; gap:32px; margin-top:24px; align-items:start; }
-  @media (max-width:1000px) { .hero { grid-template-columns:1fr; } .container{ padding:20px; } }
+  /* HERO: use flexible columns but avoid fixed width causing overflow */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 420px);
+    gap: 32px;
+    margin-top: 24px;
+    align-items: start;
+  }
+  @media (max-width:1000px) { .hero { grid-template-columns: 1fr; } }
+
+  /* Two-column "content-frame" used where user requested left/right rows with centered text
+     Each column centers its text, and columns never exceed container width. */
+  .content-frame {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    align-items: start;
+    width: 100%;
+    min-width: 0; /* crucial for preventing overflow inside flex/grid children */
+  }
+  .content-column {
+    min-width: 0; /* prevents overflow in flex items */
+    text-align: center; /* center text within each column as requested */
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  @media (max-width:760px) {
+    .content-frame { grid-template-columns: 1fr; }
+    .brand p, .content-column { text-align: center; } /* on narrow screens center everything */
+  }
 
   .eyebrow { color:var(--accent-bronze); font-weight:700; font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px; }
-  h2.title { font-family:"Cormorant Garamond", serif; font-size:3.2rem; margin:0 0 20px 0; line-height:1.05; background:linear-gradient(to right,var(--accent-gold),var(--accent-bronze)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-  p.lead { color:#e0e0e0; font-size:1.12rem; line-height:1.7; margin-bottom:22px; max-width:650px; }
+  h2.title { font-family:"Cormorant Garamond", serif; font-size:clamp(1.8rem,4.5vw,3.2rem); margin:0 0 18px 0; line-height:1.05; background:linear-gradient(to right,var(--accent-gold),var(--accent-bronze)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  p.lead { color:#e0e0e0; font-size:clamp(0.98rem,2.9vw,1.12rem); line-height:1.65; margin-bottom:18px; max-width:100%; margin-left:auto; margin-right:auto; }
 
-  .accent-note { background:linear-gradient(145deg, rgba(212,175,55,0.06), rgba(0,0,0,0.25)); border-left:3px solid var(--accent-gold); padding:20px; border-radius:0 var(--radius) var(--radius) 0; color:#f0f0f0; margin:18px 0; box-shadow:0 6px 25px rgba(0,0,0,0.4); border:1px solid rgba(212,175,55,0.12); }
+  .accent-note { background:linear-gradient(145deg, rgba(212,175,55,0.06), rgba(0,0,0,0.25)); border-left:3px solid var(--accent-gold); padding:18px; border-radius:0 var(--radius) var(--radius) 0; color:#f0f0f0; margin:18px 0; box-shadow:0 6px 25px rgba(0,0,0,0.4); border:1px solid rgba(212,175,55,0.12); }
 
-  .value-comparison { background:rgba(25,20,15,0.85); border:1px solid rgba(212,175,55,0.15); border-radius:var(--radius); padding:22px; margin:22px 0; box-shadow:0 8px 30px rgba(0,0,0,0.35); overflow:hidden; }
-  .value-comparison-content { display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+  /* Value components and small visuals scale dynamically */
+  .value-comparison { background:rgba(25,20,15,0.85); border:1px solid rgba(212,175,55,0.15); border-radius:12px; padding:18px; margin:18px 0; box-shadow:0 8px 30px rgba(0,0,0,0.35); overflow:hidden; }
+  .value-comparison-content { display:flex; gap:18px; align-items:center; flex-wrap:wrap; justify-content:center; }
+  .cake-comparison { display:flex; gap:18px; align-items:center; margin-top:12px; padding:14px; background:rgba(20,15,10,0.7); border-radius:12px; border:1px solid rgba(212,175,55,0.12); justify-content:center; flex-wrap:wrap; }
 
-  /* Cake comparison visuals */
-  .cake-comparison { display:flex; gap:18px; align-items:center; margin-top:22px; padding:16px; background:rgba(20,15,10,0.7); border-radius:var(--radius); border:1px solid rgba(212,175,55,0.12); }
-  .cake-svg, .growth-svg { width:120px; height:120px; display:block; margin:0 auto; }
+  .hourly-value { background:rgba(30,25,20,0.85); border:1px solid rgba(212,175,55,0.12); border-radius:12px; padding:14px; margin-top:12px; text-align:center; }
 
-  .hourly-value { background:rgba(30,25,20,0.85); border:1px solid rgba(212,175,55,0.12); border-radius:12px; padding:16px; margin-top:18px; }
-  .hourly-value h4 { font-family:"Cormorant Garamond", serif; color:var(--accent-gold); margin:0 0 8px 0; }
-
-  /* Card / CTA */
-  .card { background:linear-gradient(160deg,#0f0f0f,#181818); border-radius:var(--radius); padding:24px; border:1px solid rgba(212,175,55,0.12); box-shadow:0 15px 40px rgba(0,0,0,0.5); position:relative; overflow:hidden; }
+  /* CTA card (right column) */
+  .card { background:linear-gradient(160deg,#0f0f0f,#181818); border-radius:12px; padding:18px; border:1px solid rgba(212,175,55,0.12); box-shadow:0 12px 36px rgba(0,0,0,0.5); position:relative; overflow:hidden; min-width:0; }
   .cta { display:inline-flex; align-items:center; gap:12px; padding:12px 18px; border-radius:12px; background:linear-gradient(135deg,var(--accent-red),#cc0000); color:white; text-decoration:none; font-weight:800; border:2px solid var(--accent-red); box-shadow:0 10px 30px rgba(255,77,77,0.3); }
 
-  /* Onboarding form layout & fields */
-  form.onboard { margin-top:28px; }
-  label.field { display:block; margin-top:20px; font-weight:700; color:var(--accent-gold); font-family:"Cormorant Garamond", serif; font-size:1.02rem; position:relative; padding-bottom:6px; }
-  label.field::after { content:''; position:absolute; left:0; bottom:0; width:60px; height:3px; background:linear-gradient(90deg,var(--accent-bronze),transparent); }
-  .hint { font-size:0.95rem; color:var(--muted); margin-top:8px; padding-left:8px; border-left:2px solid rgba(212,175,55,0.12); line-height:1.6; }
+  /* Form & fields - ensure no overflow and centered columns */
+  form.onboard { margin-top: 22px; width: 100%; min-width: 0; }
+  label.field { display:block; margin-top:16px; font-weight:700; color:var(--accent-gold); font-family:"Cormorant Garamond", serif; font-size:1.02rem; position:relative; padding-bottom:6px; text-align:center; }
+  label.field::after { content:''; position:absolute; left:50%; transform:translateX(-50%); bottom:0; width:60px; height:3px; background:linear-gradient(90deg,var(--accent-bronze),transparent); }
+  .hint { font-size:0.95rem; color:var(--muted); margin-top:8px; padding-left:8px; border-left:2px solid rgba(212,175,55,0.12); line-height:1.6; max-width:100%; margin-left:auto; margin-right:auto; text-align:center; }
 
-  textarea, input[type="text"], input[type="email"], select { width:100%; margin-top:12px; padding:14px; font-size:1.03rem; border-radius:12px; border:1px solid rgba(212,175,55,0.08); background:rgba(18,18,18,0.95); color:var(--text); line-height:1.6; resize:vertical; box-shadow: inset 0 6px 18px rgba(0,0,0,0.45); }
+  textarea, input[type="text"], input[type="email"], select {
+    width:100%;
+    margin-top:12px;
+    padding:14px;
+    font-size:1.03rem;
+    border-radius:12px;
+    border:1px solid rgba(212,175,55,0.08);
+    background:rgba(18,18,18,0.95);
+    color:var(--text);
+    line-height:1.6;
+    resize:vertical;
+    box-shadow: inset 0 6px 18px rgba(0,0,0,0.45);
+    max-width:100%;
+  }
   textarea { min-height:140px; }
   textarea:focus, input:focus, select:focus { outline:none; border-color:var(--accent-gold); box-shadow:0 0 0 4px rgba(212,175,55,0.12); background: rgba(25,25,25,0.98); }
 
-  .char-count { text-align:right; color:var(--accent-bronze); font-weight:600; margin-top:8px; font-size:0.9rem; }
+  .char-count { text-align:center; color:var(--accent-bronze); font-weight:600; margin-top:8px; font-size:0.9rem; }
 
-  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:12px; }
+  .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap:18px; margin-top:12px; align-items:start; min-width:0; }
   @media (max-width:760px) { .grid-2 { grid-template-columns:1fr; } }
 
-  .chip { display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; background:rgba(40,40,40,0.7); border:1px solid rgba(212,175,55,0.08); cursor:pointer; transition:var(--transition); user-select:none; }
+  .chip { display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; background:rgba(40,40,40,0.7); border:1px solid rgba(212,175,55,0.08); cursor:pointer; transition:var(--transition); user-select:none; text-align:center; justify-content:center; }
   .chip.active { background:linear-gradient(145deg, rgba(212,175,55,0.12), rgba(184,134,47,0.06)); border-color:var(--accent-gold); box-shadow:0 8px 25px rgba(184,134,47,0.12); }
   .chip input { display:none; }
 
-  .controls { margin-top:24px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-  .btn-submit { padding:14px 28px; border-radius:12px; background:linear-gradient(135deg,var(--accent-gold),var(--accent-bronze)); border:2px solid var(--accent-gold); color:#081018; font-weight:800; font-family:"Cormorant Garamond", serif; cursor:pointer; box-shadow:0 14px 36px rgba(212,175,55,0.22); }
+  .controls { margin-top:20px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; justify-content:center; }
+  .btn-submit { padding:12px 26px; border-radius:12px; background:linear-gradient(135deg,var(--accent-gold),var(--accent-bronze)); border:2px solid var(--accent-gold); color:#081018; font-weight:800; font-family:"Cormorant Garamond", serif; cursor:pointer; box-shadow:0 14px 36px rgba(212,175,55,0.22); }
   .btn-submit:disabled { opacity:0.65; cursor:not-allowed; }
 
-  .payment-section { margin:22px 0; padding:18px; background:rgba(18,18,18,0.75); border-radius:12px; border:1px solid rgba(212,175,55,0.08); }
-  .pay-btn { display:inline-flex; align-items:center; gap:10px; padding:12px 20px; border-radius:10px; background:linear-gradient(135deg,var(--accent-red),#cc0000); color:#fff; text-decoration:none; border:2px solid var(--accent-red); font-weight:800; }
+  .payment-section { margin:18px 0; padding:14px; background:rgba(18,18,18,0.75); border-radius:12px; border:1px solid rgba(212,175,55,0.08); text-align:center; }
+  .pay-btn { display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:10px; background:linear-gradient(135deg,var(--accent-red),#cc0000); color:#fff; text-decoration:none; border:2px solid var(--accent-red); font-weight:800; }
 
-  .consent { margin-top:18px; padding:16px; background:rgba(24,24,24,0.65); border-radius:12px; border:1px solid rgba(212,175,55,0.06); }
+  .consent { margin-top:16px; padding:12px; background:rgba(24,24,24,0.65); border-radius:12px; border:1px solid rgba(212,175,55,0.06); text-align:center; }
 
-  footer { margin-top:30px; text-align:center; color:var(--muted); font-size:1rem; padding-top:20px; border-top:1px solid rgba(212,175,55,0.06); }
+  footer { margin-top:26px; text-align:center; color:var(--muted); font-size:1rem; padding-top:18px; border-top:1px solid rgba(212,175,55,0.06); }
 
   /* Floating testimonial */
   .floating-testimonial { position:fixed; bottom:20px; right:20px; background:rgba(30,25,20,0.95); border-radius:16px; padding:18px; max-width:380px; box-shadow:0 10px 35px rgba(0,0,0,0.6); z-index:9999; transform:translateY(120px); opacity:0; transition:all .45s cubic-bezier(.16,1,.3,1); backdrop-filter:blur(8px); }
@@ -131,14 +188,24 @@
   @media (hover:none) { .floating-testimonial { display:none !important; } #angel-guide { display:none !important; } }
 
   :focus-visible { outline:3px solid var(--accent-gold); outline-offset:3px; }
-  @media (max-width:600px) { .container { padding:16px; margin:12px; } h2.title { font-size:2rem; } textarea { min-height:180px; } }
+
+  /* Safety: ensure svgs/images never force overflow */
+  svg, img { max-width: 100%; height: auto; display: block; }
+
+  /* Small screens adjustments */
+  @media (max-width:600px) {
+    .container { padding: 18px 18px; margin: 12px; }
+    h2.title { font-size: 1.9rem; }
+    textarea { min-height: 180px; }
+    .brand p { text-align: center; }
+  }
 </style>
 </head>
 <body>
-  <!-- Particles background placeholder -->
+  <!-- Decorative particles (no pointer events) -->
   <div id="particles-js" style="position:fixed; inset:0; z-index:-2; pointer-events:none;"></div>
 
-  <!-- Angel guide -->
+  <!-- Angel guide (desktop only) -->
   <div id="angel-guide" style="position:fixed;width:60px;height:60px;z-index:10000;pointer-events:none;opacity:0.85;display:none;filter:drop-shadow(0 0 8px rgba(212,175,55,0.6));">
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs><linearGradient id="angelGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d4af37"/><stop offset="100%" stop-color="#b8862f"/></linearGradient></defs>
@@ -149,17 +216,17 @@
 
   <div class="container" role="main" aria-labelledby="main-title">
     <!-- Limited spots banner -->
-    <div class="limited-spots-banner" style="background:linear-gradient(90deg, rgba(184,134,47,0.12), rgba(212,175,55,0.08)); border-radius:12px; padding:14px; margin-bottom:18px; border:1px solid rgba(212,175,55,0.08);">
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div>
-          <div style="font-weight:700;color:var(--accent-bronze)">Limited availability this month</div>
-          <div style="font-size:1.6rem;font-weight:700;color:var(--accent-gold);"> <span id="spots-remaining">17</span> spots remaining</div>
+    <div style="background:linear-gradient(90deg, rgba(184,134,47,0.12), rgba(212,175,55,0.08)); border-radius:12px; padding:14px; margin-bottom:18px; border:1px solid rgba(212,175,55,0.08);">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap; min-width:0;">
+        <div style="min-width:0">
+          <div style="font-weight:700;color:var(--accent-bronze); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Limited availability this month</div>
+          <div style="font-size:1.4rem;font-weight:700;color:var(--accent-gold);"> <span id="spots-remaining">17</span> spots remaining</div>
         </div>
-        <div style="min-width:240px;">
+        <div style="min-width:220px; width: 100%; max-width:420px;">
           <div style="background:rgba(0,0,0,0.25);border-radius:10px;height:12px;overflow:hidden;border:1px solid rgba(212,175,55,0.15)">
             <div class="progress-bar" style="height:100%;width:87%;background:linear-gradient(90deg,var(--accent-bronze),var(--accent-gold));transition:width 1s ease-in-out;"></div>
           </div>
-          <div style="display:flex;justify-content:space-between;font-size:0.95rem;color:var(--muted);margin-top:6px">
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;color:var(--muted);margin-top:6px">
             <span id="percent-filled">87% filled</span>
             <span>Spots close in: <span id="countdown">23:59:59</span></span>
           </div>
@@ -171,97 +238,97 @@
     <header>
       <div class="brand" aria-hidden="false">
         <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none" width="48" height="48">
+          <svg viewBox="0 0 32 32" fill="none" width="48" height="48" aria-hidden="true">
             <circle cx="16" cy="16" r="14" stroke="#d4af37" stroke-width="1.5" stroke-opacity="0.7"/>
             <path d="M8 16c0-4 3-7 7-7s7 3 7 7-3 7-7 7c-1.5 0-3-.5-4-1.5" stroke="#d4af37" stroke-width="2"/>
             <path d="M16 10v12" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
-        <div>
+        <div style="min-width:0">
           <h1 id="main-title">The Quiet Companion</h1>
-          <p>Your personal growth architect — analyzing your unique data to eliminate negativity and amplify your strengths</p>
+          <p style="margin-top:6px; text-align:left;">Your personal growth architect — analyzing your unique data to eliminate negativity and amplify your strengths</p>
         </div>
       </div>
 
-      <div class="meta" aria-hidden="true" style="text-align:right">
+      <div class="meta" aria-hidden="true" style="text-align:right; min-width:0">
         <div class="pill">Psychologist-Crafted · Data-Powered · Daily Transformation</div>
         <div class="badge" style="margin-top:8px">Trusted by 28,500+ professionals in US & EU</div>
       </div>
     </header>
 
     <div class="hero" role="region" aria-label="Intro">
-      <div>
+      <div style="min-width:0">
         <div class="eyebrow">Your Personal Growth Architect Awaits</div>
         <h2 class="title">Your data becomes your transformation</h2>
-        <p class="lead">Every message is crafted by licensed psychologists who analyze <strong style="color:var(--accent-gold)">your personal writing</strong> to identify your unique strengths. They build daily guidance that <strong style="color:var(--accent-gold)">eliminates negativity</strong> and <strong style="color:var(--accent-gold)">amplifies your positive traits</strong> — like a personal doctor for your mindset.</p>
 
-        <div class="accent-note" aria-live="polite">
-          This isn't generic advice. Our experts analyze what <em>you</em> share to create messages that dissolve your specific frustrations while strengthening your natural abilities. Your words become your transformation.
+        <!-- content-frame: left & right columns with centered text inside each column -->
+        <div class="content-frame" aria-hidden="false" style="margin-bottom:12px;">
+          <div class="content-column">
+            <p class="lead" style="margin-bottom:10px;">
+              Every message is crafted by licensed psychologists who analyze <strong style="color:var(--accent-gold)">your personal writing</strong> to identify your unique strengths and build guidance that eliminates negativity.
+            </p>
+          </div>
+          <div class="content-column">
+            <p class="lead" style="margin-bottom:10px;">
+              Your daily messages arrive like a personal guide — private, precise, and human — created to amplify your positive traits across work, family, health, and inner peace.
+            </p>
+          </div>
+        </div>
+
+        <div class="accent-note" aria-live="polite" style="max-width:100%; margin-left:auto; margin-right:auto;">
+          This isn't generic advice. Our experts analyze what <em>you</em> share to create messages that dissolve your specific frustrations while strengthening your natural abilities.
           <div style="color:var(--accent-gold);font-weight:700;margin-top:8px">Your data stays private. Your growth is permanent.</div>
         </div>
 
-        <!-- Value comparison -->
-        <div class="value-comparison" aria-hidden="false">
+        <div class="value-comparison">
           <div class="value-comparison-content">
-            <div style="flex:1;min-width:150px;text-align:center">
-              <svg viewBox="0 0 200 200" width="120" height="120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div style="text-align:center;">
+              <svg viewBox="0 0 200 200" width="110" height="110" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <defs><linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d4af37"/><stop offset="100%" stop-color="#b8862f"/></linearGradient></defs>
                 <circle cx="100" cy="100" r="90" fill="none" stroke="url(#goldGradient)" stroke-width="3"/>
                 <path d="M70 130C85 145 115 145 130 130L100 100V60" stroke="url(#goldGradient)" stroke-width="4" stroke-linecap="round"/>
               </svg>
-              <div style="font-family:'Cormorant Garamond',serif;color:var(--accent-gold);font-size:2.8rem;font-weight:700;margin-top:8px">$30</div>
+              <div style="font-family:'Cormorant Garamond',serif;color:var(--accent-gold);font-size:2rem;font-weight:700;margin-top:8px">$30</div>
             </div>
-            <div style="flex:2;min-width:260px">
-              <h3 style="font-family:'Cormorant Garamond',serif;color:var(--accent-gold);margin:0 0 10px 0">Your lifelong transformation for less than a piece of cake</h3>
-              <p style="color:#e0e0e0;line-height:1.6;margin:0">Our specialized psychologists invest <strong style="background:rgba(212,175,55,0.08);padding:4px 8px;border-radius:6px;color:var(--accent-gold);font-weight:700">over 12 hours monthly</strong> analyzing your personal data to craft your daily messages. For the price of a slice of cake that disappears in five minutes, you receive a <strong style="color:var(--accent-gold)">permanent personal angel</strong> who walks beside you through every life challenge — dissolving negativity and strengthening your unique traits.</p>
+            <div style="text-align:center; max-width:560px;">
+              <h3 style="font-family:'Cormorant Garamond',serif;color:var(--accent-gold);margin:0 0 8px 0">Your lifelong transformation for less than a piece of cake</h3>
+              <p style="color:#e0e0e0;line-height:1.6;margin:0">Our psychologists invest <strong style="background:rgba(212,175,55,0.08);padding:4px 8px;border-radius:6px;color:var(--accent-gold);font-weight:700">over 12 hours monthly</strong> analyzing your data to craft daily messages that compound into lasting change.</p>
             </div>
           </div>
         </div>
 
-        <!-- Cake vs Transformation visual -->
-        <div class="cake-comparison">
-          <div style="flex:1;text-align:center;">
-            <svg class="cake-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 60h60v20H20z" fill="#ff9eaa" stroke="#ff6b8b" stroke-width="1.5"/>
-              <path d="M30 40h40v20H30z" fill="#ff6b8b"/>
-              <circle cx="50" cy="30" r="6" fill="#ff4d4d"/>
-            </svg>
-            <div style="font-family:'Cormorant Garamond',serif;color:var(--accent-red);font-weight:700;margin-top:10px">$30 piece of cake</div>
+        <div class="cake-comparison" aria-hidden="false">
+          <div style="text-align:center; min-width:0;">
+            <svg class="cake-svg" viewBox="0 0 100 100" width="90" height="90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 60h60v20H20z" fill="#ff9eaa" stroke="#ff6b8b" stroke-width="1.2"/><path d="M30 40h40v20H30z" fill="#ff6b8b"/><circle cx="50" cy="30" r="6" fill="#ff4d4d"/></svg>
+            <div style="font-family:'Cormorant Garamond',serif;color:var(--accent-red);font-weight:700;margin-top:8px">$30 piece of cake</div>
             <div style="color:var(--muted);font-size:0.95rem">Gone in 5 minutes</div>
           </div>
-          <div style="flex:1;text-align:center;">
-            <svg class="growth-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="50" r="40" stroke="url(#growthGradient)" stroke-width="3" fill="none" opacity="0.9"/>
-              <defs><linearGradient id="growthGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d4af37"/><stop offset="100%" stop-color="#b8862f"/></linearGradient></defs>
-              <path d="M30 70c12-10 18-30 40-30" stroke="url(#growthGradient)" stroke-width="3" fill="none"/>
-            </svg>
-            <div style="font-family:'Cormorant Garamond',serif;color:var(--accent-gold);font-weight:700;margin-top:10px">Your transformation</div>
+          <div style="text-align:center; min-width:0;">
+            <svg class="growth-svg" viewBox="0 0 100 100" width="90" height="90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="growthGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d4af37"/><stop offset="100%" stop-color="#b8862f"/></linearGradient></defs><circle cx="50" cy="50" r="40" stroke="url(#growthGradient)" stroke-width="3" fill="none" opacity="0.95"/><path d="M30 70c12-10 18-30 40-30" stroke="url(#growthGradient)" stroke-width="3" fill="none"/></svg>
+            <div style="font-family:'Cormorant Garamond',serif;color:var(--accent-gold);font-weight:700;margin-top:8px">Your transformation</div>
             <div style="color:var(--muted);font-size:0.95rem">Lasts a lifetime</div>
           </div>
         </div>
 
-        <!-- Hourly value -->
-        <div class="hourly-value">
-          <h4>Your investment breaks down to:</h4>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--accent-gold);font-weight:700">$0.04 per hour</div>
-          <p style="color:#e0e0e0;margin-top:8px">For less than the cost of a <strong style="color:var(--accent-gold)">single sip of coffee</strong>, you receive 24/7 guidance from your personal psychological architect.</p>
+        <div class="hourly-value" aria-hidden="false">
+          <h4 style="margin:0 0 6px 0">Your investment breaks down to:</h4>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--accent-gold);font-weight:700">$0.04 per hour</div>
+          <p style="color:#e0e0e0;margin-top:8px">For less than a sip of coffee, receive 24/7 guidance from your personal psychological architect.</p>
         </div>
-
       </div>
 
-      <!-- Right card CTA -->
-      <aside class="card" aria-labelledby="cta-title">
-        <div style="position:absolute;top:-15px;right:-15px;background:linear-gradient(135deg,var(--accent-red),#cc0000);width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px rgba(255,77,77,0.4);border:3px solid var(--card)">
+      <aside class="card" aria-labelledby="cta-title" style="min-width:0">
+        <div style="position:absolute;top:-12px;right:-12px;background:linear-gradient(135deg,var(--accent-red),#cc0000);width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px rgba(255,77,77,0.4);border:3px solid var(--card)">
           <div style="font-family:'Cormorant Garamond',serif;color:white;font-weight:700;text-align:center;line-height:1">365<br>Days</div>
         </div>
 
         <small style="color:var(--accent-bronze);display:block;margin-bottom:8px;font-weight:600">Begin your transformation</small>
-        <h3 id="cta-title" style="margin:0 0 10px 0">Activate Your Personal Growth Architect</h3>
-        <p style="color:#d0d0d0;line-height:1.6">Complete a 5-minute onboarding. Our psychologists will analyze your responses to build your first personalized message within 24 hours.</p>
+        <h3 id="cta-title" style="margin:0 0 8px 0">Activate Your Personal Growth Architect</h3>
+        <p style="color:#d0d0d0;line-height:1.6;margin-bottom:12px">Complete a 5-minute onboarding. Our psychologists will analyze your responses to build your first personalized message within 24 hours.</p>
 
-        <div style="background:rgba(0,0,0,0.4);border-left:3px solid var(--accent-gold);padding:12px;border-radius:8px;margin:14px 0;">
+        <div style="background:rgba(0,0,0,0.4);border-left:3px solid var(--accent-gold);padding:12px;border-radius:8px;margin:12px 0;">
           <strong style="color:var(--accent-gold);display:block;margin-bottom:6px">For less than a piece of cake that vanishes in 5 minutes...</strong>
-          <div style="color:#e6e6e6;line-height:1.5">Our specialized psychologists provide your lifelong transformation — analyzing your personal data to eliminate negativity and amplify your positive traits across all life domains.</div>
+          <div style="color:#e6e6e6;line-height:1.5">Our psychologists provide your lifelong transformation — analyzing personal data to eliminate negativity and amplify your positive traits across life domains.</div>
         </div>
 
         <a class="cta" href="#onboarding-form" id="register-link" aria-label="Begin your transformation journey - opens secure onboarding form">
@@ -269,115 +336,115 @@
           Begin Your Transformation
         </a>
 
-        <p style="color:#d0d0d0;margin-top:12px"> <strong style="color:var(--accent-gold)">Your privacy is sacred:</strong> Data is encrypted and analyzed only by our vetted psychologists. You own your information — delete anytime.</p>
+        <p style="color:#d0d0d0;margin-top:12px;text-align:center"> <strong style="color:var(--accent-gold)">Your privacy is sacred:</strong> Data is encrypted and analyzed only by vetted psychologists. You own your information — delete anytime.</p>
       </aside>
     </div>
 
-    <!-- ONBOARDING FORM - full 17 questions sequentially -->
-    <form id="onboarding-form" class="onboard" name="onboarding" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-labelledby="main-title" role="form" style="margin-top:20px">
+    <!-- ONBOARDING FORM - questions 1..17 sequentially, with Q17 open after Q16 -->
+    <form id="onboarding-form" class="onboard" name="onboarding" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-labelledby="main-title" role="form" style="margin-top:18px; min-width:0;">
       <input type="hidden" name="form-name" value="onboarding">
       <input type="text" name="bot-field" style="display:none" aria-hidden="true">
       <input type="hidden" id="payment-status" name="payment_status" value="pending">
 
       <!-- Q1 -->
       <label class="field" for="change_needed">1) In the quiet moments when no one sees you, what part of your life feels most stretched?</label>
-      <div class="hint">(Be gentle with yourself. This is where your transformation begins — whether it's work pressure, caring for others, health challenges, or relationships that drain your spirit.)</div>
+      <div class="hint">(Be gentle. Where does your energy feel most drained?)</div>
       <textarea id="change_needed" name="change_needed" placeholder="I often tell myself: 'This is just how life is' about..."></textarea>
       <div class="char-count" id="count-change_needed">0 characters | 0 words</div>
 
       <!-- Q2 -->
       <label class="field" for="repeating_pattern">2) What pattern keeps returning like an old friend you've outgrown?</label>
-      <div class="hint">(Notice without judgment: saying yes when you're exhausted, avoiding conversations that matter, or proving your worth through constant doing.)</div>
+      <div class="hint">(Notice without judgment.)</div>
       <textarea id="repeating_pattern" name="repeating_pattern" placeholder="When I'm stressed, I notice myself..."></textarea>
       <div class="char-count" id="count-repeating_pattern">0 characters | 0 words</div>
 
       <!-- Q3 -->
       <label class="field" for="inner_voice">3) What does your inner voice whisper when things feel heavy?</label>
-      <div class="hint">(The sentence that plays when you're alone at 3 AM — the one you'd never say aloud but carries your deepest fear.)</div>
+      <div class="hint">(The 3 AM sentence.)</div>
       <textarea id="inner_voice" name="inner_voice" placeholder="My inner voice says: 'If I stop, everything will fall apart...'"></textarea>
       <div class="char-count" id="count-inner_voice">0 characters | 0 words</div>
 
       <!-- Q4 -->
       <label class="field" for="forgotten_truth">4) What true thing about yourself do you forget when the world gets loud?</label>
-      <div class="hint">(A strength you possess, a value you hold dear, or a quality that makes you uniquely you — the truth that grounds you when remembered.)</div>
+      <div class="hint">(A strength or value that grounds you.)</div>
       <textarea id="forgotten_truth" name="forgotten_truth" placeholder="When I'm centered, I remember: I am..."></textarea>
       <div class="char-count" id="count-forgotten_truth">0 characters | 0 words</div>
 
       <!-- Q5 -->
       <label class="field" for="unsaid_truth">5) What truth lives in your heart but rarely leaves your lips?</label>
-      <div class="hint">(The desire, fear, or dream you keep private — the part of you that longs to be seen but stays hidden for safety.)</div>
+      <div class="hint">(A private desire, fear, or dream.)</div>
       <textarea id="unsaid_truth" name="unsaid_truth" placeholder="If I could whisper one thing no one knows: 'I secretly long for...'"></textarea>
       <div class="char-count" id="count-unsaid_truth">0 characters | 0 words</div>
 
       <!-- Q6 -->
       <label class="field" for="desired_feeling">6) How do you wish to feel in your body and heart this month — beyond achievements?</label>
-      <div class="hint">(Focus on being, not doing: 'grounded when pressure comes', 'peaceful with uncertainty', 'gentle with my own mistakes'.)</div>
+      <div class="hint">(Being-focused answers.)</div>
       <textarea id="desired_feeling" name="desired_feeling" placeholder="I want to feel... when I wake up, at work, with loved ones, and before sleep."></textarea>
       <div class="char-count" id="count-desired_feeling">0 characters | 0 words</div>
 
       <!-- Q7 -->
       <label class="field" for="support_style">7) What kind of presence would truly help you right now?</label>
-      <div class="hint">(A calm mirror reflecting your truth, practical micro-steps for overwhelming days, or a gentle reminder of your strength when doubt creeps in.)</div>
+      <div class="hint">(Calm mirror, practical micro-steps, gentle reminders?)</div>
       <textarea id="support_style" name="support_style" placeholder="When I'm struggling, I need..."></textarea>
       <div class="char-count" id="count-support_style">0 characters | 0 words</div>
 
       <!-- Q8 -->
       <label class="field" for="message_feel">8) How should your daily message feel when it meets you?</label>
-      <div class="hint">(Like a trusted friend who knows your heart, a wise mentor who sees your potential, or a calm companion who walks beside you without judgment.)</div>
+      <div class="hint">(Friendlike, mentorlike, companionlike?)</div>
       <textarea id="message_feel" name="message_feel" placeholder="I want messages that feel like..."></textarea>
       <div class="char-count" id="count-message_feel">0 characters | 0 words</div>
 
       <!-- Q9 -->
       <label class="field" for="red_lines">9) What words or approaches make you close your heart?</label>
-      <div class="hint">(Phrases that trigger shame, pressure that feels like judgment, or positivity that dismisses your real pain — your safe boundaries matter.)</div>
+      <div class="hint">(Boundaries & triggers.)</div>
       <textarea id="red_lines" name="red_lines" placeholder="Please never say: 'Just think positive' or 'You should be grateful' because..."></textarea>
       <div class="char-count" id="count-red_lines">0 characters | 0 words</div>
 
       <!-- Q10 -->
       <label class="field" for="protect_this_month">10) What sacred space do you need to protect this month to feel whole?</label>
-      <div class="hint">(A morning ritual, an hour of quiet, a boundary with work, or time for your body — the small space where your soul can breathe.)</div>
+      <div class="hint">(A morning ritual, an hour, a boundary.)</div>
       <textarea id="protect_this_month" name="protect_this_month" placeholder="This month, I commit to protecting..."></textarea>
       <div class="char-count" id="count-protect_this_month">0 characters | 0 words</div>
 
       <!-- Q11 -->
       <label class="field" for="before_stopping">11) What happens inside you just before you want to give up?</label>
-      <div class="hint">(The physical sensation in your chest, the thought that loops in your mind, or the moment when everything feels too heavy — we'll help you recognize it earlier.)</div>
+      <div class="hint">(Physical sensation, looping thought.)</div>
       <textarea id="before_stopping" name="before_stopping" placeholder="When I'm about to stop trying, I notice..."></textarea>
       <div class="char-count" id="count-before_stopping">0 characters | 0 words</div>
 
       <!-- Q12 -->
       <label class="field" for="fear_of_improvement">12) What might you lose if your life actually becomes easier?</label>
-      <div class="hint">(Sometimes we cling to struggle because it defines us, because others depend on our strength, or because we fear what happiness might ask of us.)</div>
+      <div class="hint">(Fears about identity, role, or change.)</div>
       <textarea id="fear_of_improvement" name="fear_of_improvement" placeholder="If things improve, I worry I might lose..."></textarea>
       <div class="char-count" id="count-fear_of_improvement">0 characters | 0 words</div>
 
       <!-- Q13 -->
       <label class="field" for="how_to_feel">13) Beyond what you do, how do you want to experience each day?</label>
-      <div class="hint">(The inner landscape you desire: calm amidst chaos, courage when afraid, connection when isolated, or peace when your mind races.)</div>
+      <div class="hint">(Inner landscape desired.)</div>
       <textarea id="how_to_feel" name="how_to_feel" placeholder="Day by day, I want to feel..."></textarea>
       <div class="char-count" id="count-how_to_feel">0 characters | 0 words</div>
 
       <!-- Q14 -->
       <label class="field" for="never_forget">14) (Optional) One truth about you that anchors your soul</label>
-      <div class="hint">(A phrase, memory, or value that captures your essence — the light we'll gently remind you of when shadows fall.)</div>
+      <div class="hint">(A phrase or memory that anchors you.)</div>
       <textarea id="never_forget" name="never_forget" placeholder="No matter what happens, never forget: I am..."></textarea>
       <div class="char-count" id="count-never_forget">0 characters | 0 words</div>
 
       <!-- Q15 -->
       <label class="field" for="bold_step">15) (Optional) What small brave step calls to your heart this month?</label>
-      <div class="hint">(Not a grand gesture, but a quiet courage: sending that email, setting that boundary, or allowing yourself rest when the world demands more.)</div>
+      <div class="hint">(A gentle courageous action.)</div>
       <textarea id="bold_step" name="bold_step" placeholder="This month, I'd like to gently try..."></textarea>
       <div class="char-count" id="count-bold_step">0 characters | 0 words</div>
 
       <!-- Q16 -->
       <label class="field" for="triggers">16) (Optional) What words or topics need gentle handling?</label>
-      <div class="hint">(Trauma, loss, health struggles, or past pain — naming these helps us create messages that honor your journey without causing harm.)</div>
+      <div class="hint">(Trauma, loss, health struggles, etc.)</div>
       <textarea id="triggers" name="triggers" placeholder="Please be careful with: grief around... or anxiety about..."></textarea>
       <div class="char-count" id="count-triggers">0 characters | 0 words</div>
 
-      <!-- Q17 (full open response) placed directly after Q16 -->
+      <!-- Q17 (open) directly after Q16 -->
       <label class="field" for="priority_open_reflection">17) In your own words, what feels most urgent to heal or transform right now?</label>
-      <div class="hint">There are no limits here. Write freely — a story, a feeling, a confession, or even fragmented thoughts. Our psychologists read every word with care.</div>
+      <div class="hint">No limits — write freely. Our psychologists read every word with care.</div>
       <textarea id="priority_open_reflection" name="priority_open_reflection" placeholder="If I could be completely honest right now..." style="min-height:260px;"></textarea>
       <div class="char-count" id="count-priority_open_reflection">0 characters | 0 words</div>
 
@@ -409,17 +476,17 @@
         </div>
       </div>
 
-      <div style="margin-top:18px">
+      <div style="margin-top:16px">
         <label class="field">How often would you like this gentle companionship?</label>
-        <div class="hint">(Like tending a garden, small daily care creates deep roots. You can change this anytime.)</div>
-        <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+        <div class="hint">(Like tending a garden, small daily care creates deep roots.)</div>
+        <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap; justify-content:center;">
           <label class="chip"><input type="radio" name="frequency" value="daily" checked> Daily</label>
           <label class="chip"><input type="radio" name="frequency" value="every-other-day"> Every other day</label>
           <label class="chip"><input type="radio" name="frequency" value="three-times-week"> Three times weekly</label>
         </div>
       </div>
 
-      <!-- Payment section -->
+      <!-- Payment -->
       <div class="payment-section" style="margin-top:18px">
         <div style="text-align:center">
           <div id="payment-status-badge" style="display:inline-block;padding:8px 14px;border-radius:18px;background:rgba(255,77,77,0.12);color:var(--accent-red);font-weight:700">Subscription required to send data</div>
@@ -446,10 +513,9 @@
 
       <div class="controls">
         <button class="btn-submit" id="submit-btn" type="submit" disabled>Complete Your Profile (Payment Required)</button>
-        <div style="color:var(--muted);font-size:0.95rem">You can pause or update preferences anytime — your journey, your pace.</div>
       </div>
 
-      <div style="margin-top:18px;text-align:center;color:var(--muted)">Many choose to support this work after experiencing their first messages. Supporters receive occasional bonus reflections and optional 1:1 check-ins with our psychologists.</div>
+      <div style="margin-top:16px;text-align:center;color:var(--muted)">Many choose to support this work after experiencing their first messages. Supporters receive occasional bonus reflections and optional 1:1 check-ins with our psychologists.</div>
     </form>
 
     <!-- Success message -->
@@ -460,11 +526,11 @@
     </div>
 
     <!-- Testimonials / Examples -->
-    <section style="margin-top:26px">
-      <div style="display:flex;gap:18px;flex-wrap:wrap">
-        <div style="flex:1;min-width:260px;background:rgba(20,20,20,0.6);padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.06);box-shadow:0 8px 20px rgba(0,0,0,0.4)">
+    <section style="margin-top:22px">
+      <div style="display:flex;gap:18px;flex-wrap:wrap; justify-content:center;">
+        <div style="flex:1;min-width:260px;background:rgba(20,20,20,0.6);padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.06);box-shadow:0 8px 20px rgba(0,0,0,0.4); text-align:center;">
           <h4 style="font-family:'Cormorant Garamond',serif;color:var(--accent-gold);margin:0 0 8px 0">How psychologists transform your data</h4>
-          <pre style="white-space:pre-wrap;background:rgba(0,0,0,0.3);padding:12px;border-radius:8px;border-left:3px solid var(--accent-bronze);font-family:'Cormorant Garamond',serif;color:var(--accent-gold)">Your onboarding entry:
+          <pre style="white-space:pre-wrap;background:rgba(0,0,0,0.3);padding:12px;border-radius:8px;border-left:3px solid var(--accent-bronze);font-family:'Cormorant Garamond',serif;color:var(--accent-gold); text-align:left; overflow:auto;">Your onboarding entry:
 "I feel overwhelmed making career decisions. I overthink options but fear missing opportunities."
 
 → Expert analysis identifies:
@@ -475,18 +541,18 @@ Daily message crafted for you:
 "Before your next decision, write ONE core value this choice must honor. Then set a 24-hour deadline."</pre>
         </div>
 
-        <div style="flex:1;min-width:260px;background:rgba(20,20,20,0.6);padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.06);box-shadow:0 8px 20px rgba(0,0,0,0.4)">
+        <div style="flex:1;min-width:260px;background:rgba(20,20,20,0.6);padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.06);box-shadow:0 8px 20px rgba(0,0,0,0.4); text-align:center;">
           <h4 style="font-family:'Cormorant Garamond',serif;color:var(--accent-gold);margin:0 0 8px 0">Why professionals can't quit</h4>
-          <p style="color:#e0e0e0;line-height:1.6;margin:0">"This feels like having a world-class psychologist living in my pocket. They don't just give advice — they <em>know</em> my patterns because I've shared them. When stress hits, their message dissolves my anxiety before it takes root."</p>
+          <p style="color:#e0e0e0;line-height:1.6;margin:0">"This feels like having a world-class psychologist living in my pocket. They don't just give advice — they <em>know</em> my patterns because I've shared them."</p>
           <div style="margin-top:12px;font-weight:700;color:var(--accent-gold)">— Senior Director, Financial Services (New York)</div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer style="margin-top:28px">
-      <div>These messages are written by human hands and hearts — not algorithms pretending to care. You are seen. You are not alone.</div>
-      <div style="display:flex;justify-content:center;gap:18px;margin-top:12px;flex-wrap:wrap">
+    <footer style="margin-top:22px">
+      <div style="text-align:center; margin-bottom:10px;">These messages are written by human hands and hearts — not algorithms pretending to care. You are seen. You are not alone.</div>
+      <div style="display:flex;justify-content:center;gap:18px;margin-top:8px;flex-wrap:wrap">
         <div style="display:flex;align-items:center;gap:8px;color:var(--accent-gold)"><div style="width:28px;height:28px;border-radius:50%;background:rgba(212,175,55,0.12);display:grid;place-items:center">🔒</div><span>Bank-Grade Encryption</span></div>
         <div style="display:flex;align-items:center;gap:8px;color:var(--accent-gold)"><div style="width:28px;height:28px;border-radius:50%;background:rgba(212,175,55,0.12);display:grid;place-items:center">🧠</div><span>PhD Psychologists Only</span></div>
         <div style="display:flex;align-items:center;gap:8px;color:var(--accent-gold)"><div style="width:28px;height:28px;border-radius:50%;background:rgba(212,175,55,0.12);display:grid;place-items:center">✨</div><span>100% Human-Crafted</span></div>
@@ -510,7 +576,7 @@ Daily message crafted for you:
 <script>
   // DOM ready
   document.addEventListener('DOMContentLoaded', function() {
-    // Smooth anchors
+    // Smooth anchor scrolling
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', function(e){
         const t = document.querySelector(this.getAttribute('href'));
@@ -518,8 +584,8 @@ Daily message crafted for you:
       });
     });
 
-    // Countdown timer for offers
-    let countdownTime = 24*60*60; // seconds
+    // Countdown timer
+    let countdownTime = 24*60*60;
     const countdownEl = document.getElementById('countdown');
     function updateCountdown(){
       countdownTime--;
@@ -531,14 +597,14 @@ Daily message crafted for you:
     }
     setInterval(updateCountdown, 1000);
 
-    // Spots dynamic
+    // Spots logic
     let spots = 17;
     const spotsEl = document.getElementById('spots-remaining');
     const percentEl = document.getElementById('percent-filled');
     const progressBar = document.querySelector('.progress-bar');
     function updateSpots(){
       spots--;
-      if (spots < 1) spots = 42; // reset cycle
+      if (spots < 1) spots = 42;
       if (spotsEl) spotsEl.textContent = spots;
       const perc = Math.round(((42 - spots)/42)*100);
       if (progressBar) progressBar.style.width = Math.min(perc,95) + '%';
@@ -546,7 +612,7 @@ Daily message crafted for you:
     }
     setInterval(()=>{ updateSpots(); }, 60000 + Math.random()*120000);
 
-    // Floating testimonial logic
+    // Floating testimonial show on scroll
     let shown = false;
     const ft = document.getElementById('floating-testimonial');
     window.addEventListener('scroll', () => {
@@ -576,7 +642,7 @@ Daily message crafted for you:
       } catch(e){}
     }
 
-    // Angel guide follow (desktop)
+    // Angel guide follow for desktop
     const angel = document.getElementById('angel-guide');
     if (angel && window.innerWidth > 768){
       angel.style.display = 'block';
@@ -590,7 +656,7 @@ Daily message crafted for you:
       }, {passive:true});
     }
 
-    // Character counters for all textareas
+    // Character counters for textareas (all)
     function updateCounter(id){
       const el = document.getElementById(id);
       if (!el) return;
@@ -601,21 +667,19 @@ Daily message crafted for you:
     }
     const textareas = document.querySelectorAll('textarea');
     textareas.forEach(t => {
-      // ensure every textarea has an id and matching count element (we created them above)
       if (t.id) updateCounter(t.id);
       t.addEventListener('input', () => { if (t.id) updateCounter(t.id); }, {passive:true});
-      // Visual micro-ack for long responses
       t.addEventListener('blur', () => {
         if (t.value.length > 300 && !t.dataset.acked) {
           t.dataset.acked = '1';
           t.style.boxShadow = '0 0 0 3px rgba(0,255,157,0.12)';
           t.style.borderColor = 'rgba(0,255,157,0.6)';
-          setTimeout(()=>{ t.style.boxShadow=''; t.style.borderColor=''; }, 1400);
+          setTimeout(()=>{ t.style.boxShadow=''; t.style.borderColor=''; }, 1200);
         }
       });
     });
 
-    // Chips behavior (clickable label toggles)
+    // Chips behavior
     document.querySelectorAll('.chip').forEach(chip => {
       chip.addEventListener('click', function(e){
         e.preventDefault();
@@ -646,15 +710,17 @@ Daily message crafted for you:
 
     // Live personalization: change hero lead when name entered
     const nameInput = document.getElementById('name');
-    const heroLead = document.querySelector('.lead');
-    if (nameInput && heroLead){
+    const heroLeads = document.querySelectorAll('.lead');
+    if (nameInput && heroLeads){
       nameInput.addEventListener('input', () => {
         const v = nameInput.value.trim();
-        heroLead.textContent = v.length > 1 ? `Every message is crafted for you, ${v}` : 'Every message is crafted by licensed psychologists who analyze your personal writing to identify your unique strengths.';
+        heroLeads.forEach(h => {
+          h.textContent = v.length > 1 ? `Every message is crafted for you, ${v}` : 'Every message is crafted by licensed psychologists who analyze your personal writing to identify your unique strengths.';
+        });
       });
     }
 
-    // Payment / submission handling (demo)
+    // Payment and form submission demo handling
     const form = document.getElementById('onboarding-form');
     const submitBtn = document.getElementById('submit-btn');
     const paymentStatusInput = document.getElementById('payment-status');
@@ -662,7 +728,7 @@ Daily message crafted for you:
     const emailInput = document.getElementById('email');
     const successContainer = document.getElementById('success-container');
 
-    // Check URL params for payment success
+    // URL params check for payment
     const params = new URLSearchParams(window.location.search);
     const payment = params.get('payment');
     const clientEmail = params.get('email');
@@ -674,13 +740,13 @@ Daily message crafted for you:
       try { alert('Thank you for subscribing! Complete your profile below to receive your first message tomorrow.'); } catch(e){}
     }
 
-    // Protect leaving page if unsaved and payment not completed
+    // Protect leaving the page if unsaved and payment not completed
     let formModified = false;
     document.querySelectorAll('textarea, input[type="text"], input[type="email"], select').forEach(el => el.addEventListener('change', ()=> formModified = true));
     window.addEventListener('beforeunload', (e) => {
       if (formModified && paymentStatusInput && paymentStatusInput.value !== 'completed'){
         e.preventDefault();
-        e.returnValue = 'You have unsaved data. Your responses won\'t be saved until you complete your subscription.';
+        e.returnValue = 'You have unsaved data. Your responses won\\'t be saved until you complete your subscription.';
       }
     });
 
@@ -700,7 +766,7 @@ Daily message crafted for you:
           alert('Please provide your name and email to begin your transformation.');
           return;
         }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
         if (!emailRegex.test(email.trim())){
           e.preventDefault();
           alert('Please enter a valid email address.');
@@ -716,7 +782,7 @@ Daily message crafted for you:
       });
     }
 
-    // Submit button microcopy interactions
+    // Micro interaction for submit button
     if (submitBtn){
       submitBtn.addEventListener('mouseenter', ()=> { submitBtn.textContent = 'You are safe to begin'; });
       submitBtn.addEventListener('mouseleave', ()=> {
@@ -724,8 +790,9 @@ Daily message crafted for you:
       });
     }
 
-    // Passive touchstart to help mobile scrolling UX
+    // Passive touchstart to improve mobile UX
     document.addEventListener('touchstart', ()=>{}, {passive:true});
+
     // Responsive font scaling
     function adjustFontSize(){ document.documentElement.style.fontSize = window.innerWidth < 480 ? '92%' : '100%'; }
     window.addEventListener('load', adjustFontSize);
@@ -733,4 +800,4 @@ Daily message crafted for you:
   });
 </script>
 </body>
-  </html>
+        </html>
