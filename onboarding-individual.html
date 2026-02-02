@@ -12,40 +12,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* --- Global / Responsive fixes --- */
+/* ===== GLOBAL FIXES & VARIABLES ===== */
 html, body {
   height: auto !important;
   min-height: 100vh;
   overflow-x: hidden !important;
   overflow-y: auto;
   position: relative;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch; /* smooth native iOS scrolling */
   width: 100% !important;
-  touch-action: manipulation;
+  touch-action: pan-y; /* allow vertical pan/scroll */
   margin: 0;
   padding: 0;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
 }
 
+/* Keep word wrapping sensible — DO NOT break words mid-letter */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
-/* Prevent any element from overflowing horizontally */
+/* Conservative wrapping to avoid vertical single-letter breaks */
 * {
   max-width: 100%;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
+  white-space: normal;
 }
 
-/* Root variables */
+/* Root colors & layout */
 :root {
   --page-bg: #0a0a0a;
   --card: #121212;
@@ -60,7 +61,7 @@ html, body {
   --max-container-width: 1150px;
 }
 
-/* Body */
+/* Page body */
 body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   color: var(--text);
@@ -69,7 +70,6 @@ body {
   justify-content: center;
   background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);
   line-height: 1.6;
-  position: relative;
   width: 100% !important;
 }
 
@@ -88,7 +88,7 @@ body {
   min-height: auto;
 }
 
-/* Decorative top bar */
+/* decorative top stripe */
 .container::before {
   content: '';
   position: absolute;
@@ -106,15 +106,19 @@ header {
   justify-content: space-between;
   gap: 18px;
   flex-wrap: wrap;
+  min-width: 0;
 }
 
+/* Brand area: ensure text area can shrink safely */
 .brand {
   display: flex;
   gap: 16px;
   align-items: center;
   min-width: 0;
+  width: 100%;
 }
 
+/* Logo */
 .logo {
   width: 72px;
   height: 72px;
@@ -124,16 +128,16 @@ header {
   place-items: center;
   border: 1px solid rgba(212, 175, 55, 0.25);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  flex-shrink: 0;
+  flex-shrink: 0; /* do not allow logo to compress text by shrinking content area */
 }
 
-.logo svg {
-  width: 48px;
-  height: 48px;
-  stroke: var(--accent-gold);
-  stroke-width: 1.8;
+/* Brand text container expands as needed */
+.brand > div {
+  flex: 1 1 auto;
+  min-width: 0; /* critical to prevent overflowing flex children on mobile */
 }
 
+/* Title & description */
 .brand h1 {
   font-family: "Cormorant Garamond", serif;
   color: var(--accent-gold);
@@ -141,23 +145,26 @@ header {
   font-weight: 600;
   letter-spacing: -0.5px;
   text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-  line-height: 1;
+  margin: 0;
+  line-height: 1.05;
+  overflow-wrap: break-word;
 }
 
 .brand p {
   color: var(--muted);
   font-size: 1.05rem;
-  margin-top: 4px;
-  max-width: 500px;
-  line-height: 1.5;
-  min-width: 0;
+  margin-top: 6px;
+  max-width: 100%;
+  line-height: 1.45;
+  margin-bottom: 0;
 }
 
-/* Meta */
+/* Meta on the right */
 .meta {
   text-align: right;
   color: var(--muted);
   min-width: 0;
+  flex-shrink: 0;
 }
 
 .pill {
@@ -184,7 +191,7 @@ header {
   font-weight: 600;
 }
 
-/* Intro / Hero */
+/* Intro */
 .intro {
   margin-top: 24px;
   text-align: center;
@@ -210,7 +217,7 @@ h2.lead {
   margin-bottom: 16px;
   line-height: 1.05;
   text-shadow: 0 4px 15px rgba(184, 134, 47, 0.2);
-  word-break: break-word;
+  word-break: keep-all;
 }
 
 p.lead-note {
@@ -221,6 +228,7 @@ p.lead-note {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  overflow-wrap: break-word;
 }
 
 /* Accent note */
@@ -237,10 +245,9 @@ p.lead-note {
   position: relative;
   overflow: hidden;
   max-width: 800px;
-  min-width: 0;
 }
 
-/* Panel / benefits */
+/* Panel and benefits */
 .panel {
   margin-top: 24px;
   background: linear-gradient(160deg, #0f0f0f, #181818);
@@ -249,7 +256,7 @@ p.lead-note {
   border: 1px solid rgba(212, 175, 55, 0.18);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   backdrop-filter: blur(2px);
 }
 
@@ -271,11 +278,9 @@ p.lead-note {
   margin-bottom: 12px;
   font-weight: 600;
   letter-spacing: 0.5px;
-  position: relative;
-  z-index: 1;
 }
 
-/* Benefits layout that doesn't force horizontal scroll */
+/* Benefits layout that adapts on mobile */
 .benefits {
   display: flex;
   gap: 16px;
@@ -311,7 +316,7 @@ p.lead-note {
   font-size: 1.02rem;
 }
 
-/* Form fields */
+/* Form */
 form {
   margin-top: 28px;
   min-width: 0;
@@ -370,7 +375,9 @@ textarea, input[type="text"], input[type="email"], select {
   min-width: 0;
 }
 
-textarea { min-height: 160px; }
+textarea {
+  min-height: 160px;
+}
 
 textarea:focus, input:focus, select:focus {
   outline: none;
@@ -447,7 +454,6 @@ textarea:focus, input:focus, select:focus {
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
-
 .chip:hover::before { transform: scaleX(1); }
 .chip:hover { transform: translateY(-2px); border-color: var(--accent-gold); }
 
@@ -456,15 +462,9 @@ textarea:focus, input:focus, select:focus {
   border-color: var(--accent-gold);
   box-shadow: 0 8px 25px rgba(184, 134, 47, 0.25);
 }
-
 .chip input { display: none; }
 
-.chip.active::before {
-  transform: scaleX(1);
-  background: linear-gradient(90deg, var(--accent-gold), var(--accent-bronze));
-}
-
-/* Controls */
+/* Controls & buttons */
 .controls {
   margin-top: 28px;
   display: flex;
@@ -473,7 +473,6 @@ textarea:focus, input:focus, select:focus {
   flex-wrap: wrap;
 }
 
-/* Support both class names used historically */
 .-submit, .btn-submit {
   padding: 16px 32px;
   border-radius: 14px;
@@ -503,7 +502,6 @@ textarea:focus, input:focus, select:focus {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
   transition: 0.5s;
 }
-
 .btn-submit:hover::after { left: 100%; }
 .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 18px 42px rgba(212, 175, 55, 0.4); }
 .btn-submit:active { transform: translateY(1px); }
@@ -542,6 +540,7 @@ footer {
   font-style: italic;
 }
 
+/* Trust badges */
 .trust-badges {
   display: flex;
   justify-content: center;
@@ -557,7 +556,6 @@ footer {
   font-size: 0.95rem;
   color: var(--accent-gold);
 }
-
 .badge-icon {
   width: 24px;
   height: 24px;
@@ -604,7 +602,7 @@ footer {
   color: #00ff9d;
 }
 
-/* Make payment button an anchor (will navigate) */
+/* Payment anchor styled as button — will navigate to Ko-fi in same tab */
 .pay-btn {
   display: inline-flex;
   align-items: center;
@@ -629,12 +627,7 @@ footer {
   box-shadow: 0 18px 42px rgba(255, 77, 77, 0.4);
   border-color: #ff3333;
 }
-
-.pay-btn svg {
-  stroke: white;
-  stroke-width: 2;
-  flex-shrink: 0;
-}
+.pay-btn svg { stroke: white; stroke-width: 2; flex-shrink: 0; }
 
 /* Success message */
 .success-message {
@@ -647,27 +640,11 @@ footer {
   margin-top: 20px;
 }
 
-.success-message h2 {
-  color: #00ff9d;
-  font-family: "Cormorant Garamond", serif;
-  margin-bottom: 15px;
-  font-size: 1.8rem;
-}
+.success-message h2 { color: #00ff9d; font-family: "Cormorant Garamond", serif; margin-bottom: 15px; font-size: 1.8rem; }
+.success-message p { font-size: 1.2rem; line-height: 1.6; margin: 15px 0; color: #d0d0d0; }
+.success-message .note { color: var(--accent-bronze); margin-top: 15px; font-style: italic; }
 
-.success-message p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin: 15px 0;
-  color: #d0d0d0;
-}
-
-.success-message .note {
-  color: var(--accent-bronze);
-  margin-top: 15px;
-  font-style: italic;
-}
-
-/* Responsive adjustments */
+/* Responsive tweaks */
 @media (max-width: 1000px) {
   .brand h1 { font-size: 1.8rem; }
   h2.lead { font-size: 2.6rem; }
@@ -678,8 +655,8 @@ footer {
 @media (max-width: 600px) {
   body { padding: 12px !important; }
   .container { padding: 20px 16px !important; margin: 8px; width: 100% !important; }
-  .brand h1 { font-size: 1.3rem; }
-  h2.lead { font-size: 2.2rem; }
+  .brand h1 { font-size: 1.4rem; }
+  h2.lead { font-size: 2.0rem; }
   .meta { text-align: left; margin-top: 12px; }
   header { flex-direction: column; align-items: flex-start; }
   .benefits { gap: 12px; }
@@ -696,7 +673,7 @@ footer {
   * { max-width: 100% !important; }
 }
 
-/* Smooth scrolling for all devices */
+/* Smooth scrolling on touch devices */
 @media (hover: none) {
   * { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
   body { -webkit-overflow-scrolling: touch; }
@@ -722,7 +699,7 @@ footer {
         </div>
         <div>
           <h1 id="page-title">Your Personal Growth Architect</h1>
-          <p>Psychologists analyzing your words to eliminate negativity and amplify your unique strengths</p>
+          <p>Psychologists analyzing your words to eliminate negativity and amplify your unique strengths</p>        
         </div>
       </div>
 
@@ -736,7 +713,7 @@ footer {
       <h2 class="lead">This conversation belongs only to you</h2>
       <p class="lead-note">
         What you share here becomes the foundation for messages crafted by licensed psychologists who truly see you. Your words help us dissolve your specific frustrations while strengthening your authentic strengths. Everything you share stays private and encrypted — like a sacred conversation between you and your growth.
-      </p>
+      </p>      
       <div class="sacred-note" aria-live="polite">
         <strong style="color: var(--accent-gold);">This isn't a form — it's the beginning of your transformation.</strong><br>
         Your responses are analyzed only by our vetted psychologists to build messages that feel like they come from a trusted friend who knows your heart.
@@ -774,7 +751,7 @@ footer {
       <div class="hint">(Be gentle with yourself. This is where your transformation begins — whether it's work pressure, caring for others, health challenges, or relationships that drain your spirit.)</div>
       <textarea id="change_needed" name="change_needed" placeholder="I often tell myself: 'This is just how life is' about..."></textarea>
       <div class="char-count">0 characters | 0 words</div>
-
+      
       <label for="repeating_pattern">
         2) What pattern keeps returning like an old friend you've outgrown?
       </label>
@@ -788,7 +765,7 @@ footer {
       <div class="hint">(The sentence that plays when you're alone at 3 AM — the one you'd never say aloud but carries your deepest fear.)</div>
       <textarea id="inner_voice" name="inner_voice" placeholder="My inner voice says: 'If I stop, everything will fall apart...'"></textarea>
       <div class="char-count">0 characters | 0 words</div>
-
+      
       <label for="forgotten_truth">
         4) What true thing about yourself do you forget when the world gets loud?
       </label>
@@ -823,7 +800,7 @@ footer {
       <div class="hint">(Like a trusted friend who knows your heart, a wise mentor who sees your potential, or a calm companion who walks beside you without judgment.)</div>
       <textarea id="message_feel" name="message_feel" placeholder="I want messages that feel like..."></textarea>
       <div class="char-count">0 characters | 0 words</div>
-
+      
       <label for="red_lines">
         9) What words or approaches make you close your heart?
       </label>
@@ -838,7 +815,7 @@ footer {
       <textarea id="protect_this_month" name="protect_this_month" placeholder="This month, I commit to protecting..."></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
-      <label for="before_stopping">
+      <label for="before_stopping">        
         11) What happens inside you just before you want to give up?
       </label>
       <div class="hint">(The physical sensation in your chest, the thought that loops in your mind, or the moment when everything feels too heavy — we'll help you recognize it earlier.)</div>
@@ -873,7 +850,7 @@ footer {
       <textarea id="bold_step" name="bold_step" placeholder="This month, I'd like to gently try..."></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
-      <label for="triggers">
+      <label for="triggers">        
         16) (Optional) What words or topics need gentle handling?
       </label>
       <div class="hint">(Trauma, loss, health struggles, or past pain — naming these helps us create messages that honor your journey without causing harm.)</div>
@@ -889,7 +866,7 @@ footer {
           <label class="chip"><input type="checkbox" name="priority[]" value="family"> Family & Relationships</label>
           <label class="chip"><input type="checkbox" name="priority[]" value="health"> Physical Health & Energy</label>
         </div>
-        <div>
+        <div>          
           <label class="chip"><input type="checkbox" name="priority[]" value="mental"> Mental & Emotional Peace</label>
           <label class="chip"><input type="checkbox" name="priority[]" value="risk"> Courage & Growth</label>
           <label class="chip"><input type="checkbox" name="priority[]" value="relationships"> Meaningful Connection</label>
@@ -924,7 +901,7 @@ footer {
           </select>
         </div>
       </div>
-
+      
       <div style="margin-top:20px">
         <label for="frequency">How often would you like this gentle companionship?</label>
         <div class="radio-group" role="radiogroup" aria-label="Message frequency">
@@ -940,11 +917,11 @@ footer {
         <div style="text-align: center;">
           <div class="status-badge" id="payment-status-badge">
             Subscription required to send data
-          </div>
+          </div>        
         </div>
-
+        
         <div style="display: flex; flex-direction: column; gap: 20px; align-items: center; margin-top: 20px;">
-          <!-- Clicking this anchor will navigate to Ko-fi in the same tab as requested -->
+          <!-- This anchor navigates directly to Ko-fi in the same tab as requested -->
           <a href="https://ko-fi.com/s/cd96925d8f"
              target="_self"
              rel="noopener noreferrer"
@@ -956,7 +933,7 @@ footer {
             </svg>
             Pay $30 Monthly Subscription
           </a>
-
+          
           <div style="color: var(--muted); font-size: 0.95rem; text-align: center; max-width: 600px;">
             <p><strong>Note:</strong> Your data won't be saved until you complete your subscription. After payment, you'll be redirected back to this page with the submit button activated.</p>
           </div>
@@ -996,7 +973,7 @@ footer {
         </div>
         <div class="badge-item">
           <div class="badge-icon">🧠</div>
-          <span>PhD Psychologists Only</span>
+          <span>PhD Psychologists Only</span>        
         </div>
         <div class="badge-item">
           <div class="badge-icon">✨</div>
@@ -1007,9 +984,9 @@ footer {
   </div>
 
 <script>
-  // Core interactive behavior
+  // ===== CORE INTERACTIONS =====
   document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling
+    // Smooth native scrolling
     document.body.style.scrollBehavior = 'smooth';
     document.body.style.overscrollBehavior = 'contain';
 
@@ -1041,18 +1018,16 @@ footer {
         emailInput.value = clientEmail;
       }
 
-      // Optional user feedback
+      // Provide feedback
       setTimeout(() => {
-        try { alert('✅ Thank you for subscribing! Complete your profile below to receive your first message tomorrow.'); } catch (e) {}
+        try { alert('✅ Thank you for subscribing! Complete your profile below to receive your first message tomorrow.'); } catch (err) {}
       }, 300);
     }
 
-    // Entrance animations
+    // Entrance animations (stagger)
     const elements = document.querySelectorAll('label, .benefit, .panel, .intro');
     elements.forEach((el, index) => {
-      setTimeout(() => {
-        el.classList.add('fade-in');
-      }, 150 * index);
+      setTimeout(() => { el.classList.add('fade-in'); }, 150 * index);
     });
 
     // Character counters
@@ -1061,18 +1036,20 @@ footer {
       const wordCount = el.value.trim() === '' ? 0 : el.value.trim().split(/\s+/).length;
       let next = el.nextElementSibling;
       while (next && !next.classList.contains('char-count')) next = next.nextElementSibling;
-      if (next && next.classList.contains('char-count')) next.innerText = `${charCount} characters | ${wordCount} words`;
+      if (next && next.classList && next.classList.contains('char-count')) {
+        next.innerText = `${charCount} characters | ${wordCount} words`;
+      }
     }
     document.querySelectorAll('textarea').forEach(t => {
       updateCount(t);
       t.addEventListener('input', () => updateCount(t));
     });
 
-    // Chip controls
+    // Chips setup (radios & checkboxes)
     function setupChips() {
       // radio-like chips
       document.querySelectorAll('.radio-group .chip').forEach(chip => {
-        chip.addEventListener('click', function() {
+        chip.addEventListener('click', function(e) {
           const input = this.querySelector('input[type="radio"]');
           if (!input) return;
           const name = input.name;
@@ -1088,7 +1065,6 @@ footer {
       // checkbox chips
       document.querySelectorAll('.checkbox-group .chip, .grid-2 .chip').forEach(chip => {
         chip.addEventListener('click', function(e) {
-          // allow internal input clicks to behave normally
           const input = this.querySelector('input[type="checkbox"]');
           if (!input) return;
           input.checked = !input.checked;
@@ -1098,21 +1074,21 @@ footer {
     }
     setupChips();
 
-    // Font size adjust for small screens
+    // Adjust font size for very small screens
     function adjustFontSize() {
-      if (window.innerWidth < 480) document.documentElement.style.fontSize = '90%';
+      if (window.innerWidth < 420) document.documentElement.style.fontSize = '92%';
       else document.documentElement.style.fontSize = '100%';
     }
     window.addEventListener('load', adjustFontSize);
     window.addEventListener('resize', adjustFontSize);
 
-    // Warn before unload if form modified and payment not completed
+    // Warn about leaving unsaved form data (if payment not completed)
     let formModified = false;
-    document.querySelectorAll('textarea, input[type="text"], input[type="email"], select').forEach(el => {
-      el.addEventListener('change', () => { formModified = true; });
+    const monitored = document.querySelectorAll('textarea, input[type="text"], input[type="email"], select');
+    monitored.forEach(el => {
       el.addEventListener('input', () => { formModified = true; });
+      el.addEventListener('change', () => { formModified = true; });
     });
-
     window.addEventListener('beforeunload', (e) => {
       if (formModified && paymentStatusInput && paymentStatusInput.value !== 'completed') {
         e.preventDefault();
@@ -1120,22 +1096,21 @@ footer {
       }
     });
 
-    // Ensure payment anchor always navigates (target=_self) — keep default navigation
+    // Ensure payment anchor navigates even in restrictive environments:
     const paymentBtn = document.getElementById('payment-btn');
     if (paymentBtn) {
       paymentBtn.addEventListener('click', function(e) {
-        // DO NOT prevent default. Force navigation as a fallback:
+        // Do not call preventDefault(); Allow normal navigation.
+        // As a fallback, force navigation shortly after click to ensure it opens:
         const href = this.getAttribute('href');
         if (href) {
-          // using setTimeout to allow normal anchor behavior in most browsers,
-          // but also ensure navigation in rare cases where default is blocked.
           setTimeout(() => { try { window.location.href = href; } catch (err) {} }, 200);
         }
       });
     }
   });
 
-  // Form submission validation
+  // ===== FORM SUBMISSION VALIDATION =====
   document.querySelector('form').addEventListener('submit', function(e) {
     const paymentStatus = document.getElementById('payment-status');
     const emailEl = document.getElementById('email');
@@ -1143,7 +1118,6 @@ footer {
     const email = emailEl ? emailEl.value.trim() : '';
     const name = nameEl ? nameEl.value.trim() : '';
 
-    // Payment must be completed
     if (!paymentStatus || paymentStatus.value !== 'completed') {
       e.preventDefault();
       alert('⚠️ Please complete your $30 subscription on Ko-fi first to send your data.');
@@ -1151,14 +1125,12 @@ footer {
       return;
     }
 
-    // Basic required fields
     if (!email || !name) {
       e.preventDefault();
       alert('⚠️ Please provide your name and email to begin your transformation.');
       return;
     }
 
-    // Email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       e.preventDefault();
@@ -1166,12 +1138,9 @@ footer {
       return;
     }
 
-    // At this point the form can submit normally (Netlify or backend)
-    console.info('Form submitted successfully - transformation begins');
-
-    // If you want to POST to a webhook instead of normal form submission, implement here.
+    console.info('Form validated and submitting.');
+    // Normal submission (Netlify or backend) proceeds.
   });
 </script>
 </body>
-</html>
-```0
+  </html>
