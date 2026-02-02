@@ -12,679 +12,812 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ===== GLOBAL FIXES & VARIABLES ===== */
-html, body {
-  height: auto !important;
-  min-height: 100vh;
-  overflow-x: hidden !important;
-  overflow-y: auto;
-  position: relative;
-  -webkit-overflow-scrolling: touch; /* smooth native iOS scrolling */
-  width: 100% !important;
-  touch-action: pan-y; /* allow vertical pan/scroll */
-  margin: 0;
-  padding: 0;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
-}
-
-/* Keep word wrapping sensible — DO NOT break words mid-letter */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Conservative wrapping to avoid vertical single-letter breaks */
-* {
-  max-width: 100%;
-  overflow-wrap: break-word;
-  word-break: normal;
-  white-space: normal;
-}
-
-/* Root colors & layout */
-:root {
-  --page-bg: #0a0a0a;
-  --card: #121212;
-  --muted: #a0a0a0;
-  --text: #ffffff;
-  --accent-gold: #d4af37;
-  --accent-bronze: #b8862f;
-  --accent-red: #ff4d4d;
-  --radius: 16px;
-  --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  --max-container-width: 1150px;
-}
-
-/* Page body */
-body {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-  color: var(--text);
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);
-  line-height: 1.6;
-  width: 100% !important;
-}
-
-/* Container */
-.container {
-  width: 100%;
-  max-width: var(--max-container-width);
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 32px;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(212, 175, 55, 0.1);
-  position: relative;
-  overflow: visible;
-  margin: 0 auto;
-  min-height: auto;
-}
-
-/* decorative top stripe */
-.container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
-}
-
-/* Header */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  flex-wrap: wrap;
-  min-width: 0;
-}
-
-/* Brand area: ensure text area can shrink safely */
-.brand {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  min-width: 0;
-  width: 100%;
-}
-
-/* Logo */
-.logo {
-  width: 72px;
-  height: 72px;
-  border-radius: 16px;
-  background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  flex-shrink: 0; /* do not allow logo to compress text by shrinking content area */
-}
-
-/* Brand text container expands as needed */
-.brand > div {
-  flex: 1 1 auto;
-  min-width: 0; /* critical to prevent overflowing flex children on mobile */
-}
-
-/* Title & description */
-.brand h1 {
-  font-family: "Cormorant Garamond", serif;
-  color: var(--accent-gold);
-  font-size: 2.1rem;
-  font-weight: 600;
-  letter-spacing: -0.5px;
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-  margin: 0;
-  line-height: 1.05;
-  overflow-wrap: break-word;
-}
-
-.brand p {
-  color: var(--muted);
-  font-size: 1.05rem;
-  margin-top: 6px;
-  max-width: 100%;
-  line-height: 1.45;
-  margin-bottom: 0;
-}
-
-/* Meta on the right */
-.meta {
-  text-align: right;
-  color: var(--muted);
-  min-width: 0;
-  flex-shrink: 0;
-}
-
-.pill {
-  display: inline-block;
-  padding: 7px 18px;
-  border-radius: 30px;
-  background: rgba(212, 175, 55, 0.12);
-  color: var(--accent-gold);
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.5px;
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-.badge {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 3px 10px;
-  border-radius: 12px;
-  background: rgba(255, 77, 77, 0.15);
-  color: var(--accent-red);
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-/* Intro */
-.intro {
-  margin-top: 24px;
-  text-align: center;
-  position: relative;
-  padding: 24px 0;
-}
-
-.intro::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-}
-
-h2.lead {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 2.4rem;
-  color: var(--accent-gold);
-  margin-bottom: 16px;
-  line-height: 1.05;
-  text-shadow: 0 4px 15px rgba(184, 134, 47, 0.2);
-  word-break: keep-all;
-}
-
-p.lead-note {
-  color: #d0d0d0;
-  line-height: 1.75;
-  font-size: 1.15rem;
-  margin-bottom: 22px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  overflow-wrap: break-word;
-}
-
-/* Accent note */
-.sacred-note {
-  background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
-  border-left: 3px solid var(--accent-gold);
-  padding: 20px;
-  border-radius: 0 var(--radius) var(--radius) 0;
-  color: #f0f0f0;
-  font-style: normal;
-  margin: 28px auto;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(212, 175, 55, 0.15);
-  position: relative;
-  overflow: hidden;
-  max-width: 800px;
-}
-
-/* Panel and benefits */
-.panel {
-  margin-top: 24px;
-  background: linear-gradient(160deg, #0f0f0f, #181818);
-  border-radius: var(--radius);
-  padding: 28px;
-  border: 1px solid rgba(212, 175, 55, 0.18);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-  position: relative;
-  overflow: visible;
-  backdrop-filter: blur(2px);
-}
-
-.panel::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.panel small {
-  color: var(--accent-bronze);
-  display: block;
-  margin-bottom: 12px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-/* Benefits layout that adapts on mobile */
-.benefits {
-  display: flex;
-  gap: 16px;
-  margin-top: 16px;
-  flex-wrap: wrap;
-  align-items: stretch;
-}
-
-.benefit {
-  flex: 1 1 280px;
-  min-width: 0;
-  background: rgba(30, 30, 30, 0.7);
-  border-radius: 12px;
-  padding: 22px;
-  border-left: 4px solid var(--accent-bronze);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(4px);
-  transition: var(--transition);
-  border: 1px solid rgba(212, 175, 55, 0.1);
-}
-
-.benefit h4 {
-  font-family: "Cormorant Garamond", serif;
-  color: var(--accent-gold);
-  margin-bottom: 10px;
-  font-size: 1.35rem;
-}
-
-.benefit p {
-  color: #d5d5d5;
-  margin: 0;
-  line-height: 1.6;
-  font-size: 1.02rem;
-}
-
-/* Form */
-form {
-  margin-top: 28px;
-  min-width: 0;
-}
-
-label {
-  display: block;
-  margin-top: 24px;
-  font-weight: 700;
-  color: var(--accent-gold);
-  font-size: 1.15rem;
-  font-family: "Cormorant Garamond", serif;
-  line-height: 1.4;
-  position: relative;
-  padding-bottom: 6px;
-}
-
-label::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-bronze), transparent);
-}
-
-.hint {
-  font-size: 0.95rem;
-  color: var(--muted);
-  margin-top: 10px;
-  font-style: italic;
-  line-height: 1.6;
-  padding-left: 8px;
-  border-left: 2px solid rgba(212, 175, 55, 0.2);
-}
-
-/* Inputs */
-textarea, input[type="text"], input[type="email"], select {
-  width: 100%;
-  margin-top: 14px;
-  padding: 16px;
-  font-size: 1.05rem;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: 12px;
-  background: rgba(25, 25, 25, 0.8);
-  color: var(--text);
-  transition: var(--transition);
-  resize: vertical;
-  line-height: 1.6;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) inset;
-  backdrop-filter: blur(4px);
-  min-height: 48px;
-  touch-action: manipulation;
-  min-width: 0;
-}
-
-textarea {
-  min-height: 160px;
-}
-
-textarea:focus, input:focus, select:focus {
-  outline: none;
-  border-color: var(--accent-gold);
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3), 0 8px 30px rgba(184, 134, 47, 0.25);
-  background: rgba(30, 30, 30, 0.9);
-}
-
-/* Char count */
-.char-count {
-  text-align: right;
-  margin-top: 8px;
-  color: var(--accent-bronze);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-/* Grid & chips */
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 18px;
-  min-width: 0;
-}
-
-.radio-group, .checkbox-group {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-  flex-direction: column;
-}
-
-@media (min-width: 768px) {
-  .radio-group, .checkbox-group {
-    flex-direction: row;
+  /* أساسيات التمرير - مُحسّنة للهواتف */
+  html, body {
+    height: auto !important;
+    min-height: 100vh;
+    overflow-x: hidden !important;
+    overflow-y: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    width: 100% !important;
+    touch-action: manipulation;
+    padding: 0;
+    margin: 0;
   }
-}
 
-.chip {
-  background: rgba(40, 40, 40, 0.7);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  padding: 12px 18px;
-  border-radius: 14px;
-  color: var(--text);
-  cursor: pointer;
-  user-select: none;
-  font-weight: 600;
-  font-size: 1.02rem;
-  transition: var(--transition);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(3px);
-  position: relative;
-  overflow: hidden;
-  min-height: 44px;
-  touch-action: manipulation;
-  min-width: 0;
-}
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+  }
 
-.chip::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-bronze), transparent);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-.chip:hover::before { transform: scaleX(1); }
-.chip:hover { transform: translateY(-2px); border-color: var(--accent-gold); }
+  :root {
+    /* ألوان فاخرة - خلفية سوداء مع لمسات ذهبية وبرونزية */
+    --page-bg: #0a0a0a;
+    --card: #121212;
+    --muted: #a0a0a0;
+    --text: #ffffff;
+    --accent-gold: #d4af37;
+    --accent-bronze: #b8862f;
+    --accent-red: #ff4d4d;
+    --radius: 16px;
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-.chip.active {
-  background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
-  border-color: var(--accent-gold);
-  box-shadow: 0 8px 25px rgba(184, 134, 47, 0.25);
-}
-.chip input { display: none; }
+  body {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    color: var(--text);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);
+    line-height: 1.6;
+    position: relative;
+    width: 100% !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-/* Controls & buttons */
-.controls {
-  margin-top: 28px;
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  flex-wrap: wrap;
-}
+  .container {
+    width: 100%;
+    max-width: 980px;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    position: relative;
+    overflow: visible;
+    margin: 0 auto;
+    min-height: auto;
+    width: 100% !important;
+  }
 
-.-submit, .btn-submit {
-  padding: 16px 32px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--accent-gold), var(--accent-bronze));
-  border: none;
-  color: #081018;
-  font-weight: 800;
-  font-size: 1.1rem;
-  cursor: pointer;
-  box-shadow: 0 14px 36px rgba(212, 175, 55, 0.3);
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  font-family: "Cormorant Garamond", serif;
-  letter-spacing: -0.5px;
-  min-height: 56px;
-  touch-action: manipulation;
-}
+  .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
+  }
 
-.btn-submit::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: 0.5s;
-}
-.btn-submit:hover::after { left: 100%; }
-.btn-submit:hover { transform: translateY(-3px); box-shadow: 0 18px 42px rgba(212, 175, 55, 0.4); }
-.btn-submit:active { transform: translateY(1px); }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
 
-/* Consent & footer */
-.muted-note {
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
+  .brand {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    min-width: 0;
+  }
 
-.consent {
-  margin-top: 20px;
-  padding: 20px;
-  background: rgba(30, 30, 30, 0.7);
-  border-radius: 14px;
-  border: 1px solid rgba(212, 175, 55, 0.15);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
+  .logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+  }
 
-.consent p {
-  color: #d0d0d0;
-  line-height: 1.7;
-  font-size: 0.98rem;
-}
+  .logo svg {
+    width: 36px;
+    height: 36px;
+    stroke: var(--accent-gold);
+    stroke-width: 1.8;
+  }
 
-.consent strong { color: var(--accent-gold); }
+  .brand h1 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent-gold);
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-footer {
-  margin-top: 32px;
-  text-align: center;
-  color: var(--muted);
-  font-size: 1.05rem;
-  padding-top: 20px;
-  border-top: 1px solid rgba(212, 175, 55, 0.1);
-  font-style: italic;
-}
+  .brand p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-top: 4px;
+    max-width: 400px;
+    line-height: 1.5;
+  }
 
-/* Trust badges */
-.trust-badges {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 16px;
-  flex-wrap: wrap;
-}
+  .meta {
+    text-align: right;
+    color: var(--muted);
+  }
 
-.badge-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.95rem;
-  color: var(--accent-gold);
-}
-.badge-icon {
-  width: 24px;
-  height: 24px;
-  background: rgba(212, 175, 55, 0.15);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-weight: bold;
-}
+  .pill {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 30px;
+    background: rgba(212, 175, 55, 0.12);
+    color: var(--accent-gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
 
-/* Payment section */
-.payment-section {
-  margin: 30px 0;
-  padding: 25px;
-  background: rgba(30, 30, 30, 0.7);
-  border-radius: 14px;
-  border: 1px solid rgba(212, 175, 55, 0.15);
-  position: relative;
-  overflow: hidden;
-}
+  .badge {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: rgba(255, 77, 77, 0.15);
+    color: var(--accent-red);
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
 
-.payment-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
-}
+  .intro {
+    margin-top: 24px;
+    text-align: center;
+    position: relative;
+    padding: 24px 0;
+  }
 
-.status-badge {
-  background: rgba(255, 77, 77, 0.15);
-  color: var(--accent-red);
-  padding: 6px 15px;
-  border-radius: 20px;
-  display: inline-block;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
+  .intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+  }
 
-.status-badge.paid {
-  background: rgba(0, 200, 100, 0.15);
-  color: #00ff9d;
-}
+  h2.lead {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2.4rem;
+    color: var(--accent-gold);
+    margin-bottom: 16px;
+    line-height: 1.1;
+    text-shadow: 0 4px 15px rgba(184, 134, 47, 0.2);
+    margin-top: 0;
+  }
 
-/* Payment anchor styled as button — will navigate to Ko-fi in same tab */
-.pay-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 28px;
-  background: linear-gradient(135deg, var(--accent-red), #cc0000);
-  color: white;
-  text-decoration: none;
-  border-radius: 12px;
-  font-weight: 800;
-  font-size: 1.05rem;
-  margin-bottom: 15px;
-  transition: var(--transition);
-  border: 2px solid var(--accent-red);
-  font-family: "Cormorant Garamond", serif;
-  min-height: 56px;
-  touch-action: manipulation;
-}
+  p.lead-note {
+    color: #d0d0d0;
+    max-width: 800px;
+    margin: 0 auto 18px;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+  }
 
-.pay-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 42px rgba(255, 77, 77, 0.4);
-  border-color: #ff3333;
-}
-.pay-btn svg { stroke: white; stroke-width: 2; flex-shrink: 0; }
+  .sacred-note {
+    background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
+    border-left: 3px solid var(--accent-gold);
+    padding: 16px;
+    border-radius: 0 12px 12px 0;
+    color: #f0f0f0;
+    font-style: normal;
+    margin: 16px auto;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    max-width: 700px;
+  }
 
-/* Success message */
-.success-message {
-  display: none;
-  text-align: center;
-  padding: 40px;
-  background: rgba(40, 60, 40, 0.8);
-  border-radius: 14px;
-  border: 1px solid rgba(0, 200, 100, 0.3);
-  margin-top: 20px;
-}
+  .panel {
+    margin-top: 24px;
+    background: linear-gradient(160deg, #0f0f0f, #181818);
+    border-radius: 14px;
+    padding: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: visible;
+    backdrop-filter: blur(2px);
+  }
 
-.success-message h2 { color: #00ff9d; font-family: "Cormorant Garamond", serif; margin-bottom: 15px; font-size: 1.8rem; }
-.success-message p { font-size: 1.2rem; line-height: 1.6; margin: 15px 0; color: #d0d0d0; }
-.success-message .note { color: var(--accent-bronze); margin-top: 15px; font-style: italic; }
+  .panel::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+    z-index: 0;
+  }
 
-/* Responsive tweaks */
-@media (max-width: 1000px) {
-  .brand h1 { font-size: 1.8rem; }
-  h2.lead { font-size: 2.6rem; }
-  .container { padding: 24px; }
-  .benefit { padding: 20px; }
-}
+  .panel small {
+    color: var(--accent-bronze);
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+  }
 
-@media (max-width: 600px) {
-  body { padding: 12px !important; }
-  .container { padding: 20px 16px !important; margin: 8px; width: 100% !important; }
-  .brand h1 { font-size: 1.4rem; }
-  h2.lead { font-size: 2.0rem; }
-  .meta { text-align: left; margin-top: 12px; }
-  header { flex-direction: column; align-items: flex-start; }
-  .benefits { gap: 12px; }
-  .panel { padding: 18px; }
-  .payment-section { padding: 18px; }
-  .grid-2 { grid-template-columns: 1fr !important; gap: 16px !important; }
-  textarea, input[type="text"], input[type="email"], select { min-height: 48px !important; padding: 14px !important; font-size: 1.05rem !important; }
-  textarea { min-height: 140px !important; }
-  .chip { padding: 12px 16px !important; font-size: 0.95rem !important; min-height: 44px !important; }
-  .pay-btn, .btn-submit { width: 100% !important; padding: 16px 24px !important; font-size: 1.15rem !important; min-height: 56px !important; }
-  label { font-size: 1.05rem !important; }
-  .hint { font-size: 0.9rem !important; }
-  html, body, .container { overflow-x: hidden !important; width: 100% !important; }
-  * { max-width: 100% !important; }
-}
+  .benefits {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
 
-/* Smooth scrolling on touch devices */
-@media (hover: none) {
-  * { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
-  body { -webkit-overflow-scrolling: touch; }
-}
+  .benefit {
+    flex: 1;
+    min-width: 250px;
+    background: rgba(30, 30, 30, 0.7);
+    border-radius: 12px;
+    padding: 18px;
+    border-left: 4px solid var(--accent-bronze);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    transition: var(--transition);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+  }
 
-/* Entrance animation */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.fade-in { animation: fadeInUp 0.6s ease forwards; }
+  .benefit:hover {
+    transform: translateY(-3px);
+    border-left: 4px solid var(--accent-gold);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  }
+
+  .benefit h4 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  .benefit p {
+    color: #d5d5d5;
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.98rem;
+  }
+
+  form {
+    margin-top: 28px;
+  }
+
+  label {
+    display: block;
+    margin-top: 24px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    font-size: 1.15rem;
+    font-family: "Cormorant Garamond", serif;
+    line-height: 1.4;
+    position: relative;
+    padding-bottom: 6px;
+  }
+
+  label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-bronze), transparent);
+  }
+
+  .hint {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-top: 10px;
+    font-style: italic;
+    line-height: 1.6;
+    padding-left: 8px;
+    border-left: 2px solid rgba(212, 175, 55, 0.2);
+  }
+
+  textarea, input[type="text"], input[type="email"], select {
+    width: 100%;
+    margin-top: 14px;
+    padding: 16px;
+    font-size: 1.05rem;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    background: rgba(25, 25, 25, 0.8);
+    color: var(--text);
+    transition: var(--transition);
+    resize: vertical;
+    line-height: 1.6;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) inset;
+    backdrop-filter: blur(4px);
+    min-height: 48px;
+    touch-action: manipulation;
+  }
+
+  textarea {
+    min-height: 160px;
+  }
+
+  /* FIXED: corrected background color syntax and removed broken token */
+  textarea:focus, input:focus, select:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3), 0 8px 30px rgba(184, 134, 47, 0.25);
+    background: rgba(30, 30, 30, 0.9);
+  }
+
+  .char-count {
+    text-align: right;
+    margin-top: 8px;
+    color: var(--accent-bronze);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 18px;
+  }
+
+  .radio-group, .checkbox-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) {
+    .radio-group, .checkbox-group {
+      flex-direction: row;
+    }
+  }
+
+  .chip {
+    background: rgba(40, 40, 40, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 12px 18px;
+    border-radius: 14px;
+    color: var(--text);
+    cursor: pointer;
+    user-select: none;
+    font-weight: 600;
+    font-size: 1.02rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
+    position: relative;
+    overflow: hidden;
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  .chip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-bronze), transparent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .chip:hover::before {
+    transform: scaleX(1);
+  }
+
+  .chip:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-gold);
+  }
+
+  .chip.active {
+    background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
+    border-color: var(--accent-gold);
+    box-shadow: 0 8px 25px rgba(184, 134, 47, 0.25);
+  }
+
+  .chip input {
+    display: none;
+  }
+
+  .chip.active::before {
+    transform: scaleX(1);
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-bronze));
+  }
+
+  .controls {
+    margin-top: 28px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .-submit {
+    padding: 16px 32px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-bronze));
+    border: none;
+    color: #081018;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 14px 36px rgba(212, 175, 55, 0.3);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: -0.5px;
+    min-height: 56px;
+    touch-action: manipulation;
+  }
+
+  .btn-submit::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+  }
+
+  .btn-submit:hover::after {
+    left: 100%;
+  }
+
+  .btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 42px rgba(212, 175, 55, 0.4);
+  }
+
+  .btn-submit:active {
+    transform: translateY(1px);
+  }
+
+  .muted-note {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .consent {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(30, 30, 30, 0.7);
+    border-radius: 14px;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .consent p {
+    color: #d0d0d0;
+    line-height: 1.7;
+    font-size: 0.98rem;
+  }
+
+  .consent strong {
+    color: var(--accent-gold);
+  }
+
+  footer {
+    margin-top: 32px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 1.05rem;
+    padding-top: 24px;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .badge-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: var(--accent-gold);
+  }
+
+  .badge-icon {
+    width: 24px;
+    height: 24px;
+    background: rgba(212, 175, 55, 0.15);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+  }
+
+  /* قسم الدفع الجديد */
+  .payment-section {
+    margin: 30px 0;
+    padding: 25px;
+    background: rgba(30, 30, 30, 0.7);
+    border-radius: 14px;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    position: relative;
+    overflow: visible;
+  }
+
+  .payment-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
+  }
+
+  .status-badge {
+    background: rgba(255, 77, 77, 0.15);
+    color: var(--accent-red);
+    padding: 6px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .status-badge.paid {
+    background: rgba(0, 200, 100, 0.15);
+    color: #00ff9d;
+  }
+
+  .pay-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, var(--accent-red), #cc0000);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    transition: var(--transition);
+    border: 2px solid var(--accent-red);
+    font-family: "Cormorant Garamond", serif;
+    min-height: 56px;
+    touch-action: manipulation;
+  }
+
+  .pay-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 42px rgba(255, 77, 77, 0.4);
+    border-color: #ff3333;
+  }
+
+  .pay-btn svg {
+    stroke: white;
+    stroke-width: 2;
+    flex-shrink: 0;
+  }
+
+  .success-message {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    background: rgba(40, 60, 40, 0.8);
+    border-radius: 14px;
+    border: 1px solid rgba(0, 200, 100, 0.3);
+    margin-top: 20px;
+  }
+
+  .success-message h2 {
+    color: #00ff9d;
+    font-family: "Cormorant Garamond", serif;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+  }
+
+  .success-message p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 15px 0;
+    color: #d0d0d0;
+  }
+
+  .success-message .note {
+    color: var(--accent-bronze);
+    margin-top: 15px;
+    font-style: italic;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .benefits {
+      flex-direction: column;
+    }
+    .grid-2 {
+      grid-template-columns: 1fr;
+    }
+    header {
+      gap: 8px;
+    }
+    .brand h1 {
+      font-size: 1.5rem;
+    }
+    h2.lead {
+      font-size: 2.0rem;
+    }
+    .pay-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    body {
+      padding: 12px !important;
+      -webkit-overflow-scrolling: touch;
+      overflow-y: auto;
+      width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    .container {
+      padding: 20px 16px !important;
+      margin: 8px;
+      width: 100% !important;
+    }
+
+    .brand h1 {
+      font-size: 1.3rem;
+    }
+
+    h2.lead {
+      font-size: 1.8rem;
+    }
+
+    .meta {
+      text-align: left;
+      margin-top: 12px;
+    }
+
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .controls {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn-submit {
+      width: 100% !important;
+      justify-content: center;
+    }
+
+    .muted-note {
+      text-align: center;
+      width: 100%;
+    }
+
+    /* إصلاحات نهائية للهاتف */
+    .grid-2 {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+
+    textarea, input[type="text"], input[type="email"], select {
+      min-height: 48px !important;
+      padding: 14px !important;
+      font-size: 1.05rem !important;
+    }
+
+    textarea {
+      min-height: 140px !important;
+    }
+
+    .chip {
+      padding: 12px 16px !important;
+      font-size: 0.95rem !important;
+      min-height: 44px !important;
+    }
+
+    .pay-btn, .btn-submit {
+      width: 100% !important;
+      padding: 16px 24px !important;
+      font-size: 1.15rem !important;
+      min-height: 56px !important;
+    }
+
+    label {
+      font-size: 1.15rem !important;
+    }
+
+    .hint {
+      font-size: 0.9rem !important;
+    }
+
+    /* إصلاح خطأ التنسيق */
+    .sacred-note, .panel, .card, .benefit, .consent, .payment-section {
+      border: 1px solid rgba(212, 175, 55, 0.15) !important;
+    }
+
+    /* منع التمرير الأفقي */
+    html, body, .container {
+      overflow-x: hidden !important;
+      width: 100% !important;
+    }
+
+    /* تأكيد تأثيرات التمرير */
+    body {
+      overscroll-behavior: none;
+    }
+
+    /* ضمان عرض كامل على الهواتف */
+    * {
+      max-width: 100% !important;
+    }
+  }
+
+  /* ضمان التمرير السلس على جميع الأجهزة */
+  @media (hover: none) {
+    * {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    body {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  /* تأثيرات إدخال أنيقة */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in {
+    animation: fadeInUp 0.6s ease forwards;
+  }
 </style>
 </head>
 <body>
@@ -692,14 +825,14 @@ footer {
     <header>
       <div class="brand" aria-hidden="false">
         <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
             <rect x="1" y="1" width="22" height="22" rx="5" fill="rgba(184,134,47,0.06)"/>
             <path d="M6 15c2-3 6-8 11-6" stroke="#d4af37" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
         </div>
-        <div>
+        <div style="min-width:0;">
           <h1 id="page-title">Your Personal Growth Architect</h1>
-          <p>Psychologists analyzing your words to eliminate negativity and amplify your unique strengths</p>        
+          <p>Psychologists analyzing your words to eliminate negativity and amplify your unique strengths</p>
         </div>
       </div>
 
@@ -713,7 +846,7 @@ footer {
       <h2 class="lead">This conversation belongs only to you</h2>
       <p class="lead-note">
         What you share here becomes the foundation for messages crafted by licensed psychologists who truly see you. Your words help us dissolve your specific frustrations while strengthening your authentic strengths. Everything you share stays private and encrypted — like a sacred conversation between you and your growth.
-      </p>      
+      </p>
       <div class="sacred-note" aria-live="polite">
         <strong style="color: var(--accent-gold);">This isn't a form — it's the beginning of your transformation.</strong><br>
         Your responses are analyzed only by our vetted psychologists to build messages that feel like they come from a trusted friend who knows your heart.
@@ -751,7 +884,7 @@ footer {
       <div class="hint">(Be gentle with yourself. This is where your transformation begins — whether it's work pressure, caring for others, health challenges, or relationships that drain your spirit.)</div>
       <textarea id="change_needed" name="change_needed" placeholder="I often tell myself: 'This is just how life is' about..."></textarea>
       <div class="char-count">0 characters | 0 words</div>
-      
+
       <label for="repeating_pattern">
         2) What pattern keeps returning like an old friend you've outgrown?
       </label>
@@ -765,7 +898,7 @@ footer {
       <div class="hint">(The sentence that plays when you're alone at 3 AM — the one you'd never say aloud but carries your deepest fear.)</div>
       <textarea id="inner_voice" name="inner_voice" placeholder="My inner voice says: 'If I stop, everything will fall apart...'"></textarea>
       <div class="char-count">0 characters | 0 words</div>
-      
+
       <label for="forgotten_truth">
         4) What true thing about yourself do you forget when the world gets loud?
       </label>
@@ -774,8 +907,7 @@ footer {
       <div class="char-count">0 characters | 0 words</div>
 
       <label for="unsaid_truth">
-        5) What truth lives in your heart but rarely leaves your lips?
-      </label>
+        5) What truth lives in your heart but rarely leaves your lips?</label>
       <div class="hint">(The desire, fear, or dream you keep private — the part of you that longs to be seen but stays hidden for safety.)</div>
       <textarea id="unsaid_truth" name="unsaid_truth" placeholder="If I could whisper one thing no one knows: 'I secretly long for...'"></textarea>
       <div class="char-count">0 characters | 0 words</div>
@@ -800,7 +932,7 @@ footer {
       <div class="hint">(Like a trusted friend who knows your heart, a wise mentor who sees your potential, or a calm companion who walks beside you without judgment.)</div>
       <textarea id="message_feel" name="message_feel" placeholder="I want messages that feel like..."></textarea>
       <div class="char-count">0 characters | 0 words</div>
-      
+
       <label for="red_lines">
         9) What words or approaches make you close your heart?
       </label>
@@ -815,7 +947,7 @@ footer {
       <textarea id="protect_this_month" name="protect_this_month" placeholder="This month, I commit to protecting..."></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
-      <label for="before_stopping">        
+      <label for="before_stopping">
         11) What happens inside you just before you want to give up?
       </label>
       <div class="hint">(The physical sensation in your chest, the thought that loops in your mind, or the moment when everything feels too heavy — we'll help you recognize it earlier.)</div>
@@ -850,7 +982,7 @@ footer {
       <textarea id="bold_step" name="bold_step" placeholder="This month, I'd like to gently try..."></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
-      <label for="triggers">        
+      <label for="triggers">
         16) (Optional) What words or topics need gentle handling?
       </label>
       <div class="hint">(Trauma, loss, health struggles, or past pain — naming these helps us create messages that honor your journey without causing harm.)</div>
@@ -866,7 +998,7 @@ footer {
           <label class="chip"><input type="checkbox" name="priority[]" value="family"> Family & Relationships</label>
           <label class="chip"><input type="checkbox" name="priority[]" value="health"> Physical Health & Energy</label>
         </div>
-        <div>          
+        <div>
           <label class="chip"><input type="checkbox" name="priority[]" value="mental"> Mental & Emotional Peace</label>
           <label class="chip"><input type="checkbox" name="priority[]" value="risk"> Courage & Growth</label>
           <label class="chip"><input type="checkbox" name="priority[]" value="relationships"> Meaningful Connection</label>
@@ -901,7 +1033,7 @@ footer {
           </select>
         </div>
       </div>
-      
+
       <div style="margin-top:20px">
         <label for="frequency">How often would you like this gentle companionship?</label>
         <div class="radio-group" role="radiogroup" aria-label="Message frequency">
@@ -912,28 +1044,28 @@ footer {
         <div class="hint">(Like tending a garden, small daily care creates deep roots. You can change this anytime.)</div>
       </div>
 
-      <!-- Payment section -->
+      <!-- قسم الدفع الجديد -->
       <div class="payment-section">
         <div style="text-align: center;">
           <div class="status-badge" id="payment-status-badge">
             Subscription required to send data
-          </div>        
+          </div>
         </div>
-        
+
         <div style="display: flex; flex-direction: column; gap: 20px; align-items: center; margin-top: 20px;">
-          <!-- This anchor navigates directly to Ko-fi in the same tab as requested -->
+          <!-- الرابط الصحيح لـ Ko-fi -->
           <a href="https://ko-fi.com/s/cd96925d8f"
-             target="_self"
+             target="_blank"
              rel="noopener noreferrer"
              class="pay-btn"
              id="payment-btn"
              aria-label="Pay $30 monthly subscription on secure Ko-fi page">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.5 4.5 3 7.5 3c1.54 0 3.15.67 4.5 1.78C13.35 3.67 14.96 3 16.5 3 19.5 3 22 5.5 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="white" stroke-width="1.5" fill="none"/>
             </svg>
             Pay $30 Monthly Subscription
           </a>
-          
+
           <div style="color: var(--muted); font-size: 0.95rem; text-align: center; max-width: 600px;">
             <p><strong>Note:</strong> Your data won't be saved until you complete your subscription. After payment, you'll be redirected back to this page with the submit button activated.</p>
           </div>
@@ -973,7 +1105,7 @@ footer {
         </div>
         <div class="badge-item">
           <div class="badge-icon">🧠</div>
-          <span>PhD Psychologists Only</span>        
+          <span>PhD Psychologists Only</span>
         </div>
         <div class="badge-item">
           <div class="badge-icon">✨</div>
@@ -984,13 +1116,13 @@ footer {
   </div>
 
 <script>
-  // ===== CORE INTERACTIONS =====
+  // تحسينات التمرير والوظائف
   document.addEventListener('DOMContentLoaded', function() {
-    // Smooth native scrolling
+    // إصلاح التمرير السلس
     document.body.style.scrollBehavior = 'smooth';
     document.body.style.overscrollBehavior = 'contain';
 
-    // Read URL params to detect payment return
+    // التحقق من حالة الدفع عند تحميل الصفحة
     const urlParams = new URLSearchParams(window.location.search);
     const paymentSuccess = urlParams.get('payment');
     const clientEmail = urlParams.get('email');
@@ -1002,93 +1134,150 @@ footer {
     const successContainer = document.getElementById('success-container');
 
     if (paymentSuccess === 'success' && clientEmail) {
-      // Mark paid
-      paymentStatusBadge.textContent = '✓ Subscription confirmed';
-      paymentStatusBadge.classList.add('paid');
+      // تحديث حالة الدفع
+      if (paymentStatusBadge) {
+        paymentStatusBadge.textContent = '✓ Subscription confirmed';
+        paymentStatusBadge.classList.add('paid');
+      }
 
-      // Enable submit
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = 'Begin Your Sacred Transformation';
+      // تفعيل زر الإرسال
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Begin Your Sacred Transformation';
+      }
 
-      // Set hidden input
-      paymentStatusInput.value = 'completed';
+      // تحديث حالة الدفع في النموذج
+      if (paymentStatusInput) paymentStatusInput.value = 'completed';
 
-      // Fill email if present
+      // ملء حقل البريد الإلكتروني
       if (emailInput) {
         emailInput.value = clientEmail;
       }
 
-      // Provide feedback
+      // إظهار رسالة تأكيد بسيطة للمستخدم
       setTimeout(() => {
-        try { alert('✅ Thank you for subscribing! Complete your profile below to receive your first message tomorrow.'); } catch (err) {}
+        try { alert('✅ Thank you for subscribing! Complete your profile below to receive your first message tomorrow.'); } catch (e) {}
       }, 300);
     }
 
-    // Entrance animations (stagger)
+    // إضافة تأثيرات إدخال أنيقة
     const elements = document.querySelectorAll('label, .benefit, .panel, .intro');
     elements.forEach((el, index) => {
-      setTimeout(() => { el.classList.add('fade-in'); }, 150 * index);
+      // تأخير بسيط لإنشاء تأثير متتالي
+      setTimeout(() => {
+        el.classList.add('fade-in');
+      }, 120 * index);
     });
 
-    // Character counters
+    // عداد الأحرف والكلمات
     function updateCount(el) {
       const charCount = el.value.length;
       const wordCount = el.value.trim() === '' ? 0 : el.value.trim().split(/\s+/).length;
+      // find next .char-count element (may be sibling)
       let next = el.nextElementSibling;
-      while (next && !next.classList.contains('char-count')) next = next.nextElementSibling;
-      if (next && next.classList && next.classList.contains('char-count')) {
+      while (next && !next.classList.contains('char-count')) {
+        next = next.nextElementSibling;
+      }
+      if (next && next.classList.contains('char-count')) {
         next.innerText = `${charCount} characters | ${wordCount} words`;
       }
     }
+
+    // تهيئة العدادات
     document.querySelectorAll('textarea').forEach(t => {
       updateCount(t);
-      t.addEventListener('input', () => updateCount(t));
+      t.addEventListener('input', () => updateCount(t), { passive: true });
     });
 
-    // Chips setup (radios & checkboxes)
+    // تفعيل وإلغاء تفعيل الرقائق (chips)
     function setupChips() {
-      // radio-like chips
+      // radios inside .radio-group
       document.querySelectorAll('.radio-group .chip').forEach(chip => {
         chip.addEventListener('click', function(e) {
+          // allow clicks on inputs to behave normally
           const input = this.querySelector('input[type="radio"]');
           if (!input) return;
+
           const name = input.name;
           document.querySelectorAll(`.radio-group .chip input[type="radio"][name="${name}"]`).forEach(r => {
             const chipEl = r.closest('.chip');
             if (chipEl) chipEl.classList.remove('active');
           });
+
           input.checked = true;
           this.classList.add('active');
-        });
+        }, { passive: true });
       });
 
-      // checkbox chips
-      document.querySelectorAll('.checkbox-group .chip, .grid-2 .chip').forEach(chip => {
+      // checkboxes in .grid-2 (priority chips)
+      document.querySelectorAll('.grid-2 .chip').forEach(chip => {
         chip.addEventListener('click', function(e) {
           const input = this.querySelector('input[type="checkbox"]');
           if (!input) return;
           input.checked = !input.checked;
           this.classList.toggle('active', input.checked);
-        });
+        }, { passive: true });
+      });
+
+      // also support .checkbox-group if present
+      document.querySelectorAll('.checkbox-group .chip').forEach(chip => {
+        chip.addEventListener('click', function(e) {
+          const input = this.querySelector('input[type="checkbox"]');
+          if (!input) return;
+          input.checked = !input.checked;
+          this.classList.toggle('active', input.checked);
+        }, { passive: true });
       });
     }
+
     setupChips();
 
-    // Adjust font size for very small screens
-    function adjustFontSize() {
-      if (window.innerWidth < 420) document.documentElement.style.fontSize = '92%';
-      else document.documentElement.style.fontSize = '100%';
+    // Ensure payment button navigates directly to Ko-fi (explicit handler to avoid any interference)
+    const paymentBtn = document.getElementById('payment-btn');
+    const paymentUrl = 'https://ko-fi.com/s/cd96925d8f';
+    if (paymentBtn) {
+      paymentBtn.addEventListener('click', function (e) {
+        // Let anchor default open in new tab because target="_blank" is present,
+        // but explicitly also open to be 100% sure on all browsers/devices.
+        // We don't prevent default; we also open programmatically (best-effort).
+        try {
+          // Open in new tab for mobile/desktop
+          window.open(paymentUrl, '_blank', 'noopener,noreferrer');
+        } catch (err) {
+          // fallback: navigate same tab
+          window.location.href = paymentUrl;
+        }
+      }, { passive: true });
     }
-    window.addEventListener('load', adjustFontSize);
-    window.addEventListener('resize', adjustFontSize);
 
-    // Warn about leaving unsaved form data (if payment not completed)
+    // Control submit button (simple console action here)
+    if (submitBtn) {
+      submitBtn.addEventListener('click', function(e) {
+        // UX: let normal form submission happen if enabled
+        console.log('Transformation journey initiated');
+      }, { passive: true });
+    }
+
+    // التحكم في حجم الخطوط على الهواتف
+    function adjustFontSize() {
+      if (window.innerWidth < 480) {
+        document.documentElement.style.fontSize = '90%';
+      } else {
+        document.documentElement.style.fontSize = '100%';
+      }
+    }
+
+    window.addEventListener('resize', adjustFontSize);
+    // call once now
+    adjustFontSize();
+
+    // تحذير عند محاولة مغادرة الصفحة مع بيانات غير محفوظة
     let formModified = false;
-    const monitored = document.querySelectorAll('textarea, input[type="text"], input[type="email"], select');
-    monitored.forEach(el => {
-      el.addEventListener('input', () => { formModified = true; });
-      el.addEventListener('change', () => { formModified = true; });
+    const formFields = document.querySelectorAll('textarea, input[type="text"], input[type="email"], select');
+    formFields.forEach(el => {
+      el.addEventListener('change', () => { formModified = true; }, { passive: true });
     });
+
     window.addEventListener('beforeunload', (e) => {
       if (formModified && paymentStatusInput && paymentStatusInput.value !== 'completed') {
         e.preventDefault();
@@ -1096,51 +1285,96 @@ footer {
       }
     });
 
-    // Ensure payment anchor navigates even in restrictive environments:
-    const paymentBtn = document.getElementById('payment-btn');
-    if (paymentBtn) {
-      paymentBtn.addEventListener('click', function(e) {
-        // Do not call preventDefault(); Allow normal navigation.
-        // As a fallback, force navigation shortly after click to ensure it opens:
-        const href = this.getAttribute('href');
-        if (href) {
-          setTimeout(() => { try { window.location.href = href; } catch (err) {} }, 200);
+    // Accessibility: make chips keyboard operable
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.setAttribute('tabindex', '0');
+      chip.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          chip.click();
         }
       });
-    }
-  });
+    });
+  }); // end DOMContentLoaded
 
-  // ===== FORM SUBMISSION VALIDATION =====
-  document.querySelector('form').addEventListener('submit', function(e) {
-    const paymentStatus = document.getElementById('payment-status');
-    const emailEl = document.getElementById('email');
-    const nameEl = document.getElementById('name');
-    const email = emailEl ? emailEl.value.trim() : '';
-    const name = nameEl ? nameEl.value.trim() : '';
+  // وظيفة الإرسال الإضافية للتأكد من العمل الصحيح
+  // Put submit handler outside but safe: it will run when form exists (page loaded)
+  (function attachSubmitHandler() {
+    const form = document.querySelector('form[name="onboarding"]');
+    if (!form) return;
 
-    if (!paymentStatus || paymentStatus.value !== 'completed') {
+    form.addEventListener('submit', function(e) {
+      const paymentStatus = document.getElementById('payment-status');
+      const emailEl = document.getElementById('email');
+      const nameEl = document.getElementById('name');
+      const email = emailEl ? emailEl.value.trim() : '';
+      const name = nameEl ? nameEl.value.trim() : '';
+
+      // التحقق من حالة الدفع
+      if (!paymentStatus || paymentStatus.value !== 'completed') {
+        e.preventDefault();
+        try { alert('⚠️ Please complete your $30 subscription on Ko-fi first to send your data.'); } catch (err) {}
+        // التمرير إلى قسم الدفع
+        const paySection = document.querySelector('.payment-section');
+        if (paySection) paySection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      if (!email || !name) {
+        e.preventDefault();
+        try { alert('⚠️ Please provide your name and email to begin your transformation.'); } catch (err) {}
+        return;
+      }
+
+      // التحقق من البريد الإلكتروني
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        e.preventDefault();
+        try { alert('⚠️ Please enter a valid email address.'); } catch (err) {}
+        return;
+      }
+
+      console.log('Form submitted successfully - transformation begins');
+
+      // In production you might send via fetch to Make.com etc.
+      // Commented-out code preserved exactly as in your original file (keeps content)
+      /*
       e.preventDefault();
-      alert('⚠️ Please complete your $30 subscription on Ko-fi first to send your data.');
-      document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth' });
-      return;
-    }
 
-    if (!email || !name) {
-      e.preventDefault();
-      alert('⚠️ Please provide your name and email to begin your transformation.');
-      return;
-    }
+      const formData = new FormData(this);
+      const formObject = Object.fromEntries(formData.entries());
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      e.preventDefault();
-      alert('⚠️ Please enter a valid email address.');
-      return;
-    }
+      fetch('https://hook.make.com/your-webhook-url', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formObject)
+      })
+      .then(response => {
+        if (response.ok) {
+          // إخفاء النموذج وإظهار رسالة النجاح
+          this.style.display = 'none';
+          document.getElementById('success-container').style.display = 'block';
 
-    console.info('Form validated and submitting.');
-    // Normal submission (Netlify or backend) proceeds.
-  });
+          // إرسال إشارة إلى Google Analytics (اختياري)
+          if (window.gtag) {
+            gtag('event', 'onboarding_complete', {
+              'event_category': 'subscription',
+              'value': 30
+            });
+          }
+        } else {
+          throw new Error('Failed to save data');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('There was an issue saving your data. Please try again.');
+      });
+      */
+    }, { passive: false });
+  })();
 </script>
 </body>
   </html>
