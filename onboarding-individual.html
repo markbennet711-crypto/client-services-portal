@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <title>Your Personal Growth Architect — Begin Your Transformation</title>
 <meta name="description" content="Daily messages crafted by psychological experts who analyze your personal data to eliminate negativity and amplify your positive traits. Private human guidance designed exclusively for US & EU professionals." />
+<meta name="robots" content="noindex, nofollow">
 
-<!-- Fonts: Cormorant Garamond (headlines) + Inter (body) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,6 +22,8 @@
     -webkit-overflow-scrolling: touch;
     width: 100% !important;
     touch-action: manipulation;
+    0;
+    padding: 0;
   }
 
   * {
@@ -31,6 +33,7 @@
     -webkit-tap-highlight-color: transparent;
     overflow-wrap: break-word;
     word-break: break-word;
+    max-width: 100%;
   }
 
   :root {
@@ -44,10 +47,10 @@
     --accent-red: #ff4d4d;
     --radius: 16px;
     --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);  }
 
-  body {    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  body {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     color: var(--text);
     padding: 20px;
     display: flex;    
@@ -93,10 +96,10 @@
   
   .brand {
     display: flex;
-    gap: 16px;
-    align-items: center;
+    gap: 16px;    align-items: center;
   }
-    .logo {
+  
+  .logo {
     width: 64px;
     height: 64px;
     border-radius: 16px;
@@ -142,10 +145,10 @@
     border-radius: 30px;
     background: rgba(212, 175, 55, 0.12);
     color: var(--accent-gold);
-    font-weight: 700;
-    font-size: 0.9rem;
+    font-weight: 700;    font-size: 0.9rem;
     letter-spacing: 0.5px;
-    backdrop-filter: blur(4px);    border: 1px solid rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
   }
 
   .badge {
@@ -191,10 +194,10 @@
     max-width: 800px;
     margin: 0 auto 18px;
     line-height: 1.8;
-    font-size: 1.1rem;
-    position: relative;
+    font-size: 1.1rem;    position: relative;
     z-index: 1;
-  }  
+  }
+  
   .sacred-note {
     background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
     border-left: 3px solid var(--accent-gold);
@@ -204,7 +207,7 @@
     font-style: normal;
     margin: 16px auto;
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);    
-    border: 1px solid rgba(212, 175, 55, 0.15); /* تم إصلاح خطأ "border: px" */
+    border: 1px solid rgba(212, 175, 55, 0.15);
     max-width: 700px;
   }
 
@@ -240,10 +243,10 @@
     position: relative;
     z-index: 1;
   }
-
   .benefits {
     display: flex;
-    gap: 16px;    margin-top: 16px;
+    gap: 16px;
+    margin-top: 16px;
     flex-wrap: wrap;
   }
   
@@ -289,10 +292,10 @@
     margin-top: 24px;
     font-weight: 700;
     color: var(--accent-gold);
-    font-size: 1.15rem;
-    font-family: "Cormorant Garamond", serif;
+    font-size: 1.15rem;    font-family: "Cormorant Garamond", serif;
     line-height: 1.4;
-    position: relative;    padding-bottom: 6px;
+    position: relative;
+    padding-bottom: 6px;
   }
   
   label::after {
@@ -338,10 +341,10 @@
   }
   
   textarea:focus, input:focus, select:focus {
-    outline: none;
-    border-color: var(--accent-gold);
+    outline: none;    border-color: var(--accent-gold);
     box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3), 0 8px 30px rgba(184, 134, 47, 0.25);
-    background: rgba(30, 30, 30, 0.9);  }
+    background: rgba30, 30, 30, 0.9);
+  }
 
   .char-count {
     text-align: right;
@@ -387,10 +390,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(3px);
-    position: relative;    overflow: hidden;
+    position: relative;
+    overflow: hidden;
     min-height: 44px;
     touch-action: manipulation;
   }
@@ -436,10 +439,10 @@
     display: flex;
     gap: 16px;
     align-items: center;
-    flex-wrap: wrap;
-  }
+    flex-wrap: wrap;  }
 
-  .btn-submit {    padding: 16px 32px;
+  .-submit {
+    padding: 16px 32px;
     border-radius: 14px;
     background: linear-gradient(135deg, var(--accent-gold), var(--accent-bronze));
     border: none;
@@ -486,9 +489,9 @@
     font-size: 0.95rem;
     line-height: 1.6;
   }
-
   .consent {
-    margin-top: 20px;    padding: 20px;
+    margin-top: 20px;
+    padding: 20px;
     background: rgba(30, 30, 30, 0.7);
     border-radius: 14px;
     border: 1px solid rgba(212, 175, 55, 0.15);
@@ -534,10 +537,10 @@
   
   .badge-icon {
     width: 24px;
-    height: 24px;
-    background: rgba(212, 175, 55, 0.15);
+    height: 24px;    background: rgba(212, 175, 55, 0.15);
     border-radius: 50%;
-    display: grid;    place-items: center;
+    display: grid;
+    place-items: center;
     font-weight: bold;
   }
 
@@ -583,10 +586,10 @@
     gap: 10px;
     padding: 14px 28px;
     background: linear-gradient(135deg, var(--accent-red), #cc0000);
-    color: white;
-    text-decoration: none;
+    color: white;    text-decoration: none;
     border-radius: 12px;
-    font-weight: 800;    font-size: 1.05rem;
+    font-weight: 800;
+    font-size: 1.05rem;
     margin-bottom: 15px;
     transition: var(--transition);
     border: 2px solid var(--accent-red);
@@ -632,10 +635,10 @@
   }
   
   .success-message .note {
-    color: var(--accent-bronze);
-    margin-top: 15px;
+    color: var(--accent-bronze);    margin-top: 15px;
     font-style: italic;
   }
+
   /* Responsive adjustments */
   @media (max-width: 900px) {
     .benefits { 
@@ -681,10 +684,10 @@
     h2.lead {
       font-size: 1.8rem;
     }
-    
-    .meta {
+        .meta {
       text-align: left;
-      margin-top: 12px;    }
+      margin-top: 12px;
+    }
     
     header {
       flex-direction: column;
@@ -730,10 +733,10 @@
     
     .pay-btn, .btn-submit {
       width: 100% !important;
-      padding: 16px 24px !important;
-      font-size: 1.15rem !important;
+      padding: 16px 24px !important;      font-size: 1.15rem !important;
       min-height: 56px !important;
-    }    
+    }
+    
     label {
       font-size: 1.15rem !important;
     }
@@ -753,16 +756,14 @@
       width: 100% !important;
     }
     
-    /* تحسين النصوص */
-    .container, .hero, .card, .panel, textarea, input, select, .char-count, .hint {
-      overflow-wrap: break-word !important;
-      word-break: break-word !important;
+    /* تأكيد تأثيرات التمرير */
+    body {
+      overscroll-behavior: none;
     }
     
-    /* تحسين العناصر التفاعلية */
-    .cta, .pay-btn, .btn-submit, .chip {
-      touch-action: manipulation !important;
-      min-height: 56px !important;
+    /* ضمان عرض كامل على الهواتف */
+    * {
+      max-width: 100% !important;
     }
   }
   
@@ -773,7 +774,7 @@
       touch-action: manipulation;    
     }
     body {
-      -webkit-overflow-scrolling: touch;
+      -webkit--scrolling: touch;
     }
   }
   
@@ -781,8 +782,8 @@
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
-    }    to {
+      transform: translateY(20px);    }
+    to {
       opacity: 1;
       transform: translateY(0);
     }
@@ -793,7 +794,6 @@
   }
 </style>
 </head>
-
 <body>
   <div class="container" role="main" aria-labelledby="page-title">
     <header>
@@ -914,7 +914,7 @@
       <div class="char-count">0 characters | 0 words</div>
 
       <label for="protect_this_month">
-        10) What sacred space do you need to protect this month to feel whole?
+        1 What sacred space do you need to protect this month to feel whole?
       </label>
       <div class="hint">(A morning ritual, an hour of quiet, a boundary with work, or time for your body — the small space where your soul can breathe.)</div>
       <textarea id="protect_this_month" name="protect_this_month" placeholder="This month, I commit to protecting..."></textarea>
