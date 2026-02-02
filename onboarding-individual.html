@@ -2,1319 +2,720 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,user-scalable=yes" />
 <title>Your Personal Growth Architect — Begin Your Transformation</title>
 <meta name="description" content="Daily messages crafted by psychological experts who analyze your personal data to eliminate negativity and amplify your positive traits. Private human guidance designed exclusively for US & EU professionals." />
+<meta name="robots" content="noindex, nofollow" />
 
-<!-- Fonts: Cormorant Garamond (headlines) + Inter (body) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
 <style>
-  /* أساسيات التمرير - مُحسّنة للهواتف */
-  html, body {
-    height: auto !important;
+  /* reset / basics */
+  html,body {
+    height: 100%;
     min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: relative;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: scrollbar;
-  }
-
-  /* Prevent aggressive mid-word breaking and improve hyphenation behavior.
-     These settings avoid the "one-letter-per-line" symptom and keep words readable. */
-  * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: 100%;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    background: radial-gradient(circle at top right, rgba(212,175,55,0.06) 0%, #0a0a0a 100%);
+    color: #fff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     word-break: normal;
-    overflow-wrap: break-word;
+    overflow-wrap: normal;
     hyphens: auto;
   }
 
-  :root {
-    /* ألوان فاخرة - خلفية سوداء مع لمسات ذهبية وبرونزية */
-    --page-bg: #0a0a0a;
-    --card: #121212;
-    --muted: #a0a0a0;
-    --text: #ffffff;
-    --accent-gold: #d4af37;
-    --accent-bronze: #b8862f;
-    --accent-red: #ff4d4d;
-    --radius: 16px;
-    --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  body {
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    color: var(--text);
-    padding: 20px;
+  /* container */
+  .page-wrap {
     display: flex;
     justify-content: center;
-    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);
-    line-height: 1.6;
-    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
   }
 
-  /* Make container responsive and use a safe width on small devices */
   .container {
     width: 100%;
     max-width: 980px;
-    background: var(--card);
-    border-radius: var(--radius);
+    background: #121212;
+    border-radius: 18px;
     padding: 32px;
-    box-shadow: var(--shadow);
-    border: 1px solid rgba(212, 175, 55, 0.1);
-    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    border: 1px solid rgba(212,175,55,0.08);
+    box-sizing: border-box;
     overflow: visible;
-    margin: 0 auto;
-    min-height: auto;
   }
 
   .container::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   header {
     display: flex;
+    gap: 18px;
     align-items: center;
     justify-content: space-between;
-    gap: 18px;
     flex-wrap: wrap;
   }
 
-  /* KEY FIX: allow brand text to shrink properly on narrow screens */
   .brand {
     display: flex;
     gap: 16px;
     align-items: center;
-    flex: 1 1 auto;
-    min-width: 0; /* allows children to shrink rather than overflow */
+    min-width: 0; /* important for flex children to shrink correctly */
   }
 
   .logo {
     width: 64px;
     height: 64px;
-    border-radius: 16px;
-    background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
+    border-radius: 14px;
     display: grid;
     place-items: center;
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     flex-shrink: 0;
-  }
-
-  .logo svg {
-    width: 36px;
-    height: 36px;
-    stroke: var(--accent-gold);
-    stroke-width: 1.8;
+    background: linear-gradient(145deg, rgba(212,175,55,0.12), rgba(184,134,47,0.08));
+    border: 1px solid rgba(212,175,55,0.25);
   }
 
   .brand h1 {
     font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
-    font-size: 1.8rem;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    color: #d4af37;
+    font-size: 1.6rem;
+    line-height: 1.05;
     margin: 0;
-    /* allow wrapping across multiple lines on small screens */
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    /* allow text to wrap naturally and not break letters */
     white-space: normal;
-    overflow: visible;
-    text-overflow: inherit;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    min-width: 0;
   }
 
-  /* KEY FIX: allow the description to use available width and wrap normally */
   .brand p {
-    color: var(--muted);
+    color: #a0a0a0;
+    margin: 4px 0 0 0;
     font-size: 0.95rem;
-    margin-top: 4px;
-    max-width: none;
-    line-height: 1.5;
+    max-width: 520px;
+    line-height: 1.45;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   .meta {
     text-align: right;
-    color: var(--muted);
-    flex-shrink: 0;
   }
 
   .pill {
     display: inline-block;
-    padding: 6px 16px;
-    border-radius: 30px;
-    background: rgba(212, 175, 55, 0.12);
-    color: var(--accent-gold);
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(212,175,55,0.12);
+    color: #d4af37;
     font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    font-size: 0.88rem;
+    border: 1px solid rgba(212,175,55,0.18);
   }
 
   .badge {
     display: inline-block;
-    margin-top: 6px;
-    padding: 2px 8px;
+    margin-top: 8px;
+    padding: 3px 8px;
     border-radius: 10px;
-    background: rgba(255, 77, 77, 0.15);
-    color: var(--accent-red);
-    font-size: 0.8rem;
+    background: rgba(255,77,77,0.12);
+    color: #ff4d4d;
     font-weight: 600;
+    font-size: 0.82rem;
   }
 
+  /* INTRO */
   .intro {
-    margin-top: 24px;
+    margin-top: 22px;
     text-align: center;
+    padding: 22px 10px;
     position: relative;
-    padding: 24px 0;
   }
 
-  .intro::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-  }
-
-  h2.lead {
+  .intro .lead {
     font-family: "Cormorant Garamond", serif;
-    font-size: 2.4rem;
-    color: var(--accent-gold);
-    margin-bottom: 16px;
-    line-height: 1.1;
-    text-shadow: 0 4px 15px rgba(184, 134, 47, 0.2);
+    color: #d4af37;
+    font-size: 2rem;
+    margin: 0 0 10px 0;
+    line-height: 1.05;
   }
 
-  p.lead-note {
+  .lead-note {
     color: #d0d0d0;
-    max-width: 800px;
-    margin: 0 auto 18px;
-    line-height: 1.8;
-    font-size: 1.1rem;
-    position: relative;
-    z-index: 1;
-    word-break: normal;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.7;
+    font-size: 1.02rem;
   }
 
   .sacred-note {
-    background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
-    border-left: 3px solid var(--accent-gold);
-    padding: 16px;
-    border-radius: 0 12px 12px 0;
+    margin: 18px auto 0;
+    background: linear-gradient(145deg, rgba(212,175,55,0.06), rgba(0,0,0,0.18));
+    border-left: 3px solid #d4af37;
+    padding: 14px;
+    border-radius: 10px;
+    max-width: 720px;
     color: #f0f0f0;
-    font-style: normal;
-    margin: 16px auto;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    max-width: 700px;
+    font-size: 0.98rem;
   }
 
+  /* PANEL / BENEFITS */
   .panel {
-    margin-top: 24px;
-    background: linear-gradient(160deg, #0f0f0f, #181818);
+    margin-top: 22px;
+    padding: 18px;
+    background: linear-gradient(160deg,#0f0f0f,#181818);
     border-radius: 14px;
-    padding: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.18);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    position: relative;
-    overflow: visible; /* keep content visible */
-    backdrop-filter: blur(2px);
-  }
-
-  .panel::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
-    z-index: 0;
+    border: 1px solid rgba(212,175,55,0.12);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+    overflow: visible;
   }
 
   .panel small {
-    color: var(--accent-bronze);
+    color: #b8862f;
+    font-weight: 600;
     display: block;
     margin-bottom: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    position: relative;
-    z-index: 1;
   }
 
   .benefits {
     display: flex;
-    gap: 16px;
-    margin-top: 16px;
+    gap: 14px;
     flex-wrap: wrap;
+    margin-top: 8px;
   }
 
   .benefit {
-    flex: 1;
-    min-width: 250px;
-    background: rgba(30, 30, 30, 0.7);
+    flex: 1 1 250px;
+    min-width: 220px;
+    background: rgba(30,30,30,0.72);
+    padding: 16px;
     border-radius: 12px;
-    padding: 18px;
-    border-left: 4px solid var(--accent-bronze);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(4px);
-    transition: var(--transition);
-    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-left: 4px solid #b8862f;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    transition: transform .25s ease, box-shadow .25s ease;
   }
+  .benefit:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.5); }
+  .benefit h4 { font-family: "Cormorant Garamond", serif; color: #d4af37; margin:0 0 8px 0; font-size: 1.12rem; }
+  .benefit p { color: #d5d5d5; line-height:1.6; margin:0; }
 
-  .benefit:hover {
-    transform: translateY(-3px);
-    border-left: 4px solid var(--accent-gold);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
-  }
-
-  .benefit h4 {
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-  }
-
-  .benefit p {
-    color: #d5d5d5;
-    margin: 0;
-    line-height: 1.6;
-    font-size: 0.98rem;
-    word-break: normal;
-  }
-
-  form {
-    margin-top: 28px;
-  }
+  /* FORM */
+  form { margin-top: 26px; }
 
   label {
-    display: block;
-    margin-top: 24px;
-    font-weight: 700;
-    color: var(--accent-gold);
-    font-size: 1.15rem;
+    display:block;
+    margin-top: 20px;
+    color: #d4af37;
     font-family: "Cormorant Garamond", serif;
-    line-height: 1.4;
-    position: relative;
+    font-weight: 700;
+    font-size: 1.08rem;
+    line-height: 1.3;
     padding-bottom: 6px;
+    position: relative;
+    hyphens: auto;
   }
-
   label::after {
-    content: '';
+    content: "";
     position: absolute;
-    bottom: 0;
     left: 0;
-    width: 60px;
+    bottom: 0;
+    width: 56px;
     height: 3px;
-    background: linear-gradient(90deg, var(--accent-bronze), transparent);
+    background: linear-gradient(90deg,#b8862f,transparent);
+    border-radius: 2px;
   }
 
   .hint {
-    font-size: 0.95rem;
-    color: var(--muted);
-    margin-top: 10px;
+    color: #9a9a9a;
+    margin-top:8px;
     font-style: italic;
-    line-height: 1.6;
-    padding-left: 8px;
-    border-left: 2px solid rgba(212, 175, 55, 0.2);
+    border-left: 3px solid rgba(212,175,55,0.12);
+    padding-left:10px;
   }
 
   textarea, input[type="text"], input[type="email"], select {
     width: 100%;
-    margin-top: 14px;
-    padding: 16px;
-    font-size: 1.05rem;
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-sizing: border-box;
+    margin-top: 12px;
+    padding: 14px;
+    background: rgba(25,25,25,0.85);
+    border: 1px solid rgba(212,175,55,0.12);
     border-radius: 12px;
-    background: rgba(25, 25, 25, 0.8);
-    color: var(--text);
-    transition: var(--transition);
+    color: #eee;
+    font-size: 1.02rem;
+    line-height: 1.5;
     resize: vertical;
-    line-height: 1.6;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) inset;
-    backdrop-filter: blur(4px);
+    min-height: 48px;
+    hyphens: auto;
+    overflow-wrap: break-word;
   }
 
-  textarea {
-    min-height: 160px;
-  }
+  textarea { min-height: 140px; }
 
   textarea:focus, input:focus, select:focus {
     outline: none;
-    border-color: var(--accent-gold);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3), 0 8px 30px rgba(184, 134, 47, 0.25);
-    background: rgba(30, 30, 30, 0.95);
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212,175,55,0.14);
+    background: rgba(30,30,30,0.95);
   }
 
-  .char-count {
-    text-align: right;
-    margin-top: 8px;
-    color: var(--accent-bronze);
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
+  .char-count { text-align:right; color:#b8862f; font-weight:600; margin-top:8px; font-size:0.9rem; }
 
-  .grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 18px;
-  }
-
-  .radio-group, .checkbox-group {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 16px;
-    flex-direction: column;
-  }
-
-  @media (min-width: 768px) {
-    .radio-group, .checkbox-group {
-      flex-direction: row;
-    }
-  }
+  /* chips / grid */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 12px; }
 
   .chip {
-    background: rgba(40, 40, 40, 0.7);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    padding: 12px 18px;
-    border-radius: 14px;
-    color: var(--text);
-    cursor: pointer;
-    user-select: none;
-    font-weight: 600;
-    font-size: 1.02rem;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(3px);
-    position: relative;
-    overflow: hidden;
-    min-height: 44px;
-  }
-
-  .chip::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-bronze), transparent);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-  }
-  .chip:hover::before {
-    transform: scaleX(1);
-  }
-
-  .chip:hover {
-    transform: translateY(-2px);
-    border-color: var(--accent-gold);
-  }
-
-  .chip.active {
-    background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
-    border-color: var(--accent-gold);
-    box-shadow: 0 8px 25px rgba(184, 134, 47, 0.25);
-  }
-
-  .chip input {
-    display: none;
-  }
-
-  .chip.active::before {
-    transform: scaleX(1);
-    background: linear-gradient(90deg, var(--accent-gold), var(--accent-bronze));
-  }
-
-  .controls {
-    margin-top: 28px;
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-submit {
-    padding: 16px 32px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, var(--accent-gold), var(--accent-bronze));
-    border: none;
-    color: #081018;
-    font-weight: 800;
-    font-size: 1.1rem;
-    cursor: pointer;
-    box-shadow: 0 14px 36px rgba(212, 175, 55, 0.3);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-    font-family: "Cormorant Garamond", serif;
-    letter-spacing: -0.5px;
-  }
-
-  .btn-submit::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
-  }
-
-  .btn-submit:hover::after {
-    left: 100%;
-  }
-
-  .btn-submit:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 42px rgba(212, 175, 55, 0.4);
-  }
-
-  .btn-submit:active {
-    transform: translateY(1px);
-  }
-
-  .muted-note {
-    color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
-  .consent {
-    margin-top: 20px;
-    padding: 20px;
-    background: rgba(30, 30, 30, 0.7);
-    border-radius: 14px;
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  }
-
-  .consent p {
-    color: #d0d0d0;
-    line-height: 1.7;
-    font-size: 0.98rem;
-  }
-
-  .consent strong {
-    color: var(--accent-gold);
-  }
-
-  footer {
-    margin-top: 32px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 1.05rem;
-    padding-top: 24px;
-    border-top: 1px solid rgba(212, 175, 55, 0.1);
-    font-style: italic;
-    line-height: 1.6;
-  }
-
-  .trust-badges {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 16px;
-    flex-wrap: wrap;
-  }
-
-  .badge-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.95rem;
-    color: var(--accent-gold);
-  }
-
-  .badge-icon {
-    width: 24px;
-    height: 24px;
-    background: rgba(212, 175, 55, 0.15);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-weight: bold;
-  }
-
-  /* قسم الدفع الجديد */
-  .payment-section {
-    margin: 30px 0;
-    padding: 25px;
-    background: rgba(30, 30, 30, 0.7);
-    border-radius: 14px;
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    position: relative;
-    overflow: visible;
-  }
-
-  .payment-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
-  }
-
-  .status-badge {
-    background: rgba(255, 77, 77, 0.15);
-    color: var(--accent-red);
-    padding: 6px 15px;
-    border-radius: 20px;
-    display: inline-block;
-    font-weight: 600;
-    margin-bottom: 15px;
-  }
-
-  .status-badge.paid {
-    background: rgba(0, 200, 100, 0.15);
-    color: #00ff9d;
-  }
-
-  .pay-btn {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 14px 28px;
-    background: linear-gradient(135deg, var(--accent-red), #cc0000);
-    color: white;
-    text-decoration: none;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(40,40,40,0.72);
+    border-radius: 12px;
+    border: 1px solid rgba(212,175,55,0.1);
+    cursor: pointer;
+    user-select: none;
+    font-weight:600;
+    min-height:44px;
+  }
+  .chip input { display:none; }
+  .chip.active { background: linear-gradient(145deg, rgba(212,175,55,0.12), rgba(184,134,47,0.06)); border-color:#d4af37; }
+
+  .controls { margin-top:20px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+
+  .btn-submit {
+    background: linear-gradient(135deg,#d4af37,#b8862f);
+    color: #081018;
+    border: none;
+    padding: 14px 26px;
     border-radius: 12px;
     font-weight: 800;
-    font-size: 1.05rem;
-    margin-bottom: 15px;
-    transition: var(--transition);
-    border: 2px solid var(--accent-red);
-    font-family: "Cormorant Garamond", serif;
-    min-height: 56px;
+    cursor: pointer;
   }
+  .btn-submit[disabled] { opacity: 0.6; cursor:not-allowed; }
 
-  .pay-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 42px rgba(255, 77, 77, 0.4);
-    border-color: #ff3333;
-  }
+  .consent { margin-top:18px; background: rgba(30,30,30,0.7); padding:16px; border-radius:12px; border:1px solid rgba(212,175,55,0.08); }
+  .consent p { color:#d0d0d0; margin:0; }
 
-  .pay-btn svg {
-    stroke: white;
-    stroke-width: 2;
-    flex-shrink: 0;
-  }
+  .payment-section { margin-top:22px; padding:20px; border-radius:12px; background: rgba(30,30,30,0.75); border:1px solid rgba(212,175,55,0.08); }
+  .status-badge { display:inline-block; padding:6px 12px; border-radius: 20px; background: rgba(255,77,77,0.12); color:#ff6b6b; font-weight:600; }
+  .status-badge.paid { background: rgba(0,200,100,0.12); color: #00ff9d; }
+  .pay-btn { display:inline-flex; gap:10px; align-items:center; padding:12px 18px; border-radius:12px; background: linear-gradient(135deg,#ff4d4d,#cc0000); color:#fff; text-decoration:none; border:2px solid #ff4d4d; font-weight:800; }
 
-  .success-message {
-    display: none;
-    text-align: center;
-    padding: 40px;
-    background: rgba(40, 60, 40, 0.8);
-    border-radius: 14px;
-    border: 1px solid rgba(0, 200, 100, 0.3);
-    margin-top: 20px;
-  }
+  .success-message { display:none; margin-top:18px; padding:24px; background: rgba(0,50,0,0.5); border-radius:12px; border:1px solid rgba(0,200,100,0.15); color:#dfffe6; }
 
-  .success-message h2 {
-    color: #00ff9d;
-    font-family: "Cormorant Garamond", serif;
-    margin-bottom: 15px;
-    font-size: 1.8rem;
-  }
+  footer { margin-top:28px; text-align:center; color:#a0a0a0; font-size:0.98rem; padding-top:18px; border-top:1px solid rgba(212,175,55,0.06); }
 
-  .success-message p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin: 15px 0;
-    color: #d0d0d0;
-  }
+  .trust-badges { display:flex; gap:16px; justify-content:center; margin-top:12px; flex-wrap:wrap; }
+  .badge-item { display:flex; gap:10px; align-items:center; color:#d4af37; }
 
-  .success-message .note {
-    color: var(--accent-bronze);
-    margin-top: 15px;
-    font-style: italic;
-  }
-
-  /* Responsive adjustments */
+  /* Responsive fixes */
   @media (max-width: 900px) {
-    .benefits {
-      flex-direction: column;
-    }
-    .grid-2 {
-      grid-template-columns: 1fr;
-    }
-    header {
-      gap: 8px;
-    }
-    .brand h1 {
-      font-size: 1.5rem;
-    }
-    h2.lead {
-      font-size: 2.0rem;
-    }
-    .pay-btn {
-      width: 100%;
-      justify-content: center;
-    }
+    .brand h1 { font-size: 1.45rem; }
+    h2.lead { font-size: 1.9rem; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .pay-btn { width: 100%; justify-content:center; }
+    .container { padding: 22px; }
   }
 
   @media (max-width: 600px) {
-    body {
-      padding: 12px;
-      -webkit-overflow-scrolling: touch;
-      overflow-y: auto;
-    }
-
-    .container {
-      padding: 20px 16px;
-      margin: 8px;
-    }
-
-    .brand h1 {
-      font-size: 1.3rem;
-    }
-
-    h2.lead {
-      font-size: 1.8rem;
-    }
-
-    .meta {
-      text-align: left;
-      margin-top: 12px;
-    }
-
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .controls {
-      flex-direction: column;
-      width: 100%;
-    }
-
-    .btn-submit {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .muted-note {
-      text-align: center;
-      width: 100%;
-    }
-
-    .grid-2 {
-      grid-template-columns: 1fr !important;
-      gap: 16px !important;
-    }
-
-    textarea, input[type="text"], input[type="email"], select {
-      min-height: 48px !important;
-      padding: 14px !important;
-      font-size: 1.05rem !important;
-    }
-
-    textarea {
-      min-height: 140px !important;
-    }
-
-    .chip {
-      padding: 12px 16px !important;
-      font-size: 0.95rem !important;
-      min-height: 44px !important;
-    }
-
-    .pay-btn, .btn-submit {
-      width: 100% !important;
-      padding: 16px 24px !important;
-      font-size: 1.15rem !important;
-      min-height: 56px !important;
-    }
-
-    label {
-      font-size: 1.15rem !important;
-    }
-
-    .hint {
-      font-size: 0.9rem !important;
-    }
-
-    /* prevent horizontal scroll */
-    html, body, .container {
-      overflow-x: hidden !important;
-      width: 100% !important;
-    }
-
-    /* ensure elements don't get narrower than a readable width */
-    .brand p, .lead-note, .benefit p {
-      word-break: normal !important;
-      hyphens: auto !important;
-    }
+    .page-wrap { padding: 12px; }
+    .container { padding: 18px; margin:8px; }
+    .brand h1 { font-size: 1.25rem; }
+    .lead-note { font-size: 1.0rem; }
+    .benefit h4 { font-size: 1.05rem; }
+    textarea { min-height: 120px; }
+    .btn-submit, .pay-btn { width: 100%; padding: 14px; }
+    header { flex-direction: column; align-items: flex-start; gap: 10px; }
   }
 
-  /* ضمان التمرير السلس على جميع الأجهزة */
-  @media (hover: none) {
-    * {
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
-    }
-    body {
-      -webkit-overflow-scrolling: touch;
-    }
-  }
-
-  /* تأثيرات إدخال أنيقة */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .fade-in {
-    animation: fadeInUp 0.6s ease forwards;
-  }
+  /* animations */
+  @keyframes fadeInUp { from { opacity:0; transform: translateY(12px) } to { opacity:1; transform:translateY(0)} }
+  .fade-in { animation: fadeInUp .45s ease both; }
 </style>
 </head>
-
 <body>
-  <div class="container" role="main" aria-labelledby="page-title">
-    <header>
-      <div class="brand" aria-hidden="false">
-        <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-            <rect x="1" y="1" width="22" height="22" rx="5" fill="rgba(184,134,47,0.06)"/>
-            <path d="M6 15c2-3 6-8 11-6" stroke="#d4af37" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div>
-          <h1 id="page-title">Your Personal Growth Architect</h1>
-          <p>Psychologists analyzing your words to eliminate negativity and amplify your unique strengths</p>
-        </div>
-      </div>
+  <div class="page-wrap">
+    <main class="container" role="main" aria-labelledby="page-title">
 
-      <div class="meta" aria-hidden="true">
-        <div class="pill">PhD Psychologists · Data Privacy · Daily Transformation</div>
-        <div class="badge">Secure & Confidential</div>
-      </div>
-    </header>
-
-    <div class="intro">
-      <h2 class="lead">This conversation belongs only to you</h2>
-      <p class="lead-note">
-        What you share here becomes the foundation for messages crafted by licensed psychologists who truly see you. Your words help us dissolve your specific frustrations while strengthening your authentic strengths. Everything you share stays private and encrypted — like a sacred conversation between you and your growth.
-      </p>
-      <div class="sacred-note" aria-live="polite">
-        <strong style="color: var(--accent-gold);">This isn't a form — it's the beginning of your transformation.</strong><br>
-        Your responses are analyzed only by our vetted psychologists to build messages that feel like they come from a trusted friend who knows your heart.
-      </div>
-    </div>
-
-    <div class="panel" aria-live="polite">
-      <small>How your words become your growth</small>
-      <div class="benefits" role="list">
-        <div class="benefit" role="listitem">
-          <h4>Negativity Dissolution</h4>
-          <p>Our psychologists identify negative patterns in your writing and craft precise daily interventions to dissolve them at their source.</p>
-        </div>
-        <div class="benefit" role="listitem">
-          <h4>Strength Amplification</h4>
-          <p>We isolate your authentic positive traits and design micro-actions to strengthen them in high-stakes moments.</p>
-        </div>
-        <div class="benefit" role="listitem">
-          <h4>Life Integration</h4>
-          <p>Personalized guidance woven into your actual life — work decisions, family dynamics, health routines, and inner peace.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== FORM ===== -->
-    <form name="onboarding" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-labelledby="page-title" role="form">
-      <input type="hidden" name="form-name" value="onboarding">
-      <input type="text" name="bot-field" style="display:none" aria-hidden="true">
-      <input type="hidden" id="payment-status" name="payment_status" value="pending">
-
-      <!-- Section: Core experience -->
-      <label for="change_needed">
-        1) In the quiet moments when no one sees you, what part of your life feels most stretched?
-      </label>
-      <div class="hint">(Be gentle with yourself. This is where your transformation begins — whether it's work pressure, caring for others, health challenges, or relationships that drain your spirit.)</div>
-      <textarea id="change_needed" name="change_needed" placeholder="I often tell myself: 'This is just how life is' about..."></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="repeating_pattern">
-        2) What pattern keeps returning like an old friend you've outgrown?
-      </label>
-      <div class="hint">(Notice without judgment: saying yes when you're exhausted, avoiding conversations that matter, or proving your worth through constant doing.)</div>
-      <textarea id="repeating_pattern" name="repeating_pattern" placeholder="When I'm stressed, I notice myself..."></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="inner_voice">
-        3) What does your inner voice whisper when things feel heavy?
-      </label>
-      <div class="hint">(The sentence that plays when you're alone at 3 AM — the one you'd never say aloud but carries your deepest fear.)</div>
-      <textarea id="inner_voice" name="inner_voice" placeholder="My inner voice says: 'If I stop, everything will fall apart...'"></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="forgotten_truth">
-        4) What true thing about yourself do you forget when the world gets loud?
-      </label>
-      <div class="hint">(A strength you possess, a value you hold dear, or a quality that makes you uniquely you — the truth that grounds you when remembered.)</div>
-      <textarea id="forgotten_truth" name="forgotten_truth" placeholder="When I'm centered, I remember: I am..."></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="unsaid_truth">
-        5) What truth lives in your heart but rarely leaves your lips?
-      </label>
-      <div class="hint">(The desire, fear, or dream you keep private — the part of you that longs to be seen but stays hidden for safety.)</div>
-      <textarea id="unsaid_truth" name="unsaid_truth" placeholder="If I could whisper one thing no one knows: 'I secretly long for...'"></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="desired_feeling">
-        6) How do you wish to feel in your body and heart this month — beyond achievements?
-      </label>
-      <div class="hint">(Focus on being, not doing: 'grounded when pressure comes', 'peaceful with uncertainty', 'gentle with my own mistakes'.)</div>
-      <textarea id="desired_feeling" name="desired_feeling" placeholder="I want to feel... when I wake up, at work, with loved ones, and before sleep."></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="support_style">
-        7) What kind of presence would truly help you right now?
-      </label>
-      <div class="hint">(A calm mirror reflecting your truth, practical micro-steps for overwhelming days, or a gentle reminder of your strength when doubt creeps in.)</div>
-      <textarea id="support_style" name="support_style" placeholder="When I'm struggling, I need..."></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="message_feel">
-        8) How should your daily message feel when it meets you?
-      </label>
-      <div class="hint">(Like a trusted friend who knows your heart, a wise mentor who sees your potential, or a calm companion who walks beside you without judgment.)</div>
-      <textarea id="message_feel" name="message_feel" placeholder="I want messages that feel like..."></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="red_lines">
-        9) What words or approaches make you close your heart?
-      </label>
-      <div class="hint">(Phrases that trigger shame, pressure that feels like judgment, or positivity that dismisses your real pain — your safe boundaries matter.)</div>
-      <textarea id="red_lines" name="red_lines" placeholder="Please never say: 'Just think positive' or 'You should be grateful' because..."></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="protect_this_month">
-        10) What sacred space do you need to protect this month to feel whole?
-      </label>
-      <div class="hint">(A morning ritual, an hour of quiet, a boundary with work, or time for your body — the small space where your soul can breathe.)</div>
-      <textarea id="protect_this_month" name="protect_this_month" placeholder="This month, I commit to protecting..."></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="before_stopping">
-        11) What happens inside you just before you want to give up?
-      </label>
-      <div class="hint">(The physical sensation in your chest, the thought that loops in your mind, or the moment when everything feels too heavy — we'll help you recognize it earlier.)</div>
-      <textarea id="before_stopping" name="before_stopping" placeholder="When I'm about to stop trying, I notice..."></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="fear_of_improvement">
-        12) What might you lose if your life actually becomes easier?
-      </label>
-      <div class="hint">(Sometimes we cling to struggle because it defines us, because others depend on our strength, or because we fear what happiness might ask of us.)</div>
-      <textarea id="fear_of_improvement" name="fear_of_improvement" placeholder="If things improve, I worry I might lose..."></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="how_to_feel">
-        13) Beyond what you do, how do you want to experience each day?
-      </label>
-      <div class="hint">(The inner landscape you desire: calm amidst chaos, courage when afraid, connection when isolated, or peace when your mind races.)</div>
-      <textarea id="how_to_feel" name="how_to_feel" placeholder="Day by day, I want to feel..."></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="never_forget">
-        14) (Optional) One truth about you that anchors your soul
-      </label>
-      <div class="hint">(A phrase, memory, or value that captures your essence — the light we'll gently remind you of when shadows fall.)</div>
-      <textarea id="never_forget" name="never_forget" placeholder="No matter what happens, never forget: I am..."></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="bold_step">
-        15) (Optional) What small brave step calls to your heart this month?
-      </label>
-      <div class="hint">(Not a grand gesture, but a quiet courage: sending that email, setting that boundary, or allowing yourself rest when the world demands more.)</div>
-      <textarea id="bold_step" name="bold_step" placeholder="This month, I'd like to gently try..."></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label for="triggers">
-        16) (Optional) What words or topics need gentle handling?
-      </label>
-      <div class="hint">(Trauma, loss, health struggles, or past pain — naming these helps us create messages that honor your journey without causing harm.)</div>
-      <textarea id="triggers" name="triggers" placeholder="Please be careful with: grief around... or anxiety about..."></textarea>
-      <div class="char-count">0 characters | 0 words</div>
-
-      <label>
-        17) Which areas of your life most need this gentle transformation? (select up to 3)
-      </label>
-      <div class="grid-2" role="group" aria-label="Priority areas">
-        <div>
-          <label class="chip"><input type="checkbox" name="priority[]" value="work"> Work & Professional Life</label>
-          <label class="chip"><input type="checkbox" name="priority[]" value="family"> Family & Relationships</label>
-          <label class="chip"><input type="checkbox" name="priority[]" value="health"> Physical Health & Energy</label>
-        </div>
-        <div>
-          <label class="chip"><input type="checkbox" name="priority[]" value="mental"> Mental & Emotional Peace</label>
-          <label class="chip"><input type="checkbox" name="priority[]" value="risk"> Courage & Growth</label>
-          <label class="chip"><input type="checkbox" name="priority[]" value="relationships"> Meaningful Connection</label>
-        </div>
-      </div>
-      <div class="hint" style="margin-top:12px">(Choose the areas where a little shift would create the biggest ripple of peace in your life.)</div>
-
-      <!-- Personal details -->
-      <div class="grid-2">
-        <div>
-          <label for="name">Your name (or the name that feels most like home)</label>
-          <input id="name" name="name" type="text" placeholder="What name feels most true when you hear it?">
-        </div>
-        <div>
-          <label for="email">Your private email</label>
-          <input id="email" name="email" type="email" placeholder="Where your messages will arrive, encrypted and secure">
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <div>
-          <label for="timezone">Your time zone / city</label>
-          <input id="timezone" name="timezone" type="text" placeholder="Where your days begin and end (e.g., New York, London, Berlin)">
-        </div>
-        <div>
-          <label for="delivery_time">When would you like your message to arrive?</label>
-          <select id="delivery_time" name="delivery_time">
-            <option>Morning (before the world demands your attention)</option>
-            <option>Midday (a sacred pause in the storm)</option>
-            <option>Evening (to reflect and release the day)</option>
-            <option>Flexible — meet me when I need you most</option>
-          </select>
-        </div>
-      </div>
-
-      <div style="margin-top:20px">
-        <label for="frequency">How often would you like this gentle companionship?</label>
-        <div class="radio-group" role="radiogroup" aria-label="Message frequency">
-          <label class="chip"><input type="radio" name="frequency" value="daily" checked> Daily</label>
-          <label class="chip"><input type="radio" name="frequency" value="every-other-day"> Every other day</label>
-          <label class="chip"><input type="radio" name="frequency" value="three-times-week"> Three times weekly</label>
-        </div>
-        <div class="hint">(Like tending a garden, small daily care creates deep roots. You can change this anytime.)</div>
-      </div>
-
-      <!-- قسم الدفع الجديد -->
-      <div class="payment-section">
-        <div style="text-align: center;">
-          <div class="status-badge" id="payment-status-badge">
-            Subscription required to send data
+      <header>
+        <div class="brand" aria-hidden="false">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="5" fill="rgba(184,134,47,0.06)"/><path d="M6 15c2-3 6-8 11-6" stroke="#d4af37" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <div style="min-width:0;">
+            <h1 id="page-title">Your Personal Growth Architect</h1>
+            <p>Psychologists analyzing your words to eliminate negativity and amplify your unique strengths</p>
           </div>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: 20px; align-items: center; margin-top: 20px;">
-          <a href="https://ko-fi.com/s/cd96925d8f" target="_blank" rel="noopener noreferrer" class="pay-btn" id="payment-btn" aria-label="Pay $30 monthly subscription on secure Ko-fi page">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.5 4.5 3 7.5 3c1.54 0 3.15.67 4.5 1.78C13.35 3.67 14.96 3 16.5 3 19.5 3 22 5.5 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            </svg>
-            Pay $30 Monthly Subscription
-          </a>
+        <div class="meta" aria-hidden="true">
+          <div class="pill">PhD Psychologists · Data Privacy · Daily Transformation</div>
+          <div class="badge" style="margin-top:8px">Secure & Confidential</div>
+        </div>
+      </header>
 
-          <div style="color: var(--muted); font-size: 0.95rem; text-align: center; max-width: 600px;">
-            <p><strong>Note:</strong> Your data won't be saved until you complete your subscription. After payment, you'll be redirected back to this page with the submit button activated.</p>
+      <section class="intro" aria-live="polite">
+        <h2 class="lead">This conversation belongs only to you</h2>
+        <p class="lead-note">What you share here becomes the foundation for messages crafted by licensed psychologists who truly see you. Your words help us dissolve your specific frustrations while strengthening your authentic strengths. Everything you share stays private and encrypted — like a sacred conversation between you and your growth.</p>
+        <div class="sacred-note"><strong style="color:#d4af37">This isn't a form — it's the beginning of your transformation.</strong><br/>Your responses are analyzed only by our vetted psychologists to build messages that feel like they come from a trusted friend who knows your heart.</div>
+      </section>
+
+      <section class="panel" aria-live="polite">
+        <small>How your words become your growth</small>
+        <div class="benefits" role="list">
+          <div class="benefit" role="listitem"><h4>Negativity Dissolution</h4><p>Our psychologists identify negative patterns in your writing and craft precise daily interventions to dissolve them at their source.</p></div>
+          <div class="benefit" role="listitem"><h4>Strength Amplification</h4><p>We isolate your authentic positive traits and design micro-actions to strengthen them in high-stakes moments.</p></div>
+          <div class="benefit" role="listitem"><h4>Life Integration</h4><p>Personalized guidance woven into your actual life — work decisions, family dynamics, health routines, and inner peace.</p></div>
+        </div>
+      </section>
+
+      <!-- FORM -->
+      <form name="onboarding" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-labelledby="page-title" role="form">
+        <input type="hidden" name="form-name" value="onboarding" />
+        <input type="text" name="bot-field" style="display:none" aria-hidden="true" />
+        <input type="hidden" id="payment-status" name="payment_status" value="pending" />
+
+        <label for="change_needed">1) In the quiet moments when no one sees you, what part of your life feels most stretched?</label>
+        <div class="hint">(Be gentle with yourself. This is where your transformation begins — whether it's work pressure, caring for others, health challenges, or relationships that drain your spirit.)</div>
+        <textarea id="change_needed" name="change_needed" placeholder="I often tell myself: 'This is just how life is' about..."></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="repeating_pattern">2) What pattern keeps returning like an old friend you've outgrown?</label>
+        <div class="hint">(Notice without judgment: saying yes when you're exhausted, avoiding conversations that matter, or proving your worth through constant doing.)</div>
+        <textarea id="repeating_pattern" name="repeating_pattern" placeholder="When I'm stressed, I notice myself..."></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="inner_voice">3) What does your inner voice whisper when things feel heavy?</label>
+        <div class="hint">(The sentence that plays when you're alone at 3 AM — the one you'd never say aloud but carries your deepest fear.)</div>
+        <textarea id="inner_voice" name="inner_voice" placeholder="My inner voice says: 'If I stop, everything will fall apart...'"></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="forgotten_truth">4) What true thing about yourself do you forget when the world gets loud?</label>
+        <div class="hint">(A strength you possess, a value you hold dear, or a quality that makes you uniquely you — the truth that grounds you when remembered.)</div>
+        <textarea id="forgotten_truth" name="forgotten_truth" placeholder="When I'm centered, I remember: I am..."></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="unsaid_truth">5) What truth lives in your heart but rarely leaves your lips?</label>
+        <div class="hint">(The desire, fear, or dream you keep private — the part of you that longs to be seen but stays hidden for safety.)</div>
+        <textarea id="unsaid_truth" name="unsaid_truth" placeholder="If I could whisper one thing no one knows: 'I secretly long for...'"></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="desired_feeling">6) How do you wish to feel in your body and heart this month — beyond achievements?</label>
+        <div class="hint">(Focus on being, not doing: 'grounded when pressure comes', 'peaceful with uncertainty', 'gentle with my own mistakes'.)</div>
+        <textarea id="desired_feeling" name="desired_feeling" placeholder="I want to feel... when I wake up, at work, with loved ones, and before sleep."></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="support_style">7) What kind of presence would truly help you right now?</label>
+        <div class="hint">(A calm mirror reflecting your truth, practical micro-steps for overwhelming days, or a gentle reminder of your strength when doubt creeps in.)</div>
+        <textarea id="support_style" name="support_style" placeholder="When I'm struggling, I need..."></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="message_feel">8) How should your daily message feel when it meets you?</label>
+        <div class="hint">(Like a trusted friend who knows your heart, a wise mentor who sees your potential, or a calm companion who walks beside you without judgment.)</div>
+        <textarea id="message_feel" name="message_feel" placeholder="I want messages that feel like..."></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="red_lines">9) What words or approaches make you close your heart?</label>
+        <div class="hint">(Phrases that trigger shame, pressure that feels like judgment, or positivity that dismisses your real pain — your safe boundaries matter.)</div>
+        <textarea id="red_lines" name="red_lines" placeholder="Please never say: 'Just think positive' or 'You should be grateful' because..."></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="protect_this_month">10) What sacred space do you need to protect this month to feel whole?</label>
+        <div class="hint">(A morning ritual, an hour of quiet, a boundary with work, or time for your body — the small space where your soul can breathe.)</div>
+        <textarea id="protect_this_month" name="protect_this_month" placeholder="This month, I commit to protecting..."></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="before_stopping">11) What happens inside you just before you want to give up?</label>
+        <div class="hint">(The physical sensation in your chest, the thought that loops in your mind, or the moment when everything feels too heavy — we'll help you recognize it earlier.)</div>
+        <textarea id="before_stopping" name="before_stopping" placeholder="When I'm about to stop trying, I notice..."></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="fear_of_improvement">12) What might you lose if your life actually becomes easier?</label>
+        <div class="hint">(Sometimes we cling to struggle because it defines us, because others depend on our strength, or because we fear what happiness might ask of us.)</div>
+        <textarea id="fear_of_improvement" name="fear_of_improvement" placeholder="If things improve, I worry I might lose..."></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="how_to_feel">13) Beyond what you do, how do you want to experience each day?</label>
+        <div class="hint">(The inner landscape you desire: calm amidst chaos, courage when afraid, connection when isolated, or peace when your mind races.)</div>
+        <textarea id="how_to_feel" name="how_to_feel" placeholder="Day by day, I want to feel..."></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="never_forget">14) (Optional) One truth about you that anchors your soul</label>
+        <div class="hint">(A phrase, memory, or value that captures your essence — the light we'll gently remind you of when shadows fall.)</div>
+        <textarea id="never_forget" name="never_forget" placeholder="No matter what happens, never forget: I am..."></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="bold_step">15) (Optional) What small brave step calls to your heart this month?</label>
+        <div class="hint">(Not a grand gesture, but a quiet courage: sending that email, setting that boundary, or allowing yourself rest when the world demands more.)</div>
+        <textarea id="bold_step" name="bold_step" placeholder="This month, I'd like to gently try..."></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <label for="triggers">16) (Optional) What words or topics need gentle handling?</label>
+        <div class="hint">(Trauma, loss, health struggles, or past pain — naming these helps us create messages that honor your journey without causing harm.)</div>
+        <textarea id="triggers" name="triggers" placeholder="Please be careful with: grief around... or anxiety about..."></textarea>
+        <div class="char-count">0 characters | 0 words</div>
+
+        <!-- Completed question 17: checkboxes + 'other' text input so user can write free answer -->
+        <label>17) Which areas of your life most need this gentle transformation? (select up to 3 — or choose Other and describe)</label>
+        <div class="grid-2" role="group" aria-label="Priority areas">
+          <div>
+            <label class="chip"><input type="checkbox" name="priority[]" value="work">Work & Professional Life</label>
+            <label class="chip"><input type="checkbox" name="priority[]" value="family">Family & Relationships</label>
+            <label class="chip"><input type="checkbox" name="priority[]" value="health">Physical Health & Energy</label>
+          </div>
+          <div>
+            <label class="chip"><input type="checkbox" name="priority[]" value="mental">Mental & Emotional Peace</label>
+            <label class="chip"><input type="checkbox" name="priority[]" value="growth">Courage & Growth</label>
+            <label class="chip"><input type="checkbox" name="priority[]" value="connection">Meaningful Connection</label>
           </div>
         </div>
-      </div>
-
-      <div class="consent">
-        <p class="muted-note">
-          <strong>Your trust is sacred to us:</strong> Your responses are encrypted and analyzed only by our vetted psychologists. We never sell or share your data. You own your information completely — pause, edit, or delete anytime. By submitting, you consent to receive transformational messages at your private email.
-          <br><br>
-          <span style="color: var(--accent-bronze);">GDPR & CCPA Compliant · Bank-Grade Encryption · PhD Psychologists Only</span>
-        </p>
-      </div>
-
-      <div class="controls">
-        <button class="btn-submit" type="submit" id="submit-btn" disabled>Complete Your Profile (Payment Required)</button>
-        <div class="muted-note">You can pause or update preferences anytime — your journey, your pace.</div>
-      </div>
-
-      <div style="margin-top:20px; text-align: center;" class="muted-note">
-        Many choose to support this work after experiencing their first messages. Supporters receive occasional bonus reflections and optional 1:1 check-ins with our psychologists.
-      </div>
-    </form>
-
-    <div class="success-message" id="success-container">
-      <h2>✓ Transformation Initiated</h2>
-      <p>Your first personalized message will arrive tomorrow morning.<br>You'll receive daily guidance crafted exclusively from your insights.</p>
-      <p class="note">Remember: You can pause, edit, or delete your data anytime from your account settings.</p>
-    </div>
-
-    <footer>
-      <div>These messages are written by human hands and hearts — not algorithms pretending to care. You are seen. You are not alone.</div>
-      <div class="trust-badges">
-        <div class="badge-item">
-          <div class="badge-icon">🔒</div>
-          <span>End-to-End Encrypted</span>
+        <div style="margin-top:12px;">
+          <label for="priority_other" style="font-size:0.95rem;color:#d4af37;font-weight:700;margin-top:12px;">Other — please specify (optional)</label>
+          <input id="priority_other" name="priority_other" type="text" placeholder="If 'Other', write the area you'd like to prioritize (e.g., parenting, creativity, finances)" />
         </div>
-        <div class="badge-item">
-          <div class="badge-icon">🧠</div>
-          <span>PhD Psychologists Only</span>
+        <div class="hint" style="margin-top:10px;">(Choose the areas where a little shift would create the biggest ripple of peace in your life.)</div>
+
+        <!-- personal details -->
+        <div class="grid-2" style="margin-top:18px;">
+          <div>
+            <label for="name">Your name (or the name that feels most like home)</label>
+            <input id="name" name="name" type="text" placeholder="What name feels most true when you hear it?" />
+          </div>
+          <div>
+            <label for="email">Your private email</label>
+            <input id="email" name="email" type="email" placeholder="Where your messages will arrive, encrypted and secure" />
+          </div>
         </div>
-        <div class="badge-item">
-          <div class="badge-icon">✨</div>
-          <span>100% Human-Crafted</span>
+
+        <div class="grid-2" style="margin-top:14px;">
+          <div>
+            <label for="timezone">Your time zone / city</label>
+            <input id="timezone" name="timezone" type="text" placeholder="Where your days begin and end (e.g., New York, London, Berlin)" />
+          </div>
+          <div>
+            <label for="delivery_time">When would you like your message to arrive?</label>
+            <select id="delivery_time" name="delivery_time">
+              <option>Morning (before the world demands your attention)</option>
+              <option>Midday (a sacred pause in the storm)</option>
+              <option>Evening (to reflect and release the day)</option>
+              <option>Flexible — meet me when I need you most</option>
+            </select>
+          </div>
         </div>
+
+        <div style="margin-top:18px;">
+          <label for="frequency">How often would you like this gentle companionship?</label>
+          <div class="radio-group" role="radiogroup" aria-label="Message frequency" style="display:flex;gap:12px;margin-top:10px;">
+            <label class="chip"><input type="radio" name="frequency" value="daily" checked>Daily</label>
+            <label class="chip"><input type="radio" name="frequency" value="every-other-day">Every other day</label>
+            <label class="chip"><input type="radio" name="frequency" value="three-times-week">Three times weekly</label>
+          </div>
+          <div class="hint">(Like tending a garden, small daily care creates deep roots. You can change this anytime.)</div>
+        </div>
+
+        <!-- payment -->
+        <div class="payment-section" aria-hidden="false">
+          <div style="text-align:center;">
+            <div id="payment-status-badge" class="status-badge">Subscription required to send data</div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:14px;align-items:center;margin-top:16px;">
+            <a id="payment-btn" class="pay-btn" href="https://ko-fi.com/s/cd96925d8f" target="_blank" rel="noopener noreferrer" aria-label="Pay $30 monthly subscription on Ko-fi">
+              <!-- simple heart icon -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.5 4.5 3 7.5 3c1.54 0 3.15.67 4.5 1.78C13.35 3.67 14.96 3 16.5 3 19.5 3 22 5.5 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Pay $30 Monthly Subscription
+            </a>
+
+            <div style="color:#a0a0a0;font-size:0.95rem;text-align:center;max-width:600px;">
+              <p><strong>Note:</strong> Your data won't be saved until you complete your subscription. After payment, you'll be redirected back to this page with the submit button activated.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="consent">
+          <p><strong>Your trust is sacred to us:</strong> Your responses are encrypted and analyzed only by our vetted psychologists. We never sell or share your data. You own your information completely — pause, edit, or delete anytime. By submitting, you consent to receive transformational messages at your private email.<br/><br/><span style="color:#b8862f">GDPR & CCPA Compliant · Bank-Grade Encryption · PhD Psychologists Only</span></p>
+        </div>
+
+        <div class="controls">
+          <button class="btn-submit" id="submit-btn" type="submit" disabled>Complete Your Profile (Payment Required)</button>
+          <div class="muted-note" style="color:#a0a0a0">You can pause or update preferences anytime — your journey, your pace.</div>
+        </div>
+
+        <div style="margin-top:18px;text-align:center;color:#a0a0a0">Many choose to support this work after experiencing their first messages. Supporters receive occasional bonus reflections and optional 1:1 check-ins with our psychologists.</div>
+      </form>
+
+      <div class="success-message" id="success-container">
+        <h2 style="font-family:'Cormorant Garamond',serif;color:#00ff9d;margin:0 0 8px 0;">✓ Transformation Initiated</h2>
+        <p style="margin:0 0 8px 0;color:#d0d0d0">Your first personalized message will arrive tomorrow morning. You'll receive daily guidance crafted exclusively from your insights.</p>
+        <p class="note" style="color:#b8862f;font-style:italic;margin:0;">Remember: You can pause, edit, or delete your data anytime from your account settings.</p>
       </div>
-    </footer>
+
+      <footer>
+        <div>These messages are written by human hands and hearts — not algorithms pretending to care. You are seen. You are not alone.</div>
+        <div class="trust-badges">
+          <div class="badge-item"><div class="badge-icon">🔒</div><span>End-to-End Encrypted</span></div>
+          <div class="badge-item"><div class="badge-icon">🧠</div><span>PhD Psychologists Only</span></div>
+          <div class="badge-item"><div class="badge-icon">✨</div><span>100% Human-Crafted</span></div>
+        </div>
+      </footer>
+
+    </main>
   </div>
 
 <script>
-  // تحسينات التمرير والوظائف
+  // DOM helpers and UX behaviors
   document.addEventListener('DOMContentLoaded', function() {
-    // smooth scrolling UX
-    try { document.body.style.scrollBehavior = 'smooth'; } catch(e){}
+    // smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
 
-    // read url params to detect a post-payment return (if you implement redirect from Ko-fi)
-    const urlParams = new URLSearchParams(window.location.search);
-    const paymentSuccess = urlParams.get('payment');
-    const clientEmail = urlParams.get('email');
-
-    const paymentStatusBadge = document.getElementById('payment-status-badge');
-    const submitBtn = document.getElementById('submit-btn');
-    const paymentStatusInput = document.getElementById('payment-status');
-    const emailInput = document.getElementById('email');
-    const successContainer = document.getElementById('success-container');
-
-    // If the site is reloaded with ?payment=success&email=you@you.com,
-    // enable the form submit button and fill email (this requires your payment flow to redirect back with these query params).
-    if (paymentSuccess === 'success' && clientEmail) {
-      if (paymentStatusBadge) {
-        paymentStatusBadge.textContent = '✓ Subscription confirmed';
-        paymentStatusBadge.classList.add('paid');
-      }
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Begin Your Sacred Transformation';
-      }
-      if (paymentStatusInput) paymentStatusInput.value = 'completed';
-      if (emailInput) emailInput.value = clientEmail;
-
-      // friendly alert (non-blocking)
-      setTimeout(() => {
-        try { alert('✅ Thank you for subscribing! Complete your profile below to receive your first message tomorrow.'); } catch(e) {}
-      }, 250);
-    }
-
-    // input fade-in effects (lightweight)
-    const elements = document.querySelectorAll('label, .benefit, .panel, .intro');
-    elements.forEach((el, index) => {
-      setTimeout(() => el.classList.add('fade-in'), 100 * index);
-    });
-
-    // character & word counters
+    // character counters for textareas
     function updateCount(el) {
       const charCount = el.value.length;
       const wordCount = el.value.trim() === '' ? 0 : el.value.trim().split(/\s+/).length;
-      // find next .char-count
       let next = el.nextElementSibling;
       while (next && !next.classList.contains('char-count')) next = next.nextElementSibling;
-      if (next && next.classList.contains('char-count')) {
-        next.innerText = `${charCount} characters | ${wordCount} words`;
-      }
+      if (next && next.classList.contains('char-count')) next.innerText = `${charCount} characters | ${wordCount} words`;
     }
     document.querySelectorAll('textarea').forEach(t => {
       updateCount(t);
-      t.addEventListener('input', () => updateCount(t), { passive: true });
+      t.addEventListener('input', () => updateCount(t), {passive:true});
     });
 
-    // chips (radio/checkbox) interactive behavior
+    // chips behavior
     function setupChips() {
-      // radios
-      document.querySelectorAll('.radio-group .chip').forEach(chip => {
-        chip.addEventListener('click', function() {
-          const input = this.querySelector('input[type="radio"]');
-          if (!input) return;
-          const name = input.name;
-          document.querySelectorAll(`.radio-group .chip input[type="radio"][name="${name}"]`).forEach(r => {
-            const chipEl = r.closest('.chip');
-            if (chipEl) chipEl.classList.remove('active');
-          });
-          input.checked = true;
-          this.classList.add('active');
-        }, { passive: true });
-      });
-      // checkboxes
-      document.querySelectorAll('.grid-2 .chip, .checkbox-group .chip').forEach(chip => {
-        chip.addEventListener('click', function() {
-          const input = this.querySelector('input[type="checkbox"]');
-          if (!input) return;
-          input.checked = !input.checked;
-          this.classList.toggle('active', input.checked);
-        }, { passive: true });
+      document.querySelectorAll('.chip').forEach(chip => {
+        chip.addEventListener('click', function(e){
+          const cb = this.querySelector('input[type="checkbox"]');
+          const rb = this.querySelector('input[type="radio"]');
+          if (cb) {
+            cb.checked = !cb.checked;
+            this.classList.toggle('active', cb.checked);
+          } else if (rb) {
+            // radio group
+            const name = rb.name;
+            document.querySelectorAll(`input[type="radio"][name="${name}"]`).forEach(r=> {
+              const parent = r.closest('.chip');
+              if (parent) parent.classList.remove('active');
+            });
+            rb.checked = true;
+            this.classList.add('active');
+          }
+        }, {passive:true});
+        // keyboard accessibility
+        chip.setAttribute('tabindex','0');
+        chip.addEventListener('keydown', function(ev){
+          if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); this.click(); }
+        });
       });
     }
     setupChips();
 
-    // Ensure payment button opens Ko-fi reliably (open in new tab; fallback to same tab)
+    // open Ko-fi reliably when payment button clicked (anchor has target blank but we also open programmatically)
     const paymentBtn = document.getElementById('payment-btn');
     const paymentUrl = 'https://ko-fi.com/s/cd96925d8f';
     if (paymentBtn) {
-      paymentBtn.addEventListener('click', function (e) {
-        // Allow the anchor's default behavior but also attempt a programmatic open for consistency across devices.
-        try {
-          // mobile browsers sometimes block window.open unless triggered by user gesture; this is still triggered by click.
-          const w = window.open(paymentUrl, '_blank', 'noopener,noreferrer');
-          if (!w) {
-            // if popup blocked, navigate in same tab
-            window.location.href = paymentUrl;
-          }
-        } catch (err) {
-          window.location.href = paymentUrl;
-        }
-        // Do not prevent default — we allow the anchor to work as well.
-      }, { passive: true });
+      paymentBtn.addEventListener('click', function(e){
+        // allow default to open; also attempt to open programmatically as fallback
+        try { window.open(paymentUrl, '_blank', 'noopener,noreferrer'); } catch(err) {}
+      }, {passive:true});
     }
 
-    // Submit button console UX (no-op if disabled)
-    if (submitBtn) {
-      submitBtn.addEventListener('click', function() {
-        console.log('Begin button clicked (if enabled, will submit the form).');
-      }, { passive: true });
+    // read url params to enable submission after successful payment redirect (example: ?payment=success&email=you)
+    const urlParams = new URLSearchParams(window.location.search);
+    const paymentSuccess = urlParams.get('payment');
+    const clientEmail = urlParams.get('email');
+    const paymentBadge = document.getElementById('payment-status-badge');
+    const submitBtn = document.getElementById('submit-btn');
+    const paymentStatusInput = document.getElementById('payment-status');
+    const emailInput = document.getElementById('email');
+
+    if (paymentSuccess === 'success') {
+      if (paymentBadge) { paymentBadge.textContent = '✓ Subscription confirmed'; paymentBadge.classList.add('paid'); }
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Begin Your Sacred Transformation'; }
+      if (paymentStatusInput) paymentStatusInput.value = 'completed';
+      if (clientEmail && emailInput) emailInput.value = decodeURIComponent(clientEmail);
+      try { setTimeout(()=> alert('✅ Thank you for subscribing! Complete your profile below to receive your first message tomorrow.'), 350); } catch(e){}
     }
 
-    // Adjust base font-size modestly on very narrow screens
-    function adjustFontSize() {
-      if (window.innerWidth < 420) {
+    // prevent frozen page (no overlays). Warn on unload if form edited and not paid
+    let formModified = false;
+    document.querySelectorAll('textarea, input[type="text"], input[type="email"], select').forEach(el=>{
+      el.addEventListener('input', ()=> formModified = true, {passive:true});
+    });
+    window.addEventListener('beforeunload', function(e){
+      if (formModified && paymentStatusInput && paymentStatusInput.value !== 'completed') {
+        e.preventDefault();
+        e.returnValue = 'You have unsaved data. If you leave, your responses won\\'t be saved until you complete your subscription.';
+      }
+    });
+
+    // adjust font-size for very small displays
+    function adjustFont() {
+      if (window.innerWidth < 360) {
         document.documentElement.style.fontSize = '95%';
       } else {
         document.documentElement.style.fontSize = '';
       }
     }
-    window.addEventListener('resize', adjustFontSize, { passive: true });
-    adjustFontSize();
+    adjustFont();
+    window.addEventListener('resize', adjustFont);
+  }); // DOMContentLoaded
 
-    // Warn on unload if form modified and payment not completed
-    let formModified = false;
-    document.querySelectorAll('textarea, input[type="text"], input[type="email"], select').forEach(el => {
-      el.addEventListener('change', () => { formModified = true; }, { passive: true });
-    });
-    window.addEventListener('beforeunload', (e) => {
-      if (formModified && paymentStatusInput && paymentStatusInput.value !== 'completed') {
-        e.preventDefault();
-        e.returnValue = 'You have unsaved data. If you leave, your responses won\'t be saved until you complete your subscription.';
-      }
-    });
-
-    // make chips keyboard-accessible
-    document.querySelectorAll('.chip').forEach(chip => {
-      chip.setAttribute('tabindex', '0');
-      chip.addEventListener('keydown', (ev) => {
-        if (ev.key === 'Enter' || ev.key === ' ') {
-          ev.preventDefault();
-          chip.click();
-        }
-      });
-    });
-  }); // DOMContentLoaded end
-
-  // Submit handler — fixed syntax and robust checks
-  (function attachSubmitHandler() {
+  // form submit validation and (preserved) example integration code
+  (function attachSubmit(){
     const form = document.querySelector('form[name="onboarding"]');
     if (!form) return;
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function(e){
       const paymentStatus = document.getElementById('payment-status');
       const emailEl = document.getElementById('email');
       const nameEl = document.getElementById('name');
       const email = emailEl ? emailEl.value.trim() : '';
       const name = nameEl ? nameEl.value.trim() : '';
 
-      // check payment
       if (!paymentStatus || paymentStatus.value !== 'completed') {
         e.preventDefault();
         try { alert('⚠️ Please complete your $30 subscription on Ko-fi first to send your data.'); } catch(err){}
         const paySection = document.querySelector('.payment-section');
-        if (paySection) paySection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (paySection) paySection.scrollIntoView({behavior:'smooth', block:'center'});
         return;
       }
 
-      // check name & email
       if (!email || !name) {
         e.preventDefault();
-        try { alert('⚠️ Please provide your name and email to begin your transformation.'); } catch(e){}
+        try { alert('⚠️ Please provide your name and email to begin your transformation.'); } catch(err){}
         return;
       }
 
-      // validate email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         e.preventDefault();
-        try { alert('⚠️ Please enter a valid email address.'); } catch(e){}
+        try { alert('⚠️ Please enter a valid email address.'); } catch(err){}
         return;
       }
 
-      console.log('Form submitted successfully - transformation begins');
-
-      // Production: send to Make.com or your webhook here (comment preserved)
+      // At this point the form can be submitted normally (Netlify/Make etc).
+      // PRESERVED: commented example fetch (from original file) — kept as comment
       /*
       e.preventDefault();
-
       const formData = new FormData(this);
       const formObject = Object.fromEntries(formData.entries());
-
       fetch('https://hook.make.com/your-webhook-url', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(formObject)
-      })
-      .then(response => {
-        if (response.ok) {
-          this.style.display = 'none';
-          document.getElementById('success-container').style.display = 'block';
-          if (window.gtag) {
-            gtag('event', 'onboarding_complete', {
-              'event_category': 'subscription',
-              'value': 30
-            });
-          }
-        } else {
-          throw new Error('Failed to save data');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('There was an issue saving your data. Please try again.');
-      });
+      }).then(...)
       */
-    }, { passive: false });
+    }, {passive:false});
   })();
 </script>
 </body>
