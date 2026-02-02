@@ -21,6 +21,7 @@
     position: relative;
     -webkit-overflow-scrolling: touch;
     width: 100% !important;
+    touch-action: manipulation;
   }
 
   * {
@@ -28,6 +29,8 @@
     margin: 0;
     padding: 0;
     -webkit-tap-highlight-color: transparent;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   :root {
@@ -44,10 +47,10 @@
     --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  body {
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  body {    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     color: var(--text);
-    padding: 20px;    display: flex;    
+    padding: 20px;
+    display: flex;    
     justify-content: center;    
     background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);
     line-height: 1.6;
@@ -93,10 +96,10 @@
     gap: 16px;
     align-items: center;
   }
-  
-  .logo {
+    .logo {
     width: 64px;
-    height: 64px;    border-radius: 16px;
+    height: 64px;
+    border-radius: 16px;
     background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
     display: grid;    
     place-items: center;
@@ -142,9 +145,9 @@
     font-weight: 700;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(4px);    border: 1px solid rgba(212, 175, 55, 0.2);
   }
+
   .badge {
     display: inline-block;
     margin-top: 6px;    
@@ -191,17 +194,17 @@
     font-size: 1.1rem;
     position: relative;
     z-index: 1;
-  }
-  
+  }  
   .sacred-note {
-    background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));    border-left: 3px solid var(--accent-gold);
+    background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
+    border-left: 3px solid var(--accent-gold);
     padding: 16px;
     border-radius: 0 12px 12px 0;    
     color: #f0f0f0;
     font-style: normal;
     margin: 16px auto;
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);    
-    border: 1px solid rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.15); /* تم إصلاح خطأ "border: px" */
     max-width: 700px;
   }
 
@@ -240,10 +243,10 @@
 
   .benefits {
     display: flex;
-    gap: 16px;
-    margin-top: 16px;
+    gap: 16px;    margin-top: 16px;
     flex-wrap: wrap;
-  }  
+  }
+  
   .benefit {
     flex: 1;    
     min-width: 250px;
@@ -289,10 +292,10 @@
     font-size: 1.15rem;
     font-family: "Cormorant Garamond", serif;
     line-height: 1.4;
-    position: relative;
-    padding-bottom: 6px;
+    position: relative;    padding-bottom: 6px;
   }
-    label::after {
+  
+  label::after {
     content: '';
     position: absolute;    
     bottom: 0;
@@ -338,10 +341,10 @@
     outline: none;
     border-color: var(--accent-gold);
     box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3), 0 8px 30px rgba(184, 134, 47, 0.25);
-    background: rgba(30, 30, 30, 0.9);
-  }
+    background: rgba(30, 30, 30, 0.9);  }
 
-  .char-count {    text-align: right;
+  .char-count {
+    text-align: right;
     margin-top: 8px;
     color: var(--accent-bronze);
     font-size: 0.9rem;    
@@ -387,10 +390,10 @@
     text-align: center;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(3px);
-    position: relative;
-    overflow: hidden;
+    position: relative;    overflow: hidden;
     min-height: 44px;
-    touch-action: manipulation;  }
+    touch-action: manipulation;
+  }
   
   .chip::before {
     content: '';
@@ -436,10 +439,10 @@
     flex-wrap: wrap;
   }
 
-  .btn-submit {
-    padding: 16px 32px;
+  .btn-submit {    padding: 16px 32px;
     border-radius: 14px;
-    background: linear-gradient(135deg, var(--accent-gold), var(--accent-bronze));    border: none;
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-bronze));
+    border: none;
     color: #081018;
     font-weight: 800;
     font-size: 1.1rem;
@@ -485,10 +488,10 @@
   }
 
   .consent {
-    margin-top: 20px;
-    padding: 20px;
+    margin-top: 20px;    padding: 20px;
     background: rgba(30, 30, 30, 0.7);
-    border-radius: 14px;    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 14px;
+    border: 1px solid rgba(212, 175, 55, 0.15);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   }
   
@@ -534,10 +537,10 @@
     height: 24px;
     background: rgba(212, 175, 55, 0.15);
     border-radius: 50%;
-    display: grid;
-    place-items: center;
+    display: grid;    place-items: center;
     font-weight: bold;
   }
+
   /* قسم الدفع الجديد */
   .payment-section {
     margin: 30px 0;
@@ -583,10 +586,10 @@
     color: white;
     text-decoration: none;
     border-radius: 12px;
-    font-weight: 800;
-    font-size: 1.05rem;
+    font-weight: 800;    font-size: 1.05rem;
     margin-bottom: 15px;
-    transition: var(--transition);    border: 2px solid var(--accent-red);
+    transition: var(--transition);
+    border: 2px solid var(--accent-red);
     font-family: "Cormorant Garamond", serif;
     min-height: 56px;
     touch-action: manipulation;
@@ -633,9 +636,9 @@
     margin-top: 15px;
     font-style: italic;
   }
-
   /* Responsive adjustments */
-  @media (max-width: 900px) {    .benefits { 
+  @media (max-width: 900px) {
+    .benefits { 
       flex-direction: column; 
     }
     .grid-2 { 
@@ -681,10 +684,10 @@
     
     .meta {
       text-align: left;
-      margin-top: 12px;
-    }
+      margin-top: 12px;    }
     
-    header {      flex-direction: column;
+    header {
+      flex-direction: column;
       align-items: flex-start;
     }
     
@@ -703,7 +706,7 @@
       width: 100%;
     }
     
-    /* إصلاحات حرجة للهاتف */
+    /* إصلاحات نهائية للهاتف */
     .grid-2 {
       grid-template-columns: 1fr !important;
       gap: 16px !important;
@@ -730,10 +733,10 @@
       padding: 16px 24px !important;
       font-size: 1.15rem !important;
       min-height: 56px !important;
-    }
-    
+    }    
     label {
-      font-size: 1.15rem !important;    }
+      font-size: 1.15rem !important;
+    }
     
     .hint {
       font-size: 0.9rem !important;
@@ -748,6 +751,18 @@
     html, body, .container {
       overflow-x: hidden !important;
       width: 100% !important;
+    }
+    
+    /* تحسين النصوص */
+    .container, .hero, .card, .panel, textarea, input, select, .char-count, .hint {
+      overflow-wrap: break-word !important;
+      word-break: break-word !important;
+    }
+    
+    /* تحسين العناصر التفاعلية */
+    .cta, .pay-btn, .btn-submit, .chip {
+      touch-action: manipulation !important;
+      min-height: 56px !important;
     }
   }
   
@@ -767,8 +782,7 @@
     from {
       opacity: 0;
       transform: translateY(20px);
-    }
-    to {
+    }    to {
       opacity: 1;
       transform: translateY(0);
     }
@@ -782,7 +796,8 @@
 
 <body>
   <div class="container" role="main" aria-labelledby="page-title">
-    <header>      <div class="brand" aria-hidden="false">
+    <header>
+      <div class="brand" aria-hidden="false">
         <div class="logo" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
             <rect x="1" y="1" width="22" height="22" rx="5" fill="rgba(184,134,47,0.06)"/>
@@ -816,8 +831,7 @@
       <small>How your words become your growth</small>
       <div class="benefits" role="list">
         <div class="benefit" role="listitem">
-          <h4>Negativity Dissolution</h4>
-          <p>Our psychologists identify negative patterns in your writing and craft precise daily interventions to dissolve them at their source.</p>
+          <h4>Negativity Dissolution</h4>          <p>Our psychologists identify negative patterns in your writing and craft precise daily interventions to dissolve them at their source.</p>
         </div>
         <div class="benefit" role="listitem">
           <h4>Strength Amplification</h4>
@@ -831,7 +845,8 @@
     </div>
 
     <!-- ===== FORM ===== -->
-    <form name="onboarding" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-labelledby="page-title" role="form">      <input type="hidden" name="form-name" value="onboarding">
+    <form name="onboarding" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-labelledby="page-title" role="form">
+      <input type="hidden" name="form-name" value="onboarding">
       <input type="text" name="bot-field" style="display:none" aria-hidden="true">
       <input type="hidden" id="payment-status" name="payment_status" value="pending">
 
@@ -865,8 +880,7 @@
       <div class="char-count">0 characters | 0 words</div>
 
       <label for="unsaid_truth">
-        5) What truth lives in your heart but rarely leaves your lips?
-      </label>
+        5) What truth lives in your heart but rarely leaves your lips?      </label>
       <div class="hint">(The desire, fear, or dream you keep private — the part of you that longs to be seen but stays hidden for safety.)</div>
       <textarea id="unsaid_truth" name="unsaid_truth" placeholder="If I could whisper one thing no one knows: 'I secretly long for...'"></textarea>
       <div class="char-count">0 characters | 0 words</div>
@@ -880,7 +894,8 @@
 
       <label for="support_style">
         7) What kind of presence would truly help you right now?
-      </label>      <div class="hint">(A calm mirror reflecting your truth, practical micro-steps for overwhelming days, or a gentle reminder of your strength when doubt creeps in.)</div>
+      </label>
+      <div class="hint">(A calm mirror reflecting your truth, practical micro-steps for overwhelming days, or a gentle reminder of your strength when doubt creeps in.)</div>
       <textarea id="support_style" name="support_style" placeholder="When I'm struggling, I need..."></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
@@ -914,8 +929,7 @@
 
       <label for="fear_of_improvement">
         12) What might you lose if your life actually becomes easier?
-      </label>
-      <div class="hint">(Sometimes we cling to struggle because it defines us, because others depend on our strength, or because we fear what happiness might ask of us.)</div>
+      </label>      <div class="hint">(Sometimes we cling to struggle because it defines us, because others depend on our strength, or because we fear what happiness might ask of us.)</div>
       <textarea id="fear_of_improvement" name="fear_of_improvement" placeholder="If things improve, I worry I might lose..."></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
@@ -929,7 +943,8 @@
       <label for="never_forget">
         14) (Optional) One truth about you that anchors your soul
       </label>
-      <div class="hint">(A phrase, memory, or value that captures your essence — the light we'll gently remind you of when shadows fall.)</div>      <textarea id="never_forget" name="never_forget" placeholder="No matter what happens, never forget: I am..."></textarea>
+      <div class="hint">(A phrase, memory, or value that captures your essence — the light we'll gently remind you of when shadows fall.)</div>
+      <textarea id="never_forget" name="never_forget" placeholder="No matter what happens, never forget: I am..."></textarea>
       <div class="char-count">0 characters | 0 words</div>
 
       <label for="bold_step">
@@ -963,8 +978,7 @@
       </div>
       <div class="hint" style="margin-top:12px">(Choose the areas where a little shift would create the biggest ripple of peace in your life.)</div>
 
-      <!-- Personal details -->
-      <div class="grid-2">
+      <!-- Personal details -->      <div class="grid-2">
         <div>
           <label for="name">Your name (or the name that feels most like home)</label>
           <input id="name" name="name" type="text" placeholder="What name feels most true when you hear it?">
@@ -978,7 +992,8 @@
       <div class="grid-2">
         <div>
           <label for="timezone">Your time zone / city</label>
-          <input id="timezone" name="timezone" type="text" placeholder="Where your days begin and end (e.g., New York, London, Berlin)">        </div>
+          <input id="timezone" name="timezone" type="text" placeholder="Where your days begin and end (e.g., New York, London, Berlin)">
+        </div>
         <div>
           <label for="delivery_time">When would you like your message to arrive?</label>
           <select id="delivery_time" name="delivery_time">
@@ -1012,8 +1027,7 @@
           <!-- الرابط الصحيح لـ Ko-fi -->
           <a href="https://ko-fi.com/s/cd96925d8f" 
              target="_blank" 
-             rel="noopener noreferrer" 
-             class="pay-btn" 
+             rel="noopener noreferrer"              class="pay-btn" 
              id="payment-btn"
              aria-label="Pay $30 monthly subscription on secure Ko-fi page">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -1027,6 +1041,7 @@
           </div>
         </div>
       </div>
+
       <div class="consent">
         <p class="muted-note">
           <strong>Your trust is sacred to us:</strong> Your responses are encrypted and analyzed only by our vetted psychologists. We never sell or share your data. You own your information completely — pause, edit, or delete anytime. By submitting, you consent to receive transformational messages at your private email.
@@ -1061,8 +1076,7 @@
         <div class="badge-item">
           <div class="badge-icon">🧠</div>
           <span>PhD Psychologists Only</span>        
-        </div>
-        <div class="badge-item">
+        </div>        <div class="badge-item">
           <div class="badge-icon">✨</div>
           <span>100% Human-Crafted</span>
         </div>
@@ -1076,7 +1090,8 @@
     // إصلاح التمرير السلس
     document.body.style.scrollBehavior = 'smooth';
     document.body.style.overscrollBehavior = 'contain';
-        // التحقق من حالة الدفع عند تحميل الصفحة
+    
+    // التحقق من حالة الدفع عند تحميل الصفحة
     const urlParams = new URLSearchParams(window.location.search);
     const paymentSuccess = urlParams.get('payment');
     const clientEmail = urlParams.get('email');
@@ -1110,8 +1125,7 @@
       }, 300);
     }
     
-    // إضافة تأثيرات إدخال أنيقة
-    const elements = document.querySelectorAll('label, .benefit, .panel, .intro');
+    // إضافة تأثيرات إدخال أنيقة    const elements = document.querySelectorAll('label, .benefit, .panel, .intro');
     elements.forEach((el, index) => {
       // تأخير بسيط لإنشاء تأثير متتالي
       setTimeout(() => {
@@ -1125,7 +1139,8 @@
       const wordCount = el.value.trim() === '' ? 0 : el.value.trim().split(/\s+/).length;
       let next = el.nextElementSibling;
       while(next && !next.classList.contains('char-count')) {
-        next = next.nextElementSibling;      }
+        next = next.nextElementSibling;
+      }
       if(next && next.classList.contains('char-count')) {
         next.innerText = `${charCount} characters | ${wordCount} words`;
       }
@@ -1159,8 +1174,7 @@
       document.querySelectorAll('.checkbox-group .chip, .grid-2 .chip').forEach(chip => {
         chip.addEventListener('click', function() {
           const input = this.querySelector('input[type="checkbox"]');
-          if (!input) return;
-          
+          if (!input) return;          
           input.checked = !input.checked;          
           this.classList.toggle('active', input.checked);
         });
@@ -1175,6 +1189,7 @@
         console.log('Transformation journey initiated');
       });
     }
+
     // التحكم في حجم الخطوط على الهواتف
     function adjustFontSize() {
       if (window.innerWidth < 480) {
@@ -1208,8 +1223,7 @@
     const paymentStatus = document.getElementById('payment-status');
     const email = document.getElementById('email').value;
     const name = document.getElementById('name').value;
-    
-    // التحقق من حالة الدفع
+        // التحقق من حالة الدفع
     if (paymentStatus.value !== 'completed') {
       e.preventDefault();
       alert('⚠️ Please complete your $30 subscription on Ko-fi first to send your data.');
@@ -1223,7 +1237,8 @@
       alert('⚠️ Please provide your name and email to begin your transformation.');
       return;
     }
-        // التحقق من البريد الإلكتروني
+    
+    // التحقق من البريد الإلكتروني
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;    
     if (!emailRegex.test(email)) {
       e.preventDefault();
@@ -1257,8 +1272,7 @@
         if (window.gtag) {
           gtag('event', 'onboarding_complete', {
             'event_category': 'subscription',
-            'value': 30
-          });        
+            'value': 30          });        
         }
       } else {
         throw new Error('Failed to save data');
