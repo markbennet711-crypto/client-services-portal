@@ -811,9 +811,9 @@ footer { margin-top:32px; text-align:center; color:var(--muted); font-size:1.05r
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 20px; align-items: center; margin-top: 20px;">
-          <!-- Payment link: clicking this anchor will open Ko-fi in a new tab/window -->
+          <!-- Payment link: clicking this anchor will open Ko-fi in the same tab/window -->
           <a href="https://ko-fi.com/s/cd96925d8f"
-             target="_blank"
+             target="_self"
              rel="noopener noreferrer"
              class="pay-btn"
              id="payment-btn"
@@ -977,14 +977,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Ensure the Ko-fi anchor always opens when clicked (some mobile browsers block programmatic opens from non-interactive events)
+  // Ensure the Ko-fi anchor always opens when clicked (kept minimal for compatibility)
   const paymentBtn = document.getElementById('payment-btn');
   if (paymentBtn) {
     paymentBtn.addEventListener('click', function (e) {
-      // anchor default behavior will open Ko-fi because it is an <a href="..."> with target="_blank"
-      // we keep this handler minimal for compatibility and log the click
       console.info('Opening Ko-fi subscription link');
-      // No preventDefault — allow normal navigation
+      // No preventDefault — allow normal navigation (target="_self" will navigate in same tab)
     });
   }
 });
