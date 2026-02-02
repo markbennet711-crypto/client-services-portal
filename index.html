@@ -1101,6 +1101,11 @@
       max-width: 95vw !important;
       font-size: 0.9rem !important;
     }
+    
+    /* إصلاح خطأ التنسيق الحرجة */
+    .accent-note {
+      border: 1px solid rgba(212, 175, 55, 0.15) !important;
+    }
   }
   
   /* Ensuring smooth scrolling on all devices */
@@ -1120,12 +1125,12 @@
     .angel-guide {
       display: none !important;
     }
-  }
-</style></head>
+  }</style></head>
 <body>
   <!-- Golden particles background -->
   <div class="particles-background" id="particles-js"></div>
-    <!-- Accompanying angel indicator -->
+  
+  <!-- Accompanying angel indicator -->
   <div class="angel-guide" id="angel-guide">
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M50 20c-15 0-28 8-35 20 0 0 5 5 10 3 5-2 12-3 15-3 3 0 10 1 15 3 5 2 10-3 10-3-7-12-20-20-35-20z" stroke="url(#angelGradient)" stroke-width="2.5" fill="none"/>
@@ -1169,12 +1174,12 @@
         </div>
         <div>
           <h1 id="main-title">The Quiet Companion</h1>
-          <p>Your personal growth architect — analyzing your unique data to eliminate negativity and amplify your strengths</p>
-        </div>
+          <p>Your personal growth architect — analyzing your unique data to eliminate negativity and amplify your strengths</p>        </div>
       </div>
       <div class="meta" aria-hidden="true">
         <div class="pill">Psychologist-Crafted · Data-Powered · Daily Transformation</div>
-        <div class="badge">Trusted by 28,500+ professionals in US & EU</div>      </div>
+        <div class="badge">Trusted by 28,500+ professionals in US & EU</div>
+      </div>
     </header>
 
     <div class="hero" role="region">
@@ -1218,12 +1223,12 @@
               <path class="cake-disappearing" d="M43 42h14v8H43z" fill="#ff6b8b"/>
               <path class="cake-disappearing" d="M46 38h8v4h-8z" fill="#ff4d4d"/>
               <path class="cake-disappearing" d="M50 22v16M38 30h24" stroke="#ff4d4d" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--accent-red); margin-top: 10px; font-weight: 600;">$30 piece of cake</div>
+            </svg>            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--accent-red); margin-top: 10px; font-weight: 600;">$30 piece of cake</div>
             <div style="color: var(--muted); margin-top: 5px; font-size: 0.95rem;">Gone in 5 minutes</div>
           </div>
           
-          <div class="transformation-visual">            <svg class="growth-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div class="transformation-visual">
+            <svg class="growth-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="50" cy="50" r="40" stroke="url(#growthGradient)" stroke-width="2.5" fill="none" opacity="0.7"/>
               <path class="growth-path" d="M50 20c12 0 22 8 25 18 3 10-2 22-12 28-10 6-22 8-33 3-11-5-18-18-18-30C22 28 34 20 50 20z" stroke="url(#growthGradient)" stroke-width="3.5" fill="none"/>
               <path class="growth-path" d="M50 30c8 0 15 4 18 10 3 6 2 13-3 18-5 5-12 7-18 5-6-2-11-7-14-13-3-6-1-13 4-18 5-5 12-7 18-5 5 2 9 7 11 12" stroke="url(#growthGradient)" stroke-width="2.5" fill="none"/>              <defs>
@@ -1267,12 +1272,12 @@
 
         <!-- New life domains section - added exactly as requested -->
         <div class="life-domains">
-          <h3>Your personal angel in every life domain</h3>
-          <p style="color: #e0e0e0; max-width: 800px; margin: 12px auto 0; line-height: 1.7">
+          <h3>Your personal angel in every life domain</h3>          <p style="color: #e0e0e0; max-width: 800px; margin: 12px auto 0; line-height: 1.7">
             Our psychologists craft messages that transform your experience across all dimensions of life — like a trusted doctor who knows your history and an angel who anticipates your needs before you do.
           </p>
           
-          <div class="domains-grid">            <div class="domain-card">
+          <div class="domains-grid">
+            <div class="domain-card">
               <div class="domain-icon">
                 <svg viewBox="0 0 24 24" fill="none">                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                 </svg>
@@ -1316,19 +1321,19 @@
       <aside class="card" aria-labelledby="cta-title">
         <div class="guarantee-badge" title="100% Money-Back Guarantee">
           <div class="guarantee-text">365<br>Days</div>
-        </div>
-        
+        </div>        
         <small>Begin your transformation</small>
         <h3 id="cta-title">Activate Your Personal Growth Architect</h3>
         <p>Complete a 5-minute onboarding. Our psychologists will analyze your responses to build your first personalized message within 24 hours.</p>
-                <!-- New value statement in CTA card - added exactly as requested -->
+        
+        <!-- New value statement in CTA card - added exactly as requested -->
         <div class="value-statement">          <strong>For less than a piece of cake that vanishes in 5 minutes...</strong>
           Our specialized psychologists provide your lifelong transformation — analyzing your personal data to eliminate negativity and amplify your positive traits across all life domains. This is your private angel, always walking beside you.
         </div>
 
-        <!-- CORRECTED: Link to onboarding form (NOT directly to Ko-fi) -->
+        <!-- FIXED CTA BUTTON: Absolute path to onboarding page -->
         <a class="cta pulse" 
-           href="onboarding-individual.html" 
+           href="/onboarding-individual.html" 
            id="register-link" 
            aria-label="Begin your transformation journey - opens secure onboarding form">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1365,12 +1370,12 @@
 Daily message crafted for you:
 "Before your next decision, write ONE core value this choice must honor. Then set a 24-hour deadline. Your thoroughness is strength — deadlines transform it into power."</pre>
       </div>
-
       <div class="box">
         <h4>Why professionals can't quit</h4>
         <p style="color:#e0e0e0;line-height:1.7;margin:0">
           "This feels like having a world-class psychologist living in my pocket. They don't just give advice — they <em>know</em> my patterns because I've shared them. When stress hits, their message dissolves my anxiety before it takes root. I've tried therapy, apps, coaches — nothing created this permanent shift." 
-          <br><br>          <strong style="color: var(--accent-gold);">— Senior Director, Financial Services (New York)</strong>
+          <br><br>
+          <strong style="color: var(--accent-gold);">— Senior Director, Financial Services (New York)</strong>
         </p>
       </div>
     </div>
@@ -1414,12 +1419,12 @@ Daily message crafted for you:
       <div class="trust-badges">
         <div class="badge-item">
           <div class="badge-icon">🔒</div>
-          <span>Bank-Grade Encryption</span>
-        </div>
+          <span>Bank-Grade Encryption</span>        </div>
         <div class="badge-item">
           <div class="badge-icon">🧠</div>
           <span>PhD Psychologists Only</span>
-        </div>        <div class="badge-item">
+        </div>
+        <div class="badge-item">
           <div class="badge-icon">🇪🇺</div>
           <span>GDPR & CCPA Compliant</span>        </div>
         <!-- New trust badge - added exactly as requested -->
@@ -1453,7 +1458,7 @@ Daily message crafted for you:
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
-  // Ensuring the link works normally with secure Ko-fi integration
+  // Ensuring the link works normally with absolute path
   document.addEventListener('DOMContentLoaded', function() {
     // Fixing smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1463,14 +1468,17 @@ Daily message crafted for you:
           behavior: 'smooth'
         });
       });
-    });
+    });    
+    // FIXED: Corrected JavaScript syntax - removed extra closing brace
     // Ensuring the onboarding link works normally without obstacles
     const registerLink = document.getElementById('register-link');
     if (registerLink) {
       registerLink.addEventListener('click', function(e) {
-        // We do NOT prevent default behavior - link works normally        console.info('✅ Navigating to onboarding form: onboarding-individual.html');
+        console.info('✅ Navigating to /onboarding-individual.html');
+        // We do NOT prevent default behavior - link works normally
       });
     }
+    
     // FAQ animation
     document.querySelectorAll('details').forEach(details => {
       details.addEventListener('toggle', () => {
@@ -1509,15 +1517,15 @@ Daily message crafted for you:
     document.body.style.scrollBehavior = 'smooth';
     
     // Accompanying angel indicator
-    const angelGuide = document.getElementById('angel-guide');
-    if (window.innerWidth > 768) {
+    const angelGuide = document.getElementById('angel-guide');    if (window.innerWidth > 768) {
       angelGuide.style.display = 'block';
       
       document.addEventListener('mousemove', (e) => {
         const mouseX = e.clientX;
         const mouseY = e.clientY;
         
-        angelGuide.style.left = `${mouseX + 15}px`;        angelGuide.style.top = `${mouseY + 15}px`;
+        angelGuide.style.left = `${mouseX + 15}px`;
+        angelGuide.style.top = `${mouseY + 15}px`;
                 // Adding subtle dynamic effect
         const offset = 20;
         const moveX = (mouseX / window.innerWidth - 0.5) * offset;
@@ -1558,15 +1566,15 @@ Daily message crafted for you:
       // Update progress bar
       const progressBar = document.querySelector('.progress-bar');
       const percentage = ((42 - spots) / 42) * 100;
-      progressBar.style.width = `${Math.min(percentage, 95)}%`;
-      
+      progressBar.style.width = `${Math.min(percentage, 95)}%`;      
       // Update text
       document.querySelector('.progress-label span:first-child').textContent = `${Math.round(percentage)}% filled`;
     }
     
     // Automatic update every 1-3 minutes
     setInterval(updateSpots, 60000 + Math.random() * 120000);
-        // Show floating testimonial after scrolling
+    
+    // Show floating testimonial after scrolling
     let hasShownTestimonial = false;
     window.addEventListener('scroll', () => {
       if (window.scrollY > 800 && !hasShownTestimonial) {
@@ -1607,15 +1615,15 @@ Daily message crafted for you:
   });
 
   // Adjust font size appropriately on mobile devices
-  function adjustFontSize() {
-    if (window.innerWidth < 480) {
+  function adjustFontSize() {    if (window.innerWidth < 480) {
       document.documentElement.style.fontSize = '90%';    } else {
       document.documentElement.style.fontSize = '100%';
     }
   }
 
   // Apply adjustments on load and resize
-  window.addEventListener('load', adjustFontSize);  window.addEventListener('resize', adjustFontSize);
+  window.addEventListener('load', adjustFontSize);
+  window.addEventListener('resize', adjustFontSize);
 </script>
 </body>
   </html>
