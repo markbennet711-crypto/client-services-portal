@@ -6,328 +6,138 @@
 <title>Your Personal Growth Architect — Begin Your Transformation</title>
 <meta name="description" content="Daily messages crafted by psychological experts who analyze your personal data to eliminate negativity and amplify your positive traits. Private human guidance designed exclusively for US & EU professionals." />
 
-<!-- Fonts -->
+<!-- Open Graph / Twitter Card -->
+<meta property="og:title" content="Your Personal Growth Architect — Begin Your Transformation">
+<meta property="og:description" content="Human-crafted psychological guidance, tailored to your words and life. Confidential, PhD-reviewed messages that help you transform.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your Personal Growth Architect — Begin Your Transformation">
+<meta name="twitter:description" content="Human-crafted psychological guidance, tailored to your words and life. Confidential, PhD-reviewed messages that help you transform.">
+
+<!-- Fonts (display=swap for faster rendering) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-  /* ------------- Global & Mobile Safety ------------- */
-  html, body {
-    height: auto !important;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    -webkit-overflow-scrolling: touch;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    background: radial-gradient(circle at top right, rgba(212,175,55,0.06) 0%, #050505 100%);
-    color: #ffffff;
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    overflow-x: hidden !important;
-    touch-action: manipulation;
-  }
-
-  * {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-    max-width: 100% !important;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    min-width: 0 !important;
-  }
-
+  /* =======================
+     Global + Mobile Safety
+     ======================= */
   :root{
-    --page-bg: #0a0a0a;
-    --card: #121212;
+    --page-bg: #050505;
+    --card: #0e0e0e;
     --muted: #a0a0a0;
     --text: #ffffff;
     --accent-gold: #d4af37;
     --accent-bronze: #b8862f;
     --accent-red: #ff4d4d;
-    --radius: 16px;
+    --radius: 14px;
     --shadow: 0 12px 40px rgba(0,0,0,0.6);
-    --glass: rgba(255,255,255,0.03);
-    --gutter: 20px;
+    --glass: rgba(255,255,255,0.02);
+    --gutter: 18px;
+    --focus: rgba(212,175,55,0.18);
+    --progress-bg: rgba(255,255,255,0.04);
+    --progress-fill: linear-gradient(90deg,var(--accent-bronze),var(--accent-gold));
   }
 
-  /* ------------- Container ------------- */
-  .container{
+  html,body{
+    margin:0;
+    padding:0;
+    min-height:100vh;
+    -webkit-overflow-scrolling:touch;
+    background: radial-gradient(circle at top right, rgba(212,175,55,0.04) 0%, var(--page-bg) 100%);
+    color:var(--text);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-x:hidden !important;
+    touch-action: manipulation;
+  }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color: transparent; max-width:100% !important; word-break:break-word; overflow-wrap:break-word; min-width:0 !important; }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    :root { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+  }
+
+  /* Container */
+  .container {
     width:100%;
-    max-width:1100px;
-    margin:20px auto;
-    padding:28px clamp(16px, 3vw, 36px);
-    background: linear-gradient(180deg, rgba(18,18,18,0.96), rgba(14,14,14,0.95));
+    max-width:1180px;
+    margin:22px auto;
+    padding:28px clamp(16px, 3.2vw, 40px);
+    background: linear-gradient(180deg, rgba(13,13,13,0.98), rgba(10,10,10,0.98));
     border-radius: calc(var(--radius) + 2px);
-    border: 1px solid rgba(212,175,55,0.06);
-    box-shadow: var(--shadow);
+    border:1px solid rgba(212,175,55,0.06);
+    box-shadow:var(--shadow);
     position:relative;
     overflow:hidden;
   }
   .container::before{
     content:'';
-    position:absolute;
-    top:0; left:0; right:0;
-    height:4px;
+    position:absolute; left:0; right:0; top:0; height:4px;
     background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
   }
 
-  /* ------------- TOP HEADER (IMPROVED VISUAL TITLE) ------------- */
-  .top-header {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:18px;
-    flex-wrap:wrap;
-    padding:12px 8px;
-    border-radius:10px;
-    margin-bottom:12px;
-    background: linear-gradient(180deg, rgba(212,175,55,0.03), rgba(0,0,0,0.02));
-    border: 1px solid rgba(212,175,55,0.03);
-  }
+  /* Top header */
+  .top-header{ display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; padding:8px 0 14px 0; }
+  .title-block{ display:flex; gap:14px; align-items:center; min-width:0; }
+  .logo-large{ width:84px; height:84px; border-radius:12px; background: linear-gradient(145deg, rgba(212,175,55,0.12), rgba(184,134,47,0.05)); display:grid; place-items:center; border:1px solid rgba(212,175,55,0.08); box-shadow:0 10px 28px rgba(0,0,0,0.45); flex-shrink:0; }
+  .top-header h1{ font-family:"Cormorant Garamond", serif; color:var(--accent-gold); font-size: clamp(1.6rem, 4.6vw, 2.4rem); margin:0; line-height:1.02; text-shadow:0 8px 28px rgba(212,175,55,0.08); }
+  .lead-sub{ margin:4px 0 0 0; color:var(--muted); font-size:0.98rem; max-width: 720px; }
 
-  .top-header .title-block {
-    display:flex;
-    gap:14px;
-    align-items:center;
-    min-width:0;
-  }
-
-  .top-header .logo-large {
-    width:84px;
-    height:84px;
-    border-radius:14px;
-    background: linear-gradient(145deg, rgba(212,175,55,0.14), rgba(184,134,47,0.06));
-    display:grid;
-    place-items:center;
-    border: 1px solid rgba(212,175,55,0.12);
-    box-shadow: 0 8px 28px rgba(0,0,0,0.45);
-    flex-shrink:0;
-  }
-
-  .top-header h1 {
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
-    font-size: clamp(1.6rem, 4.8vw, 2.6rem);
-    margin: 0;
-    line-height: 1.02;
-    letter-spacing: -0.6px;
-    text-shadow: 0 8px 30px rgba(212,175,55,0.12);
-  }
-
-  .top-header p.lead-sub {
-    margin: 4px 0 0 0;
-    color: var(--muted);
-    font-size: 1rem;
-    max-width: 680px;
-  }
-
-  .top-header .cta-area {
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    align-items:flex-end;
-    min-width:0;
-  }
-
-  .top-header .small-pill {
-    display:inline-block;
-    padding:8px 14px;
-    border-radius:999px;
-    background: rgba(212,175,55,0.12);
-    color:var(--accent-gold);
-    font-weight:700;
-    font-size:0.92rem;
-    border:1px solid rgba(212,175,55,0.08);
-  }
-
-  .top-header .trust-line {
-    color:var(--muted);
-    font-size:0.88rem;
-  }
+  .cta-area{ display:flex; flex-direction:column; gap:8px; align-items:flex-end; min-width:0; }
+  .small-pill{ display:inline-block; padding:8px 14px; border-radius:999px; background: rgba(212,175,55,0.12); color:var(--accent-gold); font-weight:700; font-size:0.92rem; border:1px solid rgba(212,175,55,0.08); }
+  .trust-line{ color:var(--muted); font-size:0.9rem; }
 
   @media (max-width:900px){
-    .top-header{ align-items:flex-start; }
-    .top-header .cta-area{ align-items:flex-start; }
+    .cta-area{ align-items:flex-start; }
+    .top-header{ align-items:flex-start; gap:10px; }
   }
 
-  /* ------------- Header (secondary) - legacy brand area preserved ------------- */
-  header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:18px;
-    flex-wrap:wrap;
-    min-width:0;
-    margin-bottom:8px;
-  }
-  .brand{ display:flex; gap:16px; align-items:center; min-width:0; }
-  .logo{
-    width:72px; height:72px; border-radius:14px;
-    background: linear-gradient(145deg, rgba(212,175,55,0.12), rgba(184,134,47,0.08));
-    display:grid; place-items:center; border:1px solid rgba(212,175,55,0.14);
-    box-shadow: 0 6px 22px rgba(0,0,0,0.5);
-    flex-shrink:0;
-  }
-  .brand h1{
-    font-family:"Cormorant Garamond", serif;
-    color:var(--accent-gold);
-    font-size: clamp(1.2rem, 3.4vw, 1.6rem);
-    margin:0;
-    line-height:1.02;
-    text-shadow: 0 6px 20px rgba(212,175,55,0.12);
-  }
-  .brand p{ margin:0; color:var(--muted); max-width:520px; line-height:1.45; font-size:0.95rem; }
+  /* Opening banner */
+  .opening-banner{ display:flex; gap:18px; align-items:center; justify-content:space-between; padding:18px; border-radius:12px; margin:12px 0 18px 0; border:1px solid rgba(212,175,55,0.06); background: linear-gradient(90deg, rgba(18,18,18,0.65), rgba(12,12,12,0.45)); overflow:hidden; }
+  .opening-left{ flex:1 1 60%; min-width:0; max-width: calc(100% - 220px); }
+  .opening-text{ color:var(--accent-gold); font-weight:800; font-size: clamp(1rem, 2.6vw, 1.06rem); line-height:1.26; margin:0 0 8px 0; white-space:normal; }
+  .opening-sub{ color:var(--muted); margin:0; font-size:0.95rem; line-height:1.6; }
+  .opening-right{ flex:0 0 200px; display:flex; flex-direction:column; align-items:center; gap:12px; min-width:0; }
+  .icon-wrap{ width:64px; height:64px; border-radius:12px; background: linear-gradient(145deg, rgba(212,175,55,0.12), rgba(184,134,47,0.06)); display:grid; place-items:center; border:1px solid rgba(212,175,55,0.06); box-shadow:0 8px 18px rgba(0,0,0,0.45); }
 
-  .pill{ display:inline-block; padding:8px 16px; border-radius:999px; background: rgba(212,175,55,0.12); color:var(--accent-gold); font-weight:700; font-size:0.95rem; border:1px solid rgba(212,175,55,0.08); }
-  .badge{ display:inline-block; margin-top:8px; padding:4px 10px; border-radius:10px; background:rgba(255,77,77,0.12); color:var(--accent-red); font-weight:600; font-size:0.86rem; }
-
-  /* ------------- Hero ------------- */
-  .hero{
-    display:grid;
-    grid-template-columns: 1fr minmax(0,420px);
-    gap:28px;
-    margin-top:8px;
-    align-items:start;
+  @media (max-width:760px){
+    .opening-banner{ display:block; padding:14px; }
+    .opening-right{ width:100%; display:flex; justify-content:space-between; }
   }
+
+  /* Hero & aside */
+  .hero{ display:grid; grid-template-columns: 1fr minmax(0,420px); gap:28px; align-items:start; margin-top:6px; }
   @media (max-width:1000px){ .hero{ grid-template-columns:1fr; } }
 
   .eyebrow{ color:var(--accent-bronze); font-weight:700; letter-spacing:1px; text-transform:uppercase; font-size:0.85rem; margin-bottom:10px; }
   h2.title{ font-family:"Cormorant Garamond", serif; font-size: clamp(1.8rem, 4.8vw, 3.4rem); margin:0 0 12px 0; line-height:1.04; background:linear-gradient(90deg,var(--accent-gold),var(--accent-bronze)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
   p.lead{ color:#e6e6e6; font-size: clamp(1rem, 2.9vw, 1.12rem); line-height:1.7; margin-bottom:12px; }
 
-  .accent-note{
-    background: linear-gradient(145deg, rgba(212,175,55,0.06), rgba(0,0,0,0.22));
-    border-left: 3px solid var(--accent-gold);
-    padding:14px;
-    border-radius:0 12px 12px 0;
-    color:#f2f2f2;
-    margin-top:12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.45);
-  }
+  .accent-note{ background: linear-gradient(145deg, rgba(212,175,55,0.06), rgba(0,0,0,0.22)); border-left:3px solid var(--accent-gold); padding:14px; border-radius:0 12px 12px 0; color:#f2f2f2; margin-top:12px; box-shadow:0 8px 30px rgba(0,0,0,0.45); }
 
-  /* ------------- POLISHED OPENING BANNER (FIXED to avoid narrow single-column text) ------------- */
-  .opening-banner {
-    display:flex;
-    gap:18px;
-    align-items:center;
-    justify-content:space-between;
-    padding:18px;
-    border-radius:12px;
-    margin-bottom:14px;
-    border:1px solid rgba(212,175,55,0.06);
-    background: linear-gradient(90deg, rgba(18,18,18,0.65), rgba(12,12,12,0.45));
-    overflow:hidden;
-  }
-  .opening-banner .opening-left {
-    flex: 1 1 60%;
-    min-width:0;
-    max-width: calc(100% - 220px);
-  }
-  .opening-banner .opening-right {
-    flex: 0 0 200px;
-    min-width:0;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:12px;
-  }
+  aside.card-aside{ background:linear-gradient(160deg,#0f0f0f,#181818); padding:22px; border-radius:12px; border:1px solid rgba(212,175,55,0.08); box-shadow:0 12px 40px rgba(0,0,0,0.5); }
 
-  /* Ensure text inside left block uses full width and wraps naturally */
-  .opening-left .opening-text {
-    color: var(--accent-gold);
-    font-weight:800;
-    font-size: clamp(1rem, 2.6vw, 1.08rem);
-    line-height:1.28;
-    margin:0 0 8px 0;
-    white-space: normal;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-  .opening-left .opening-sub {
-    color: var(--muted);
-    font-size: 0.95rem;
-    line-height:1.6;
-    margin:0;
-  }
-
-  /* Decorative icon in right block (no numeric/time content) */
-  .opening-right .icon-wrap {
-    width:64px;
-    height:64px;
-    border-radius:12px;
-    background: linear-gradient(145deg, rgba(212,175,55,0.12), rgba(184,134,47,0.06));
-    display:grid;
-    place-items:center;
-    border:1px solid rgba(212,175,55,0.06);
-    box-shadow:0 8px 18px rgba(0,0,0,0.45);
-  }
-
-  /* On small screens switch to single-column layout so left text has full width */
-  @media (max-width:760px) {
-    .opening-banner {
-      display:block;
-      padding:14px;
-    }
-    .opening-banner .opening-left {
-      max-width: 100%;
-      margin-bottom:12px;
-    }
-    .opening-banner .opening-right {
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-  }
-
-  /* ------------- QA block layout (two-column boxes) ------------- */
-  .qa-row{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:14px;
-    margin-top:14px;
-    min-width:0;
-  }
-  .text-box{
-    background: rgba(18,18,18,0.78);
-    border: 1px solid rgba(212,175,55,0.06);
-    padding:14px;
-    border-radius:12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    overflow:hidden;
-    min-width:0;
-  }
+  /* QA layout */
+  .qa-row{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:14px; min-width:0; }
+  .text-box{ background: rgba(18,18,18,0.78); border:1px solid rgba(212,175,55,0.06); padding:14px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.4); overflow:hidden; min-width:0; }
   .text-box.left{ display:flex; flex-direction:column; justify-content:center; gap:8px; text-align:center; }
   .text-box.right{ display:flex; flex-direction:column; gap:8px; }
 
-  .field-label{
-    font-family:"Cormorant Garamond", serif;
-    color:var(--accent-gold);
-    font-weight:700;
-    font-size:1.02rem;
-    line-height:1.3;
-    margin:0;
-  }
-  .hint{ font-size:0.95rem; color:var(--muted); line-height:1.5; margin-top:6px; text-align:center; }
+  .field-label{ font-family:"Cormorant Garamond", serif; color:var(--accent-gold); font-weight:700; font-size:1.02rem; line-height:1.3; margin:0; display:flex; align-items:center; gap:10px; justify-content:flex-start; }
+  .field-icon{ width:28px; height:28px; display:inline-grid; place-items:center; background:rgba(212,175,55,0.06); border-radius:6px; font-size:14px; color:var(--accent-gold); flex-shrink:0; }
 
-  textarea, input[type="text"], input[type="email"], select{
-    width:100%;
-    padding:14px;
-    border-radius:10px;
-    border:1px solid rgba(212,175,55,0.06);
-    background: rgba(6,6,6,0.85);
-    color:var(--text);
-    font-size:1rem;
-    line-height:1.5;
-    resize:vertical;
-    box-shadow: inset 0 6px 16px rgba(0,0,0,0.45);
-  }
+  .hint{ font-size:0.95rem; color:var(--muted); line-height:1.5; margin-top:6px; text-align:left; }
+  textarea, input[type="text"], input[type="email"], select{ width:100%; padding:14px; border-radius:10px; border:1px solid rgba(212,175,55,0.06); background: rgba(6,6,6,0.85); color:var(--text); font-size:1rem; line-height:1.5; resize:vertical; box-shadow: inset 0 6px 16px rgba(0,0,0,0.45); }
   textarea{ min-height:140px; }
-  textarea:focus, input:focus, select:focus{ outline:none; border-color:var(--accent-gold); box-shadow:0 0 0 6px rgba(212,175,55,0.06); background: rgba(12,12,12,0.98); }
+  textarea:focus, input:focus, select:focus{ outline:none; border-color:var(--accent-gold); box-shadow:0 0 0 6px var(--focus); background: rgba(12,12,12,0.98); }
 
-  .char-count{ margin-top:8px; color:var(--accent-bronze); font-weight:600; text-align:center; font-size:0.92rem; }
+  .char-count{ margin-top:8px; color:var(--accent-bronze); font-weight:600; text-align:right; font-size:0.92rem; }
 
   @media (max-width:760px){ .qa-row{ grid-template-columns:1fr; } .text-box.left{ padding:12px 10px; } .text-box.right textarea{ min-height:180px; } }
 
@@ -341,33 +151,53 @@
   .payment-section{ margin:18px 0; padding:14px; background:rgba(12,12,12,0.78); border-radius:12px; border:1px solid rgba(212,175,55,0.06); text-align:center; }
   .pay-btn{ display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:10px; background:linear-gradient(135deg,var(--accent-red),#cc0000); color:#fff; text-decoration:none; border:2px solid var(--accent-red); font-weight:800; }
 
+  .consent{ margin-top:14px; padding:14px; border-radius:10px; background:rgba(12,12,12,0.78); border:1px solid rgba(212,175,55,0.04); }
+
   footer{ margin-top:22px; text-align:center; color:var(--muted); font-size:1rem; padding-top:18px; border-top:1px solid rgba(212,175,55,0.06); }
 
-  /* ------------- Visual Enhancements ------------- */
+  /* Progress bar (non-timed motivational) */
+  .progress-wrap{ margin-top:14px; background:var(--progress-bg); padding:8px; border-radius:999px; border:1px solid rgba(255,255,255,0.02); }
+  .progress-bar{ width:100%; height:12px; border-radius:999px; background:linear-gradient(90deg, rgba(0,0,0,0.12), rgba(0,0,0,0.06)); position:relative; overflow:hidden; }
+  .progress-fill{ height:100%; width:0%; background:var(--progress-fill); transition: width 700ms cubic-bezier(.16,1,.3,1); box-shadow:0 8px 20px rgba(0,0,0,0.24); }
+  .progress-label{ margin-top:8px; display:flex; justify-content:space-between; gap:8px; color:var(--muted); font-size:0.92rem; align-items:center; }
+
+  /* Field completed state */
+  .field-complete { box-shadow: 0 10px 30px rgba(184,134,47,0.06) inset; border-color: rgba(212,175,55,0.18); }
+  .check-indicator { display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:6px; background:linear-gradient(90deg,var(--accent-gold),var(--accent-bronze)); color:#081018; font-weight:700; font-size:13px; margin-left:8px; }
+
+  /* Micro-interaction helpers */
   .fade-in-up{ opacity:0; transform: translateY(12px); transition: all 0.6s cubic-bezier(.16,1,.3,1); }
   .fade-in-up.show{ opacity:1; transform: translateY(0); }
-
-  .title-underline{ display:inline-block; position:relative; }
+  .title-underline{ position:relative; display:inline-block; }
   .title-underline::after{ content:''; position:absolute; left:0; bottom:-8px; height:4px; width:0%; background: linear-gradient(90deg,var(--accent-bronze),var(--accent-gold)); transition: width 0.8s cubic-bezier(.2,.9,.2,1); border-radius:4px; }
   .title-underline.animate::after{ width:60%; }
 
-  .cta{ display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:10px; text-decoration:none; background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.02); color: #fff; font-weight:700; box-shadow: 0 8px 30px rgba(0,0,0,0.5); }
-  .cta:hover{ transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+  /* focus visible for keyboard users */
+  :focus-visible { outline: 3px solid var(--focus); outline-offset:3px; }
 
-  .highlight-text{ background: linear-gradient(90deg, rgba(212,175,55,0.14), rgba(184,134,47,0.08)); padding:2px 8px; border-radius:6px; color:var(--accent-gold); font-weight:600; }
-
-  :focus-visible{ outline: 3px solid rgba(212,175,55,0.18); outline-offset:3px; }
+  /* small helpers */
+  .center { text-align:center; }
+  .muted { color:var(--muted); }
 </style>
 </head>
 <body>
   <div class="container" role="main" aria-labelledby="page-title">
-    <!-- NEW IMPROVED TOP HEADER (visually prominent page title) -->
+    <!-- Top header -->
     <div class="top-header" role="banner" aria-label="Page header">
       <div class="title-block">
         <div class="logo-large" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none" width="56" height="56" aria-hidden="true">
-            <circle cx="16" cy="16" r="14" stroke="#d4af37" stroke-width="1.4" stroke-opacity="0.9"/>
-            <path d="M8 16c0-4 3-7 7-7s7 3 7 7-3 7-7 7" stroke="#d4af37" stroke-width="1.8"/>
+          <!-- Animated inline SVG (subtle, lightweight) -->
+          <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true" role="img">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#d4af37"/><stop offset="1" stop-color="#b8862f"/></linearGradient>
+            </defs>
+            <circle cx="32" cy="20" r="10" stroke="url(#g1)" stroke-width="1.6" fill="rgba(212,175,55,0.04)"/>
+            <path d="M12 50c6-12 16-16 28-10" stroke="url(#g1)" stroke-width="2" stroke-linecap="round" fill="none">
+              <animate attributeName="d" dur="6s" repeatCount="indefinite" values="
+                M12 50c6-12 16-16 28-10;
+                M12 50c8-10 18-12 28-12;
+                M12 50c6-12 16-16 28-10" />
+            </path>
           </svg>
         </div>
 
@@ -377,73 +207,64 @@
         </div>
       </div>
 
-      <div class="cta-area">
+      <div class="cta-area" aria-hidden="false">
         <div class="small-pill">PhD Psychologists · Bank-Grade Privacy</div>
         <div class="trust-line">Trusted by professionals across US & EU</div>
       </div>
     </div>
 
-    <!-- POLISHED OPENING BANNER: REWORKED LAYOUT (fixed so text uses full width on mobile) -->
-    <div class="opening-banner" aria-hidden="false">
+    <!-- Opening banner -->
+    <div class="opening-banner" aria-live="polite">
       <div class="opening-left">
-        <p class="opening-text">Crafted personally for you — an exclusive invitation to receive human-crafted psychological guidance that reads your life like a trusted companion. This is the kind of help you will wish you had sooner — don't let this chance pass without trying it.</p>
-        <p class="opening-sub">PhD psychologists read and respond to your words directly. This is not a generic plan — it's personalized human care for your work, relationships, health, and inner life.</p>
+        <p class="opening-text">Crafted personally for you — an invitation to receive human-crafted psychological guidance that reads your life like a trusted companion. This is the kind of help you will wish you had sooner — don't let this chance pass without trying it.</p>
+        <p class="opening-sub">PhD psychologists read and respond to your words directly. This is not a template — it's personalized human care for your work, relationships, health, and inner life.</p>
       </div>
 
       <div class="opening-right" aria-hidden="true">
-        <!-- Decorative icon representing human-centered support -->
         <div class="icon-wrap" aria-hidden="true" title="Human-centered support">
-          <!-- Simple SVG human + heart icon -->
-          <svg width="42" height="42" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="32" cy="20" r="10" stroke="#d4af37" stroke-width="2" fill="rgba(212,175,55,0.04)"/>
-            <path d="M10 50c4-10 12-14 22-14s18 4 22 14" stroke="#b8862f" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M44 34c2-2 6-2 8 0 2 2 2 6 0 8l-8 8-8-8c-2-2-2-6 0-8 2-2 6-2 8 0z" fill="#d4af37" opacity="0.18"/>
+          <!-- small decorative SVG -->
+          <svg width="42" height="42" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="20" r="10" stroke="#d4af37" stroke-width="2" fill="rgba(212,175,55,0.03)"/>
+            <path d="M20 52c6-8 18-10 24-6" stroke="#b8862f" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M44 34c2-2 6-2 8 0 2 2 2 6 0 8l-8 8-8-8c-2-2-2-6 0-8 2-2 6-2 8 0z" fill="#d4af37" opacity="0.12"/>
           </svg>
         </div>
-        <!-- intentionally no time-related or countdown elements here -->
       </div>
     </div>
 
-    <!-- Secondary brand header preserved for compatibility -->
-    <header class="fade-in-up" aria-hidden="true" style="margin-bottom:4px;">
-      <div class="brand" aria-hidden="false">
-        <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none" width="48" height="48" aria-hidden="true">
-            <circle cx="16" cy="16" r="14" stroke="#d4af37" stroke-width="1.4" stroke-opacity="0.8"/>
-            <path d="M8 16c0-4 3-7 7-7s7 3 7 7-3 7-7 7" stroke="#d4af37" stroke-width="1.8"/>
-          </svg>
-        </div>
-        <div style="min-width:0;">
-          <h1 style="font-size:1.0rem; margin:0;">Your Personal Growth Architect</h1>
-          <p style="margin:0; color:var(--muted); font-size:0.92rem;">PhD psychologists who transform your words into daily, human-crafted guidance.</p>
-        </div>
-      </div>
-
-      <div class="meta" aria-hidden="true" style="text-align:right; min-width:0;">
-        <div class="pill">PhD Psychologists · Human-Crafted · Bank-Grade Privacy</div>
-        <div class="badge" style="margin-top:8px;">Trusted by professionals across US & EU</div>
-      </div>
-    </header>
-
+    <!-- hero and aside -->
     <div class="hero" role="region" aria-label="Intro">
       <div>
         <div class="eyebrow">A human guide that reads you</div>
         <h2 class="title title-underline">Turn your words into lasting change</h2>
-        <p class="lead">Every message is written by licensed psychologists who listen to your language, identify the root patterns, and design short, powerful steps that reshape how you feel and act across life domains.</p>
-        <div class="accent-note">
-          This is highly-personalized care — not an algorithm. We preserve your privacy, read your unique story, and reply with the kind of clarity and compassion you'd expect from an expert who truly knows you.
+        <p class="lead">Every message is written by licensed psychologists who listen to your language, identify root patterns, and design short, powerful steps that reshape how you feel and act across life domains.</p>
+
+        <div class="accent-note" id="progress-messaging">
+          <strong class="highlight-text">We start where you are.</strong> Your words will be read by human experts who craft safe, practical, and compassionate guidance — one small step at a time.
         </div>
+
+        <!-- Progress bar (non-timed motivational) -->
+        <div style="margin-top:14px;">
+          <div class="progress-wrap" aria-hidden="false" aria-label="Form completion progress">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+            </div>
+            <div class="progress-label" id="progress-label"><span>Form completion</span><span id="progress-percent">0%</span></div>
+          </div>
+          <div style="display:flex; gap:8px; margin-top:8px; align-items:center;">
+            <button id="save-draft" type="button" class="btn-submit" style="background:linear-gradient(135deg,var(--accent-bronze),var(--accent-gold));">Save Draft</button>
+            <button id="restore-draft" type="button" class="btn-submit" style="background:linear-gradient(135deg,var(--accent-gold),#ffd27a);">Restore Draft</button>
+            <button id="clear-draft" type="button" class="btn-submit" style="background:linear-gradient(135deg,#555,#333); color:#fff; border-color:#444;">Clear Draft</button>
+          </div>
+        </div>
+
       </div>
 
-      <aside style="background:linear-gradient(160deg,#0f0f0f,#181818);padding:22px;border-radius:12px;border:1px solid rgba(212,175,55,0.08);box-shadow:0 12px 40px rgba(0,0,0,0.5);">
+      <aside class="card-aside" aria-labelledby="cta-title">
         <div style="position:relative;">
-          <!-- Replaced numeric/time content with guarantee text (no time) -->
-          <div style="position:absolute; top:-12px; right:-12px; width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--accent-red),#cc0000); display:flex; align-items:center; justify-content:center; box-shadow:0 0 18px rgba(255,77,77,0.3); border:3px solid #121212;">
-            <div style="font-family:'Cormorant Garamond', serif; color:white; font-weight:700; text-align:center; font-size:0.9rem;">Money-Back<br>Guarantee</div>
-          </div>
           <small style="color:var(--accent-bronze); display:block; margin-bottom:8px; font-weight:600;">Begin your transformation</small>
           <h3 id="cta-title" style="margin:0 0 8px 0;">Activate your private psychological architect</h3>
-          <p style="color:#d0d0d0; line-height:1.6; margin-bottom:12px;">Complete a short onboarding — our experts will analyze your responses and deliver the first personalized message focused on practical, lasting change.</p>
+          <p style="color:#d0d0d0; line-height:1.6; margin-bottom:12px;">Complete our secure onboarding — our experts will analyze your responses and deliver the first personalized message focused on practical, lasting change.</p>
 
           <div style="background:rgba(0,0,0,0.36); border-left:3px solid var(--accent-gold); padding:12px; border-radius:8px;">
             <strong style="color:var(--accent-gold);display:block;margin-bottom:6px;">An investment that compounds</strong>
@@ -457,237 +278,292 @@
       </aside>
     </div>
 
-    <!-- ===== ONBOARDING FORM: Questions 1..17 ===== -->
+    <!-- ONBOARDING FORM 1..17 -->
     <form id="onboarding-form" name="onboarding" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-labelledby="page-title" role="form" style="margin-top:18px;">
       <input type="hidden" name="form-name" value="onboarding">
       <input type="text" name="bot-field" style="display:none" aria-hidden="true">
       <input type="hidden" id="payment-status" name="payment_status" value="pending">
       <input type="hidden" id="payment-verified-token" name="payment_verified_token" value="">
 
+      <!-- Helper to keep Q layout consistent; all questions preserved -->
       <!-- Q1 -->
-      <div class="qa-row fade-in-up">
-        <div class="text-box left">
-          <div class="field-label">1) In the quiet moments, which part of your life feels most stretched — where the strain is private and persistent?</div>
+      <div class="qa-row fade-in-up" data-q="1">
+        <div class="text-box left" aria-hidden="false">
+          <div class="field-label"><span class="field-icon">1</span>1) In the quiet moments, which part of your life feels most stretched — where the strain is private and persistent?</div>
           <div class="hint">(Be honest: work pressure, caretaking, health, or the relationships that quietly drain you.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="change_needed" name="change_needed" placeholder="When I am alone I feel..."></textarea>
-          <div class="char-count" id="count-change_needed">0 characters | 0 words</div>
+          <textarea id="change_needed" name="change_needed" placeholder="When I am alone I feel..." aria-label="Answer to question 1"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-change_needed">0 characters | 0 words</div>
+            <div id="complete-change_needed" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q2 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="2">
         <div class="text-box left">
-          <div class="field-label">2) Which recurring pattern do you recognize in yourself — the one that shows up when things get hard?</div>
+          <div class="field-label"><span class="field-icon">2</span>2) Which recurring pattern do you recognize in yourself — the one that shows up when things get hard?</div>
           <div class="hint">(E.g., overworking to prove worth, avoiding conflict, numbing with food/alcohol, or shrinking to keep the peace.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="repeating_pattern" name="repeating_pattern" placeholder="A pattern I keep repeating is..."></textarea>
-          <div class="char-count" id="count-repeating_pattern">0 characters | 0 words</div>
+          <textarea id="repeating_pattern" name="repeating_pattern" placeholder="A pattern I keep repeating is..." aria-label="Answer to question 2"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-repeating_pattern">0 characters | 0 words</div>
+            <div id="complete-repeating_pattern" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q3 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="3">
         <div class="text-box left">
-          <div class="field-label">3) What does your inner voice most often tell you in moments of doubt?</div>
-          <div class="hint">(Share the phrase that surfaces — it helps us unpick the thinking that undermines you.)</div>
+          <div class="field-label"><span class="field-icon">3</span>3) What does your inner voice most often tell you in moments of doubt?</div>
+          <div class="hint">(Share the phrase that surfaces — it helps us unpick thinking that undermines you.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="inner_voice" name="inner_voice" placeholder="My inner voice often says..."></textarea>
-          <div class="char-count" id="count-inner_voice">0 characters | 0 words</div>
+          <textarea id="inner_voice" name="inner_voice" placeholder="My inner voice often says..." aria-label="Answer to question 3"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-inner_voice">0 characters | 0 words</div>
+            <div id="complete-inner_voice" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q4 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="4">
         <div class="text-box left">
-          <div class="field-label">4) Which truth about yourself do you forget when life gets noisy — a strength you want reminded of?</div>
+          <div class="field-label"><span class="field-icon">4</span>4) Which truth about yourself do you forget when life gets noisy — a strength you want reminded of?</div>
           <div class="hint">(A quality, value, or memory that grounds and steadies you.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="forgotten_truth" name="forgotten_truth" placeholder="When I remember I am..."></textarea>
-          <div class="char-count" id="count-forgotten_truth">0 characters | 0 words</div>
+          <textarea id="forgotten_truth" name="forgotten_truth" placeholder="When I remember I am..." aria-label="Answer to question 4"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-forgotten_truth">0 characters | 0 words</div>
+            <div id="complete-forgotten_truth" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q5 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="5">
         <div class="text-box left">
-          <div class="field-label">5) What is one honest thing in your heart you rarely say out loud?</div>
+          <div class="field-label"><span class="field-icon">5</span>5) What is one honest thing in your heart you rarely say out loud?</div>
           <div class="hint">(A desire, fear, or dream you hold privately — sharing it helps us tailor safety and growth.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="unsaid_truth" name="unsaid_truth" placeholder="If I could whisper one thing, it would be..."></textarea>
-          <div class="char-count" id="count-unsaid_truth">0 characters | 0 words</div>
+          <textarea id="unsaid_truth" name="unsaid_truth" placeholder="If I could whisper one thing, it would be..." aria-label="Answer to question 5"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-unsaid_truth">0 characters | 0 words</div>
+            <div id="complete-unsaid_truth" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q6 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="6">
         <div class="text-box left">
-          <div class="field-label">6) How would you most like to feel in your body and heart this month — beyond achievements?</div>
+          <div class="field-label"><span class="field-icon">6</span>6) How would you most like to feel in your body and heart this month — beyond achievements?</div>
           <div class="hint">(E.g., steadier, calmer, more energized, less reactive.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="desired_feeling" name="desired_feeling" placeholder="I want to feel..."></textarea>
-          <div class="char-count" id="count-desired_feeling">0 characters | 0 words</div>
+          <textarea id="desired_feeling" name="desired_feeling" placeholder="I want to feel..." aria-label="Answer to question 6"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-desired_feeling">0 characters | 0 words</div>
+            <div id="complete-desired_feeling" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q7 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="7">
         <div class="text-box left">
-          <div class="field-label">7) What kind of presence would truly help you — the voice, tone, or approach that would feel safe and motivating?</div>
+          <div class="field-label"><span class="field-icon">7</span>7) What kind of presence would truly help you — the voice, tone, or approach that would feel safe and motivating?</div>
           <div class="hint">(A steady mirror, short practical tasks, warm accountability, firm boundaries, or compassionate listening?)</div>
         </div>
         <div class="text-box right">
-          <textarea id="support_style" name="support_style" placeholder="The presence I need looks like..."></textarea>
-          <div class="char-count" id="count-support_style">0 characters | 0 words</div>
+          <textarea id="support_style" name="support_style" placeholder="The presence I need looks like..." aria-label="Answer to question 7"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-support_style">0 characters | 0 words</div>
+            <div id="complete-support_style" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q8 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="8">
         <div class="text-box left">
-          <div class="field-label">8) When your daily message arrives, how should it land — gentle nudge, coaching prompt, or deep reflection?</div>
+          <div class="field-label"><span class="field-icon">8</span>8) When your daily message arrives, how should it land — gentle nudge, coaching prompt, or deep reflection?</div>
           <div class="hint">(Tell us the tone and length you respond to best.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="message_feel" name="message_feel" placeholder="I prefer messages that are..."></textarea>
-          <div class="char-count" id="count-message_feel">0 characters | 0 words</div>
+          <textarea id="message_feel" name="message_feel" placeholder="I prefer messages that are..." aria-label="Answer to question 8"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-message_feel">0 characters | 0 words</div>
+            <div id="complete-message_feel" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q9 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="9">
         <div class="text-box left">
-          <div class="field-label">9) Are there words, phrases, or approaches that close you down or feel harmful?</div>
+          <div class="field-label"><span class="field-icon">9</span>9) Are there words, phrases, or approaches that close you down or feel harmful?</div>
           <div class="hint">(Name what to avoid so our messages always land as helpful, not hurtful.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="red_lines" name="red_lines" placeholder="Please avoid saying..."></textarea>
-          <div class="char-count" id="count-red_lines">0 characters | 0 words</div>
+          <textarea id="red_lines" name="red_lines" placeholder="Please avoid saying..." aria-label="Answer to question 9"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-red_lines">0 characters | 0 words</div>
+            <div id="complete-red_lines" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q10 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="10">
         <div class="text-box left">
-          <div class="field-label">10) What small sacred space would you protect this month to feel steadier?</div>
+          <div class="field-label"><span class="field-icon">10</span>10) What small sacred space would you protect this month to feel steadier?</div>
           <div class="hint">(A morning routine, a weekly boundary, or 20 minutes for yourself — what matters most?)</div>
         </div>
         <div class="text-box right">
-          <textarea id="protect_this_month" name="protect_this_month" placeholder="This month, I will protect..."></textarea>
-          <div class="char-count" id="count-protect_this_month">0 characters | 0 words</div>
+          <textarea id="protect_this_month" name="protect_this_month" placeholder="This month, I will protect..." aria-label="Answer to question 10"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-protect_this_month">0 characters | 0 words</div>
+            <div id="complete-protect_this_month" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q11 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="11">
         <div class="text-box left">
-          <div class="field-label">11) What signals within you tell you you're nearing burnout or surrender?</div>
+          <div class="field-label"><span class="field-icon">11</span>11) What signals within you tell you you're nearing burnout or surrender?</div>
           <div class="hint">(Physical sensations, repetitive thoughts, or behaviors — recognizing them helps us intercept earlier.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="before_stopping" name="before_stopping" placeholder="I notice these signs before I give up..."></textarea>
-          <div class="char-count" id="count-before_stopping">0 characters | 0 words</div>
+          <textarea id="before_stopping" name="before_stopping" placeholder="I notice these signs before I give up..." aria-label="Answer to question 11"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-before_stopping">0 characters | 0 words</div>
+            <div id="complete-before_stopping" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q12 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="12">
         <div class="text-box left">
-          <div class="field-label">12) If your life became easier, what would you fear losing?</div>
+          <div class="field-label"><span class="field-icon">12</span>12) If your life became easier, what would you fear losing?</div>
           <div class="hint">(Identity, role, sympathy from others — naming this clarifies hidden resistance to change.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="fear_of_improvement" name="fear_of_improvement" placeholder="If things improve, I might lose..."></textarea>
-          <div class="char-count" id="count-fear_of_improvement">0 characters | 0 words</div>
+          <textarea id="fear_of_improvement" name="fear_of_improvement" placeholder="If things improve, I might lose..." aria-label="Answer to question 12"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-fear_of_improvement">0 characters | 0 words</div>
+            <div id="complete-fear_of_improvement" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q13 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="13">
         <div class="text-box left">
-          <div class="field-label">13) Beyond tasks and goals — how would you like to experience an ordinary day?</div>
+          <div class="field-label"><span class="field-icon">13</span>13) Beyond tasks and goals — how would you like to experience an ordinary day?</div>
           <div class="hint">(Describe the inner tone you want: curiosity, calm, clarity, playful energy.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="how_to_feel" name="how_to_feel" placeholder="Day by day, I want to feel..."></textarea>
-          <div class="char-count" id="count-how_to_feel">0 characters | 0 words</div>
+          <textarea id="how_to_feel" name="how_to_feel" placeholder="Day by day, I want to feel..." aria-label="Answer to question 13"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-how_to_feel">0 characters | 0 words</div>
+            <div id="complete-how_to_feel" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q14 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="14">
         <div class="text-box left">
-          <div class="field-label">14) (Optional) Name one truth about you that anchors your soul.</div>
+          <div class="field-label"><span class="field-icon">14</span>14) (Optional) Name one truth about you that anchors your soul.</div>
           <div class="hint">(A phrase, memory, or value — we'll gently remind you of this when shadows fall.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="never_forget" name="never_forget" placeholder="No matter what happens, I am..."></textarea>
-          <div class="char-count" id="count-never_forget">0 characters | 0 words</div>
+          <textarea id="never_forget" name="never_forget" placeholder="No matter what happens, I am..." aria-label="Answer to question 14"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-never_forget">0 characters | 0 words</div>
+            <div id="complete-never_forget" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q15 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="15">
         <div class="text-box left">
-          <div class="field-label">15) (Optional) What small brave step calls to your heart this month?</div>
+          <div class="field-label"><span class="field-icon">15</span>15) (Optional) What small brave step calls to your heart this month?</div>
           <div class="hint">(Not dramatic — a small act you can accomplish to shift momentum.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="bold_step" name="bold_step" placeholder="This month I will try..."></textarea>
-          <div class="char-count" id="count-bold_step">0 characters | 0 words</div>
+          <textarea id="bold_step" name="bold_step" placeholder="This month I will try..." aria-label="Answer to question 15"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-bold_step">0 characters | 0 words</div>
+            <div id="complete-bold_step" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Q16 -->
-      <div class="qa-row fade-in-up">
+      <div class="qa-row fade-in-up" data-q="16">
         <div class="text-box left">
-          <div class="field-label">16) (Optional) Are there topics we should treat with extra care?</div>
+          <div class="field-label"><span class="field-icon">16</span>16) (Optional) Are there topics we should treat with extra care?</div>
           <div class="hint">(Trauma, serious illness, loss — telling us helps avoid harm and keep tone safe.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="triggers" name="triggers" placeholder="Please be careful with..."></textarea>
-          <div class="char-count" id="count-triggers">0 characters | 0 words</div>
+          <textarea id="triggers" name="triggers" placeholder="Please be careful with..." aria-label="Answer to question 16"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-triggers">0 characters | 0 words</div>
+            <div id="complete-triggers" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
-      <!-- Q17 (open free-text as requested) -->
-      <div class="qa-row fade-in-up">
+      <!-- Q17 (open free-text) -->
+      <div class="qa-row fade-in-up" data-q="17">
         <div class="text-box left">
-          <div class="field-label">17) In your own words, what feels most urgent to heal or transform right now?</div>
+          <div class="field-label"><span class="field-icon">17</span>17) In your own words, what feels most urgent to heal or transform right now?</div>
           <div class="hint">No constraints — write freely. Our experts will read every word and respond with care and actionable insight for your life.</div>
         </div>
         <div class="text-box right">
-          <textarea id="priority_open_reflection" name="priority_open_reflection" placeholder="If I could say it plainly right now..."></textarea>
-          <div class="char-count" id="count-priority_open_reflection">0 characters | 0 words</div>
+          <textarea id="priority_open_reflection" name="priority_open_reflection" placeholder="If I could say it plainly right now..." aria-label="Answer to question 17"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="char-count" id="count-priority_open_reflection">0 characters | 0 words</div>
+            <div id="complete-priority_open_reflection" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <!-- Personal details -->
       <div class="grid-2 fade-in-up" style="margin-top:16px;">
         <div class="text-box">
-          <div class="field-label" style="text-align:left;">Your name (or the name that feels most like home)</div>
-          <input id="name" name="name" type="text" placeholder="The name that feels true to you" required>
+          <div class="field-label" style="text-align:left;"><span class="field-icon">A</span>Your name (or the name that feels most like home)</div>
+          <input id="name" name="name" type="text" placeholder="The name that feels true to you" aria-required="true" required>
+          <div class="char-count" id="count-name">—</div>
         </div>
         <div class="text-box">
-          <div class="field-label" style="text-align:left;">Your private email</div>
-          <input id="email" name="email" type="email" placeholder="Where your messages will arrive (encrypted)" required>
+          <div class="field-label" style="text-align:left;"><span class="field-icon">B</span>Your private email</div>
+          <input id="email" name="email" type="email" placeholder="Where your messages will arrive (encrypted)" aria-required="true" required>
+          <div class="char-count" id="count-email">—</div>
         </div>
       </div>
 
       <div class="grid-2 fade-in-up" style="margin-top:12px;">
         <div class="text-box">
-          <div class="field-label" style="text-align:left;">Your time zone / city</div>
+          <div class="field-label" style="text-align:left;"><span class="field-icon">C</span>Your time zone / city</div>
           <input id="timezone" name="timezone" type="text" placeholder="e.g., New York, London, Berlin">
+          <div class="char-count" id="count-timezone">—</div>
         </div>
         <div class="text-box">
-          <div class="field-label" style="text-align:left;">Preferred delivery window</div>
-          <select id="delivery_time" name="delivery_time">
+          <div class="field-label" style="text-align:left;"><span class="field-icon">D</span>Preferred delivery window</div>
+          <select id="delivery_time" name="delivery_time" aria-label="Preferred delivery window">
             <option>Morning — a quiet moment before the day</option>
             <option>Midday — a grounding pause</option>
             <option>Evening — reflection and release</option>
@@ -697,7 +573,7 @@
       </div>
 
       <div class="text-box fade-in-up" style="display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:14px;">
-        <div class="field-label" style="text-align:center;">How often would you like this gentle companionship?</div>
+        <div class="field-label" style="text-align:center;"><span class="field-icon">E</span>How often would you like this gentle companionship?</div>
         <div class="hint" style="text-align:center;">You can always change this later — small consistent contact often creates the deepest change.</div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
           <label style="display:inline-flex;align-items:center;gap:8px;"><input type="radio" name="frequency" value="daily" checked> Daily</label>
@@ -706,22 +582,21 @@
         </div>
       </div>
 
-      <!-- Payment -->
+      <!-- Payment section (Ko-fi) -->
       <div class="payment-section fade-in-up" style="margin-top:18px;">
         <div id="payment-status-badge" style="display:inline-block;padding:8px 14px;border-radius:18px;background:rgba(255,77,77,0.12);color:var(--accent-red);font-weight:700">Subscription required to send data</div>
         <div style="margin-top:12px;display:flex;flex-direction:column;align-items:center;gap:12px;">
-          <!-- Ko-fi link -->
-          <a id="payment-btn" class="pay-btn" href="https://ko-fi.com/s/cd96925d8f" target="_blank" rel="noopener noreferrer">
+          <a id="payment-btn" class="pay-btn" href="https://ko-fi.com/s/cd96925d8f" target="_blank" rel="noopener noreferrer" aria-label="Open Ko-fi payment link in a new tab">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="stroke:white;stroke-width:1.4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.5 4.5 3 7.5 3c1.54 0 3.15.67 4.5 1.78C13.35 3.67 14.96 3 16.5 3 19.5 3 22 5.5 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
             Pay $30 Monthly Subscription
           </a>
 
-          <div style="display:flex;gap:12px;align-items:center;flex-direction:column;width:100%;max-width:640px;">
+          <div style="display:flex;gap:8px;align-items:center;flex-direction:column;width:100%;max-width:680px;">
             <div style="color:var(--muted);text-align:center;font-size:0.95rem">
-              <strong>Note:</strong> After you complete the payment on Ko-fi, our server will receive a secure webhook from Ko-fi and mark your email as paid. Once the server confirms payment, the form submit button will unlock automatically. If you prefer, click “I have paid — verify” after completing payment.
+              <strong>Note:</strong> After completing payment on Ko-fi our server receives a webhook and marks your email as paid. Once confirmed, click "I have paid — verify" to unlock form submission.
             </div>
 
-            <div style="display:flex;gap:8px;margin-top:6px;">
+            <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;justify-content:center;">
               <button id="verify-paid-btn" type="button" class="btn-submit" style="background:linear-gradient(135deg,var(--accent-bronze),var(--accent-gold));">I have paid — verify</button>
               <button id="manual-check-btn" type="button" class="btn-submit" style="background:linear-gradient(135deg,var(--accent-gold),#ffd27a);">Check payment status</button>
             </div>
@@ -729,7 +604,7 @@
         </div>
       </div>
 
-      <div class="consent fade-in-up" style="margin-top:14px; padding:14px; border-radius:10px; background:rgba(12,12,12,0.78); border:1px solid rgba(212,175,55,0.04);">
+      <div class="consent fade-in-up" style="margin-top:14px;">
         <p style="color:#d0d0d0; line-height:1.6;">
           <strong style="color:var(--accent-gold)">Your trust is sacred:</strong> Your responses are encrypted and analyzed only by our vetted psychologists. We never sell or share your personal data. You own your information completely — pause, edit, or delete anytime.
           <br><br>
@@ -737,21 +612,22 @@
         </p>
       </div>
 
-      <div class="controls fade-in-up">
-        <button class="btn-submit" id="submit-btn" type="submit" disabled>Complete Your Profile (Payment Required)</button>
+      <div class="controls fade-in-up" style="margin-bottom:8px;">
+        <button class="btn-submit" id="submit-btn" type="submit" disabled aria-disabled="true">Complete Your Profile (Payment Required)</button>
       </div>
 
-      <div style="margin-top:16px; text-align:center; color:var(--muted);">Many members choose to support after experiencing the first messages — supporters receive occasional bonus reflections and optional 1:1 check-ins.</div>
+      <div style="margin-top:12px; text-align:center; color:var(--muted);">Many members support after experiencing their first messages — supporters receive occasional bonus reflections and optional 1:1 check-ins.</div>
     </form>
 
-    <!-- Success area (hidden by default) -->
+    <!-- Success -->
     <div id="success-container" style="display:none; margin-top:18px; padding:18px; border-radius:12px; background:linear-gradient(180deg, rgba(0,90,45,0.04), rgba(0,0,0,0.06)); border:1px solid rgba(0,200,150,0.06);">
       <h2 style="color:#00ff9d; font-family:'Cormorant Garamond', serif; margin:0 0 8px 0;">✓ Transformation Initiated</h2>
       <p style="margin:0; color:#d0d0d0;">Your first personalized message will arrive according to your chosen delivery window. You'll receive human-crafted guidance shaped from your answers.</p>
       <p style="color:var(--accent-bronze); margin-top:8px; font-style:italic;">You can pause, edit, or delete your data any time from your account settings.</p>
     </div>
 
-    <footer style="margin-top:20px;">
+    <!-- Footer -->
+    <footer style="margin-top:22px;">
       <div style="text-align:center; margin-bottom:10px;">These messages are written by human hands and hearts — not algorithms pretending to care. You are seen. You are not alone.</div>
       <div style="display:flex; justify-content:center; gap:18px; flex-wrap:wrap;">
         <div style="display:flex;align-items:center;gap:8px;color:var(--accent-gold);"><div style="width:28px;height:28px;border-radius:50%;background:rgba(212,175,55,0.12);display:grid;place-items:center">🔒</div><span>Bank-Grade Encryption</span></div>
@@ -761,151 +637,262 @@
     </footer>
   </div>
 
-<!--
-  Server notes (unchanged): keep Ko-fi webhook and payment-status endpoint server-side for secure verification.
-  IMPORTANT: This version preserves all character/word counters and removes any time/countdown UI elements under the questions.
--->
-
 <script>
-  // Frontend: UX + secure payment verification polling logic (no countdown or time elements near Qs)
-  document.addEventListener('DOMContentLoaded', function() {
-    // Fade in elements
-    document.querySelectorAll('.fade-in-up').forEach((el, i) => {
-      setTimeout(()=> el.classList.add('show'), 120 * i);
+/* ===========================================================
+   Frontend behavior:
+   - Character & word counters (kept)
+   - Progress bar (non-timed)
+   - Field 'complete' micro-feedback
+   - Autosave to localStorage & restore / clear controls
+   - Payment verification polling (Ko-fi server-check)
+   - Submission validation: requires server-verified payment token
+   =========================================================== */
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Helpers
+  const textareas = Array.from(document.querySelectorAll('textarea[id]'));
+  const inputs = Array.from(document.querySelectorAll('input[id]'));
+  const selects = Array.from(document.querySelectorAll('select[id]'));
+  const allFields = textareas.concat(inputs, selects);
+  const form = document.getElementById('onboarding-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const paymentStatusInput = document.getElementById('payment-status');
+  const paymentVerifiedTokenInput = document.getElementById('payment-verified-token');
+  const paymentBadge = document.getElementById('payment-status-badge');
+  const progressFill = document.getElementById('progress-fill');
+  const progressPercent = document.getElementById('progress-percent');
+
+  // ID list for essential "completion" fields to show more meaningful progress
+  const essentialFieldIds = [
+    'change_needed','repeating_pattern','inner_voice','forgotten_truth','unsaid_truth',
+    'desired_feeling','support_style','message_feel','red_lines','protect_this_month',
+    'before_stopping','fear_of_improvement','how_to_feel','priority_open_reflection',
+    'name','email'
+  ];
+
+  // ----- Character & word counters -----
+  function updateCounter(el) {
+    // for textareas and inputs
+    if (!el) return;
+    const id = el.id;
+    const counter = document.getElementById('count-' + id);
+    let chars = 0, words = 0;
+    if (el.tagName.toLowerCase() === 'textarea' || el.type === 'text' || el.type === 'email') {
+      chars = el.value.length;
+      const trimmed = el.value.trim();
+      words = trimmed === '' ? 0 : trimmed.split(/\s+/).length;
+    } else {
+      // keep dash for non-text fields
+      if (counter) counter.textContent = '—';
+      return;
+    }
+    if (counter) counter.textContent = `${chars} characters | ${words} words`;
+    // mark complete indicator if text entered
+    markFieldComplete(id, trimmedOrValue(el));
+  }
+
+  function trimmedOrValue(el) {
+    return el.value ? el.value.trim() : '';
+  }
+
+  // Mark field complete
+  function markFieldComplete(fieldId, value) {
+    const indicator = document.getElementById('complete-' + fieldId);
+    const textarea = document.getElementById(fieldId);
+    if (!indicator) return;
+    if (value && value.length > 0) {
+      indicator.innerHTML = '<span class="check-indicator" aria-hidden="true">✓</span>';
+      if (textarea) textarea.classList.add('field-complete');
+    } else {
+      indicator.innerHTML = '';
+      if (textarea) textarea.classList.remove('field-complete');
+    }
+    updateProgress();
+  }
+
+  // Update counters for all on load
+  allFields.forEach(el => {
+    // initialize counter display
+    updateCounter(el);
+    el.addEventListener('input', () => {
+      updateCounter(el);
+      // autosave on input (throttled)
+      scheduleAutosave();
+    }, { passive:true });
+    el.addEventListener('change', () => {
+      updateCounter(el);
+      scheduleAutosave();
+    }, { passive:true });
+  });
+
+  // ----- Progress computation (non-timed) -----
+  function updateProgress() {
+    // compute % of essential fields that have non-empty trimmed values
+    let filled = 0;
+    essentialFieldIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && trimmedOrValue(el).length > 0) filled++;
     });
-    const titleEl = document.querySelector('.title-underline');
-    if (titleEl) setTimeout(()=> titleEl.classList.add('animate'), 420);
-
-    // character counters for textareas
-    function updateCounter(el){
-      const chars = el.value.length;
-      const words = el.value.trim() === '' ? 0 : el.value.trim().split(/\s+/).length;
-      const counter = document.getElementById('count-' + el.id);
-      if (counter) counter.textContent = `${chars} characters | ${words} words`;
+    const pct = Math.round((filled / essentialFieldIds.length) * 100);
+    progressFill.style.width = pct + '%';
+    progressPercent.textContent = pct + '%';
+    // update ARIA
+    const bar = document.querySelector('.progress-bar');
+    if (bar) {
+      bar.setAttribute('aria-valuenow', String(pct));
     }
-    document.querySelectorAll('textarea[id]').forEach(t => {
-      updateCounter(t);
-      t.addEventListener('input', ()=> updateCounter(t), {passive:true});
+  }
+
+  // ----- Autosave to localStorage -----
+  const STORAGE_KEY = 'pga_onboarding_draft_v1';
+  let autosaveTimer = null;
+  function scheduleAutosave() {
+    if (autosaveTimer) clearTimeout(autosaveTimer);
+    autosaveTimer = setTimeout(() => {
+      saveDraft();
+    }, 900); // 0.9s debounce
+  }
+
+  function collectFormState(){
+    const data = {};
+    allFields.forEach(el => {
+      if (!el.id) return;
+      if (el.type === 'radio' || el.type === 'checkbox') return; // skip standalone radios
+      data[el.id] = el.value;
     });
+    // also include simple radio choices (frequency)
+    const freq = document.querySelector('input[name="frequency"]:checked');
+    data['frequency'] = freq ? freq.value : '';
+    return data;
+  }
 
-    // Elements
-    const verifyPaidBtn = document.getElementById('verify-paid-btn');
-    const manualCheckBtn = document.getElementById('manual-check-btn');
-    const submitBtn = document.getElementById('submit-btn');
-    const paymentStatusInput = document.getElementById('payment-status');
-    const paymentVerifiedTokenInput = document.getElementById('payment-verified-token');
-    const paymentBadge = document.getElementById('payment-status-badge');
-    const emailInput = document.getElementById('email');
-    const form = document.getElementById('onboarding-form');
-
-    // Polling logic
-    let pollingHandle = null;
-    const POLL_INTERVAL_MS = 5000; // poll every 5s
-    const MAX_POLL_ATTEMPTS = 36; // ~3 minutes
-
-    async function checkPaymentStatusOnce(email) {
-      if (!email) return { error: 'missing-email' };
-      try {
-        const resp = await fetch(`/api/payment-status?email=${encodeURIComponent(email)}`, {
-          method: 'GET',
-          headers: { 'Accept': 'application/json' },
-          credentials: 'same-origin'
-        });
-        if (!resp.ok) {
-          return { error: 'network', status: resp.status };
-        }
-        const data = await resp.json();
-        return data;
-      } catch (err) {
-        return { error: 'fetch-failed', detail: err.message || String(err) };
-      }
+  function saveDraft(){
+    try {
+      const payload = collectFormState();
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      // small visual feedback
+      document.getElementById('save-draft').textContent = 'Saved ✓';
+      setTimeout(()=> { document.getElementById('save-draft').textContent = 'Save Draft'; }, 1400);
+    } catch(err){
+      console.warn('Save draft failed', err);
     }
+  }
 
-    function startPolling(email, onUpdate) {
-      let attempts = 0;
-      if (pollingHandle) clearInterval(pollingHandle);
-      pollingHandle = setInterval(async ()=> {
-        attempts++;
-        const data = await checkPaymentStatusOnce(email);
-        onUpdate(data);
-        if (data && (data.status === 'completed' || attempts >= MAX_POLL_ATTEMPTS)) {
-          clearInterval(pollingHandle);
-          pollingHandle = null;
-        }
-      }, POLL_INTERVAL_MS);
-      (async () => {
-        const data = await checkPaymentStatusOnce(email);
-        onUpdate(data);
-        if (data && (data.status === 'completed')) {
-          if (pollingHandle) { clearInterval(pollingHandle); pollingHandle = null; }
-        }
-      })();
-    }
-
-    async function handleVerificationClick() {
-      const email = (emailInput && emailInput.value && emailInput.value.trim()) ? emailInput.value.trim() : null;
-      if (!email) {
-        alert('Please enter your email before verifying payment. We use your email to match the Ko-fi payment to your onboarding.');
-        emailInput.focus();
-        return;
-      }
-      verifyPaidBtn.disabled = true;
-      verifyPaidBtn.textContent = 'Verifying...';
-      startPolling(email, (data) => {
-        if (!data) {
-          verifyPaidBtn.disabled = false;
-          verifyPaidBtn.textContent = 'I have paid — verify';
-          return;
-        }
-        if (data.error) {
-          verifyPaidBtn.disabled = false;
-          verifyPaidBtn.textContent = 'I have paid — verify';
-          console.warn('Payment check error', data);
-          return;
-        }
-        if (data.status === 'completed') {
-          paymentBadge.textContent = '✓ Subscription confirmed';
-          paymentBadge.style.background = 'rgba(0,200,100,0.12)';
-          paymentBadge.style.color = '#00ff9d';
-          paymentStatusInput.value = 'completed';
-          if (data.token) {
-            paymentVerifiedTokenInput.value = data.token;
-          }
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Begin Your Sacred Transformation';
-          alert('Payment confirmed — you may now complete your profile and submit.');
-        } else if (data.status === 'pending') {
-          verifyPaidBtn.textContent = 'Verifying... (pending)';
-        } else if (data.status === 'failed') {
-          verifyPaidBtn.disabled = false;
-          verifyPaidBtn.textContent = 'I have paid — verify';
-          alert('Payment appears to have failed. Please check your Ko-fi receipt or try again.');
-        } else {
-          verifyPaidBtn.disabled = false;
-          verifyPaidBtn.textContent = 'I have paid — verify';
+  function restoreDraft(){
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) { alert('No draft found.'); return; }
+      const payload = JSON.parse(raw);
+      Object.keys(payload).forEach(k => {
+        const el = document.getElementById(k);
+        if (el) el.value = payload[k];
+        // restore frequency radio
+        if (k === 'frequency') {
+          const r = document.querySelector(`input[name="frequency"][value="${payload[k]}"]`);
+          if (r) r.checked = true;
         }
       });
+      // update counters and progress
+      allFields.forEach(f => updateCounter(f));
+      updateProgress();
+      document.getElementById('restore-draft').textContent = 'Restored ✓';
+      setTimeout(()=> { document.getElementById('restore-draft').textContent = 'Restore Draft'; }, 1400);
+    } catch(err){
+      console.warn('Restore failed', err);
     }
+  }
 
-    async function handleManualCheck() {
-      const email = (emailInput && emailInput.value && emailInput.value.trim()) ? emailInput.value.trim() : null;
-      if (!email) {
-        alert('Please enter your email to check payment status.');
-        emailInput.focus();
-        return;
+  function clearDraft(confirmFirst = true){
+    if (confirmFirst && !confirm('Clear saved draft? This cannot be undone.')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    document.getElementById('clear-draft').textContent = 'Cleared ✓';
+    setTimeout(()=> { document.getElementById('clear-draft').textContent = 'Clear Draft'; }, 1200);
+  }
+
+  // Wire up Draft buttons
+  document.getElementById('save-draft').addEventListener('click', saveDraft);
+  document.getElementById('restore-draft').addEventListener('click', restoreDraft);
+  document.getElementById('clear-draft').addEventListener('click', () => clearDraft(true));
+
+  // Optionally auto-restore if user chooses; we prompt on load if draft exists
+  const existingDraft = localStorage.getItem(STORAGE_KEY);
+  if (existingDraft) {
+    setTimeout(()=> {
+      if (confirm('A saved draft was found. Would you like to restore it?')) {
+        restoreDraft();
       }
-      manualCheckBtn.disabled = true;
-      manualCheckBtn.textContent = 'Checking...';
+    }, 600);
+  }
+
+  // ----- Payment verification polling (Ko-fi webhook server expected) -----
+  const verifyPaidBtn = document.getElementById('verify-paid-btn');
+  const manualCheckBtn = document.getElementById('manual-check-btn');
+  const emailInput = document.getElementById('email');
+
+  let pollingHandle = null;
+  const POLL_INTERVAL_MS = 5000;
+  const MAX_POLL_ATTEMPTS = 36; // ~3 minutes
+
+  async function checkPaymentStatusOnce(email) {
+    if (!email) return { error: 'missing-email' };
+    try {
+      const resp = await fetch(`/api/payment-status?email=${encodeURIComponent(email)}`, {
+        method: 'GET',
+        headers: { 'Accept': 'application/json' },
+        credentials: 'same-origin'
+      });
+      if (!resp.ok) {
+        return { error: 'network', status: resp.status };
+      }
+      const data = await resp.json();
+      return data;
+    } catch (err) {
+      return { error: 'fetch-failed', detail: err.message || String(err) };
+    }
+  }
+
+  function startPolling(email, onUpdate) {
+    let attempts = 0;
+    if (pollingHandle) clearInterval(pollingHandle);
+    pollingHandle = setInterval(async ()=> {
+      attempts++;
       const data = await checkPaymentStatusOnce(email);
-      manualCheckBtn.disabled = false;
-      manualCheckBtn.textContent = 'Check payment status';
+      onUpdate(data);
+      if (data && (data.status === 'completed' || attempts >= MAX_POLL_ATTEMPTS)) {
+        clearInterval(pollingHandle);
+        pollingHandle = null;
+      }
+    }, POLL_INTERVAL_MS);
+    // immediate call
+    (async () => {
+      const data = await checkPaymentStatusOnce(email);
+      onUpdate(data);
+      if (data && data.status === 'completed') {
+        if (pollingHandle) { clearInterval(pollingHandle); pollingHandle = null; }
+      }
+    })();
+  }
+
+  async function handleVerificationClick() {
+    const email = (emailInput && emailInput.value && emailInput.value.trim()) ? emailInput.value.trim() : null;
+    if (!email) {
+      alert('Please enter your email before verifying payment. We use your email to match the Ko-fi payment to your onboarding.');
+      emailInput.focus();
+      return;
+    }
+    verifyPaidBtn.disabled = true;
+    const origText = verifyPaidBtn.textContent;
+    verifyPaidBtn.textContent = 'Verifying...';
+    startPolling(email, (data) => {
       if (!data) {
-        alert('Unable to check payment status at this time.');
+        verifyPaidBtn.disabled = false;
+        verifyPaidBtn.textContent = origText;
         return;
       }
       if (data.error) {
-        alert('Error checking payment status. Please try again in a moment.');
-        console.warn('Payment status error', data);
+        verifyPaidBtn.disabled = false;
+        verifyPaidBtn.textContent = origText;
+        console.warn('Payment check error', data);
         return;
       }
       if (data.status === 'completed') {
@@ -915,77 +902,152 @@
         paymentStatusInput.value = 'completed';
         if (data.token) paymentVerifiedTokenInput.value = data.token;
         submitBtn.disabled = false;
+        submitBtn.removeAttribute('aria-disabled');
         submitBtn.textContent = 'Begin Your Sacred Transformation';
         alert('Payment confirmed — you may now complete your profile and submit.');
       } else if (data.status === 'pending') {
-        alert('Payment is not yet confirmed. Please wait a moment and try again.');
+        verifyPaidBtn.textContent = 'Verifying... (pending)';
+      } else if (data.status === 'failed') {
+        verifyPaidBtn.disabled = false;
+        verifyPaidBtn.textContent = origText;
+        alert('Payment appears to have failed. Please check your Ko-fi receipt or try again.');
       } else {
-        alert('Payment not found. Please ensure you completed the Ko-fi checkout. If you did, allow a minute for our server to receive the webhook and then try "I have paid — verify".');
+        verifyPaidBtn.disabled = false;
+        verifyPaidBtn.textContent = origText;
       }
+    });
+  }
+
+  async function handleManualCheck() {
+    const email = (emailInput && emailInput.value && emailInput.value.trim()) ? emailInput.value.trim() : null;
+    if (!email) {
+      alert('Please enter your email to check payment status.');
+      emailInput.focus();
+      return;
     }
+    manualCheckBtn.disabled = true;
+    const origText = manualCheckBtn.textContent;
+    manualCheckBtn.textContent = 'Checking...';
+    const data = await checkPaymentStatusOnce(email);
+    manualCheckBtn.disabled = false;
+    manualCheckBtn.textContent = origText;
+    if (!data) {
+      alert('Unable to check payment status at this time.');
+      return;
+    }
+    if (data.error) {
+      alert('Error checking payment status. Please try again in a moment.');
+      console.warn('Payment status error', data);
+      return;
+    }
+    if (data.status === 'completed') {
+      paymentBadge.textContent = '✓ Subscription confirmed';
+      paymentBadge.style.background = 'rgba(0,200,100,0.12)';
+      paymentBadge.style.color = '#00ff9d';
+      paymentStatusInput.value = 'completed';
+      if (data.token) paymentVerifiedTokenInput.value = data.token;
+      submitBtn.disabled = false;
+      submitBtn.removeAttribute('aria-disabled');
+      submitBtn.textContent = 'Begin Your Sacred Transformation';
+      alert('Payment confirmed — you may now complete your profile and submit.');
+    } else if (data.status === 'pending') {
+      alert('Payment is not yet confirmed. Please wait a moment and try again.');
+    } else {
+      alert('Payment not found. Please ensure you completed the Ko-fi checkout. If you did, allow a minute for our server to receive the webhook and then try "I have paid — verify".');
+    }
+  }
 
-    verifyPaidBtn.addEventListener('click', handleVerificationClick);
-    manualCheckBtn.addEventListener('click', handleManualCheck);
+  verifyPaidBtn.addEventListener('click', handleVerificationClick);
+  manualCheckBtn.addEventListener('click', handleManualCheck);
 
-    // Form submission validation: ensure server-verified payment token exists if payment_status is completed
-    if (form) {
-      form.addEventListener('submit', async function(e) {
-        const paymentStatus = paymentStatusInput ? paymentStatusInput.value : 'pending';
-        const name = (document.getElementById('name') || {}).value || '';
-        const email = (document.getElementById('email') || {}).value || '';
-        if (paymentStatus !== 'completed') {
-          e.preventDefault();
-          alert('Please complete your $30 subscription on Ko-fi first and verify it using the "I have paid — verify" button.');
-          document.querySelector('.payment-section').scrollIntoView({behavior:'smooth'});
-          return;
-        }
-        if (!name.trim() || !email.trim()) {
-          e.preventDefault();
-          alert('Please provide your name and email to begin your transformation.');
-          return;
-        }
-        // Basic client-side email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email.trim())) {
-          e.preventDefault();
-          alert('Please enter a valid email address.');
-          return;
-        }
-        // Ensure verification token present
-        const token = paymentVerifiedTokenInput ? paymentVerifiedTokenInput.value : '';
-        if (!token) {
-          e.preventDefault();
-          alert('Payment verified token not found. Please click "I have paid — verify" then submit.');
-          return;
-        }
-
-        // Note: In production your server must validate the token on final submit.
-        // For demo, we will prevent actual submission and show success
+  // ----- Form submission validation & demo flow -----
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      const paymentStatus = paymentStatusInput ? paymentStatusInput.value : 'pending';
+      const name = (document.getElementById('name') || {}).value || '';
+      const email = (document.getElementById('email') || {}).value || '';
+      if (paymentStatus !== 'completed') {
         e.preventDefault();
-        form.style.display = 'none';
-        const success = document.getElementById('success-container');
-        if (success) success.style.display = 'block';
-        window.scrollTo({top:0, behavior:'smooth'});
-        console.log('Form submitted (demo). Values:', Object.fromEntries(new FormData(form).entries()));
-      });
-    }
+        alert('Please complete your $30 subscription on Ko-fi first and verify it using the "I have paid — verify" button.');
+        document.querySelector('.payment-section').scrollIntoView({behavior:'smooth'});
+        return;
+      }
+      if (!name.trim() || !email.trim()) {
+        e.preventDefault();
+        alert('Please provide your name and email to begin your transformation.');
+        return;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email.trim())) {
+        e.preventDefault();
+        alert('Please enter a valid email address.');
+        return;
+      }
+      const token = paymentVerifiedTokenInput ? paymentVerifiedTokenInput.value : '';
+      if (!token) {
+        e.preventDefault();
+        alert('Payment verified token not found. Please click "I have paid — verify" then submit.');
+        return;
+      }
 
-    // small UX: clicking Ko-fi link opens separate tab; we remind users
-    const paymentBtn = document.getElementById('payment-btn');
-    if (paymentBtn) {
-      paymentBtn.addEventListener('click', ()=> {
-        setTimeout(()=> {
-          try { alert('Ko-fi has opened in a new tab. Complete payment there, then return here and click "I have paid — verify".'); } catch(e){}
-        }, 300);
-      });
-    }
+      // PRODUCTION NOTE: server must verify token again before finalizing onboarding.
+      // For demo: prevent actual submission and show success message
+      e.preventDefault();
+      form.style.display = 'none';
+      const success = document.getElementById('success-container');
+      if (success) success.style.display = 'block';
+      window.scrollTo({top:0, behavior:'smooth'});
+      console.log('Form submitted (demo). Values:', Object.fromEntries(new FormData(form).entries()));
 
-    // Responsive font scaling
-    function adjustFontSize() { document.documentElement.style.fontSize = window.innerWidth < 480 ? '93%' : '100%'; }
-    window.addEventListener('load', adjustFontSize);
-    window.addEventListener('resize', adjustFontSize);
+      // After successful submit remove draft
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e){}
+    });
+  }
+
+  // ----- Utility: update name/email counters (non-standard) -----
+  function updateSimpleCounterForInput(el) {
+    if (!el) return;
+    const id = el.id;
+    const counter = document.getElementById('count-' + id);
+    if (!counter) return;
+    const val = el.value ? el.value.trim() : '';
+    if (id === 'email' || id === 'name' || id === 'timezone') {
+      counter.textContent = val.length ? `${val.length} characters` : '—';
+    }
+  }
+  inputs.forEach(inp => {
+    if (['name','email','timezone'].includes(inp.id)) {
+      updateSimpleCounterForInput(inp);
+      inp.addEventListener('input', ()=> { updateSimpleCounterForInput(inp); scheduleAutosave(); });
+    }
   });
+
+  // small UX: clicking Ko-fi opens new tab reminder
+  const paymentBtn = document.getElementById('payment-btn');
+  if (paymentBtn) {
+    paymentBtn.addEventListener('click', ()=> {
+      setTimeout(()=> {
+        try { alert('Ko-fi has opened in a new tab. Complete payment there, then return here and click "I have paid — verify".'); } catch(e){}
+      }, 350);
+    });
+  }
+
+  // ----- Autosave throttle / initial progress -----
+  function initialUpdate() {
+    allFields.forEach(f => updateCounter(f));
+    updateProgress();
+  }
+  initialUpdate();
+
+  // small entrance animations for .fade-in-up
+  setTimeout(()=> {
+    document.querySelectorAll('.fade-in-up').forEach((el, i) => {
+      setTimeout(()=> el.classList.add('show'), 80 * i);
+    });
+    const titleEl = document.querySelector('.title-underline');
+    if (titleEl) setTimeout(()=> titleEl.classList.add('animate'), 420);
+  }, 120);
+});
 </script>
 </body>
-</html>
-```0
+  </html>
