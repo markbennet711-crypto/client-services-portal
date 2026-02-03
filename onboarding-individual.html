@@ -206,6 +206,97 @@
     box-shadow: 0 8px 30px rgba(0,0,0,0.45);
   }
 
+  /* ------------- POLISHED OPENING BANNER (FIXED to avoid narrow single-column text) ------------- */
+  .opening-banner {
+    display:flex;
+    gap:18px;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px;
+    border-radius:12px;
+    margin-bottom:14px;
+    border:1px solid rgba(212,175,55,0.06);
+    background: linear-gradient(90deg, rgba(18,18,18,0.65), rgba(12,12,12,0.45));
+    overflow:hidden;
+  }
+  .opening-banner .opening-left {
+    flex: 1 1 60%;
+    min-width:0;
+    max-width: calc(100% - 220px);
+  }
+  .opening-banner .opening-right {
+    flex: 0 0 200px;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+  }
+
+  /* Ensure text inside left block uses full width and wraps naturally */
+  .opening-left .opening-text {
+    color: var(--accent-gold);
+    font-weight:800;
+    font-size: clamp(1rem, 2.6vw, 1.08rem);
+    line-height:1.28;
+    margin:0 0 8px 0;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .opening-left .opening-sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height:1.6;
+    margin:0;
+  }
+
+  /* Decorative icon and progress visual in right block */
+  .opening-right .icon-wrap {
+    width:64px;
+    height:64px;
+    border-radius:12px;
+    background: linear-gradient(145deg, rgba(212,175,55,0.12), rgba(184,134,47,0.06));
+    display:grid;
+    place-items:center;
+    border:1px solid rgba(212,175,55,0.06);
+    box-shadow:0 8px 18px rgba(0,0,0,0.45);
+  }
+  .opening-right .progress {
+    width:100%;
+    height:12px;
+    background: rgba(0,0,0,0.3);
+    border-radius:8px;
+    overflow:hidden;
+    border:1px solid rgba(212,175,55,0.04);
+  }
+  .opening-right .progress > span {
+    display:block;
+    height:100%;
+    width:87%;
+    background: linear-gradient(90deg,var(--accent-bronze),var(--accent-gold));
+  }
+
+  /* On small screens switch to single-column layout so left text has full width */
+  @media (max-width:760px) {
+    .opening-banner {
+      display:block;
+      padding:14px;
+    }
+    .opening-banner .opening-left {
+      max-width: 100%;
+      margin-bottom:12px;
+    }
+    .opening-banner .opening-right {
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .opening-right .progress { width:65%; }
+  }
+
   /* ------------- QA block layout (two-column boxes) ------------- */
   .qa-row{
     display:grid;
@@ -307,22 +398,27 @@
       </div>
     </div>
 
-    <!-- Polished Opening Banner -->
-    <div style="background: linear-gradient(90deg, rgba(184,134,47,0.12), rgba(212,175,55,0.06)); border-radius:12px; padding:18px; margin-bottom:14px; border:1px solid rgba(212,175,55,0.06);">
-      <div style="display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;">
-        <div style="flex:1; min-width:0;">
-          <div style="font-weight:800; color:var(--accent-gold); font-size:1.08rem; line-height:1.2;">
-            Crafted personally for you — an exclusive, one-time invitation to receive human-crafted psychological guidance that reads your life like a trusted companion. This is the kind of help you will wish you had sooner — don't let this chance pass without trying it.
-          </div>
-          <div style="margin-top:8px; color:var(--muted); font-size:0.95rem;">
-            PhD psychologists read and respond to your words directly. This is not a generic plan — it's personalized human care for your work, relationships, health, and inner life.
-          </div>
+    <!-- POLISHED OPENING BANNER: REWORKED LAYOUT (fixed so text uses full width on mobile) -->
+    <div class="opening-banner" aria-hidden="false">
+      <div class="opening-left">
+        <p class="opening-text">Crafted personally for you — an exclusive, one-time invitation to receive human-crafted psychological guidance that reads your life like a trusted companion. This is the kind of help you will wish you had sooner — don't let this chance pass without trying it.</p>
+        <p class="opening-sub">PhD psychologists read and respond to your words directly. This is not a generic plan — it's personalized human care for your work, relationships, health, and inner life.</p>
+      </div>
+
+      <div class="opening-right" aria-hidden="true">
+        <!-- Decorative icon representing human-centered support -->
+        <div class="icon-wrap" aria-hidden="true">
+          <!-- Simple SVG human + heart icon -->
+          <svg width="42" height="42" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="20" r="10" stroke="#d4af37" stroke-width="2" fill="rgba(212,175,55,0.04)"/>
+            <path d="M10 50c4-10 12-14 22-14s18 4 22 14" stroke="#b8862f" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M44 34c2-2 6-2 8 0 2 2 2 6 0 8l-8 8-8-8c-2-2-2-6 0-8 2-2 6-2 8 0z" fill="#d4af37" opacity="0.18"/>
+          </svg>
         </div>
 
-        <div style="min-width:180px; width:200px; text-align:center;">
-          <div style="height:10px; background:rgba(0,0,0,0.25); border-radius:6px; overflow:hidden; border:1px solid rgba(212,175,55,0.06);">
-            <div style="height:100%; width:87%; background:linear-gradient(90deg,var(--accent-bronze),var(--accent-gold));"></div>
-          </div>
+        <!-- Visual progress bar (purely decorative) -->
+        <div class="progress" aria-hidden="true" role="img" aria-label="decorative progress bar">
+          <span></span>
         </div>
       </div>
     </div>
@@ -950,4 +1046,5 @@
   });
 </script>
 </body>
-          </html>
+</html>
+```0
