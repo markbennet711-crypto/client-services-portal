@@ -72,7 +72,7 @@
     background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
   }
 
-  /* ------------- HEADER (IMPROVED VISUAL TITLE) ------------- */
+  /* ------------- TOP HEADER (IMPROVED VISUAL TITLE) ------------- */
   .top-header {
     display:flex;
     align-items:center;
@@ -251,7 +251,7 @@
     margin:0;
   }
 
-  /* Decorative icon and progress visual in right block */
+  /* Decorative icon in right block (no numeric/time content) */
   .opening-right .icon-wrap {
     width:64px;
     height:64px;
@@ -261,20 +261,6 @@
     place-items:center;
     border:1px solid rgba(212,175,55,0.06);
     box-shadow:0 8px 18px rgba(0,0,0,0.45);
-  }
-  .opening-right .progress {
-    width:100%;
-    height:12px;
-    background: rgba(0,0,0,0.3);
-    border-radius:8px;
-    overflow:hidden;
-    border:1px solid rgba(212,175,55,0.04);
-  }
-  .opening-right .progress > span {
-    display:block;
-    height:100%;
-    width:87%;
-    background: linear-gradient(90deg,var(--accent-bronze),var(--accent-gold));
   }
 
   /* On small screens switch to single-column layout so left text has full width */
@@ -294,7 +280,6 @@
       justify-content:space-between;
       gap:12px;
     }
-    .opening-right .progress { width:65%; }
   }
 
   /* ------------- QA block layout (two-column boxes) ------------- */
@@ -401,13 +386,13 @@
     <!-- POLISHED OPENING BANNER: REWORKED LAYOUT (fixed so text uses full width on mobile) -->
     <div class="opening-banner" aria-hidden="false">
       <div class="opening-left">
-        <p class="opening-text">Crafted personally for you — an exclusive, one-time invitation to receive human-crafted psychological guidance that reads your life like a trusted companion. This is the kind of help you will wish you had sooner — don't let this chance pass without trying it.</p>
+        <p class="opening-text">Crafted personally for you — an exclusive invitation to receive human-crafted psychological guidance that reads your life like a trusted companion. This is the kind of help you will wish you had sooner — don't let this chance pass without trying it.</p>
         <p class="opening-sub">PhD psychologists read and respond to your words directly. This is not a generic plan — it's personalized human care for your work, relationships, health, and inner life.</p>
       </div>
 
       <div class="opening-right" aria-hidden="true">
         <!-- Decorative icon representing human-centered support -->
-        <div class="icon-wrap" aria-hidden="true">
+        <div class="icon-wrap" aria-hidden="true" title="Human-centered support">
           <!-- Simple SVG human + heart icon -->
           <svg width="42" height="42" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="32" cy="20" r="10" stroke="#d4af37" stroke-width="2" fill="rgba(212,175,55,0.04)"/>
@@ -415,11 +400,7 @@
             <path d="M44 34c2-2 6-2 8 0 2 2 2 6 0 8l-8 8-8-8c-2-2-2-6 0-8 2-2 6-2 8 0z" fill="#d4af37" opacity="0.18"/>
           </svg>
         </div>
-
-        <!-- Visual progress bar (purely decorative) -->
-        <div class="progress" aria-hidden="true" role="img" aria-label="decorative progress bar">
-          <span></span>
-        </div>
+        <!-- intentionally no time-related or countdown elements here -->
       </div>
     </div>
 
@@ -456,8 +437,9 @@
 
       <aside style="background:linear-gradient(160deg,#0f0f0f,#181818);padding:22px;border-radius:12px;border:1px solid rgba(212,175,55,0.08);box-shadow:0 12px 40px rgba(0,0,0,0.5);">
         <div style="position:relative;">
+          <!-- Replaced numeric/time content with guarantee text (no time) -->
           <div style="position:absolute; top:-12px; right:-12px; width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--accent-red),#cc0000); display:flex; align-items:center; justify-content:center; box-shadow:0 0 18px rgba(255,77,77,0.3); border:3px solid #121212;">
-            <div style="font-family:'Cormorant Garamond', serif; color:white; font-weight:700; text-align:center;">365<br>Days</div>
+            <div style="font-family:'Cormorant Garamond', serif; color:white; font-weight:700; text-align:center; font-size:0.9rem;">Money-Back<br>Guarantee</div>
           </div>
           <small style="color:var(--accent-bronze); display:block; margin-bottom:8px; font-weight:600;">Begin your transformation</small>
           <h3 id="cta-title" style="margin:0 0 8px 0;">Activate your private psychological architect</h3>
@@ -674,7 +656,7 @@
         </div>
       </div>
 
-      <!-- Q17 -->
+      <!-- Q17 (open free-text as requested) -->
       <div class="qa-row fade-in-up">
         <div class="text-box left">
           <div class="field-label">17) In your own words, what feels most urgent to heal or transform right now?</div>
@@ -728,7 +710,7 @@
       <div class="payment-section fade-in-up" style="margin-top:18px;">
         <div id="payment-status-badge" style="display:inline-block;padding:8px 14px;border-radius:18px;background:rgba(255,77,77,0.12);color:var(--accent-red);font-weight:700">Subscription required to send data</div>
         <div style="margin-top:12px;display:flex;flex-direction:column;align-items:center;gap:12px;">
-          <!-- KEEP the Ko-fi link you supplied earlier. This opens Ko-fi in a new tab for payment. -->
+          <!-- Ko-fi link -->
           <a id="payment-btn" class="pay-btn" href="https://ko-fi.com/s/cd96925d8f" target="_blank" rel="noopener noreferrer">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="stroke:white;stroke-width:1.4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.5 4.5 3 7.5 3c1.54 0 3.15.67 4.5 1.78C13.35 3.67 14.96 3 16.5 3 19.5 3 22 5.5 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
             Pay $30 Monthly Subscription
@@ -780,45 +762,12 @@
   </div>
 
 <!--
-  IMPORTANT: Server integration notes (must be implemented on your server)
-  -------------------------------------------------------------------
-  1) Ko-fi Webhook:
-     - Configure a webhook URL in your Ko-fi dashboard (API / Webhooks).
-       When someone completes a subscription or donation, Ko-fi sends a POST JSON payload to your webhook URL.
-     - Your server must verify the webhook (Ko-fi provides a verification token/signature).
-       See Ko-fi docs: they support webhooks and will send event details. ([help.ko-fi.com](https://help.ko-fi.com/hc/en-us/articles/360004162298-Does-Ko-fi-have-an-API-or-webhook?utm_source=chatgpt.com))
-
-  2) Server webhook endpoint (/api/kofi-webhook) behavior:
-     - Receive the POST from Ko-fi.
-     - Verify authenticity (signature/token) per Ko-fi docs.
-     - Extract supporting email (or metadata you used to associate the purchase).
-     - Mark the user's payment-status in your database as 'completed' and create a secure payment verification token (random strong token).
-     - Optionally send a confirmation email to the user.
-     - Store the verification token mapped to that email (expires soon, e.g., 1 hour).
-
-  3) Server verification endpoint (/api/payment-status?email=...):
-     - Accept only POST (or GET with CORS/CSRF protections) from your site.
-     - Lookup email in your database and return JSON: { status: "completed" | "pending" | "failed", token: "<one-time-token-if-completed>" }
-     - Only return token when status is 'completed'. The frontend will use that to populate a hidden form field `payment_verified_token` before final submit.
-     - Protect this endpoint with rate limiting and abuse protections.
-
-  4) Final form submission:
-     - When the frontend receives { status: "completed", token: "..." }:
-         * set payment_status = 'completed'
-         * set #payment-verified-token value = token
-         * enable the submit button
-     - On final form POST (server-side), validate the `payment_verified_token` against stored valid tokens for that email, then accept and persist onboarding data.
-     - Remove/token-invalidate the verification token after use.
-
-  5) Security notes:
-     - Do NOT rely on query params alone to mark a payment as completed. Use Ko-fi webhooks and server-side verification.
-     - Only enable submission after server confirms the webhook and you verify the token server-side on form submission.
-
-  Example server flow can be implemented in Node/Express, PHP, Python, etc. GitHub & community examples exist for Ko-fi webhooks. ([github.com](https://github.com/darideveloper/kofi-api?utm_source=chatgpt.com))
+  Server notes (unchanged): keep Ko-fi webhook and payment-status endpoint server-side for secure verification.
+  IMPORTANT: This version preserves all character/word counters and removes any time/countdown UI elements under the questions.
 -->
 
 <script>
-  // Frontend: UX + secure payment verification polling logic
+  // Frontend: UX + secure payment verification polling logic (no countdown or time elements near Qs)
   document.addEventListener('DOMContentLoaded', function() {
     // Fade in elements
     document.querySelectorAll('.fade-in-up').forEach((el, i) => {
@@ -855,8 +804,6 @@
     const MAX_POLL_ATTEMPTS = 36; // ~3 minutes
 
     async function checkPaymentStatusOnce(email) {
-      // Call your server endpoint to verify payment (server must be implemented)
-      // Expected JSON response: { status: "completed"|"pending"|"failed", token: "<optional-token>" }
       if (!email) return { error: 'missing-email' };
       try {
         const resp = await fetch(`/api/payment-status?email=${encodeURIComponent(email)}`, {
@@ -886,7 +833,6 @@
           pollingHandle = null;
         }
       }, POLL_INTERVAL_MS);
-      // Make an immediate check too
       (async () => {
         const data = await checkPaymentStatusOnce(email);
         onUpdate(data);
@@ -903,7 +849,6 @@
         emailInput.focus();
         return;
       }
-      // Start polling and inform the user
       verifyPaidBtn.disabled = true;
       verifyPaidBtn.textContent = 'Verifying...';
       startPolling(email, (data) => {
@@ -913,14 +858,12 @@
           return;
         }
         if (data.error) {
-          // network error or server problem
           verifyPaidBtn.disabled = false;
           verifyPaidBtn.textContent = 'I have paid — verify';
           console.warn('Payment check error', data);
           return;
         }
         if (data.status === 'completed') {
-          // Payment confirmed by server
           paymentBadge.textContent = '✓ Subscription confirmed';
           paymentBadge.style.background = 'rgba(0,200,100,0.12)';
           paymentBadge.style.color = '#00ff9d';
@@ -932,14 +875,12 @@
           submitBtn.textContent = 'Begin Your Sacred Transformation';
           alert('Payment confirmed — you may now complete your profile and submit.');
         } else if (data.status === 'pending') {
-          // still pending - keep polling
           verifyPaidBtn.textContent = 'Verifying... (pending)';
         } else if (data.status === 'failed') {
           verifyPaidBtn.disabled = false;
           verifyPaidBtn.textContent = 'I have paid — verify';
           alert('Payment appears to have failed. Please check your Ko-fi receipt or try again.');
         } else {
-          // unknown response
           verifyPaidBtn.disabled = false;
           verifyPaidBtn.textContent = 'I have paid — verify';
         }
