@@ -72,7 +72,86 @@
     background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
   }
 
-  /* ------------- Header ------------- */
+  /* ------------- HEADER (IMPROVED VISUAL TITLE) ------------- */
+  .top-header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    flex-wrap:wrap;
+    padding:12px 8px;
+    border-radius:10px;
+    margin-bottom:12px;
+    background: linear-gradient(180deg, rgba(212,175,55,0.03), rgba(0,0,0,0.02));
+    border: 1px solid rgba(212,175,55,0.03);
+  }
+
+  .top-header .title-block {
+    display:flex;
+    gap:14px;
+    align-items:center;
+    min-width:0;
+  }
+
+  .top-header .logo-large {
+    width:84px;
+    height:84px;
+    border-radius:14px;
+    background: linear-gradient(145deg, rgba(212,175,55,0.14), rgba(184,134,47,0.06));
+    display:grid;
+    place-items:center;
+    border: 1px solid rgba(212,175,55,0.12);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+    flex-shrink:0;
+  }
+
+  .top-header h1 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent-gold);
+    font-size: clamp(1.6rem, 4.8vw, 2.6rem);
+    margin: 0;
+    line-height: 1.02;
+    letter-spacing: -0.6px;
+    text-shadow: 0 8px 30px rgba(212,175,55,0.12);
+  }
+
+  .top-header p.lead-sub {
+    margin: 4px 0 0 0;
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 680px;
+  }
+
+  .top-header .cta-area {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    align-items:flex-end;
+    min-width:0;
+  }
+
+  .top-header .small-pill {
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:999px;
+    background: rgba(212,175,55,0.12);
+    color:var(--accent-gold);
+    font-weight:700;
+    font-size:0.92rem;
+    border:1px solid rgba(212,175,55,0.08);
+  }
+
+  .top-header .trust-line {
+    color:var(--muted);
+    font-size:0.88rem;
+  }
+
+  @media (max-width:900px){
+    .top-header{ align-items:flex-start; }
+    .top-header .cta-area{ align-items:flex-start; }
+  }
+
+  /* ------------- Header (secondary) - legacy brand area preserved ------------- */
   header{
     display:flex;
     align-items:center;
@@ -80,6 +159,7 @@
     gap:18px;
     flex-wrap:wrap;
     min-width:0;
+    margin-bottom:8px;
   }
   .brand{ display:flex; gap:16px; align-items:center; min-width:0; }
   .logo{
@@ -92,12 +172,12 @@
   .brand h1{
     font-family:"Cormorant Garamond", serif;
     color:var(--accent-gold);
-    font-size: clamp(1.4rem, 4.0vw, 2.1rem);
+    font-size: clamp(1.2rem, 3.4vw, 1.6rem);
     margin:0;
     line-height:1.02;
     text-shadow: 0 6px 20px rgba(212,175,55,0.12);
   }
-  .brand p{ margin:0; color:var(--muted); max-width:520px; line-height:1.45; font-size:1rem; }
+  .brand p{ margin:0; color:var(--muted); max-width:520px; line-height:1.45; font-size:0.95rem; }
 
   .pill{ display:inline-block; padding:8px 16px; border-radius:999px; background: rgba(212,175,55,0.12); color:var(--accent-gold); font-weight:700; font-size:0.95rem; border:1px solid rgba(212,175,55,0.08); }
   .badge{ display:inline-block; margin-top:8px; padding:4px 10px; border-radius:10px; background:rgba(255,77,77,0.12); color:var(--accent-red); font-weight:600; font-size:0.86rem; }
@@ -107,7 +187,7 @@
     display:grid;
     grid-template-columns: 1fr minmax(0,420px);
     gap:28px;
-    margin-top:22px;
+    margin-top:8px;
     align-items:start;
   }
   @media (max-width:1000px){ .hero{ grid-template-columns:1fr; } }
@@ -205,6 +285,28 @@
 </head>
 <body>
   <div class="container" role="main" aria-labelledby="page-title">
+    <!-- NEW IMPROVED TOP HEADER (visually prominent page title) -->
+    <div class="top-header" role="banner" aria-label="Page header">
+      <div class="title-block">
+        <div class="logo-large" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" width="56" height="56" aria-hidden="true">
+            <circle cx="16" cy="16" r="14" stroke="#d4af37" stroke-width="1.4" stroke-opacity="0.9"/>
+            <path d="M8 16c0-4 3-7 7-7s7 3 7 7-3 7-7 7" stroke="#d4af37" stroke-width="1.8"/>
+          </svg>
+        </div>
+
+        <div style="min-width:0;">
+          <h1 id="page-title">Your Personal Growth Architect</h1>
+          <p class="lead-sub">Human-crafted psychological guidance tailored to your language, your life, and your deepest priorities — delivered with care and confidentiality.</p>
+        </div>
+      </div>
+
+      <div class="cta-area">
+        <div class="small-pill">PhD Psychologists · Bank-Grade Privacy</div>
+        <div class="trust-line">Trusted by professionals across US & EU</div>
+      </div>
+    </div>
+
     <!-- Polished Opening Banner -->
     <div style="background: linear-gradient(90deg, rgba(184,134,47,0.12), rgba(212,175,55,0.06)); border-radius:12px; padding:18px; margin-bottom:14px; border:1px solid rgba(212,175,55,0.06);">
       <div style="display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;">
@@ -225,7 +327,8 @@
       </div>
     </div>
 
-    <header class="fade-in-up">
+    <!-- Secondary brand header preserved for compatibility -->
+    <header class="fade-in-up" aria-hidden="true" style="margin-bottom:4px;">
       <div class="brand" aria-hidden="false">
         <div class="logo" aria-hidden="true">
           <svg viewBox="0 0 32 32" fill="none" width="48" height="48" aria-hidden="true">
@@ -234,8 +337,8 @@
           </svg>
         </div>
         <div style="min-width:0;">
-          <h1 id="page-title">Your Personal Growth Architect</h1>
-          <p>PhD psychologists who transform your words into daily, human-crafted guidance — for career, health, relationships, and inner peace.</p>
+          <h1 style="font-size:1.0rem; margin:0;">Your Personal Growth Architect</h1>
+          <p style="margin:0; color:var(--muted); font-size:0.92rem;">PhD psychologists who transform your words into daily, human-crafted guidance.</p>
         </div>
       </div>
 
@@ -587,7 +690,7 @@
      - Configure a webhook URL in your Ko-fi dashboard (API / Webhooks).
        When someone completes a subscription or donation, Ko-fi sends a POST JSON payload to your webhook URL.
      - Your server must verify the webhook (Ko-fi provides a verification token/signature).
-       See Ko-fi docs: they support webhooks and will send event details. 1
+       See Ko-fi docs: they support webhooks and will send event details. ([help.ko-fi.com](https://help.ko-fi.com/hc/en-us/articles/360004162298-Does-Ko-fi-have-an-API-or-webhook?utm_source=chatgpt.com))
 
   2) Server webhook endpoint (/api/kofi-webhook) behavior:
      - Receive the POST from Ko-fi.
@@ -615,7 +718,7 @@
      - Do NOT rely on query params alone to mark a payment as completed. Use Ko-fi webhooks and server-side verification.
      - Only enable submission after server confirms the webhook and you verify the token server-side on form submission.
 
-  Example server flow can be implemented in Node/Express, PHP, Python, etc. GitHub & community examples exist for Ko-fi webhooks. 2
+  Example server flow can be implemented in Node/Express, PHP, Python, etc. GitHub & community examples exist for Ko-fi webhooks. ([github.com](https://github.com/darideveloper/kofi-api?utm_source=chatgpt.com))
 -->
 
 <script>
@@ -847,4 +950,4 @@
   });
 </script>
 </body>
-  </html>
+          </html>
