@@ -116,12 +116,7 @@
 
   .accent-note { background:linear-gradient(145deg, rgba(212,175,55,0.06), rgba(0,0,0,0.25)); border-left:3px solid var(--accent-gold); padding:16px; border-radius:0 var(--radius) var(--radius) 0; color:#f0f0f0; margin:16px 0; box-shadow:0 6px 20px rgba(0,0,0,0.3); border:1px solid rgba(212,175,55,0.08); }
 
-  /* ===== New: QA row pattern (two boxes inside a full-width rectangle) =====
-     .qa-row: the horizontal container for each question
-     .text-box: the rounded rectangle that contains label or input
-     .left / .right: left label box and right input box
-     This ensures everything is inside full-screen width rectangles and words never overflow.
-  */
+  /* ===== New: QA row pattern (two boxes inside a full-width rectangle) ===== */
   .qa-row {
     display: grid;
     grid-template-columns: 1fr 1fr; /* left + right boxes */
@@ -138,7 +133,7 @@
     border-radius: 12px;
     box-shadow: 0 8px 22px rgba(0,0,0,0.35);
     overflow: hidden;
-    min-width: 0; /* critical to avoid overflow */
+    min-width: 0;
     max-width: 100%;
   }
   .text-box.left { text-align: center; display:flex; flex-direction:column; justify-content:center; gap:8px; }
@@ -186,7 +181,6 @@
     background: rgba(16,16,16,0.98);
   }
 
-  /* character counter centered under right box */
   .char-count {
     margin-top:8px;
     color:var(--accent-bronze);
@@ -195,8 +189,6 @@
     text-align:center;
   }
 
-  /* Responsive: on narrow screens each qa-row stacks as single column,
-     left label box above right input box, but both remain full-width rectangles. */
   @media (max-width:760px) {
     .qa-row { grid-template-columns: 1fr; }
     .brand p { text-align:center; }
@@ -204,7 +196,6 @@
     .text-box.right textarea { min-height: 170px; }
   }
 
-  /* Grid / utilities used elsewhere */
   .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:12px; min-width:0; }
   @media (max-width:760px) { .grid-2 { grid-template-columns:1fr; } }
 
@@ -217,10 +208,8 @@
 
   footer { margin-top:22px; text-align:center; color:var(--muted); font-size:1rem; padding-top:18px; border-top:1px solid rgba(212,175,55,0.06); }
 
-  /* Misc: ensure svgs/images never force overflow */
   svg, img { max-width:100%; height:auto; display:block; }
 
-  /* Accessibility focus */
   :focus-visible { outline:3px solid var(--accent-gold); outline-offset:3px; }
 
 </style>
@@ -507,7 +496,7 @@
         </div>
       </div>
 
-      <!-- Personal details (kept as two small boxes) -->
+      <!-- Personal details -->
       <div class="grid-2" style="margin-top:16px;">
         <div>
           <div class="text-box">
@@ -619,10 +608,11 @@
       });
     });
 
-    // Countdown
+    // Countdown (fixed: call updateCountdown immediately so it doesn't appear stuck)
     let countdownTime = 24*60*60;
     const countdownEl = document.getElementById('countdown');
     function updateCountdown(){
+      // decrement and format
       countdownTime--;
       if (countdownTime < 0) countdownTime = 24*60*60;
       const h = Math.floor(countdownTime/3600);
@@ -630,6 +620,9 @@
       const s = countdownTime%60;
       if (countdownEl) countdownEl.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
     }
+    // **Important fix**: call once immediately so initial display updates on load
+    updateCountdown();
+    // then run every second
     setInterval(updateCountdown, 1000);
 
     // Spots
@@ -778,4 +771,4 @@
   });
 </script>
 </body>
-        </html>
+  </html>
