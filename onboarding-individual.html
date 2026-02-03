@@ -311,7 +311,6 @@
       <input type="text" name="bot-field" style="display:none" aria-hidden="true">
       <input type="hidden" id="payment-status" name="payment_status" value="pending">
 
-      <!-- For per-field timers: data-timer attribute holds seconds default 600 (10 minutes) -->
       <!-- Q1 -->
       <div class="qa-row">
         <div class="text-box left">
@@ -709,107 +708,92 @@
     });
 
     /* ------------------------------
-       Per-field countdown timers
+       Robust Per-field countdown timers (global ticker)
        - Each textarea with data-timer attribute gets a per-field timer (seconds)
        - Timer displays under corresponding field in element with id "timer-{fieldId}"
-       - Timer starts when the field receives focus, pauses on blur, resumes on focus
+       - Timers start automatically on page load and update every second
        - When timer reaches 0, it marks the field as expired (visual cue) but DOES NOT erase input
-       - Default seconds if not specified: 600 (10 minutes)
+       - This design ensures timers work reliably across mobile browsers
        ------------------------------ */
-    const DEFAULT_FIELD_TIMER = 600; // seconds
-    const fieldTimers = new Map(); // id -> remainingSeconds
-    const fieldIntervals = new Map(); // id -> intervalID
-    const TIMER_DISPLAY_PREFIX = '⏱ ';
+    const DEFAULT_FIELD_TIMER = 600; // default 10 minutes in seconds
+    const fieldTimers = {}; // id -> remainingSeconds
+    const textareas = Array.from(document.querySelectorAll('textarea[id]'));
 
-    function formatSecondsToMMSS(sec) {
+    // Initialize timers
+    textareas.forEach(textarea => {
+      const id = textarea.id;
+      const initial = parseInt(textarea.getAttribute('data-timer'), 10);
+      const startVal = (!isNaN(initial) && initial > 0) ? initial : DEFAULT_FIELD_TIMER;
+      fieldTimers[id] = startVal;
+      // ensure visible display matches initial
+      const timerEl = document.getElementById('timer-' + id);
+      if (timerEl) timerEl.textContent = '⏱ ' + formatSecToMMSS(fieldTimers[id]);
+      // remove expired visual if somehow present
+      textarea.classList.remove('expired-field');
+    });
+
+    // Helper to format seconds
+    function formatSecToMMSS(sec) {
+      if (typeof sec !== 'number' || isNaN(sec)) sec = 0;
       if (sec < 0) sec = 0;
       const m = Math.floor(sec / 60);
       const s = sec % 60;
       return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
     }
 
-    function initFieldTimer(textarea) {
-      const id = textarea.id;
-      if (!id) return;
-      const timerEl = document.getElementById('timer-' + id);
-      const initial = parseInt(textarea.getAttribute('data-timer'), 10) || DEFAULT_FIELD_TIMER;
-      if (!fieldTimers.has(id)) {
-        fieldTimers.set(id, initial);
-      }
-      // ensure timer element shows initial formatted time
-      if (timerEl) {
-        timerEl.textContent = TIMER_DISPLAY_PREFIX + formatSecondsToMMSS(fieldTimers.get(id));
-        timerEl.classList.remove('timer-expired');
-      }
-    }
-
-    function startFieldTimer(id) {
-      // don't start if already running
-      if (fieldIntervals.has(id)) return;
-      const textarea = document.getElementById(id);
-      const timerEl = document.getElementById('timer-' + id);
-      if (!textarea || !timerEl) return;
-      // create interval
-      const intervalId = setInterval(() => {
-        let rem = fieldTimers.get(id);
-        if (typeof rem !== 'number') {
-          rem = parseInt(textarea.getAttribute('data-timer'), 10) || DEFAULT_FIELD_TIMER;
-          fieldTimers.set(id, rem);
-        }
-        rem = rem - 1;
-        fieldTimers.set(id, rem);
-        if (rem <= 0) {
-          // expired
-          timerEl.textContent = '⏱ 00:00 — Time expired';
-          timerEl.classList.add('timer-expired');
-          textarea.classList.add('expired-field');
-          // stop interval
-          clearInterval(fieldIntervals.get(id));
-          fieldIntervals.delete(id);
-          // we keep the value — do not disable by default; user can still edit
-          return;
-        } else {
-          timerEl.textContent = TIMER_DISPLAY_PREFIX + formatSecondsToMMSS(rem);
-        }
-      }, 1000);
-      fieldIntervals.set(id, intervalId);
-    }
-
-    function pauseFieldTimer(id) {
-      if (fieldIntervals.has(id)) {
-        clearInterval(fieldIntervals.get(id));
-        fieldIntervals.delete(id);
-      }
-    }
-
-    // Initialize all textarea timers and bind focus/blur
-    document.querySelectorAll('textarea[id]').forEach(textarea => {
-      initFieldTimer(textarea);
-
-      textarea.addEventListener('focus', () => {
-        // resume or start
-        // If expired already (remaining <= 0), do nothing
-        const rem = fieldTimers.get(textarea.id);
-        if (typeof rem === 'number' && rem <= 0) {
-          // show expired state
-          const timerEl = document.getElementById('timer-' + textarea.id);
+    // Global interval updates all field timers once per second
+    const fieldGlobalInterval = setInterval(() => {
+      textareas.forEach(textarea => {
+        const id = textarea.id;
+        if (!(id in fieldTimers)) return;
+        const timerEl = document.getElementById('timer-' + id);
+        let remaining = fieldTimers[id];
+        if (remaining <= 0) {
+          // already expired
           if (timerEl) timerEl.textContent = '⏱ 00:00 — Time expired';
           textarea.classList.add('expired-field');
           return;
         }
-        startFieldTimer(textarea.id);
+        // decrement
+        remaining = remaining - 1;
+        fieldTimers[id] = remaining;
+        // update display
+        if (timerEl) {
+          if (remaining <= 0) {
+            timerEl.textContent = '⏱ 00:00 — Time expired';
+            timerEl.classList.add('timer-expired');
+            textarea.classList.add('expired-field');
+          } else {
+            timerEl.textContent = '⏱ ' + formatSecToMMSS(remaining);
+          }
+        }
       });
+    }, 1000);
 
-      textarea.addEventListener('blur', () => {
-        // pause timer but keep remaining
-        pauseFieldTimer(textarea.id);
+    // Also: when user focuses a field, remove expired highlight if they want to continue typing,
+    // but keep the fact that the timer might be 0. This keeps UX consistent across devices.
+    textareas.forEach(textarea => {
+      textarea.addEventListener('focus', () => {
+        const id = textarea.id;
+        const remaining = fieldTimers[id];
+        const timerEl = document.getElementById('timer-' + id);
+        if (remaining <= 0) {
+          if (timerEl) timerEl.textContent = '⏱ 00:00 — Time expired';
+          textarea.classList.add('expired-field');
+        } else {
+          // ensure normal look
+          textarea.classList.remove('expired-field');
+          if (timerEl) timerEl.classList.remove('timer-expired');
+        }
       });
-
-      // touchstart also starts timer for mobile when user taps into field
+      // optional: tapping mobile should also ensure display updates (touchstart)
       textarea.addEventListener('touchstart', () => {
-        const rem = fieldTimers.get(textarea.id);
-        if (typeof rem === 'number' && rem <= 0) return;
-        startFieldTimer(textarea.id);
+        const id = textarea.id;
+        const timerEl = document.getElementById('timer-' + id);
+        if (fieldTimers[id] <= 0) {
+          if (timerEl) timerEl.textContent = '⏱ 00:00 — Time expired';
+          textarea.classList.add('expired-field');
+        }
       }, {passive:true});
     });
 
@@ -895,4 +879,4 @@
   });
 </script>
 </body>
-        </html>
+      </html>
