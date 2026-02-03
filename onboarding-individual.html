@@ -3,51 +3,41 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-<title>The Quiet Companion — Your Personal Growth Architect</title>
-<meta name="description" content="Daily messages crafted by psychological experts analyzing your personal data to eliminate negativity and amplify your positive traits. Private human guidance for US & EU professionals." />
-<meta name="robots" content="index, follow">
+<title>Your Personal Growth Architect — Begin Your Transformation</title>
+<meta name="description" content="Daily messages crafted by psychological experts who analyze your personal data to eliminate negativity and amplify your positive traits. Private human guidance designed exclusively for US & EU professionals." />
 
-<!-- Fonts & icons -->
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-  /* =========================
-     Global resets + mobile safety
-     ========================= */
+  /* ------------- Global & Mobile Safety ------------- */
   html, body {
-    margin: 0;
-    padding: 0;
     height: auto !important;
     min-height: 100vh;
-    width: 100% !important;
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
+    margin: 0;
+    padding: 0;
     -webkit-overflow-scrolling: touch;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     background: radial-gradient(circle at top right, rgba(212,175,55,0.06) 0%, #050505 100%);
-    color: #fff;
+    color: #ffffff;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    overflow-x: hidden !important;
     touch-action: manipulation;
   }
 
-  /* Ensure no element can force horizontal scroll */
   * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
-    overflow-wrap: break-word !important;
-    word-wrap: break-word !important;
-    word-break: break-word !important;
-    hyphens: auto;
-    white-space: normal !important;
     max-width: 100% !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
     min-width: 0 !important;
   }
 
-  :root {
+  :root{
     --page-bg: #0a0a0a;
     --card: #121212;
     --muted: #a0a0a0;
@@ -55,206 +45,187 @@
     --accent-gold: #d4af37;
     --accent-bronze: #b8862f;
     --accent-red: #ff4d4d;
-    --radius: 14px;
-    --shadow: 0 10px 36px rgba(0, 0, 0, 0.6);
-    --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    --radius: 16px;
+    --shadow: 0 12px 40px rgba(0,0,0,0.6);
+    --glass: rgba(255,255,255,0.03);
     --gutter: 20px;
-    --field-timer-color: #9fd8b6;
   }
 
-  /* Container */
-  .container {
-    width: 100%;
-    max-width: 1100px;
-    margin: 18px auto;
-    padding: 26px clamp(16px, 3vw, 36px);
-    background: var(--card);
+  /* ------------- Container ------------- */
+  .container{
+    width:100%;
+    max-width:1100px;
+    margin:20px auto;
+    padding:28px clamp(16px, 3vw, 36px);
+    background: linear-gradient(180deg, rgba(18,18,18,0.96), rgba(14,14,14,0.95));
     border-radius: calc(var(--radius) + 2px);
-    border: 1px solid rgba(212,175,55,0.08);
+    border: 1px solid rgba(212,175,55,0.06);
     box-shadow: var(--shadow);
-    position: relative;
-    overflow: hidden;
+    position:relative;
+    overflow:hidden;
   }
-  .container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
+  .container::before{
+    content:'';
+    position:absolute;
+    top:0; left:0; right:0;
+    height:4px;
     background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
   }
 
-  /* Header */
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    flex-wrap: wrap;
-    min-width: 0;
+  /* ------------- Header ------------- */
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    flex-wrap:wrap;
+    min-width:0;
   }
-  .brand { display:flex; gap:16px; align-items:center; min-width: 0; }
-  .logo { width:72px; height:72px; border-radius:12px; background:linear-gradient(145deg, rgba(212,175,55,0.12), rgba(184,134,47,0.08)); display:grid; place-items:center; border:1px solid rgba(212,175,55,0.18); flex-shrink:0; }
-  .brand h1 { font-family: "Cormorant Garamond", serif; color: var(--accent-gold); font-size: clamp(1.4rem, 3.8vw, 2rem); margin:0; font-weight:600; line-height:1.05; }
-  .brand p { margin:0; color:var(--muted); max-width:560px; line-height:1.45; text-align:left; }
-
-  .pill { display:inline-block; padding:7px 16px; border-radius:999px; background:rgba(212,175,55,0.12); color:var(--accent-gold); font-weight:700; font-size:0.95rem; border:1px solid rgba(212,175,55,0.12); }
-  .badge { display:inline-block; margin-top:8px; padding:4px 10px; border-radius:10px; background:rgba(255,77,77,0.12); color:var(--accent-red); font-weight:600; font-size:0.85rem; }
-
-  /* Hero */
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr minmax(0, 420px);
-    gap: 28px;
-    margin-top: 20px;
+  .brand{ display:flex; gap:16px; align-items:center; min-width:0; }
+  .logo{
+    width:72px; height:72px; border-radius:14px;
+    background: linear-gradient(145deg, rgba(212,175,55,0.12), rgba(184,134,47,0.08));
+    display:grid; place-items:center; border:1px solid rgba(212,175,55,0.14);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.5);
+    flex-shrink:0;
   }
-  @media (max-width:1000px) { .hero { grid-template-columns: 1fr; } }
-
-  .eyebrow { color:var(--accent-bronze); font-weight:700; font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px; }
-  h2.title { font-family:"Cormorant Garamond", serif; font-size: clamp(1.8rem, 4.5vw, 3.2rem); margin:0 0 14px 0; line-height:1.05; background:linear-gradient(to right,var(--accent-gold),var(--accent-bronze)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-  p.lead { color:#e0e0e0; font-size: clamp(0.98rem, 2.9vw, 1.12rem); line-height:1.65; margin-bottom:14px; }
-
-  .accent-note { background:linear-gradient(145deg, rgba(212,175,55,0.06), rgba(0,0,0,0.25)); border-left:3px solid var(--accent-gold); padding:16px; border-radius:0 var(--radius) var(--radius) 0; color:#f0f0f0; margin:16px 0; box-shadow:0 6px 20px rgba(0,0,0,0.3); border:1px solid rgba(212,175,55,0.08); }
-
-  /* ===== QA row pattern (two boxes inside a full-width rectangle) ===== */
-  .qa-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* left + right boxes */
-    gap: 16px;
-    align-items: start;
-    margin-top: 14px;
-    width: 100%;
-    min-width: 0;
+  .brand h1{
+    font-family:"Cormorant Garamond", serif;
+    color:var(--accent-gold);
+    font-size: clamp(1.4rem, 4.0vw, 2.1rem);
+    margin:0;
+    line-height:1.02;
+    text-shadow: 0 6px 20px rgba(212,175,55,0.12);
   }
-  .text-box {
-    background: rgba(20,20,20,0.78);
+  .brand p{ margin:0; color:var(--muted); max-width:520px; line-height:1.45; font-size:1rem; }
+
+  .pill{ display:inline-block; padding:8px 16px; border-radius:999px; background: rgba(212,175,55,0.12); color:var(--accent-gold); font-weight:700; font-size:0.95rem; border:1px solid rgba(212,175,55,0.08); }
+  .badge{ display:inline-block; margin-top:8px; padding:4px 10px; border-radius:10px; background:rgba(255,77,77,0.12); color:var(--accent-red); font-weight:600; font-size:0.86rem; }
+
+  /* ------------- Hero ------------- */
+  .hero{
+    display:grid;
+    grid-template-columns: 1fr minmax(0,420px);
+    gap:28px;
+    margin-top:22px;
+    align-items:start;
+  }
+  @media (max-width:1000px){ .hero{ grid-template-columns:1fr; } }
+
+  .eyebrow{ color:var(--accent-bronze); font-weight:700; letter-spacing:1px; text-transform:uppercase; font-size:0.85rem; margin-bottom:10px; }
+  h2.title{ font-family:"Cormorant Garamond", serif; font-size: clamp(1.8rem, 4.8vw, 3.4rem); margin:0 0 12px 0; line-height:1.04; background:linear-gradient(90deg,var(--accent-gold),var(--accent-bronze)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  p.lead{ color:#e6e6e6; font-size: clamp(1rem, 2.9vw, 1.12rem); line-height:1.7; margin-bottom:12px; }
+
+  .accent-note{
+    background: linear-gradient(145deg, rgba(212,175,55,0.06), rgba(0,0,0,0.22));
+    border-left: 3px solid var(--accent-gold);
+    padding:14px;
+    border-radius:0 12px 12px 0;
+    color:#f2f2f2;
+    margin-top:12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+  }
+
+  /* ------------- QA block layout (two-column boxes) ------------- */
+  .qa-row{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:14px;
+    margin-top:14px;
+    min-width:0;
+  }
+  .text-box{
+    background: rgba(18,18,18,0.78);
     border: 1px solid rgba(212,175,55,0.06);
-    padding: 14px;
-    border-radius: 12px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.35);
-    overflow: hidden;
-    min-width: 0;
-    max-width: 100%;
+    padding:14px;
+    border-radius:12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    overflow:hidden;
+    min-width:0;
   }
-  .text-box.left { text-align: center; display:flex; flex-direction:column; justify-content:center; gap:8px; }
-  .text-box.right { text-align: center; display:flex; flex-direction:column; gap:8px; }
+  .text-box.left{ display:flex; flex-direction:column; justify-content:center; gap:8px; text-align:center; }
+  .text-box.right{ display:flex; flex-direction:column; gap:8px; }
 
-  /* Label and hint styles inside left box */
-  .text-box .field-label {
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
+  .field-label{
+    font-family:"Cormorant Garamond", serif;
+    color:var(--accent-gold);
     font-weight:700;
     font-size:1.02rem;
     line-height:1.3;
-    margin: 0;
-  }
-  .text-box .hint {
-    font-size:0.95rem;
-    color:var(--muted);
     margin:0;
-    line-height:1.5;
-    padding-left:0;
-    border-left: none;
-    text-align:center;
   }
+  .hint{ font-size:0.95rem; color:var(--muted); line-height:1.5; margin-top:6px; text-align:center; }
 
-  /* Input styles inside right box */
-  .text-box textarea, .text-box input, .text-box select {
+  textarea, input[type="text"], input[type="email"], select{
     width:100%;
-    padding:12px;
+    padding:14px;
     border-radius:10px;
     border:1px solid rgba(212,175,55,0.06);
-    background: rgba(8,8,8,0.85);
-    color: var(--text);
+    background: rgba(6,6,6,0.85);
+    color:var(--text);
     font-size:1rem;
     line-height:1.5;
-    resize: vertical;
-    box-shadow: inset 0 6px 14px rgba(0,0,0,0.4);
-    max-width:100%;
-    min-width: 0;
+    resize:vertical;
+    box-shadow: inset 0 6px 16px rgba(0,0,0,0.45);
   }
-  .text-box textarea { min-height:130px; }
-  .text-box textarea:focus, .text-box input:focus, .text-box select:focus {
-    outline: none;
-    border-color: var(--accent-gold);
-    box-shadow: 0 0 0 4px rgba(212,175,55,0.08);
-    background: rgba(16,16,16,0.98);
-  }
+  textarea{ min-height:140px; }
+  textarea:focus, input:focus, select:focus{ outline:none; border-color:var(--accent-gold); box-shadow:0 0 0 6px rgba(212,175,55,0.06); background: rgba(12,12,12,0.98); }
 
-  .char-count {
-    margin-top:8px;
-    color:var(--accent-bronze);
-    font-weight:600;
-    font-size:0.9rem;
-    text-align:center;
-  }
+  .char-count{ margin-top:8px; color:var(--accent-bronze); font-weight:600; text-align:center; font-size:0.92rem; }
 
-  .timer-count {
-    margin-top:6px;
-    color: var(--field-timer-color);
-    font-weight:700;
-    font-size:0.95rem;
-    text-align:center;
-  }
+  @media (max-width:760px){ .qa-row{ grid-template-columns:1fr; } .text-box.left{ padding:12px 10px; } .text-box.right textarea{ min-height:180px; } }
 
-  .timer-expired {
-    color: #ff8b8b !important;
-    font-weight:800;
-  }
+  .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px; min-width:0; }
+  @media (max-width:760px){ .grid-2{ grid-template-columns:1fr; } }
 
-  @media (max-width:760px) {
-    .qa-row { grid-template-columns: 1fr; }
-    .brand p { text-align:center; }
-    .text-box.left { padding-top: 10px; padding-bottom: 10px; }
-    .text-box.right textarea { min-height: 170px; }
-  }
+  .controls{ display:flex; gap:12px; align-items:center; justify-content:center; margin-top:18px; flex-wrap:wrap; }
+  .btn-submit{ padding:14px 28px; border-radius:12px; background:linear-gradient(135deg,var(--accent-gold),var(--accent-bronze)); border:2px solid var(--accent-gold); color:#071018; font-weight:800; font-family:"Cormorant Garamond", serif; cursor:pointer; box-shadow: 0 12px 36px rgba(212,175,55,0.18); }
+  .btn-submit:disabled{ opacity:0.65; cursor:not-allowed; }
 
-  .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:12px; min-width:0; }
-  @media (max-width:760px) { .grid-2 { grid-template-columns:1fr; } }
+  .payment-section{ margin:18px 0; padding:14px; background:rgba(12,12,12,0.78); border-radius:12px; border:1px solid rgba(212,175,55,0.06); text-align:center; }
+  .pay-btn{ display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:10px; background:linear-gradient(135deg,var(--accent-red),#cc0000); color:#fff; text-decoration:none; border:2px solid var(--accent-red); font-weight:800; }
 
-  .controls { display:flex; gap:12px; align-items:center; justify-content:center; margin-top:18px; flex-wrap:wrap; }
-  .btn-submit { padding:12px 26px; border-radius:12px; background:linear-gradient(135deg,var(--accent-gold),var(--accent-bronze)); border:2px solid var(--accent-gold); color:#081018; font-weight:800; font-family:"Cormorant Garamond", serif; cursor:pointer; box-shadow: 0 12px 36px rgba(212,175,55,0.18); }
-  .btn-submit:disabled { opacity:0.65; cursor:not-allowed; }
+  footer{ margin-top:22px; text-align:center; color:var(--muted); font-size:1rem; padding-top:18px; border-top:1px solid rgba(212,175,55,0.06); }
 
-  .payment-section { margin:18px 0; padding:14px; background:rgba(18,18,18,0.75); border-radius:12px; border:1px solid rgba(212,175,55,0.06); text-align:center; }
-  .pay-btn { display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:10px; background:linear-gradient(135deg,var(--accent-red),#cc0000); color:#fff; text-decoration:none; border:2px solid var(--accent-red); font-weight:800; }
+  /* ------------- Visual Enhancements ------------- */
+  .fade-in-up{ opacity:0; transform: translateY(12px); transition: all 0.6s cubic-bezier(.16,1,.3,1); }
+  .fade-in-up.show{ opacity:1; transform: translateY(0); }
 
-  footer { margin-top:22px; text-align:center; color:var(--muted); font-size:1rem; padding-top:18px; border-top:1px solid rgba(212,175,55,0.06); }
+  .title-underline{ display:inline-block; position:relative; }
+  .title-underline::after{ content:''; position:absolute; left:0; bottom:-8px; height:4px; width:0%; background: linear-gradient(90deg,var(--accent-bronze),var(--accent-gold)); transition: width 0.8s cubic-bezier(.2,.9,.2,1); border-radius:4px; }
+  .title-underline.animate::after{ width:60%; }
 
-  svg, img { max-width:100%; height:auto; display:block; }
+  .cta{ display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:10px; text-decoration:none; background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.02); color: #fff; font-weight:700; box-shadow: 0 8px 30px rgba(0,0,0,0.5); }
+  .cta:hover{ transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
 
-  :focus-visible { outline:3px solid var(--accent-gold); outline-offset:3px; }
+  .highlight-text{ background: linear-gradient(90deg, rgba(212,175,55,0.14), rgba(184,134,47,0.08)); padding:2px 8px; border-radius:6px; color:var(--accent-gold); font-weight:600; }
 
-  /* small visual when timer expires */
-  .expired-field {
-    border-color: rgba(255,77,77,0.9) !important;
-    box-shadow: 0 0 0 4px rgba(255,77,77,0.06) !important;
-  }
+  :focus-visible{ outline: 3px solid rgba(212,175,55,0.18); outline-offset:3px; }
 </style>
 </head>
 <body>
-  <div class="container" role="main" aria-labelledby="main-title">
-    <!-- Banner -->
-    <div style="background:linear-gradient(90deg, rgba(184,134,47,0.12), rgba(212,175,55,0.08)); border-radius:12px; padding:12px; margin-bottom:14px; border:1px solid rgba(212,175,55,0.08);">
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;min-width:0;">
-        <div style="min-width:0">
-          <div style="font-weight:700;color:var(--accent-bronze); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Limited availability this month</div>
-          <div style="font-size:1.4rem;font-weight:700;color:var(--accent-gold)"><span id="spots-remaining">17</span> spots remaining</div>
-        </div>
-        <div style="min-width:220px; width: 100%; max-width:420px;">
-          <div style="background:rgba(0,0,0,0.25);border-radius:8px;height:12px;overflow:hidden;border:1px solid rgba(212,175,55,0.12)">
-            <div class="progress-bar" style="height:100%;width:87%;background:linear-gradient(90deg,var(--accent-bronze),var(--accent-gold));transition:width 1s ease-in-out;"></div>
+  <div class="container" role="main" aria-labelledby="page-title">
+    <!-- Polished Opening Banner -->
+    <div style="background: linear-gradient(90deg, rgba(184,134,47,0.12), rgba(212,175,55,0.06)); border-radius:12px; padding:18px; margin-bottom:14px; border:1px solid rgba(212,175,55,0.06);">
+      <div style="display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+        <div style="flex:1; min-width:0;">
+          <div style="font-weight:800; color:var(--accent-gold); font-size:1.08rem; line-height:1.2;">
+            Crafted personally for you — an exclusive, one-time invitation to receive human-crafted psychological guidance that reads your life like a trusted companion. This is the kind of help you will wish you had sooner — don't let this chance pass without trying it.
           </div>
-          <div style="display:flex;justify-content:space-between;font-size:0.9rem;color:var(--muted);margin-top:6px">
-            <span id="percent-filled">87% filled</span>
-            <span>Spots close in: <span id="countdown">23:59:59</span></span>
+          <div style="margin-top:8px; color:var(--muted); font-size:0.95rem;">
+            PhD psychologists read and respond to your words directly. This is not a generic plan — it's personalized human care for your work, relationships, health, and inner life.
+          </div>
+        </div>
+
+        <div style="min-width:180px; width:200px; text-align:center;">
+          <div style="height:10px; background:rgba(0,0,0,0.25); border-radius:6px; overflow:hidden; border:1px solid rgba(212,175,55,0.06);">
+            <div style="height:100%; width:87%; background:linear-gradient(90deg,var(--accent-bronze),var(--accent-gold));"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <header>
+    <header class="fade-in-up">
       <div class="brand" aria-hidden="false">
         <div class="logo" aria-hidden="true">
           <svg viewBox="0 0 32 32" fill="none" width="48" height="48" aria-hidden="true">
@@ -262,621 +233,618 @@
             <path d="M8 16c0-4 3-7 7-7s7 3 7 7-3 7-7 7" stroke="#d4af37" stroke-width="1.8"/>
           </svg>
         </div>
-        <div style="min-width:0">
-          <h1 id="main-title">The Quiet Companion</h1>
-          <p style="margin-top:6px; text-align:left;">Your personal growth architect — analyzing your unique data to eliminate negativity and amplify your strengths</p>
+        <div style="min-width:0;">
+          <h1 id="page-title">Your Personal Growth Architect</h1>
+          <p>PhD psychologists who transform your words into daily, human-crafted guidance — for career, health, relationships, and inner peace.</p>
         </div>
       </div>
 
-      <div class="meta" aria-hidden="true" style="text-align:right; min-width:0">
-        <div class="pill">Psychologist-Crafted · Data-Powered · Daily Transformation</div>
-        <div class="badge" style="margin-top:8px">Trusted by 28,500+ professionals in US & EU</div>
+      <div class="meta" aria-hidden="true" style="text-align:right; min-width:0;">
+        <div class="pill">PhD Psychologists · Human-Crafted · Bank-Grade Privacy</div>
+        <div class="badge" style="margin-top:8px;">Trusted by professionals across US & EU</div>
       </div>
     </header>
 
     <div class="hero" role="region" aria-label="Intro">
       <div>
-        <div class="eyebrow">Your Personal Growth Architect Awaits</div>
-        <h2 class="title">Your data becomes your transformation</h2>
-        <p class="lead">Every message is crafted by licensed psychologists who analyze <strong style="color:var(--accent-gold)">your personal writing</strong> to identify your unique strengths and build guidance that eliminates negativity.</p>
-        <div class="accent-note" aria-live="polite">This isn't generic advice. Our experts analyze what <em>you</em> share to create messages that dissolve your specific frustrations while strengthening your natural abilities. <strong style="color:var(--accent-gold)">Your data stays private. Your growth is permanent.</strong></div>
+        <div class="eyebrow">A human guide that reads you</div>
+        <h2 class="title title-underline">Turn your words into lasting change</h2>
+        <p class="lead">Every message is written by licensed psychologists who listen to your language, identify the root patterns, and design short, powerful steps that reshape how you feel and act across life domains.</p>
+        <div class="accent-note">
+          This is highly-personalized care — not an algorithm. We preserve your privacy, read your unique story, and reply with the kind of clarity and compassion you'd expect from an expert who truly knows you.
+        </div>
       </div>
 
-      <aside class="card" aria-labelledby="cta-title" style="position:relative;padding:22px;border-radius:12px;background:linear-gradient(160deg,#0f0f0f,#181818);border:1px solid rgba(212,175,55,0.12);box-shadow:0 15px 40px rgba(0,0,0,0.5);">
-        <div style="position:absolute;top:-12px;right:-12px;background:linear-gradient(135deg,var(--accent-red),#cc0000);width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(255,77,77,0.4);border:3px solid var(--card)">
-          <div style="font-family:'Cormorant Garamond',serif;color:white;font-weight:700;text-align:center;line-height:1">365<br>Days</div>
+      <aside style="background:linear-gradient(160deg,#0f0f0f,#181818);padding:22px;border-radius:12px;border:1px solid rgba(212,175,55,0.08);box-shadow:0 12px 40px rgba(0,0,0,0.5);">
+        <div style="position:relative;">
+          <div style="position:absolute; top:-12px; right:-12px; width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--accent-red),#cc0000); display:flex; align-items:center; justify-content:center; box-shadow:0 0 18px rgba(255,77,77,0.3); border:3px solid #121212;">
+            <div style="font-family:'Cormorant Garamond', serif; color:white; font-weight:700; text-align:center;">365<br>Days</div>
+          </div>
+          <small style="color:var(--accent-bronze); display:block; margin-bottom:8px; font-weight:600;">Begin your transformation</small>
+          <h3 id="cta-title" style="margin:0 0 8px 0;">Activate your private psychological architect</h3>
+          <p style="color:#d0d0d0; line-height:1.6; margin-bottom:12px;">Complete a short onboarding — our experts will analyze your responses and deliver the first personalized message focused on practical, lasting change.</p>
+
+          <div style="background:rgba(0,0,0,0.36); border-left:3px solid var(--accent-gold); padding:12px; border-radius:8px;">
+            <strong style="color:var(--accent-gold);display:block;margin-bottom:6px;">An investment that compounds</strong>
+            <div style="color:#e6e6e6; line-height:1.5;">Human expertise that integrates with your life — decisions, relationships, health, and inner ease — at a price far lower than one costly mistake avoided.</div>
+          </div>
+
+          <a class="cta" href="#onboarding-form" id="register-link" style="margin-top:12px; display:inline-block;">Begin Your Transformation</a>
+
+          <p style="color:#d0d0d0; margin-top:12px; text-align:center;"><strong style="color:var(--accent-gold)">Your privacy is sacred:</strong> Data is encrypted and analyzed only by vetted psychologists. You retain full control and can delete your data anytime.</p>
         </div>
-
-        <small style="color:var(--accent-bronze);display:block;margin-bottom:8px;font-weight:600">Begin your transformation</small>
-        <h3 id="cta-title" style="margin:0 0 8px 0">Activate Your Personal Growth Architect</h3>
-        <p style="color:#d0d0d0;line-height:1.6;margin-bottom:12px">Complete a 5-minute onboarding. Our psychologists will analyze your responses to build your first personalized message within 24 hours.</p>
-
-        <div style="background:rgba(0,0,0,0.4);border-left:3px solid var(--accent-gold);padding:12px;border-radius:8px;margin:12px 0;">
-          <strong style="color:var(--accent-gold);display:block;margin-bottom:6px">For less than a piece of cake that vanishes in 5 minutes...</strong>
-          <div style="color:#e6e6e6;line-height:1.5">Our psychologists provide your lifelong transformation — analyzing personal data to eliminate negativity and amplify your positive traits across life domains.</div>
-        </div>
-
-        <a class="cta" href="#onboarding-form" id="register-link" aria-label="Begin your transformation journey - opens secure onboarding form" style="display:inline-flex;align-items:center;gap:12px;padding:12px 18px;border-radius:10px;background:linear-gradient(135deg,var(--accent-red),#cc0000);color:white;text-decoration:none;border:2px solid var(--accent-red);font-weight:800;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v20" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/><path d="M5 9c1.333-2 4-3 7-3s5.667 1 7 3" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/></svg>
-          Begin Your Transformation
-        </a>
-
-        <p style="color:#d0d0d0;margin-top:12px;text-align:center"> <strong style="color:var(--accent-gold)">Your privacy is sacred:</strong> Data is encrypted and analyzed only by vetted psychologists. You own your information — delete anytime.</p>
       </aside>
     </div>
 
-    <!-- ONBOARDING FORM - questions 1..17 arranged in qa-row rectangles -->
-    <form id="onboarding-form" class="onboard" name="onboarding" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-labelledby="main-title" role="form" style="margin-top:18px; min-width:0;">
+    <!-- ===== ONBOARDING FORM: Questions 1..17 ===== -->
+    <form id="onboarding-form" name="onboarding" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-labelledby="page-title" role="form" style="margin-top:18px;">
       <input type="hidden" name="form-name" value="onboarding">
       <input type="text" name="bot-field" style="display:none" aria-hidden="true">
       <input type="hidden" id="payment-status" name="payment_status" value="pending">
+      <input type="hidden" id="payment-verified-token" name="payment_verified_token" value="">
 
       <!-- Q1 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">1) In the quiet moments when no one sees you, what part of your life feels most stretched?</div>
-          <div class="hint">(Be gentle with yourself. This is where your transformation begins.)</div>
+          <div class="field-label">1) In the quiet moments, which part of your life feels most stretched — where the strain is private and persistent?</div>
+          <div class="hint">(Be honest: work pressure, caretaking, health, or the relationships that quietly drain you.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="change_needed" name="change_needed" data-timer="600" placeholder="I often tell myself: 'This is just how life is' about..." aria-describedby="count-change_needed"></textarea>
+          <textarea id="change_needed" name="change_needed" placeholder="When I am alone I feel..."></textarea>
           <div class="char-count" id="count-change_needed">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-change_needed">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q2 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">2) What pattern keeps returning like an old friend you've outgrown?</div>
-          <div class="hint">(Notice without judgment.)</div>
+          <div class="field-label">2) Which recurring pattern do you recognize in yourself — the one that shows up when things get hard?</div>
+          <div class="hint">(E.g., overworking to prove worth, avoiding conflict, numbing with food/alcohol, or shrinking to keep the peace.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="repeating_pattern" name="repeating_pattern" data-timer="600" placeholder="When I'm stressed, I notice myself..." aria-describedby="count-repeating_pattern"></textarea>
+          <textarea id="repeating_pattern" name="repeating_pattern" placeholder="A pattern I keep repeating is..."></textarea>
           <div class="char-count" id="count-repeating_pattern">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-repeating_pattern">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q3 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">3) What does your inner voice whisper when things feel heavy?</div>
-          <div class="hint">(The 3 AM sentence.)</div>
+          <div class="field-label">3) What does your inner voice most often tell you in moments of doubt?</div>
+          <div class="hint">(Share the phrase that surfaces — it helps us unpick the thinking that undermines you.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="inner_voice" name="inner_voice" data-timer="600" placeholder="My inner voice says: 'If I stop, everything will fall apart...'" aria-describedby="count-inner_voice"></textarea>
+          <textarea id="inner_voice" name="inner_voice" placeholder="My inner voice often says..."></textarea>
           <div class="char-count" id="count-inner_voice">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-inner_voice">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q4 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">4) What true thing about yourself do you forget when the world gets loud?</div>
-          <div class="hint">(A strength or value that grounds you.)</div>
+          <div class="field-label">4) Which truth about yourself do you forget when life gets noisy — a strength you want reminded of?</div>
+          <div class="hint">(A quality, value, or memory that grounds and steadies you.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="forgotten_truth" name="forgotten_truth" data-timer="600" placeholder="When I'm centered, I remember: I am..." aria-describedby="count-forgotten_truth"></textarea>
+          <textarea id="forgotten_truth" name="forgotten_truth" placeholder="When I remember I am..."></textarea>
           <div class="char-count" id="count-forgotten_truth">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-forgotten_truth">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q5 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">5) What truth lives in your heart but rarely leaves your lips?</div>
-          <div class="hint">(A private desire, fear, or dream.)</div>
+          <div class="field-label">5) What is one honest thing in your heart you rarely say out loud?</div>
+          <div class="hint">(A desire, fear, or dream you hold privately — sharing it helps us tailor safety and growth.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="unsaid_truth" name="unsaid_truth" data-timer="600" placeholder="If I could whisper one thing no one knows: 'I secretly long for...'" aria-describedby="count-unsaid_truth"></textarea>
+          <textarea id="unsaid_truth" name="unsaid_truth" placeholder="If I could whisper one thing, it would be..."></textarea>
           <div class="char-count" id="count-unsaid_truth">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-unsaid_truth">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q6 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">6) How do you wish to feel in your body and heart this month — beyond achievements?</div>
-          <div class="hint">(Being-focused answers.)</div>
+          <div class="field-label">6) How would you most like to feel in your body and heart this month — beyond achievements?</div>
+          <div class="hint">(E.g., steadier, calmer, more energized, less reactive.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="desired_feeling" name="desired_feeling" data-timer="600" placeholder="I want to feel... when I wake up, at work, with loved ones, and before sleep." aria-describedby="count-desired_feeling"></textarea>
+          <textarea id="desired_feeling" name="desired_feeling" placeholder="I want to feel..."></textarea>
           <div class="char-count" id="count-desired_feeling">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-desired_feeling">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q7 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">7) What kind of presence would truly help you right now?</div>
-          <div class="hint">(Calm mirror, micro-steps, or gentle reminders?)</div>
+          <div class="field-label">7) What kind of presence would truly help you — the voice, tone, or approach that would feel safe and motivating?</div>
+          <div class="hint">(A steady mirror, short practical tasks, warm accountability, firm boundaries, or compassionate listening?)</div>
         </div>
         <div class="text-box right">
-          <textarea id="support_style" name="support_style" data-timer="600" placeholder="When I'm struggling, I need..." aria-describedby="count-support_style"></textarea>
+          <textarea id="support_style" name="support_style" placeholder="The presence I need looks like..."></textarea>
           <div class="char-count" id="count-support_style">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-support_style">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q8 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">8) How should your daily message feel when it meets you?</div>
-          <div class="hint">(Friendlike, mentorlike, companionlike?)</div>
+          <div class="field-label">8) When your daily message arrives, how should it land — gentle nudge, coaching prompt, or deep reflection?</div>
+          <div class="hint">(Tell us the tone and length you respond to best.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="message_feel" name="message_feel" data-timer="600" placeholder="I want messages that feel like..." aria-describedby="count-message_feel"></textarea>
+          <textarea id="message_feel" name="message_feel" placeholder="I prefer messages that are..."></textarea>
           <div class="char-count" id="count-message_feel">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-message_feel">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q9 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">9) What words or approaches make you close your heart?</div>
-          <div class="hint">(Boundaries & triggers.)</div>
+          <div class="field-label">9) Are there words, phrases, or approaches that close you down or feel harmful?</div>
+          <div class="hint">(Name what to avoid so our messages always land as helpful, not hurtful.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="red_lines" name="red_lines" data-timer="600" placeholder="Please never say: 'Just think positive' or 'You should be grateful' because..." aria-describedby="count-red_lines"></textarea>
+          <textarea id="red_lines" name="red_lines" placeholder="Please avoid saying..."></textarea>
           <div class="char-count" id="count-red_lines">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-red_lines">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q10 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">10) What sacred space do you need to protect this month to feel whole?</div>
-          <div class="hint">(A morning ritual, an hour, a boundary.)</div>
+          <div class="field-label">10) What small sacred space would you protect this month to feel steadier?</div>
+          <div class="hint">(A morning routine, a weekly boundary, or 20 minutes for yourself — what matters most?)</div>
         </div>
         <div class="text-box right">
-          <textarea id="protect_this_month" name="protect_this_month" data-timer="600" placeholder="This month, I commit to protecting..." aria-describedby="count-protect_this_month"></textarea>
+          <textarea id="protect_this_month" name="protect_this_month" placeholder="This month, I will protect..."></textarea>
           <div class="char-count" id="count-protect_this_month">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-protect_this_month">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q11 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">11) What happens inside you just before you want to give up?</div>
-          <div class="hint">(Physical sensations or looping thoughts.)</div>
+          <div class="field-label">11) What signals within you tell you you're nearing burnout or surrender?</div>
+          <div class="hint">(Physical sensations, repetitive thoughts, or behaviors — recognizing them helps us intercept earlier.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="before_stopping" name="before_stopping" data-timer="600" placeholder="When I'm about to stop trying, I notice..." aria-describedby="count-before_stopping"></textarea>
+          <textarea id="before_stopping" name="before_stopping" placeholder="I notice these signs before I give up..."></textarea>
           <div class="char-count" id="count-before_stopping">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-before_stopping">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q12 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">12) What might you lose if your life actually becomes easier?</div>
-          <div class="hint">(Fears about identity, role, or change.)</div>
+          <div class="field-label">12) If your life became easier, what would you fear losing?</div>
+          <div class="hint">(Identity, role, sympathy from others — naming this clarifies hidden resistance to change.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="fear_of_improvement" name="fear_of_improvement" data-timer="600" placeholder="If things improve, I worry I might lose..." aria-describedby="count-fear_of_improvement"></textarea>
+          <textarea id="fear_of_improvement" name="fear_of_improvement" placeholder="If things improve, I might lose..."></textarea>
           <div class="char-count" id="count-fear_of_improvement">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-fear_of_improvement">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q13 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">13) Beyond what you do, how do you want to experience each day?</div>
-          <div class="hint">(The inner landscape you desire.)</div>
+          <div class="field-label">13) Beyond tasks and goals — how would you like to experience an ordinary day?</div>
+          <div class="hint">(Describe the inner tone you want: curiosity, calm, clarity, playful energy.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="how_to_feel" name="how_to_feel" data-timer="600" placeholder="Day by day, I want to feel..." aria-describedby="count-how_to_feel"></textarea>
+          <textarea id="how_to_feel" name="how_to_feel" placeholder="Day by day, I want to feel..."></textarea>
           <div class="char-count" id="count-how_to_feel">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-how_to_feel">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q14 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">14) (Optional) One truth about you that anchors your soul</div>
-          <div class="hint">(A phrase or memory that anchors you.)</div>
+          <div class="field-label">14) (Optional) Name one truth about you that anchors your soul.</div>
+          <div class="hint">(A phrase, memory, or value — we'll gently remind you of this when shadows fall.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="never_forget" name="never_forget" data-timer="600" placeholder="No matter what happens, never forget: I am..." aria-describedby="count-never_forget"></textarea>
+          <textarea id="never_forget" name="never_forget" placeholder="No matter what happens, I am..."></textarea>
           <div class="char-count" id="count-never_forget">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-never_forget">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q15 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
           <div class="field-label">15) (Optional) What small brave step calls to your heart this month?</div>
-          <div class="hint">(A gentle courageous action.)</div>
+          <div class="hint">(Not dramatic — a small act you can accomplish to shift momentum.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="bold_step" name="bold_step" data-timer="600" placeholder="This month, I'd like to gently try..." aria-describedby="count-bold_step"></textarea>
+          <textarea id="bold_step" name="bold_step" placeholder="This month I will try..."></textarea>
           <div class="char-count" id="count-bold_step">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-bold_step">⏱ 10:00</div>
         </div>
       </div>
 
       <!-- Q16 -->
-      <div class="qa-row">
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
-          <div class="field-label">16) (Optional) What words or topics need gentle handling?</div>
-          <div class="hint">(Trauma, loss, health struggles, etc.)</div>
+          <div class="field-label">16) (Optional) Are there topics we should treat with extra care?</div>
+          <div class="hint">(Trauma, serious illness, loss — telling us helps avoid harm and keep tone safe.)</div>
         </div>
         <div class="text-box right">
-          <textarea id="triggers" name="triggers" data-timer="600" placeholder="Please be careful with: grief around... or anxiety about..." aria-describedby="count-triggers"></textarea>
+          <textarea id="triggers" name="triggers" placeholder="Please be careful with..."></textarea>
           <div class="char-count" id="count-triggers">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-triggers">⏱ 10:00</div>
         </div>
       </div>
 
-      <!-- Q17 (open free-text) placed directly after Q16 -->
-      <div class="qa-row">
+      <!-- Q17 -->
+      <div class="qa-row fade-in-up">
         <div class="text-box left">
           <div class="field-label">17) In your own words, what feels most urgent to heal or transform right now?</div>
-          <div class="hint">No limits — write freely. Our psychologists read every word with care.</div>
+          <div class="hint">No constraints — write freely. Our experts will read every word and respond with care and actionable insight for your life.</div>
         </div>
         <div class="text-box right">
-          <textarea id="priority_open_reflection" name="priority_open_reflection" data-timer="900" placeholder="If I could be completely honest right now..." aria-describedby="count-priority_open_reflection" style="min-height:220px;"></textarea>
+          <textarea id="priority_open_reflection" name="priority_open_reflection" placeholder="If I could say it plainly right now..."></textarea>
           <div class="char-count" id="count-priority_open_reflection">0 characters | 0 words</div>
-          <div class="timer-count" id="timer-priority_open_reflection">⏱ 15:00</div>
         </div>
       </div>
 
       <!-- Personal details -->
-      <div class="grid-2" style="margin-top:16px;">
-        <div>
-          <div class="text-box">
-            <div class="field-label" style="text-align:left;">Your name (or the name that feels most like home)</div>
-            <input id="name" name="name" type="text" placeholder="What name feels most true when you hear it?">
-          </div>
+      <div class="grid-2 fade-in-up" style="margin-top:16px;">
+        <div class="text-box">
+          <div class="field-label" style="text-align:left;">Your name (or the name that feels most like home)</div>
+          <input id="name" name="name" type="text" placeholder="The name that feels true to you" required>
         </div>
-        <div>
-          <div class="text-box">
-            <div class="field-label" style="text-align:left;">Your private email</div>
-            <input id="email" name="email" type="email" placeholder="Where your messages will arrive, encrypted and secure">
-          </div>
+        <div class="text-box">
+          <div class="field-label" style="text-align:left;">Your private email</div>
+          <input id="email" name="email" type="email" placeholder="Where your messages will arrive (encrypted)" required>
         </div>
       </div>
 
-      <div class="grid-2" style="margin-top:12px;">
-        <div>
-          <div class="text-box">
-            <div class="field-label" style="text-align:left;">Your time zone / city</div>
-            <input id="timezone" name="timezone" type="text" placeholder="e.g., New York, London, Berlin">
-          </div>
+      <div class="grid-2 fade-in-up" style="margin-top:12px;">
+        <div class="text-box">
+          <div class="field-label" style="text-align:left;">Your time zone / city</div>
+          <input id="timezone" name="timezone" type="text" placeholder="e.g., New York, London, Berlin">
         </div>
-        <div>
-          <div class="text-box">
-            <div class="field-label" style="text-align:left;">When would you like your message to arrive?</div>
-            <select id="delivery_time" name="delivery_time">
-              <option>Morning (before the world demands your attention)</option>
-              <option>Midday (a sacred pause in the storm)</option>
-              <option>Evening (to reflect and release the day)</option>
-              <option>Flexible — meet me when I need you most</option>
-            </select>
-          </div>
+        <div class="text-box">
+          <div class="field-label" style="text-align:left;">Preferred delivery window</div>
+          <select id="delivery_time" name="delivery_time">
+            <option>Morning — a quiet moment before the day</option>
+            <option>Midday — a grounding pause</option>
+            <option>Evening — reflection and release</option>
+            <option>Flexible — send when it will help most</option>
+          </select>
         </div>
       </div>
 
-      <div style="margin-top:14px;">
-        <div class="text-box" style="display:flex;flex-direction:column;gap:10px;align-items:center;">
-          <div class="field-label" style="text-align:center;">How often would you like this gentle companionship?</div>
-          <div class="hint" style="text-align:center;">(Like tending a garden, small daily care creates deep roots.)</div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
-            <label class="chip" style="display:inline-flex;align-items:center;gap:8px;"><input type="radio" name="frequency" value="daily" checked> Daily</label>
-            <label class="chip" style="display:inline-flex;align-items:center;gap:8px;"><input type="radio" name="frequency" value="every-other-day"> Every other day</label>
-            <label class="chip" style="display:inline-flex;align-items:center;gap:8px;"><input type="radio" name="frequency" value="three-times-week"> Three times weekly</label>
-          </div>
+      <div class="text-box fade-in-up" style="display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:14px;">
+        <div class="field-label" style="text-align:center;">How often would you like this gentle companionship?</div>
+        <div class="hint" style="text-align:center;">You can always change this later — small consistent contact often creates the deepest change.</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+          <label style="display:inline-flex;align-items:center;gap:8px;"><input type="radio" name="frequency" value="daily" checked> Daily</label>
+          <label style="display:inline-flex;align-items:center;gap:8px;"><input type="radio" name="frequency" value="every-other-day"> Every other day</label>
+          <label style="display:inline-flex;align-items:center;gap:8px;"><input type="radio" name="frequency" value="three-times-week"> Three times weekly</label>
         </div>
       </div>
 
       <!-- Payment -->
-      <div class="payment-section" style="margin-top:16px;">
+      <div class="payment-section fade-in-up" style="margin-top:18px;">
         <div id="payment-status-badge" style="display:inline-block;padding:8px 14px;border-radius:18px;background:rgba(255,77,77,0.12);color:var(--accent-red);font-weight:700">Subscription required to send data</div>
         <div style="margin-top:12px;display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <!-- KEEP the Ko-fi link you supplied earlier. This opens Ko-fi in a new tab for payment. -->
           <a id="payment-btn" class="pay-btn" href="https://ko-fi.com/s/cd96925d8f" target="_blank" rel="noopener noreferrer">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="stroke:white;stroke-width:1.4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.5 4.5 3 7.5 3c1.54 0 3.15.67 4.5 1.78C13.35 3.67 14.96 3 16.5 3 19.5 3 22 5.5 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
             Pay $30 Monthly Subscription
           </a>
-          <div style="color:var(--muted);text-align:center;max-width:640px;font-size:0.95rem">
-            <strong>Note:</strong> Your data won't be saved until you complete your subscription. After payment, you'll be redirected back to this page with the submit button activated.
+
+          <div style="display:flex;gap:12px;align-items:center;flex-direction:column;width:100%;max-width:640px;">
+            <div style="color:var(--muted);text-align:center;font-size:0.95rem">
+              <strong>Note:</strong> After you complete the payment on Ko-fi, our server will receive a secure webhook from Ko-fi and mark your email as paid. Once the server confirms payment, the form submit button will unlock automatically. If you prefer, click “I have paid — verify” after completing payment.
+            </div>
+
+            <div style="display:flex;gap:8px;margin-top:6px;">
+              <button id="verify-paid-btn" type="button" class="btn-submit" style="background:linear-gradient(135deg,var(--accent-bronze),var(--accent-gold));">I have paid — verify</button>
+              <button id="manual-check-btn" type="button" class="btn-submit" style="background:linear-gradient(135deg,var(--accent-gold),#ffd27a);">Check payment status</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="consent" style="margin-top:14px;">
-        <p style="color:#d0d0d0;line-height:1.6">
-          <strong style="color:var(--accent-gold)">Your trust is sacred to us:</strong> Your responses are encrypted and analyzed only by our vetted psychologists. We never sell or share your data. You own your information completely — pause, edit, or delete anytime. By submitting, you consent to receive transformational messages at your private email.
+      <div class="consent fade-in-up" style="margin-top:14px; padding:14px; border-radius:10px; background:rgba(12,12,12,0.78); border:1px solid rgba(212,175,55,0.04);">
+        <p style="color:#d0d0d0; line-height:1.6;">
+          <strong style="color:var(--accent-gold)">Your trust is sacred:</strong> Your responses are encrypted and analyzed only by our vetted psychologists. We never sell or share your personal data. You own your information completely — pause, edit, or delete anytime.
           <br><br>
           <span style="color:var(--accent-bronze)">GDPR & CCPA Compliant · Bank-Grade Encryption · PhD Psychologists Only</span>
         </p>
       </div>
 
-      <div class="controls">
+      <div class="controls fade-in-up">
         <button class="btn-submit" id="submit-btn" type="submit" disabled>Complete Your Profile (Payment Required)</button>
       </div>
 
-      <div style="margin-top:14px;text-align:center;color:var(--muted)">Many choose to support this work after experiencing their first messages. Supporters receive occasional bonus reflections and optional 1:1 check-ins with our psychologists.</div>
+      <div style="margin-top:16px; text-align:center; color:var(--muted);">Many members choose to support after experiencing the first messages — supporters receive occasional bonus reflections and optional 1:1 check-ins.</div>
     </form>
 
-    <!-- Success message -->
-    <div id="success-container" style="display:none;margin-top:18px;padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(0,100,45,0.06),rgba(0,0,0,0.12));border:1px solid rgba(0,200,150,0.08)">
-      <h2 style="color:#00ff9d;font-family:'Cormorant Garamond',serif;margin:0 0 8px 0">✓ Transformation Initiated</h2>
-      <p style="margin:0;color:#d0d0d0">Your first personalized message will arrive tomorrow morning. You'll receive daily guidance crafted exclusively from your insights.</p>
-      <p style="color:var(--accent-bronze);margin-top:8px;font-style:italic">Remember: You can pause, edit, or delete your data anytime from your account settings.</p>
+    <!-- Success area (hidden by default) -->
+    <div id="success-container" style="display:none; margin-top:18px; padding:18px; border-radius:12px; background:linear-gradient(180deg, rgba(0,90,45,0.04), rgba(0,0,0,0.06)); border:1px solid rgba(0,200,150,0.06);">
+      <h2 style="color:#00ff9d; font-family:'Cormorant Garamond', serif; margin:0 0 8px 0;">✓ Transformation Initiated</h2>
+      <p style="margin:0; color:#d0d0d0;">Your first personalized message will arrive according to your chosen delivery window. You'll receive human-crafted guidance shaped from your answers.</p>
+      <p style="color:var(--accent-bronze); margin-top:8px; font-style:italic;">You can pause, edit, or delete your data any time from your account settings.</p>
     </div>
 
-    <!-- Footer -->
-    <footer style="margin-top:18px;">
+    <footer style="margin-top:20px;">
       <div style="text-align:center; margin-bottom:10px;">These messages are written by human hands and hearts — not algorithms pretending to care. You are seen. You are not alone.</div>
-      <div style="display:flex;justify-content:center;gap:18px;margin-top:8px;flex-wrap:wrap">
-        <div style="display:flex;align-items:center;gap:8px;color:var(--accent-gold)"><div style="width:28px;height:28px;border-radius:50%;background:rgba(212,175,55,0.12);display:grid;place-items:center">🔒</div><span>Bank-Grade Encryption</span></div>
-        <div style="display:flex;align-items:center;gap:8px;color:var(--accent-gold)"><div style="width:28px;height:28px;border-radius:50%;background:rgba(212,175,55,0.12);display:grid;place-items:center">🧠</div><span>PhD Psychologists Only</span></div>
-        <div style="display:flex;align-items:center;gap:8px;color:var(--accent-gold)"><div style="width:28px;height:28px;border-radius:50%;background:rgba(212,175,55,0.12);display:grid;place-items:center">✨</div><span>100% Human-Crafted</span></div>
+      <div style="display:flex; justify-content:center; gap:18px; flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;color:var(--accent-gold);"><div style="width:28px;height:28px;border-radius:50%;background:rgba(212,175,55,0.12);display:grid;place-items:center">🔒</div><span>Bank-Grade Encryption</span></div>
+        <div style="display:flex;align-items:center;gap:8px;color:var(--accent-gold);"><div style="width:28px;height:28px;border-radius:50%;background:rgba(212,175,55,0.12);display:grid;place-items:center">🧠</div><span>PhD Psychologists Only</span></div>
+        <div style="display:flex;align-items:center;gap:8px;color:var(--accent-gold);"><div style="width:28px;height:28px;border-radius:50%;background:rgba(212,175,55,0.12);display:grid;place-items:center">✨</div><span>100% Human-Crafted</span></div>
       </div>
     </footer>
   </div>
 
-<!-- Optional floating testimonial (left as enhancement) -->
-<div id="floating-testimonial" style="position:fixed;bottom:18px;right:18px;background:rgba(30,25,20,0.96);border-radius:14px;padding:14px;max-width:360px;box-shadow:0 8px 30px rgba(0,0,0,0.6);display:none;">
-  <div style="font-weight:700;color:var(--accent-gold);margin-bottom:6px;">Sarah Mitchell — VP Operations</div>
-  <div style="color:#e6e6e6;font-size:0.95rem;">"After 47 days, I've saved thousands by avoiding one bad decision my psychologist helped me see clearly."</div>
-</div>
+<!--
+  IMPORTANT: Server integration notes (must be implemented on your server)
+  -------------------------------------------------------------------
+  1) Ko-fi Webhook:
+     - Configure a webhook URL in your Ko-fi dashboard (API / Webhooks).
+       When someone completes a subscription or donation, Ko-fi sends a POST JSON payload to your webhook URL.
+     - Your server must verify the webhook (Ko-fi provides a verification token/signature).
+       See Ko-fi docs: they support webhooks and will send event details. 1
+
+  2) Server webhook endpoint (/api/kofi-webhook) behavior:
+     - Receive the POST from Ko-fi.
+     - Verify authenticity (signature/token) per Ko-fi docs.
+     - Extract supporting email (or metadata you used to associate the purchase).
+     - Mark the user's payment-status in your database as 'completed' and create a secure payment verification token (random strong token).
+     - Optionally send a confirmation email to the user.
+     - Store the verification token mapped to that email (expires soon, e.g., 1 hour).
+
+  3) Server verification endpoint (/api/payment-status?email=...):
+     - Accept only POST (or GET with CORS/CSRF protections) from your site.
+     - Lookup email in your database and return JSON: { status: "completed" | "pending" | "failed", token: "<one-time-token-if-completed>" }
+     - Only return token when status is 'completed'. The frontend will use that to populate a hidden form field `payment_verified_token` before final submit.
+     - Protect this endpoint with rate limiting and abuse protections.
+
+  4) Final form submission:
+     - When the frontend receives { status: "completed", token: "..." }:
+         * set payment_status = 'completed'
+         * set #payment-verified-token value = token
+         * enable the submit button
+     - On final form POST (server-side), validate the `payment_verified_token` against stored valid tokens for that email, then accept and persist onboarding data.
+     - Remove/token-invalidate the verification token after use.
+
+  5) Security notes:
+     - Do NOT rely on query params alone to mark a payment as completed. Use Ko-fi webhooks and server-side verification.
+     - Only enable submission after server confirms the webhook and you verify the token server-side on form submission.
+
+  Example server flow can be implemented in Node/Express, PHP, Python, etc. GitHub & community examples exist for Ko-fi webhooks. 2
+-->
 
 <script>
-  // DOM ready
+  // Frontend: UX + secure payment verification polling logic
   document.addEventListener('DOMContentLoaded', function() {
-    // Smooth anchors
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', function(e){
-        const t = document.querySelector(this.getAttribute('href'));
-        if (t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
-      });
+    // Fade in elements
+    document.querySelectorAll('.fade-in-up').forEach((el, i) => {
+      setTimeout(()=> el.classList.add('show'), 120 * i);
     });
+    const titleEl = document.querySelector('.title-underline');
+    if (titleEl) setTimeout(()=> titleEl.classList.add('animate'), 420);
 
-    /* ------------------------------
-       Global countdown (top banner)
-       Starts immediately and updates each second.
-       ------------------------------ */
-    let countdownTime = 24*60*60; // 24 hours in seconds
-    const countdownEl = document.getElementById('countdown');
-    function updateCountdown(){
-      // format and update
-      if (countdownTime <= 0) {
-        countdownTime = 24*60*60; // reset (same behavior as before)
-      }
-      const h = Math.floor(countdownTime/3600);
-      const m = Math.floor((countdownTime%3600)/60);
-      const s = countdownTime%60;
-      if (countdownEl) countdownEl.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-      countdownTime--;
+    // character counters for textareas
+    function updateCounter(el){
+      const chars = el.value.length;
+      const words = el.value.trim() === '' ? 0 : el.value.trim().split(/\s+/).length;
+      const counter = document.getElementById('count-' + el.id);
+      if (counter) counter.textContent = `${chars} characters | ${words} words`;
     }
-    // call once immediately so it's not stuck at initial value, then call every second
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    /* ------------------------------
-       Spots (same as before)
-       ------------------------------ */
-    let spots = 17;
-    const spotsEl = document.getElementById('spots-remaining');
-    const percentEl = document.getElementById('percent-filled');
-    const progressBar = document.querySelector('.progress-bar');
-    function updateSpots(){
-      spots--;
-      if (spots < 1) spots = 42;
-      if (spotsEl) spotsEl.textContent = spots;
-      const perc = Math.round(((42 - spots)/42)*100);
-      if (progressBar) progressBar.style.width = Math.min(perc,95) + '%';
-      if (percentEl) percentEl.textContent = `${perc}% filled`;
-    }
-    setInterval(()=>{ updateSpots(); }, 60000 + Math.random()*120000);
-
-    /* ------------------------------
-       Character counters
-       ------------------------------ */
-    function updateCounter(el) {
-      const charCount = el.value.length;
-      const wordCount = el.value.trim() === '' ? 0 : el.value.trim().split(/\s+/).length;
-      const next = document.getElementById('count-' + el.id);
-      if (next) next.innerText = `${charCount} characters | ${wordCount} words`;
-    }
-
     document.querySelectorAll('textarea[id]').forEach(t => {
-      // initialize counters
       updateCounter(t);
-      t.addEventListener('input', () => updateCounter(t), {passive:true});
-      // optional UX highlight for long answers
-      t.addEventListener('blur', () => {
-        if (t.value.length > 300 && !t.dataset.acked) {
-          t.dataset.acked = '1';
-          t.style.boxShadow = '0 0 0 3px rgba(0,255,157,0.08)';
-          t.style.borderColor = 'rgba(0,255,157,0.6)';
-          setTimeout(()=>{ t.style.boxShadow=''; t.style.borderColor=''; }, 1200);
-        }
-      });
+      t.addEventListener('input', ()=> updateCounter(t), {passive:true});
     });
 
-    /* ------------------------------
-       Robust Per-field countdown timers (global ticker)
-       - Each textarea with data-timer attribute gets a per-field timer (seconds)
-       - Timer displays under corresponding field in element with id "timer-{fieldId}"
-       - Timers start automatically on page load and update every second
-       - When timer reaches 0, it marks the field as expired (visual cue) but DOES NOT erase input
-       - This design ensures timers work reliably across mobile browsers
-       ------------------------------ */
-    const DEFAULT_FIELD_TIMER = 600; // default 10 minutes in seconds
-    const fieldTimers = {}; // id -> remainingSeconds
-    const textareas = Array.from(document.querySelectorAll('textarea[id]'));
-
-    // Initialize timers
-    textareas.forEach(textarea => {
-      const id = textarea.id;
-      const initial = parseInt(textarea.getAttribute('data-timer'), 10);
-      const startVal = (!isNaN(initial) && initial > 0) ? initial : DEFAULT_FIELD_TIMER;
-      fieldTimers[id] = startVal;
-      // ensure visible display matches initial
-      const timerEl = document.getElementById('timer-' + id);
-      if (timerEl) timerEl.textContent = '⏱ ' + formatSecToMMSS(fieldTimers[id]);
-      // remove expired visual if somehow present
-      textarea.classList.remove('expired-field');
-    });
-
-    // Helper to format seconds
-    function formatSecToMMSS(sec) {
-      if (typeof sec !== 'number' || isNaN(sec)) sec = 0;
-      if (sec < 0) sec = 0;
-      const m = Math.floor(sec / 60);
-      const s = sec % 60;
-      return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-    }
-
-    // Global interval updates all field timers once per second
-    const fieldGlobalInterval = setInterval(() => {
-      textareas.forEach(textarea => {
-        const id = textarea.id;
-        if (!(id in fieldTimers)) return;
-        const timerEl = document.getElementById('timer-' + id);
-        let remaining = fieldTimers[id];
-        if (remaining <= 0) {
-          // already expired
-          if (timerEl) timerEl.textContent = '⏱ 00:00 — Time expired';
-          textarea.classList.add('expired-field');
-          return;
-        }
-        // decrement
-        remaining = remaining - 1;
-        fieldTimers[id] = remaining;
-        // update display
-        if (timerEl) {
-          if (remaining <= 0) {
-            timerEl.textContent = '⏱ 00:00 — Time expired';
-            timerEl.classList.add('timer-expired');
-            textarea.classList.add('expired-field');
-          } else {
-            timerEl.textContent = '⏱ ' + formatSecToMMSS(remaining);
-          }
-        }
-      });
-    }, 1000);
-
-    // Also: when user focuses a field, remove expired highlight if they want to continue typing,
-    // but keep the fact that the timer might be 0. This keeps UX consistent across devices.
-    textareas.forEach(textarea => {
-      textarea.addEventListener('focus', () => {
-        const id = textarea.id;
-        const remaining = fieldTimers[id];
-        const timerEl = document.getElementById('timer-' + id);
-        if (remaining <= 0) {
-          if (timerEl) timerEl.textContent = '⏱ 00:00 — Time expired';
-          textarea.classList.add('expired-field');
-        } else {
-          // ensure normal look
-          textarea.classList.remove('expired-field');
-          if (timerEl) timerEl.classList.remove('timer-expired');
-        }
-      });
-      // optional: tapping mobile should also ensure display updates (touchstart)
-      textarea.addEventListener('touchstart', () => {
-        const id = textarea.id;
-        const timerEl = document.getElementById('timer-' + id);
-        if (fieldTimers[id] <= 0) {
-          if (timerEl) timerEl.textContent = '⏱ 00:00 — Time expired';
-          textarea.classList.add('expired-field');
-        }
-      }, {passive:true});
-    });
-
-    /* ------------------------------
-       Payment & form handling (demo)
-       ------------------------------ */
-    const form = document.getElementById('onboarding-form');
+    // Elements
+    const verifyPaidBtn = document.getElementById('verify-paid-btn');
+    const manualCheckBtn = document.getElementById('manual-check-btn');
     const submitBtn = document.getElementById('submit-btn');
     const paymentStatusInput = document.getElementById('payment-status');
+    const paymentVerifiedTokenInput = document.getElementById('payment-verified-token');
     const paymentBadge = document.getElementById('payment-status-badge');
     const emailInput = document.getElementById('email');
-    const successContainer = document.getElementById('success-container');
+    const form = document.getElementById('onboarding-form');
 
-    // check URL params for payment success
-    const params = new URLSearchParams(window.location.search);
-    const payment = params.get('payment');
-    const clientEmail = params.get('email');
-    if (payment === 'success' && clientEmail){
-      if (paymentBadge){ paymentBadge.textContent = '✓ Subscription confirmed'; paymentBadge.style.background = 'rgba(0,200,100,0.12)'; paymentBadge.style.color = '#00ff9d'; }
-      if (submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Begin Your Sacred Transformation'; submitBtn.style.background = 'linear-gradient(135deg,var(--accent-gold),var(--accent-bronze))'; }
-      if (paymentStatusInput) paymentStatusInput.value = 'completed';
-      if (emailInput) emailInput.value = clientEmail;
-      try { alert('Thank you for subscribing! Complete your profile below to receive your first message tomorrow.'); } catch(e){}
+    // Polling logic
+    let pollingHandle = null;
+    const POLL_INTERVAL_MS = 5000; // poll every 5s
+    const MAX_POLL_ATTEMPTS = 36; // ~3 minutes
+
+    async function checkPaymentStatusOnce(email) {
+      // Call your server endpoint to verify payment (server must be implemented)
+      // Expected JSON response: { status: "completed"|"pending"|"failed", token: "<optional-token>" }
+      if (!email) return { error: 'missing-email' };
+      try {
+        const resp = await fetch(`/api/payment-status?email=${encodeURIComponent(email)}`, {
+          method: 'GET',
+          headers: { 'Accept': 'application/json' },
+          credentials: 'same-origin'
+        });
+        if (!resp.ok) {
+          return { error: 'network', status: resp.status };
+        }
+        const data = await resp.json();
+        return data;
+      } catch (err) {
+        return { error: 'fetch-failed', detail: err.message || String(err) };
+      }
     }
 
-    // prevent leaving with unsaved data if payment not completed
-    let formModified = false;
-    document.querySelectorAll('textarea, input[type="text"], input[type="email"], select').forEach(el => el.addEventListener('change', ()=> formModified = true));
-    window.addEventListener('beforeunload', (e) => {
-      if (formModified && paymentStatusInput && paymentStatusInput.value !== 'completed'){
-        e.preventDefault();
-        e.returnValue = 'You have unsaved data. Your responses won\\'t be saved until you complete your subscription.';
-      }
-    });
+    function startPolling(email, onUpdate) {
+      let attempts = 0;
+      if (pollingHandle) clearInterval(pollingHandle);
+      pollingHandle = setInterval(async ()=> {
+        attempts++;
+        const data = await checkPaymentStatusOnce(email);
+        onUpdate(data);
+        if (data && (data.status === 'completed' || attempts >= MAX_POLL_ATTEMPTS)) {
+          clearInterval(pollingHandle);
+          pollingHandle = null;
+        }
+      }, POLL_INTERVAL_MS);
+      // Make an immediate check too
+      (async () => {
+        const data = await checkPaymentStatusOnce(email);
+        onUpdate(data);
+        if (data && (data.status === 'completed')) {
+          if (pollingHandle) { clearInterval(pollingHandle); pollingHandle = null; }
+        }
+      })();
+    }
 
-    if (form){
-      form.addEventListener('submit', function(e){
+    async function handleVerificationClick() {
+      const email = (emailInput && emailInput.value && emailInput.value.trim()) ? emailInput.value.trim() : null;
+      if (!email) {
+        alert('Please enter your email before verifying payment. We use your email to match the Ko-fi payment to your onboarding.');
+        emailInput.focus();
+        return;
+      }
+      // Start polling and inform the user
+      verifyPaidBtn.disabled = true;
+      verifyPaidBtn.textContent = 'Verifying...';
+      startPolling(email, (data) => {
+        if (!data) {
+          verifyPaidBtn.disabled = false;
+          verifyPaidBtn.textContent = 'I have paid — verify';
+          return;
+        }
+        if (data.error) {
+          // network error or server problem
+          verifyPaidBtn.disabled = false;
+          verifyPaidBtn.textContent = 'I have paid — verify';
+          console.warn('Payment check error', data);
+          return;
+        }
+        if (data.status === 'completed') {
+          // Payment confirmed by server
+          paymentBadge.textContent = '✓ Subscription confirmed';
+          paymentBadge.style.background = 'rgba(0,200,100,0.12)';
+          paymentBadge.style.color = '#00ff9d';
+          paymentStatusInput.value = 'completed';
+          if (data.token) {
+            paymentVerifiedTokenInput.value = data.token;
+          }
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Begin Your Sacred Transformation';
+          alert('Payment confirmed — you may now complete your profile and submit.');
+        } else if (data.status === 'pending') {
+          // still pending - keep polling
+          verifyPaidBtn.textContent = 'Verifying... (pending)';
+        } else if (data.status === 'failed') {
+          verifyPaidBtn.disabled = false;
+          verifyPaidBtn.textContent = 'I have paid — verify';
+          alert('Payment appears to have failed. Please check your Ko-fi receipt or try again.');
+        } else {
+          // unknown response
+          verifyPaidBtn.disabled = false;
+          verifyPaidBtn.textContent = 'I have paid — verify';
+        }
+      });
+    }
+
+    async function handleManualCheck() {
+      const email = (emailInput && emailInput.value && emailInput.value.trim()) ? emailInput.value.trim() : null;
+      if (!email) {
+        alert('Please enter your email to check payment status.');
+        emailInput.focus();
+        return;
+      }
+      manualCheckBtn.disabled = true;
+      manualCheckBtn.textContent = 'Checking...';
+      const data = await checkPaymentStatusOnce(email);
+      manualCheckBtn.disabled = false;
+      manualCheckBtn.textContent = 'Check payment status';
+      if (!data) {
+        alert('Unable to check payment status at this time.');
+        return;
+      }
+      if (data.error) {
+        alert('Error checking payment status. Please try again in a moment.');
+        console.warn('Payment status error', data);
+        return;
+      }
+      if (data.status === 'completed') {
+        paymentBadge.textContent = '✓ Subscription confirmed';
+        paymentBadge.style.background = 'rgba(0,200,100,0.12)';
+        paymentBadge.style.color = '#00ff9d';
+        paymentStatusInput.value = 'completed';
+        if (data.token) paymentVerifiedTokenInput.value = data.token;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Begin Your Sacred Transformation';
+        alert('Payment confirmed — you may now complete your profile and submit.');
+      } else if (data.status === 'pending') {
+        alert('Payment is not yet confirmed. Please wait a moment and try again.');
+      } else {
+        alert('Payment not found. Please ensure you completed the Ko-fi checkout. If you did, allow a minute for our server to receive the webhook and then try "I have paid — verify".');
+      }
+    }
+
+    verifyPaidBtn.addEventListener('click', handleVerificationClick);
+    manualCheckBtn.addEventListener('click', handleManualCheck);
+
+    // Form submission validation: ensure server-verified payment token exists if payment_status is completed
+    if (form) {
+      form.addEventListener('submit', async function(e) {
         const paymentStatus = paymentStatusInput ? paymentStatusInput.value : 'pending';
-        const name = (document.getElementById('name')||{}).value || '';
-        const email = (document.getElementById('email')||{}).value || '';
-        if (paymentStatus !== 'completed'){
+        const name = (document.getElementById('name') || {}).value || '';
+        const email = (document.getElementById('email') || {}).value || '';
+        if (paymentStatus !== 'completed') {
           e.preventDefault();
-          alert('Please complete your $30 subscription on Ko-fi first to send your data.');
+          alert('Please complete your $30 subscription on Ko-fi first and verify it using the "I have paid — verify" button.');
           document.querySelector('.payment-section').scrollIntoView({behavior:'smooth'});
           return;
         }
-        if (!name.trim() || !email.trim()){
+        if (!name.trim() || !email.trim()) {
           e.preventDefault();
           alert('Please provide your name and email to begin your transformation.');
           return;
         }
+        // Basic client-side email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email.trim())){
+        if (!emailRegex.test(email.trim())) {
           e.preventDefault();
           alert('Please enter a valid email address.');
           return;
         }
+        // Ensure verification token present
+        const token = paymentVerifiedTokenInput ? paymentVerifiedTokenInput.value : '';
+        if (!token) {
+          e.preventDefault();
+          alert('Payment verified token not found. Please click "I have paid — verify" then submit.');
+          return;
+        }
 
-        // Demo: intercept submit and show success
+        // Note: In production your server must validate the token on final submit.
+        // For demo, we will prevent actual submission and show success
         e.preventDefault();
         form.style.display = 'none';
-        if (successContainer) successContainer.style.display = 'block';
+        const success = document.getElementById('success-container');
+        if (success) success.style.display = 'block';
         window.scrollTo({top:0, behavior:'smooth'});
-        console.log('Form (demo) values:', Object.fromEntries(new FormData(form).entries()));
+        console.log('Form submitted (demo). Values:', Object.fromEntries(new FormData(form).entries()));
       });
     }
 
-    // small UX: update submit button microcopy
-    if (submitBtn){
-      submitBtn.addEventListener('mouseenter', ()=> { submitBtn.textContent = 'You are safe to begin'; });
-      submitBtn.addEventListener('mouseleave', ()=> {
-        submitBtn.textContent = (paymentStatusInput && paymentStatusInput.value === 'completed') ? 'Begin Your Sacred Transformation' : 'Complete Your Profile (Payment Required)';
+    // small UX: clicking Ko-fi link opens separate tab; we remind users
+    const paymentBtn = document.getElementById('payment-btn');
+    if (paymentBtn) {
+      paymentBtn.addEventListener('click', ()=> {
+        setTimeout(()=> {
+          try { alert('Ko-fi has opened in a new tab. Complete payment there, then return here and click "I have paid — verify".'); } catch(e){}
+        }, 300);
       });
     }
 
-    // touchstart passive for mobile UX
-    document.addEventListener('touchstart', ()=>{}, {passive:true});
-
-    // responsive font scaling
-    function adjustFontSize(){ document.documentElement.style.fontSize = window.innerWidth < 480 ? '93%' : '100%'; }
+    // Responsive font scaling
+    function adjustFontSize() { document.documentElement.style.fontSize = window.innerWidth < 480 ? '93%' : '100%'; }
     window.addEventListener('load', adjustFontSize);
     window.addEventListener('resize', adjustFontSize);
   });
 </script>
 </body>
-      </html>
+  </html>
