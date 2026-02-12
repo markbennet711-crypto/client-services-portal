@@ -3,29 +3,14 @@
 <head>
 
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Confidential Psychological Alignment | Mark Benny</title>
-
-<meta name="description" content="Confidential Psychological Alignment Profile. Personalized daily behavioral guidance crafted exclusively under supervision of Mark Benny.">
-<meta name="author" content="Mark Benny">
-
-<!-- Subscription Protection -->
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-    if(!localStorage.getItem("subscription_intent")){
-        window.location.href = "index.html";
-    }
-});
-</script>
+<title>Private Psychological Alignment Intake | Mark Benny</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
-/* GLOBAL RESET */
-
+/* RESET */
 *{
 margin:0;
 padding:0;
@@ -33,76 +18,72 @@ box-sizing:border-box;
 }
 
 /* BODY */
-
 body{
-font-family:'Inter', sans-serif;
-background:radial-gradient(circle at top, #0f172a, #020617 60%);
+font-family:'Inter',sans-serif;
+background:radial-gradient(circle at 20% 20%, #1e293b, #020617 70%);
 color:#ffffff;
-line-height:1.7;
+line-height:1.8;
 }
 
-/* MAIN CONTAINER */
-
-.container{
-max-width:1100px;
-margin:60px auto;
-padding:70px;
-background:rgba(15,23,42,0.97);
-border-radius:28px;
-box-shadow:0 0 80px rgba(0,0,0,0.75);
-animation:fadeIn 1.2s ease;
-}
-
-/* ANIMATION */
-
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(20px);}
-to{opacity:1; transform:translateY(0);}
-}
-
-/* HEADINGS */
-
-h1{
+/* HEADER */
+.header{
 text-align:center;
-font-size:42px;
+padding:60px 20px 30px 20px;
+}
+
+.header h1{
+font-size:44px;
 font-weight:900;
-margin-bottom:20px;
 letter-spacing:1px;
 }
 
-.subtitle{
-text-align:center;
+.header p{
+margin-top:15px;
 color:#94a3b8;
-font-size:18px;
-margin-bottom:50px;
-max-width:850px;
+max-width:800px;
 margin-left:auto;
 margin-right:auto;
 }
 
+/* SECURITY BAR */
+.security-bar{
+margin-top:25px;
+font-size:14px;
+color:#38bdf8;
+}
+
+/* CONTAINER */
+.container{
+max-width:1100px;
+margin:40px auto;
+padding:60px;
+background:rgba(15,23,42,0.96);
+border-radius:28px;
+box-shadow:0 0 90px rgba(0,0,0,0.75);
+}
+
+/* SECTION TITLE */
 .section-title{
-margin-top:70px;
+margin-top:60px;
 font-size:24px;
 font-weight:800;
 color:#38bdf8;
-border-left:5px solid #38bdf8;
-padding-left:15px;
+border-bottom:1px solid #334155;
+padding-bottom:10px;
 }
 
 /* FORM */
-
 label{
 display:block;
 margin-top:35px;
-margin-bottom:12px;
+margin-bottom:10px;
 font-weight:600;
-font-size:16px;
 }
 
 input, textarea{
 width:100%;
 padding:18px;
-border-radius:16px;
+border-radius:14px;
 border:1px solid #334155;
 background:#1e293b;
 color:#fff;
@@ -111,7 +92,7 @@ transition:0.3s;
 }
 
 textarea{
-min-height:170px;
+min-height:180px;
 resize:vertical;
 }
 
@@ -119,10 +100,10 @@ input:focus, textarea:focus{
 background:#334155;
 border-color:#38bdf8;
 outline:none;
+box-shadow:0 0 10px rgba(56,189,248,0.5);
 }
 
 /* BUTTON */
-
 button{
 margin-top:60px;
 width:100%;
@@ -135,29 +116,26 @@ font-size:20px;
 font-weight:800;
 cursor:pointer;
 transition:0.3s;
-box-shadow:0 0 25px rgba(6,182,212,0.5);
+box-shadow:0 0 30px rgba(6,182,212,0.6);
 }
 
 button:hover{
 transform:scale(1.02);
-box-shadow:0 0 40px rgba(6,182,212,0.8);
+box-shadow:0 0 50px rgba(6,182,212,0.9);
 }
 
-/* TRUST BOX */
-
-.trust-box{
+/* TRUST SECTION */
+.trust-section{
 margin-top:60px;
-background:#0f172a;
 padding:30px;
+background:#0f172a;
 border-radius:18px;
+border:1px solid #1e293b;
 font-size:14px;
 color:#94a3b8;
-line-height:1.8;
-border:1px solid #1e293b;
 }
 
 /* FOOTER */
-
 .footer{
 margin-top:40px;
 text-align:center;
@@ -170,96 +148,99 @@ color:#64748b;
 
 <body>
 
-<div class="container">
-
-<h1>Confidential Psychological Alignment Profile</h1>
-
-<p class="subtitle">
-This private psychological intake form is reviewed exclusively by our certified behavioral analysis team under direct supervision of <strong>Mark Benny</strong>.
-Your responses allow us to craft a single, highly personalized daily message aligned with your emotional architecture, internal dialogue, and personal aspirations.
+<div class="header">
+<h1>Confidential Psychological Alignment Intake</h1>
+<p>
+This secure intake form allows our behavioral analysis team, under direct supervision of <strong>Mark Benny</strong>,
+to construct a precision-calibrated daily message aligned with your cognitive patterns, emotional structure,
+decision-making biases, and aspirational identity.
 </p>
+<div class="security-bar">
+🔒 Encrypted Submission | 🔐 Confidential Review | 🛡 No Data Sharing
+</div>
+</div>
+
+<div class="container">
 
 <form action="https://formsubmit.co/Markbennet711@gmail.com" method="POST">
 
-<input type="hidden" name="_subject" value="New Confidential Psychological Profile Submission">
+<input type="hidden" name="_subject" value="New Confidential Client Intake">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="thankyou.html">
 
-<div class="section-title">Personal Information</div>
+<div class="section-title">Identity & Delivery Preferences</div>
 
 <label>Full Legal Name</label>
 <input type="text" name="Full Name" required>
 
-<label>Primary Email Address (Where Your Daily Message Will Be Delivered)</label>
-<input type="email" name="Email Address" required>
+<label>Primary Email Address</label>
+<input type="email" name="Client Email" required>
 
-<label>Preferred Time (Your Local Time Zone) to Receive Your Daily Personalized Message</label>
-<input type="time" name="Preferred Delivery Time" required>
+<label>Preferred Daily Delivery Time (Local Time Zone)</label>
+<input type="time" name="Delivery Time" required>
 
 <div class="section-title">Deep Psychological Alignment Assessment</div>
 
-<label>1. What thoughts do you repeatedly experience but rarely express openly?</label>
+<label>1. What internal dialogue repeats most often inside your mind?</label>
 <textarea name="Q1" required></textarea>
 
-<label>2. What emotional burden feels heaviest in your current life phase?</label>
+<label>2. What emotional weight are you currently carrying silently?</label>
 <textarea name="Q2" required></textarea>
 
-<label>3. Which fear silently influences your major decisions?</label>
+<label>3. Which fear subtly shapes your long-term decisions?</label>
 <textarea name="Q3" required></textarea>
 
-<label>4. Who would you become if judgment no longer existed?</label>
+<label>4. If external judgment disappeared, who would you allow yourself to become?</label>
 <textarea name="Q4" required></textarea>
 
-<label>5. What unresolved past event still affects your self-confidence?</label>
+<label>5. What past experience still impacts your present confidence?</label>
 <textarea name="Q5" required></textarea>
 
-<label>6. What deep desire do you suppress to maintain stability?</label>
+<label>6. What deep ambition do you rarely express publicly?</label>
 <textarea name="Q6" required></textarea>
 
-<label>7. When do you feel most connected to your authentic self?</label>
+<label>7. In what moments do you feel most aligned with your authentic self?</label>
 <textarea name="Q7" required></textarea>
 
-<label>8. What specific situations trigger emotional imbalance?</label>
+<label>8. What recurring situation triggers emotional instability?</label>
 <textarea name="Q8" required></textarea>
 
-<label>9. Which area of your life currently feels unstable or uncertain?</label>
+<label>9. Which area of your life currently feels unstable?</label>
 <textarea name="Q9" required></textarea>
 
-<label>10. What strength do others see in you that you often overlook?</label>
+<label>10. What strength do others recognize in you that you undervalue?</label>
 <textarea name="Q10" required></textarea>
 
-<label>11. What recurring behavioral pattern limits your growth?</label>
+<label>11. What behavioral pattern limits your evolution?</label>
 <textarea name="Q11" required></textarea>
 
-<label>12. Which relationship most impacts your psychological stability?</label>
+<label>12. Which relationship most influences your emotional state?</label>
 <textarea name="Q12" required></textarea>
 
-<label>13. Define success in your own words — emotionally and practically.</label>
+<label>13. Define personal success beyond money or status.</label>
 <textarea name="Q13" required></textarea>
 
-<label>14. What negative internal narrative would you permanently delete?</label>
+<label>14. What recurring negative belief would you eliminate permanently?</label>
 <textarea name="Q14" required></textarea>
 
-<label>15. If one internal wound could heal instantly, what would it be?</label>
+<label>15. If one emotional wound healed today, what would change?</label>
 <textarea name="Q15" required></textarea>
 
-<label>16. What motivates you deeply when external validation disappears?</label>
+<label>16. What motivates you deeply when no one validates you?</label>
 <textarea name="Q16" required></textarea>
 
-<label>17. What emotional tone should your daily message carry to truly resonate with you? (Direct, Gentle, Strategic, Motivational, Analytical, etc.)</label>
+<label>17. What emotional tone should your daily guidance message carry to resonate fully with you?</label>
 <textarea name="Q17" required></textarea>
 
-<button type="submit">Secure My Personalized Daily Guidance</button>
+<button type="submit">Secure My Personalized Daily Alignment</button>
 
 </form>
 
-<div class="trust-box">
-Your data is transmitted securely via encrypted form submission.
-We do not share, sell, or distribute personal psychological information.
-Each submission is reviewed manually.
-You will receive one structured daily message only — no promotional spam.
-For support inquiries: Markbennet711@gmail.com
+<div class="trust-section">
+All submissions are securely transmitted and reviewed manually.
+We never sell or distribute psychological data.
+You will receive only one calibrated message per day.
+Support: Markbennet711@gmail.com
 </div>
 
 <div class="footer">
