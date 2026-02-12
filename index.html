@@ -3,32 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Personal Life Companion</title>
+<title>Mark Bennett | Your Personal Growth Architect</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+
+/* ===============================
+   GLOBAL RESET
+================================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
 body{
-background:#020617;
-color:#fff;
+background:#050814;
+color:#ffffff;
+line-height:1.7;
 overflow-x:hidden;
 }
 
-/* Trust Bar */
-.trust-bar{
-position:fixed;
-top:0;
-width:100%;
-background:#0f172a;
-padding:10px;
-text-align:center;
-font-size:14px;
-color:#94a3b8;
-z-index:1000;
-border-bottom:1px solid rgba(255,255,255,0.05);
-}
-
-/* Sections */
 section{
 padding:120px 20px;
 max-width:1200px;
@@ -36,65 +34,114 @@ margin:auto;
 position:relative;
 }
 
+h1,h2,h3{
+font-weight:800;
+}
+
+p{
+color:#cbd5e1;
+}
+
+a{
+text-decoration:none;
+}
+
+/* ===============================
+   TRUST BAR
+================================= */
+
+.trust-bar{
+position:fixed;
+top:0;
+width:100%;
+background:#0f172a;
+padding:12px;
+text-align:center;
+font-size:14px;
+color:#94a3b8;
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+/* ===============================
+   HERO
+================================= */
+
 .hero{
 padding-top:180px;
 text-align:center;
-background:linear-gradient(rgba(2,6,23,0.8),rgba(2,6,23,0.95)),
-url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
+background:linear-gradient(rgba(5,8,20,0.85),rgba(5,8,20,0.95)),
+url('https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1600&q=80');
 background-size:cover;
-background-attachment:fixed;
 background-position:center;
+background-attachment:fixed;
 }
 
 .hero h1{
-font-size:56px;
-font-weight:800;
-line-height:1.2;
+font-size:60px;
 background:linear-gradient(90deg,#3b82f6,#8b5cf6);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.hero p{
-margin-top:25px;
-font-size:22px;
+.hero h2{
+margin-top:10px;
+font-size:28px;
+font-weight:600;
 color:#cbd5e1;
-max-width:850px;
-margin:auto;
+}
+
+.hero p{
+margin-top:30px;
+font-size:22px;
+max-width:900px;
+margin-left:auto;
+margin-right:auto;
 }
 
 .cta-btn{
 display:inline-block;
-margin-top:40px;
-padding:18px 55px;
+margin-top:45px;
+padding:18px 60px;
 font-size:20px;
 font-weight:600;
+border-radius:50px;
 background:linear-gradient(90deg,#3b82f6,#6366f1);
 color:#fff;
-text-decoration:none;
-border-radius:50px;
 transition:0.4s;
-box-shadow:0 0 30px rgba(99,102,241,0.4);
+box-shadow:0 0 35px rgba(99,102,241,0.4);
 }
 
 .cta-btn:hover{
-transform:translateY(-5px);
-box-shadow:0 0 60px rgba(99,102,241,0.7);
+transform:translateY(-6px);
+box-shadow:0 0 65px rgba(99,102,241,0.7);
 }
 
-/* Features */
-.features, .testimonials, .steps{
+/* ===============================
+   SECTION TITLES
+================================= */
+
+.section-title{
+text-align:center;
+font-size:44px;
+margin-bottom:40px;
+}
+
+/* ===============================
+   CARDS
+================================= */
+
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:40px;
-margin-top:60px;
 }
 
 .card{
-background:rgba(30,41,59,0.7);
-padding:40px;
+background:rgba(30,41,59,0.6);
+padding:45px;
 border-radius:25px;
-backdrop-filter:blur(10px);
+backdrop-filter:blur(12px);
 transition:0.4s;
 }
 
@@ -102,166 +149,196 @@ transition:0.4s;
 transform:translateY(-10px);
 }
 
-.section-title{
-text-align:center;
-font-size:42px;
-margin-bottom:20px;
-font-weight:800;
+.card h3{
+margin-bottom:15px;
+font-size:22px;
 }
 
-.card p{color:#cbd5e1;margin-top:10px;}
-.card h3{margin-bottom:10px;}
+/* ===============================
+   PSYCHOLOGICAL QUOTE
+================================= */
 
 .psych{
 text-align:center;
 font-size:26px;
 font-weight:600;
-max-width:800px;
+max-width:900px;
 margin:auto;
 color:#e2e8f0;
 }
 
+/* ===============================
+   LETTER SECTION
+================================= */
+
+.letter{
+max-width:900px;
+margin:auto;
+font-size:20px;
+color:#cbd5e1;
+line-height:1.9;
+}
+
+/* ===============================
+   PRICE
+================================= */
+
 .price{
-font-size:65px;
+text-align:center;
+font-size:70px;
 font-weight:800;
-margin:20px 0;
 background:linear-gradient(90deg,#3b82f6,#8b5cf6);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-text-align:center;
+margin:30px 0;
 }
 
 .footer{
 text-align:center;
 padding:60px 20px;
-color:#64748b;
 font-size:14px;
+color:#64748b;
 }
 
-/* Sticky CTA */
+/* ===============================
+   STICKY CTA
+================================= */
+
 .sticky-cta{
 position:fixed;
-bottom:20px;
-right:20px;
-background:linear-gradient(90deg,#3b82f6,#6366f1);
+bottom:25px;
+right:25px;
 padding:15px 30px;
 border-radius:50px;
+background:linear-gradient(90deg,#3b82f6,#6366f1);
 color:#fff;
 font-weight:600;
-text-decoration:none;
-box-shadow:0 0 25px rgba(99,102,241,0.5);
+box-shadow:0 0 30px rgba(99,102,241,0.6);
 z-index:1000;
-transition:0.3s;
 }
 
-.sticky-cta:hover{transform:scale(1.1);}
+/* ===============================
+   RESPONSIVE
+================================= */
 
-/* Responsive */
 @media(max-width:768px){
+
 .hero h1{font-size:36px;}
 .hero p{font-size:18px;}
-.section-title{font-size:32px;}
-.price{font-size:48px;}
+.section-title{font-size:30px;}
+.price{font-size:50px;}
+
 }
+
 </style>
 </head>
 
 <body>
 
 <div class="trust-bar">
-100% Private & Confidential • Human Reviewed • No AI Used • Cancel Anytime
+100% Private & Confidential • Human-Crafted • No Automation • Cancel Anytime
 </div>
 
 <section class="hero">
-<h1>This Is Built For You.<br>And Only You.</h1>
+<h1>Mark Bennett</h1>
+<h2>Your Personal Growth Architect</h2>
+
 <p>
-A fully human-crafted personal life support system designed from your own words.
-Built by specialists in psychology and behavioral science.
-No artificial intelligence. No automation. Only real human attention.
+Human-crafted psychological guidance tailored to your language, your life, and your deepest priorities — delivered with care, discretion, and structured clarity.
 </p>
-<a href="https://ko-fi.com/s/cd96925d8f" class="cta-btn">Begin Your Personal Support – $30/Month</a>
+
+<p>
+This is not artificial intelligence.  
+This is not automation.  
+This is a personally structured system built from your own narrative.
+</p>
+
+<a href="https://ko-fi.com/s/cd96925d8f" class="cta-btn">
+Apply For Private Access – $30/Month
+</a>
+</section>
+
+<section>
+<div class="psych">
+The most expensive mistake is trying to redesign your life alone.
+</div>
 </section>
 
 <section>
 <h2 class="section-title">How It Works</h2>
-<div class="steps">
+<div class="grid">
 <div class="card">
-<h3>Step 1 – Subscribe</h3>
-<p>Secure your membership through our private subscription system.</p>
+<h3>Step 1 — Private Membership</h3>
+<p>You secure access through a simple monthly membership.</p>
 </div>
 <div class="card">
-<h3>Step 2 – Complete Your Personal Profile</h3>
-<p>You provide detailed insights about your life, goals, health, and emotional state.</p>
+<h3>Step 2 — Your Personal Narrative</h3>
+<p>You share detailed information about your life, health, goals, struggles, and priorities.</p>
 </div>
 <div class="card">
-<h3>Step 3 – Receive Your Structured Plan</h3>
-<p>Your personalized human-crafted system is built specifically for you.</p>
+<h3>Step 3 — Structured Human Guidance</h3>
+<p>Your personal system is crafted based on your submitted data.</p>
 </div>
 </div>
 </section>
 
 <section>
-<h2 class="section-title">What Makes This Different</h2>
-<div class="features">
-<div class="card">
-<h3>Fully Personalized</h3>
-<p>Built entirely from your submitted information. Nothing generic.</p>
+<h2 class="section-title">Ethical Commitment</h2>
+<div class="letter">
+This service is built on confidentiality, discretion, and respect.  
+Your data is never sold, shared, or used for automated modeling.  
+Every structured framework is built intentionally around your specific inputs.  
+Nothing generic. Nothing mass-produced.
 </div>
-<div class="card">
-<h3>Emotional Support</h3>
-<p>Structured psychological alignment based on your personality.</p>
-</div>
-<div class="card">
-<h3>Health & Routine Guidance</h3>
-<p>Medication reminders and daily organization if needed.</p>
-</div>
-<div class="card">
-<h3>Career Structuring</h3>
-<p>Professional advice aligned with your specific field.</p>
-</div>
+</section>
+
+<section>
+<h2 class="section-title">A Letter From Mark Bennett</h2>
+<div class="letter">
+If you are reading this, it means something inside you is seeking structure, clarity, or support.
+
+Most people ignore that voice.  
+They postpone it.  
+They minimize it.
+
+But growth rarely waits for convenience.
+
+This system exists for individuals who are ready to stop improvising their lives and begin structuring them deliberately.
+
+If that resonates with you — then this may be your moment.
+
+— Mark Bennett
 </div>
 </section>
 
 <section>
 <div class="psych">
-“The most expensive mistake is trying to fix your life alone.”
+Opportunities to redesign your direction do not appear every month.
+
+You either step forward — or you continue explaining why you didn’t.
 </div>
 </section>
 
 <section>
-<h2 class="section-title">What Members Say</h2>
-<div class="testimonials">
-<div class="card">
-<p>"It feels handcrafted just for me. Nothing automated."</p>
-<h3>— Daniel M., London</h3>
-</div>
-<div class="card">
-<p>"This gave structure to my entire life."</p>
-<h3>— Sophia L., New York</h3>
-</div>
-<div class="card">
-<p>"Finally something that feels human."</p>
-<h3>— Marcus T., Berlin</h3>
-</div>
-</div>
-</section>
-
-<section>
-<h2 class="section-title">Invest In Your Stability</h2>
+<h2 class="section-title">Private Membership</h2>
 <div class="price">$30 / Month</div>
-<p style="text-align:center;color:#cbd5e1;max-width:700px;margin:auto;">
-Less than a small indulgence — for 30 days of structured human support.
+<p style="text-align:center;max-width:700px;margin:auto;">
+Less than a small indulgence — for 30 days of structured human guidance.
 </p>
 <div style="text-align:center;">
-<a href="https://ko-fi.com/s/cd96925d8f" class="cta-btn">Subscribe Now</a>
+<a href="https://ko-fi.com/s/cd96925d8f" class="cta-btn">
+Secure Your Access
+</a>
 </div>
 </section>
 
 <div class="footer">
-© 2026 Personal Life Companion — Human Crafted Support.
+© 2026 Mark Bennett — Personal Growth Architect. All rights reserved.
 </div>
 
-<a href="https://ko-fi.com/s/cd96925d8f" class="sticky-cta">Subscribe</a>
+<a href="https://ko-fi.com/s/cd96925d8f" class="sticky-cta">
+Join Now
+</a>
 
 </body>
 </html>
