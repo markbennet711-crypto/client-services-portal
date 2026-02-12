@@ -3,37 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mark Bennett | Your Personal Growth Architect</title>
+<title>Mark Bennett</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===========================
-   GLOBAL DARK PREMIUM STYLE
-=========================== */
+/* ================= GLOBAL ================= */
 
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
 
 body{
 font-family:'Inter',sans-serif;
-background:#0a0f1c;
-color:#f5f7fa;
-line-height:1.8;
+background:#070b14;
+color:#fff;
 overflow-x:hidden;
 }
 
-a{text-decoration:none}
-
-.container{
-max-width:1200px;
-margin:auto;
-padding:100px 8%;
+section{
+padding:120px 8%;
+position:relative;
 }
 
-/* ===========================
-   HERO
-=========================== */
+/* ================= HEADER ================= */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(7,11,20,0.85);
+backdrop-filter:blur(12px);
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+header h1{
+font-family:'Playfair Display',serif;
+font-size:30px;
+letter-spacing:1px;
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+margin-left:30px;
+font-weight:500;
+opacity:0.7;
+transition:0.4s;
+}
+
+nav a:hover{
+opacity:1;
+color:#d4af37;
+}
+
+/* ================= HERO ================= */
 
 .hero{
 min-height:100vh;
@@ -42,268 +75,346 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:40px;
-background:
-radial-gradient(circle at 20% 20%,rgba(212,175,55,0.15),transparent 40%),
-radial-gradient(circle at 80% 80%,rgba(255,215,0,0.08),transparent 40%),
-#0a0f1c;
+background:radial-gradient(circle at top,#1a2235,#070b14 60%);
+overflow:hidden;
 }
 
-.hero h1{
-font-size:clamp(36px,5vw,64px);
-font-weight:700;
-background:linear-gradient(90deg,#d4af37,#f5d76e);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-margin-bottom:20px;
+.hero::after{
+content:'';
+position:absolute;
+width:600px;
+height:600px;
+background:radial-gradient(circle,#d4af3730,transparent 70%);
+top:-200px;
+right:-200px;
+filter:blur(80px);
 }
 
 .hero h2{
-font-size:22px;
-font-weight:400;
-color:#d4af37;
-margin-bottom:30px;
+font-family:'Playfair Display',serif;
+font-size:56px;
+max-width:950px;
+margin-bottom:25px;
 }
 
 .hero p{
 max-width:900px;
-color:#cbd5e1;
-font-size:18px;
-margin-bottom:50px;
-}
-
-/* ===========================
-   BUTTONS
-=========================== */
-
-.main-btn{
-padding:20px 60px;
-border-radius:60px;
 font-size:20px;
-font-weight:600;
-background:linear-gradient(90deg,#d4af37,#f5d76e);
-color:#000;
-display:inline-block;
-transition:.3s;
-box-shadow:0 10px 40px rgba(212,175,55,0.3);
+opacity:0.85;
+margin-bottom:30px;
 }
 
-.main-btn:hover{
-transform:translateY(-4px);
-box-shadow:0 20px 60px rgba(212,175,55,0.5);
-}
-
-.secondary-btn{
-margin-top:20px;
-padding:14px 35px;
-border-radius:40px;
-border:1px solid rgba(255,215,0,0.3);
+.price{
+font-size:36px;
+font-weight:700;
 color:#d4af37;
-display:inline-block;
-transition:.3s;
+margin-bottom:10px;
 }
 
-.secondary-btn:hover{
+.cake{
+font-size:18px;
+opacity:0.75;
+margin-bottom:40px;
+}
+
+.btn-group{
+display:flex;
+gap:25px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.btn{
+padding:16px 40px;
+border-radius:50px;
+font-weight:600;
+font-size:16px;
+text-decoration:none;
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.primary{
 background:#d4af37;
 color:#000;
 }
 
-/* ===========================
-   SECTIONS
-=========================== */
+.primary:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 30px rgba(212,175,55,0.4);
+}
+
+.outline{
+border:2px solid #d4af37;
+color:#d4af37;
+}
+
+.outline:hover{
+background:#d4af37;
+color:#000;
+transform:translateY(-5px);
+}
+
+/* ================= GRID ================= */
 
 .section-title{
-font-size:36px;
-margin-bottom:40px;
 text-align:center;
-background:linear-gradient(90deg,#d4af37,#f5d76e);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+font-family:'Playfair Display',serif;
+font-size:42px;
+margin-bottom:70px;
 }
 
-.section p{
-max-width:900px;
-margin:auto;
-color:#cbd5e1;
-font-size:18px;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+}
+
+.card{
+background:#0f1626;
+padding:40px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.05);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-12px);
+border-color:#d4af37;
+box-shadow:0 20px 40px rgba(0,0,0,0.5);
+}
+
+.card h3{
+color:#d4af37;
+margin-bottom:15px;
+font-size:22px;
+}
+
+.card p{
+opacity:0.85;
+}
+
+/* ================= URGENCY ================= */
+
+.urgency{
 text-align:center;
+background:#0f1626;
 }
 
-/* ===========================
-   PRICE BOX
-=========================== */
-
-.price-box{
-margin-top:60px;
-padding:60px;
-border-radius:30px;
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,215,0,0.15);
-text-align:center;
+.countdown{
+font-size:28px;
+margin-top:20px;
+color:#d4af37;
 }
 
-.price{
-font-size:52px;
-font-weight:700;
-margin:25px 0;
-background:linear-gradient(90deg,#d4af37,#f5d76e);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-/* ===========================
-   FLOATING BUTTON
-=========================== */
-
-.floating-btn{
-position:fixed;
-bottom:25px;
-right:25px;
-padding:15px 30px;
-border-radius:50px;
-background:linear-gradient(90deg,#d4af37,#f5d76e);
-font-weight:600;
-color:#000;
-z-index:999;
-box-shadow:0 10px 30px rgba(212,175,55,0.4);
-}
-
-/* ===========================
-   FOOTER
-=========================== */
+/* ================= FOOTER ================= */
 
 footer{
 text-align:center;
-padding:60px;
-margin-top:120px;
-border-top:1px solid rgba(255,215,0,0.1);
-color:#94a3b8;
+padding:60px 8%;
+background:#05080f;
+opacity:0.6;
 font-size:14px;
 }
 
+/* ================= RESPONSIVE ================= */
+
 @media(max-width:768px){
-.container{padding:80px 6%}
-.price-box{padding:40px}
+
+.hero h2{
+font-size:36px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.price{
+font-size:26px;
+}
+
 }
 
 </style>
 </head>
+
 <body>
 
-<!-- HERO -->
+<header>
+<h1>Mark Bennett</h1>
+<nav>
+<a href="#about">About</a>
+<a href="#process">Process</a>
+<a href="#team">Team</a>
+<a href="#join">Join</a>
+</nav>
+</header>
 
 <section class="hero">
 
-<h1>Mark Bennett</h1>
-<h2>Your Personal Growth Architect</h2>
+<h2>
+Your Personal Growth Architect
+</h2>
 
 <p>
-A fully human-crafted psychological guidance system designed directly from your own words.
-Built by a dedicated team of psychology and behavioral analysis specialists,
-personally overseen by Mark Bennett.
-
-No AI.  
-No automation bots.  
-100% Human-crafted.
-
-One personalized message per day —
-written specifically for you,
-based on the personal data you provide,
-delivered at the exact time you choose.
-
-To support you.
-To remind you.
-To guide you.
-To push you forward.
-
-And intentionally limited to one daily message —
-so you are strengthened, not overwhelmed.
+Human-crafted psychological guidance tailored to your language,
+your life, and your deepest priorities —
+delivered with care and absolute confidentiality.
 </p>
-
-<a href="https://ko-fi.com/s/cd96925d8f" class="main-btn">
-Begin Your Personal Support — $30 / Month
-</a>
-
-<br>
-
-<a href="https://ko-fi.com/s/cd96925d8f" class="secondary-btn">
-Secure Your Membership
-</a>
-
-</section>
-
-<!-- HOW IT WORKS -->
-
-<div class="container section">
-
-<h2 class="section-title">How It Works</h2>
-
-<p>
-1. You subscribe for $30 per month.  
-2. You complete your detailed personal profile.  
-3. Our psychology and behavioral analysis specialists manually review your words.  
-4. Under direct supervision of Mark Bennett, your personalized framework is structured.  
-5. You receive one deeply personalized message every single day — delivered at your chosen time.  
-
-Limited monthly capacity is maintained to preserve personalization quality.
-</p>
-
-</div>
-
-<!-- TEAM -->
-
-<div class="container section">
-
-<h2 class="section-title">Your Dedicated Specialist Team</h2>
-
-<p>
-Behind every message stands a structured team of:
-
-• Psychology Specialists  
-• Behavioral Analysis Experts  
-• Personal Development Strategists  
-• Professional Writing Consultants  
-
-Each message is human-written.
-Each message is reviewed.
-Each message reflects your unique psychological blueprint.
-
-Direct oversight: Mark Bennett.
-</p>
-
-</div>
-
-<!-- PRICING -->
-
-<div class="container">
-
-<div class="price-box">
 
 <div class="price">$30 / Month</div>
 
+<div class="cake">
+Less than the price of a slice of cake that disappears in two minutes —
+yet this investment restructures your discipline,
+clarity, direction, and emotional strength every single day.
+</div>
+
+<div class="btn-group">
+<a href="https://ko-fi.com/s/cd96925d8f" class="btn primary">Start My Transformation</a>
+<a href="https://ko-fi.com/s/cd96925d8f" class="btn outline">Join With Confidence</a>
+<a href="https://ko-fi.com/s/cd96925d8f" class="btn outline">Secure My Spot</a>
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="section-title">One Powerful Message Per Day</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Human-Written By Experts</h3>
 <p>
-Less than the price of a piece of cake that disappears in two minutes…
-but this stays with you every single day.
+Every message is written manually by psychologists
+and behavioral specialists. No automation. No AI.
 </p>
+</div>
 
-<br>
+<div class="card">
+<h3>Based On Your Personal Words</h3>
+<p>
+We analyze your written input, habits, emotional patterns,
+and goals to craft guidance specifically for you.
+</p>
+</div>
 
-<a href="https://ko-fi.com/s/cd96925d8f" class="main-btn">
-Start Your Monthly Membership
-</a>
-
+<div class="card">
+<h3>Delivered At Your Chosen Time</h3>
+<p>
+You choose when your daily message arrives.
+Morning. Midday. Evening.
+Exactly one message — never overwhelming.
+</p>
 </div>
 
 </div>
+
+</section>
+
+<section id="process">
+
+<h2 class="section-title">The A • B • C Method</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>A — You Share</h3>
+<p>
+You complete your personal profile in depth.
+</p>
+</div>
+
+<div class="card">
+<h3>B — Experts Analyze</h3>
+<p>
+Our psychologists carefully interpret your patterns.
+</p>
+</div>
+
+<div class="card">
+<h3>C — Precision Daily Guidance</h3>
+<p>
+You receive one intentional message per day,
+supervised directly by Mark Bennett.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="team">
+
+<h2 class="section-title">The Team Behind Mark Bennett</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Psychological Experts</h3>
+<p>Specialists in behavior, habit correction and emotional resilience.</p>
+</div>
+
+<div class="card">
+<h3>Behavioral Analysts</h3>
+<p>Experts in interpreting language patterns and personal tendencies.</p>
+</div>
+
+<div class="card">
+<h3>Confidentiality & Ethics Team</h3>
+<p>Your data is secure, encrypted and never sold.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="urgency" id="join">
+
+<h2 class="section-title">
+If You Leave — Nothing Changes.
+If You Join — Everything Begins.
+</h2>
+
+<div class="price">$30 / Month</div>
+
+<div class="btn-group" style="margin-top:40px;">
+<a href="https://ko-fi.com/s/cd96925d8f" class="btn primary">Begin Now</a>
+<a href="https://ko-fi.com/s/cd96925d8f" class="btn outline">Upgrade My Life</a>
+<a href="https://ko-fi.com/s/cd96925d8f" class="btn outline">Commit To Growth</a>
+</div>
+
+<div class="countdown" id="countdown"></div>
+
+</section>
 
 <footer>
-© 2026 Mark Bennett — Elite Human Psychological Guidance  
-Discretion • Professional Oversight • Daily Alignment
+
+© 2026 Mark Bennett — Personal Growth Architect  
+All Rights Reserved. Human-Crafted Psychological Guidance.
+
 </footer>
 
-<a href="https://ko-fi.com/s/cd96925d8f" class="floating-btn">
-Subscribe $30
-</a>
+<script>
+
+var countDownDate = new Date();
+countDownDate.setDate(countDownDate.getDate() + 7);
+
+var x = setInterval(function() {
+var now = new Date().getTime();
+var distance = countDownDate - now;
+
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+document.getElementById("countdown").innerHTML =
+"Limited Enrollment Window: " + days + "d " + hours + "h remaining";
+
+}, 1000);
+
+</script>
 
 </body>
 </html>
