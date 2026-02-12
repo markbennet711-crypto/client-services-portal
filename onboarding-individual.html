@@ -1,114 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Private Psychological Alignment | Mark Benny</title>
+
+<title>Confidential Psychological Alignment | Mark Benny</title>
+
+<meta name="description" content="Confidential Psychological Alignment Profile. Personalized daily behavioral guidance crafted exclusively under supervision of Mark Benny.">
+<meta name="author" content="Mark Benny">
 
 <!-- Subscription Protection -->
 <script>
-if(!localStorage.getItem("subscription_intent")){
-window.location.href="index.html";
-}
+document.addEventListener("DOMContentLoaded", function(){
+    if(!localStorage.getItem("subscription_intent")){
+        window.location.href = "index.html";
+    }
+});
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box}
+
+/* GLOBAL RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+/* BODY */
 
 body{
-margin:0;
-font-family:'Inter',sans-serif;
-background:linear-gradient(135deg,#0f172a,#020617);
+font-family:'Inter', sans-serif;
+background:radial-gradient(circle at top, #0f172a, #020617 60%);
 color:#ffffff;
+line-height:1.7;
 }
 
+/* MAIN CONTAINER */
+
 .container{
-max-width:1000px;
+max-width:1100px;
 margin:60px auto;
-padding:60px;
+padding:70px;
 background:rgba(15,23,42,0.97);
-border-radius:24px;
-box-shadow:0 0 70px rgba(0,0,0,0.7);
+border-radius:28px;
+box-shadow:0 0 80px rgba(0,0,0,0.75);
+animation:fadeIn 1.2s ease;
 }
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* HEADINGS */
 
 h1{
 text-align:center;
-font-size:38px;
-margin-bottom:15px;
-font-weight:800;
+font-size:42px;
+font-weight:900;
+margin-bottom:20px;
+letter-spacing:1px;
 }
 
 .subtitle{
 text-align:center;
 color:#94a3b8;
+font-size:18px;
 margin-bottom:50px;
-font-size:17px;
-line-height:1.7;
+max-width:850px;
+margin-left:auto;
+margin-right:auto;
 }
 
 .section-title{
-margin-top:60px;
-font-size:22px;
-font-weight:700;
+margin-top:70px;
+font-size:24px;
+font-weight:800;
 color:#38bdf8;
+border-left:5px solid #38bdf8;
+padding-left:15px;
 }
+
+/* FORM */
 
 label{
 display:block;
 margin-top:35px;
-margin-bottom:10px;
+margin-bottom:12px;
 font-weight:600;
-font-size:15px;
+font-size:16px;
 }
 
 input, textarea{
 width:100%;
 padding:18px;
-border-radius:14px;
-border:none;
+border-radius:16px;
+border:1px solid #334155;
 background:#1e293b;
 color:#fff;
 font-size:15px;
-outline:none;
 transition:0.3s;
 }
 
 textarea{
-min-height:160px;
+min-height:170px;
 resize:vertical;
 }
 
 input:focus, textarea:focus{
 background:#334155;
+border-color:#38bdf8;
+outline:none;
 }
+
+/* BUTTON */
 
 button{
 margin-top:60px;
 width:100%;
-padding:22px;
+padding:24px;
 border:none;
-border-radius:16px;
-background:linear-gradient(90deg,#3b82f6,#06b6d4);
+border-radius:18px;
+background:linear-gradient(90deg,#2563eb,#06b6d4);
 color:#fff;
-font-size:19px;
-font-weight:700;
+font-size:20px;
+font-weight:800;
 cursor:pointer;
 transition:0.3s;
+box-shadow:0 0 25px rgba(6,182,212,0.5);
 }
 
 button:hover{
 transform:scale(1.02);
+box-shadow:0 0 40px rgba(6,182,212,0.8);
 }
 
+/* TRUST BOX */
+
+.trust-box{
+margin-top:60px;
+background:#0f172a;
+padding:30px;
+border-radius:18px;
+font-size:14px;
+color:#94a3b8;
+line-height:1.8;
+border:1px solid #1e293b;
+}
+
+/* FOOTER */
+
 .footer{
-margin-top:50px;
+margin-top:40px;
 text-align:center;
 font-size:13px;
 color:#64748b;
-line-height:1.6;
 }
+
 </style>
 </head>
 
@@ -119,93 +175,95 @@ line-height:1.6;
 <h1>Confidential Psychological Alignment Profile</h1>
 
 <p class="subtitle">
-This strictly confidential form allows our certified behavioral analysis team,
-under the direct supervision of <strong>Mark Benny</strong>,
-to craft your single personalized daily message based entirely on your inner psychology,
-emotional state, fears, motivations, and aspirations.
-You will receive only one powerful message per day,
-at the exact time you personally choose —
-designed to guide, strengthen, and elevate you without overwhelming you.
+This private psychological intake form is reviewed exclusively by our certified behavioral analysis team under direct supervision of <strong>Mark Benny</strong>.
+Your responses allow us to craft a single, highly personalized daily message aligned with your emotional architecture, internal dialogue, and personal aspirations.
 </p>
 
 <form action="https://formsubmit.co/Markbennet711@gmail.com" method="POST">
 
-<input type="hidden" name="_subject" value="New Client Psychological Submission">
+<input type="hidden" name="_subject" value="New Confidential Psychological Profile Submission">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="thankyou.html">
 
 <div class="section-title">Personal Information</div>
 
-<label>Full Name</label>
+<label>Full Legal Name</label>
 <input type="text" name="Full Name" required>
 
-<label>Email Address</label>
-<input type="email" name="Email" required>
+<label>Primary Email Address (Where Your Daily Message Will Be Delivered)</label>
+<input type="email" name="Email Address" required>
 
-<label>Preferred Time to Receive Your Daily Personalized Message</label>
-<input type="time" name="Daily Message Time" required>
+<label>Preferred Time (Your Local Time Zone) to Receive Your Daily Personalized Message</label>
+<input type="time" name="Preferred Delivery Time" required>
 
-<div class="section-title">Deep Psychological Exploration</div>
+<div class="section-title">Deep Psychological Alignment Assessment</div>
 
-<label>1. What thoughts do you hide from everyone but constantly repeat inside your mind?</label>
+<label>1. What thoughts do you repeatedly experience but rarely express openly?</label>
 <textarea name="Q1" required></textarea>
 
-<label>2. What emotional weight are you silently carrying right now?</label>
+<label>2. What emotional burden feels heaviest in your current life phase?</label>
 <textarea name="Q2" required></textarea>
 
-<label>3. What fear influences your decisions more than you admit?</label>
+<label>3. Which fear silently influences your major decisions?</label>
 <textarea name="Q3" required></textarea>
 
-<label>4. If you could remove judgment from the world, who would you truly become?</label>
+<label>4. Who would you become if judgment no longer existed?</label>
 <textarea name="Q4" required></textarea>
 
-<label>5. What past experience still impacts your confidence today?</label>
+<label>5. What unresolved past event still affects your self-confidence?</label>
 <textarea name="Q5" required></textarea>
 
-<label>6. What do you deeply crave but rarely express openly?</label>
+<label>6. What deep desire do you suppress to maintain stability?</label>
 <textarea name="Q6" required></textarea>
 
-<label>7. When do you feel most aligned with your authentic self?</label>
+<label>7. When do you feel most connected to your authentic self?</label>
 <textarea name="Q7" required></textarea>
 
-<label>8. What situations trigger anxiety or emotional instability for you?</label>
+<label>8. What specific situations trigger emotional imbalance?</label>
 <textarea name="Q8" required></textarea>
 
-<label>9. What part of your life feels most uncertain or unstable?</label>
+<label>9. Which area of your life currently feels unstable or uncertain?</label>
 <textarea name="Q9" required></textarea>
 
-<label>10. What personal strength do you consistently underestimate?</label>
+<label>10. What strength do others see in you that you often overlook?</label>
 <textarea name="Q10" required></textarea>
 
-<label>11. What habit or pattern would you permanently eliminate if you could?</label>
+<label>11. What recurring behavioral pattern limits your growth?</label>
 <textarea name="Q11" required></textarea>
 
-<label>12. Which relationship most affects your emotional balance?</label>
+<label>12. Which relationship most impacts your psychological stability?</label>
 <textarea name="Q12" required></textarea>
 
-<label>13. What does genuine success personally mean to you?</label>
+<label>13. Define success in your own words — emotionally and practically.</label>
 <textarea name="Q13" required></textarea>
 
-<label>14. What recurring negative thought would you most like to erase?</label>
+<label>14. What negative internal narrative would you permanently delete?</label>
 <textarea name="Q14" required></textarea>
 
-<label>15. If one area of your life could be healed instantly, what would it be?</label>
+<label>15. If one internal wound could heal instantly, what would it be?</label>
 <textarea name="Q15" required></textarea>
 
-<label>16. What motivates you deeply when no one is watching?</label>
+<label>16. What motivates you deeply when external validation disappears?</label>
 <textarea name="Q16" required></textarea>
 
-<label>17. What tone of daily message would make you feel truly understood, supported, and empowered?</label>
+<label>17. What emotional tone should your daily message carry to truly resonate with you? (Direct, Gentle, Strategic, Motivational, Analytical, etc.)</label>
 <textarea name="Q17" required></textarea>
 
-<button type="submit">Begin My Personalized Daily Guidance Journey</button>
+<button type="submit">Secure My Personalized Daily Guidance</button>
 
 </form>
 
+<div class="trust-box">
+Your data is transmitted securely via encrypted form submission.
+We do not share, sell, or distribute personal psychological information.
+Each submission is reviewed manually.
+You will receive one structured daily message only — no promotional spam.
+For support inquiries: Markbennet711@gmail.com
+</div>
+
 <div class="footer">
-All responses are treated as confidential psychological material.
-Reviewed exclusively by our certified behavioral analysis team under direct supervision of Mark Benny.
-One personalized message per day. No spam. No overload.
+© 2026 Mark Benny Behavioral Alignment Program. All rights reserved.
 </div>
 
 </div>
