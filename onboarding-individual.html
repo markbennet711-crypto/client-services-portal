@@ -3,303 +3,220 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Private Psychological Alignment Intake | Mark Bennett</title>
+<title>Secure Intake | Mark Bennett</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+if(!localStorage.getItem("subscription_intent")){
+window.location.href="index.html";
+}
+</script>
 
 <style>
-
-/* ================= GLOBAL RESET ================= */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
-font-family:'Inter',sans-serif;
-background:linear-gradient(180deg,#050811,#0f172a);
-color:#ffffff;
-line-height:1.85;
-overflow-x:hidden;
+margin:0;
+font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 }
-
-/* ================= HEADER ================= */
-
-header{
-text-align:center;
-padding:70px 20px 40px 20px;
-border-bottom:1px solid rgba(255,255,255,0.05);
-}
-
-header h1{
-font-family:'Playfair Display',serif;
-font-size:42px;
-letter-spacing:1px;
-margin-bottom:15px;
-}
-
-header p{
-max-width:800px;
-margin:auto;
-opacity:0.75;
-font-size:18px;
-}
-
-/* ================= CONTAINER ================= */
 
 .container{
-max-width:1100px;
-margin:70px auto;
-padding:70px 8%;
-background:#0f172a;
-border-radius:30px;
-border:1px solid rgba(255,255,255,0.05);
-box-shadow:0 60px 120px rgba(0,0,0,0.6);
+max-width:900px;
+margin:40px auto;
+background:#fff;
+padding:40px;
+border-radius:20px;
+box-shadow:0 20px 60px rgba(0,0,0,0.4);
 }
 
-/* ================= SECTION TITLES ================= */
+h1{
+text-align:center;
+color:#222;
+margin-bottom:10px;
+}
 
-.section-title{
-margin-top:90px;
+.subtitle{
+text-align:center;
+color:#555;
 margin-bottom:30px;
-font-size:24px;
-font-weight:600;
-color:#d4af37;
-border-bottom:1px solid rgba(212,175,55,0.25);
-padding-bottom:12px;
 }
 
-/* ================= QUESTIONS ================= */
-
-.question-block{
-margin-top:55px;
-}
-
-.question-block h3{
-font-size:18px;
-font-weight:600;
-margin-bottom:12px;
-}
-
-.question-description{
-font-size:15px;
-opacity:0.75;
-margin-bottom:18px;
-}
-
-input, textarea{
+.progress-bar{
 width:100%;
-padding:22px;
-border-radius:18px;
-border:1px solid rgba(255,255,255,0.08);
-background:#111827;
-color:#ffffff;
-font-size:15px;
-outline:none;
-transition:0.3s;
+background:#ddd;
+border-radius:20px;
+margin-bottom:30px;
 }
 
-textarea{
-min-height:200px;
-resize:vertical;
-}
-
-input:focus, textarea:focus{
-border-color:#d4af37;
-background:#1e293b;
-}
-
-button{
-margin-top:80px;
-width:100%;
-padding:24px;
-border:none;
-border-radius:60px;
-background:#d4af37;
-color:#000;
-font-weight:700;
-font-size:20px;
-cursor:pointer;
+.progress{
+height:12px;
+width:0%;
+background:linear-gradient(90deg,#00c6ff,#0072ff);
+border-radius:20px;
 transition:0.4s;
 }
 
-button:hover{
-transform:translateY(-5px);
-box-shadow:0 25px 60px rgba(212,175,55,0.45);
+.step{
+display:none;
 }
 
-.footer{
-margin-top:60px;
-text-align:center;
-font-size:14px;
-opacity:0.6;
+.step.active{
+display:block;
 }
 
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:768px){
-
-.container{
-padding:50px 6%;
+.question{
+margin-bottom:25px;
 }
 
-header h1{
-font-size:30px;
+label{
+font-weight:bold;
+display:block;
+margin-bottom:8px;
+color:#222;
+}
+
+textarea,input{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:15px;
 }
 
 textarea{
-min-height:160px;
+min-height:120px;
+resize:vertical;
 }
 
+.buttons{
+text-align:center;
+margin-top:20px;
 }
 
+button{
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background:#0072ff;
+color:#fff;
+font-size:15px;
+cursor:pointer;
+margin:5px;
+}
+
+.trust{
+margin-top:40px;
+padding:25px;
+background:#f4f4f4;
+border-radius:15px;
+font-size:14px;
+color:#333;
+line-height:1.6;
+}
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Confidential Psychological Alignment Intake</h1>
-<p>
-This private psychological exploration is designed to deeply understand your internal world,
-your fears, your unspoken truths, your aspirations, and your emotional patterns.
-Answer with honesty. There is no judgment here.
-Everything shared remains confidential.
-</p>
-</header>
-
 <div class="container">
 
+<h1>Personal Alignment Intake</h1>
+<p class="subtitle">
+Confidential. Human-reviewed by Mark Bennett & Team – New York, USA
+</p>
+
+<div class="progress-bar">
+<div class="progress" id="progress"></div>
+</div>
+
 <form action="https://formsubmit.co/Markbennet711@gmail.com" method="POST">
-
-<input type="hidden" name="_subject" value="New Elite Psychological Intake Submission">
 <input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_subject" value="New Personal Alignment Submission">
+<input type="hidden" name="_next" value="index.html">
 
-<div class="section-title">Identity & Delivery Preferences</div>
-
-<div class="question-block">
-<h3>Full Name</h3>
-<textarea name="Full_Name" required></textarea>
+<div class="step active">
+<div class="question">
+<label>Full Name</label>
+<input type="text" name="Full_Name" required>
+</div>
+<div class="question">
+<label>Email Address</label>
+<input type="email" name="Email" required>
+</div>
+<div class="question">
+<label>Country</label>
+<input type="text" name="Country" required>
+</div>
 </div>
 
-<div class="question-block">
-<h3>Email Address</h3>
-<textarea name="Email_Address" required></textarea>
+<div class="step">
+<div class="question"><label>Q1</label><textarea name="Q1" required></textarea></div>
+<div class="question"><label>Q2</label><textarea name="Q2" required></textarea></div>
+<div class="question"><label>Q3</label><textarea name="Q3" required></textarea></div>
+<div class="question"><label>Q4</label><textarea name="Q4" required></textarea></div>
+<div class="question"><label>Q5</label><textarea name="Q5" required></textarea></div>
+<div class="question"><label>Q6</label><textarea name="Q6" required></textarea></div>
 </div>
 
-<div class="question-block">
-<h3>Your Timezone</h3>
-<textarea name="Timezone" required></textarea>
+<div class="step">
+<div class="question"><label>Q7</label><textarea name="Q7" required></textarea></div>
+<div class="question"><label>Q8</label><textarea name="Q8" required></textarea></div>
+<div class="question"><label>Q9</label><textarea name="Q9" required></textarea></div>
+<div class="question"><label>Q10</label><textarea name="Q10" required></textarea></div>
+<div class="question"><label>Q11</label><textarea name="Q11" required></textarea></div>
+<div class="question"><label>Q12</label><textarea name="Q12" required></textarea></div>
 </div>
 
-<div class="question-block">
-<h3>Preferred Time To Receive Your Daily Message</h3>
-<textarea name="Preferred_Time" required></textarea>
+<div class="step">
+<div class="question"><label>Q13</label><textarea name="Q13" required></textarea></div>
+<div class="question"><label>Q14</label><textarea name="Q14" required></textarea></div>
+<div class="question"><label>Q15</label><textarea name="Q15" required></textarea></div>
+<div class="question"><label>Q16</label><textarea name="Q16" required></textarea></div>
+<div class="question"><label>Q17</label><textarea name="Q17" required></textarea></div>
 </div>
 
-<div class="section-title">Deep Psychological Mapping – 17 Core Questions</div>
-
-<div class="question-block">
-<h3>1. When you are completely alone, without distraction, what part of you quietly asks to be seen, understood, or validated?</h3>
-<p class="question-description">Describe thoughts, sensations, or emotions that usually stay hidden.</p>
-<textarea name="q1_deepest_hidden_self" required></textarea>
+<div class="buttons">
+<button type="button" onclick="prevStep()">Back</button>
+<button type="button" onclick="nextStep()">Next</button>
+<button type="submit">Submit Securely</button>
 </div>
-
-<div class="question-block">
-<h3>2. When life feels emotionally heavy, what happens inside your body and mind?</h3>
-<p class="question-description">Explain your internal reaction patterns in detail.</p>
-<textarea name="q2_emotional_overload_pattern" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>3. During moments of self-doubt, what exact words does your inner voice use?</h3>
-<p class="question-description">Be precise. Write the internal dialogue as it truly appears.</p>
-<textarea name="q3_inner_dialogue" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>4. What personal truth about yourself have you avoided confronting for a long time?</h3>
-<p class="question-description">This may be a desire, fear, weakness, or hidden ambition.</p>
-<textarea name="q4_avoided_truth" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>5. What emotional need do you rarely express openly to others?</h3>
-<textarea name="q5_unspoken_need" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>6. If you could live daily in one emotional state, what would it be and why?</h3>
-<textarea name="q6_desired_emotional_state" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>7. What reassurance, if repeated daily, would deeply stabilize you?</h3>
-<textarea name="q7_reassurance_phrase" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>8. What tone makes you feel psychologically safe? (Direct, Gentle, Structured, Strategic, Empathetic, etc.)</h3>
-<textarea name="q8_preferred_tone" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>9. Are there specific themes, words, or approaches that trigger discomfort?</h3>
-<textarea name="q9_emotional_boundaries" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>10. Describe the environment where your nervous system feels calm and regulated.</h3>
-<textarea name="q10_safe_environment" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>11. What thought appears just before you consider quitting something meaningful?</h3>
-<textarea name="q11_pre_quit_pattern" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>12. What fear silently shapes most of your decisions?</h3>
-<textarea name="q12_core_fear" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>13. Describe a recent emotional experience that significantly impacted your sense of self.</h3>
-<textarea name="q13_recent_identity_shift" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>14. What core truth should your daily message always remind you of?</h3>
-<textarea name="q14_anchor_truth" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>15. What courageous action are you hesitating to take?</h3>
-<textarea name="q15_delayed_action" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>16. Are there sensitive areas that must be handled with exceptional care?</h3>
-<textarea name="q16_sensitive_areas" required></textarea>
-</div>
-
-<div class="question-block">
-<h3>17. Which life domains require the strongest structured guidance right now?</h3>
-<textarea name="q17_priority_domains" required></textarea>
-</div>
-
-<button type="submit">Submit My Confidential Psychological Profile</button>
 
 </form>
 
-<div class="footer">
-Encrypted submission • Confidential handling • One structured alignment message daily
+<div class="trust">
+<strong>Official Review Notice</strong><br><br>
+All submissions are reviewed personally by Mark Bennett and his human advisory team in New York.<br>
+No automated AI responses. No resale of data. Full confidentiality guaranteed.<br><br>
+📍 447 Broadway, New York, NY 10013, United States<br>
+📧 Markbennet711@gmail.com
 </div>
 
 </div>
+
+<script>
+let currentStep=0;
+const steps=document.querySelectorAll(".step");
+const progress=document.getElementById("progress");
+
+function showStep(step){
+steps.forEach((s,i)=>s.classList.toggle("active",i===step));
+progress.style.width=((step)/(steps.length-1))*100+"%";
+}
+
+function nextStep(){
+if(currentStep<steps.length-1){
+currentStep++;
+showStep(currentStep);
+}
+}
+
+function prevStep(){
+if(currentStep>0){
+currentStep--;
+showStep(currentStep);
+}
+}
+
+showStep(currentStep);
+</script>
 
 </body>
 </html>
