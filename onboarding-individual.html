@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Confidential Psychological Alignment | Mark Bennett</title>
+<title>Private Psychological Alignment Intake | Mark Bennett</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* ================= GLOBAL ================= */
+/* ================= GLOBAL RESET ================= */
 
 *{
 margin:0;
@@ -19,71 +19,90 @@ box-sizing:border-box;
 
 body{
 font-family:'Inter',sans-serif;
-background:linear-gradient(180deg,#060a14,#0f172a);
+background:linear-gradient(180deg,#050811,#0f172a);
 color:#ffffff;
-line-height:1.8;
+line-height:1.85;
 overflow-x:hidden;
 }
 
+/* ================= HEADER ================= */
+
 header{
 text-align:center;
-padding:50px 20px 30px 20px;
+padding:70px 20px 40px 20px;
 border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 header h1{
 font-family:'Playfair Display',serif;
-font-size:38px;
+font-size:42px;
 letter-spacing:1px;
+margin-bottom:15px;
 }
 
 header p{
-opacity:0.7;
-margin-top:10px;
+max-width:800px;
+margin:auto;
+opacity:0.75;
+font-size:18px;
 }
+
+/* ================= CONTAINER ================= */
 
 .container{
-max-width:1000px;
-margin:60px auto;
-padding:60px 8%;
+max-width:1100px;
+margin:70px auto;
+padding:70px 8%;
 background:#0f172a;
-border-radius:25px;
+border-radius:30px;
 border:1px solid rgba(255,255,255,0.05);
-box-shadow:0 50px 100px rgba(0,0,0,0.6);
+box-shadow:0 60px 120px rgba(0,0,0,0.6);
 }
+
+/* ================= SECTION TITLES ================= */
 
 .section-title{
-margin-top:70px;
-margin-bottom:25px;
-font-size:22px;
+margin-top:90px;
+margin-bottom:30px;
+font-size:24px;
 font-weight:600;
 color:#d4af37;
-border-bottom:1px solid rgba(212,175,55,0.2);
-padding-bottom:10px;
+border-bottom:1px solid rgba(212,175,55,0.25);
+padding-bottom:12px;
 }
 
-label{
-display:block;
-margin-top:40px;
+/* ================= QUESTIONS ================= */
+
+.question-block{
+margin-top:55px;
+}
+
+.question-block h3{
+font-size:18px;
+font-weight:600;
 margin-bottom:12px;
-font-weight:500;
+}
+
+.question-description{
 font-size:15px;
+opacity:0.75;
+margin-bottom:18px;
 }
 
 input, textarea{
 width:100%;
-padding:18px;
-border-radius:15px;
+padding:22px;
+border-radius:18px;
 border:1px solid rgba(255,255,255,0.08);
 background:#111827;
-color:#fff;
+color:#ffffff;
 font-size:15px;
 outline:none;
 transition:0.3s;
 }
 
 textarea{
-min-height:170px;
+min-height:200px;
 resize:vertical;
 }
 
@@ -93,29 +112,29 @@ background:#1e293b;
 }
 
 button{
-margin-top:60px;
+margin-top:80px;
 width:100%;
-padding:22px;
+padding:24px;
 border:none;
-border-radius:50px;
+border-radius:60px;
 background:#d4af37;
 color:#000;
 font-weight:700;
-font-size:18px;
+font-size:20px;
 cursor:pointer;
 transition:0.4s;
 }
 
 button:hover{
-transform:translateY(-4px);
-box-shadow:0 20px 50px rgba(212,175,55,0.4);
+transform:translateY(-5px);
+box-shadow:0 25px 60px rgba(212,175,55,0.45);
 }
 
 .footer{
-margin-top:50px;
+margin-top:60px;
 text-align:center;
-opacity:0.6;
 font-size:14px;
+opacity:0.6;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -123,15 +142,15 @@ font-size:14px;
 @media(max-width:768px){
 
 .container{
-padding:40px 6%;
+padding:50px 6%;
 }
 
 header h1{
-font-size:28px;
+font-size:30px;
 }
 
 textarea{
-min-height:140px;
+min-height:160px;
 }
 
 }
@@ -142,91 +161,142 @@ min-height:140px;
 <body>
 
 <header>
-<h1>Mark Bennett Psychological Alignment</h1>
-<p>Confidential • Secure • Personalized</p>
+<h1>Confidential Psychological Alignment Intake</h1>
+<p>
+This private psychological exploration is designed to deeply understand your internal world,
+your fears, your unspoken truths, your aspirations, and your emotional patterns.
+Answer with honesty. There is no judgment here.
+Everything shared remains confidential.
+</p>
 </header>
 
 <div class="container">
 
 <form action="https://formsubmit.co/Markbennet711@gmail.com" method="POST">
 
-<input type="hidden" name="_subject" value="New Psychological Client Submission">
+<input type="hidden" name="_subject" value="New Elite Psychological Intake Submission">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
 
 <div class="section-title">Identity & Delivery Preferences</div>
 
-<label>Full Name</label>
-<input type="text" name="Full_Name" required>
+<div class="question-block">
+<h3>Full Name</h3>
+<textarea name="Full_Name" required></textarea>
+</div>
 
-<label>Email Address</label>
-<input type="email" name="Email_Address" required>
+<div class="question-block">
+<h3>Email Address</h3>
+<textarea name="Email_Address" required></textarea>
+</div>
 
-<label>Your Timezone</label>
-<input type="text" name="Timezone" required>
+<div class="question-block">
+<h3>Your Timezone</h3>
+<textarea name="Timezone" required></textarea>
+</div>
 
-<label>Preferred Daily Message Time</label>
-<input type="time" name="Preferred_Message_Time" required>
+<div class="question-block">
+<h3>Preferred Time To Receive Your Daily Message</h3>
+<textarea name="Preferred_Time" required></textarea>
+</div>
 
-<div class="section-title">Deep Psychological Mapping (17 Core Questions)</div>
+<div class="section-title">Deep Psychological Mapping – 17 Core Questions</div>
 
-<label>1. When you are completely alone in silence, what is the deepest part of you that wants to be understood?</label>
-<textarea name="q1_deepest_part" required></textarea>
+<div class="question-block">
+<h3>1. When you are completely alone, without distraction, what part of you quietly asks to be seen, understood, or validated?</h3>
+<p class="question-description">Describe thoughts, sensations, or emotions that usually stay hidden.</p>
+<textarea name="q1_deepest_hidden_self" required></textarea>
+</div>
 
-<label>2. Describe what happens internally when you feel overwhelmed or emotionally heavy.</label>
-<textarea name="q2_overwhelmed_state" required></textarea>
+<div class="question-block">
+<h3>2. When life feels emotionally heavy, what happens inside your body and mind?</h3>
+<p class="question-description">Explain your internal reaction patterns in detail.</p>
+<textarea name="q2_emotional_overload_pattern" required></textarea>
+</div>
 
-<label>3. What does your inner voice say during moments of doubt or insecurity?</label>
-<textarea name="q3_inner_voice" required></textarea>
+<div class="question-block">
+<h3>3. During moments of self-doubt, what exact words does your inner voice use?</h3>
+<p class="question-description">Be precise. Write the internal dialogue as it truly appears.</p>
+<textarea name="q3_inner_dialogue" required></textarea>
+</div>
 
-<label>4. What truth about yourself have you been avoiding?</label>
+<div class="question-block">
+<h3>4. What personal truth about yourself have you avoided confronting for a long time?</h3>
+<p class="question-description">This may be a desire, fear, weakness, or hidden ambition.</p>
 <textarea name="q4_avoided_truth" required></textarea>
+</div>
 
-<label>5. What part of your identity do you hide from others?</label>
-<textarea name="q5_hidden_identity" required></textarea>
+<div class="question-block">
+<h3>5. What emotional need do you rarely express openly to others?</h3>
+<textarea name="q5_unspoken_need" required></textarea>
+</div>
 
-<label>6. What emotional state do you most desire to live in daily?</label>
-<textarea name="q6_desired_state" required></textarea>
+<div class="question-block">
+<h3>6. If you could live daily in one emotional state, what would it be and why?</h3>
+<textarea name="q6_desired_emotional_state" required></textarea>
+</div>
 
-<label>7. What reassurance do you wish someone consistently reminded you of?</label>
-<textarea name="q7_needed_reassurance" required></textarea>
+<div class="question-block">
+<h3>7. What reassurance, if repeated daily, would deeply stabilize you?</h3>
+<textarea name="q7_reassurance_phrase" required></textarea>
+</div>
 
-<label>8. What tone or style makes you feel psychologically safe?</label>
+<div class="question-block">
+<h3>8. What tone makes you feel psychologically safe? (Direct, Gentle, Structured, Strategic, Empathetic, etc.)</h3>
 <textarea name="q8_preferred_tone" required></textarea>
+</div>
 
-<label>9. Are there any topics or language that should be avoided?</label>
-<textarea name="q9_boundaries" required></textarea>
+<div class="question-block">
+<h3>9. Are there specific themes, words, or approaches that trigger discomfort?</h3>
+<textarea name="q9_emotional_boundaries" required></textarea>
+</div>
 
-<label>10. Describe the environment where you feel most emotionally protected.</label>
+<div class="question-block">
+<h3>10. Describe the environment where your nervous system feels calm and regulated.</h3>
 <textarea name="q10_safe_environment" required></textarea>
+</div>
 
-<label>11. Before giving up on something meaningful, what thought appears first?</label>
-<textarea name="q11_pre_quit_thought" required></textarea>
+<div class="question-block">
+<h3>11. What thought appears just before you consider quitting something meaningful?</h3>
+<textarea name="q11_pre_quit_pattern" required></textarea>
+</div>
 
-<label>12. What fear silently shapes many of your decisions?</label>
+<div class="question-block">
+<h3>12. What fear silently shapes most of your decisions?</h3>
 <textarea name="q12_core_fear" required></textarea>
+</div>
 
-<label>13. Share a recent experience that deeply impacted your emotions.</label>
-<textarea name="q13_recent_experience" required></textarea>
+<div class="question-block">
+<h3>13. Describe a recent emotional experience that significantly impacted your sense of self.</h3>
+<textarea name="q13_recent_identity_shift" required></textarea>
+</div>
 
-<label>14. What truth should your daily guidance always anchor you to?</label>
+<div class="question-block">
+<h3>14. What core truth should your daily message always remind you of?</h3>
 <textarea name="q14_anchor_truth" required></textarea>
+</div>
 
-<label>15. What brave step do you secretly wish to take?</label>
-<textarea name="q15_brave_step" required></textarea>
+<div class="question-block">
+<h3>15. What courageous action are you hesitating to take?</h3>
+<textarea name="q15_delayed_action" required></textarea>
+</div>
 
-<label>16. Are there sensitive areas that require extra care?</label>
-<textarea name="q16_sensitive_topics" required></textarea>
+<div class="question-block">
+<h3>16. Are there sensitive areas that must be handled with exceptional care?</h3>
+<textarea name="q16_sensitive_areas" required></textarea>
+</div>
 
-<label>17. Which life areas require the strongest guidance? (Career, Relationships, Confidence, Identity, Purpose, Discipline, etc.)</label>
-<textarea name="q17_focus_areas" required></textarea>
+<div class="question-block">
+<h3>17. Which life domains require the strongest structured guidance right now?</h3>
+<textarea name="q17_priority_domains" required></textarea>
+</div>
 
-<button type="submit">Submit My Confidential Profile</button>
+<button type="submit">Submit My Confidential Psychological Profile</button>
 
 </form>
 
 <div class="footer">
-Encrypted submission • Reviewed privately • One personalized alignment message per day
+Encrypted submission • Confidential handling • One structured alignment message daily
 </div>
 
 </div>
