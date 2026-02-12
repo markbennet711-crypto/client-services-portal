@@ -3,16 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Confidential Psychological Alignment | Mark Bennett</title>
+<title>Private Psychological Alignment | Mark Bennett</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
 body{
 margin:0;
 font-family:'Inter',sans-serif;
-background:linear-gradient(135deg,#0b1120,#020617);
-color:#f1f5f9;
+background:linear-gradient(-45deg,#0b1120,#0f172a,#020617,#111827);
+background-size:400% 400%;
+animation:gradientShift 15s ease infinite;
+color:#f8fafc;
+}
+
+@keyframes gradientShift{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 header{
@@ -20,12 +29,12 @@ padding:30px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-border-bottom:1px solid rgba(255,255,255,0.05);
+border-bottom:1px solid rgba(255,255,255,0.06);
 }
 
 .logo{
 font-family:'Playfair Display',serif;
-font-size:28px;
+font-size:30px;
 color:#ffffff;
 }
 
@@ -38,20 +47,31 @@ color:#cbd5e1;
 margin-left:25px;
 text-decoration:none;
 font-size:14px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#d4af37;
 }
 
 .container{
-max-width:900px;
-margin:60px auto;
-padding:50px;
-background:rgba(15,23,42,0.95);
-border-radius:20px;
-box-shadow:0 0 60px rgba(0,0,0,0.6);
+max-width:950px;
+margin:70px auto;
+padding:60px;
+background:rgba(15,23,42,0.96);
+border-radius:22px;
+box-shadow:0 0 70px rgba(0,0,0,0.7);
+animation:fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 
 h1{
 font-family:'Playfair Display',serif;
-font-size:36px;
+font-size:40px;
 text-align:center;
 margin-bottom:20px;
 }
@@ -59,66 +79,96 @@ margin-bottom:20px;
 .subtitle{
 text-align:center;
 color:#94a3b8;
-line-height:1.8;
-margin-bottom:50px;
+line-height:1.9;
+margin-bottom:60px;
+font-size:16px;
 }
 
 .section{
-margin-top:50px;
+margin-top:60px;
 }
 
-.section h2{
+.section-title{
 color:#d4af37;
-margin-bottom:20px;
-font-size:20px;
+font-size:22px;
+margin-bottom:25px;
+font-family:'Playfair Display',serif;
+}
+
+.intro-text{
+color:#cbd5e1;
+line-height:1.8;
+margin-bottom:30px;
+font-size:14px;
 }
 
 label{
 display:block;
-margin-top:30px;
-margin-bottom:8px;
+margin-top:35px;
+margin-bottom:10px;
 font-weight:500;
+font-size:15px;
 }
 
-textarea, input{
-width:100%;
-padding:16px;
-border-radius:12px;
-border:none;
-background:#1e293b;
-color:#fff;
-font-size:14px;
-}
-
-textarea{
-min-height:140px;
-resize:vertical;
-}
-
-button{
-margin-top:50px;
+textarea,input{
 width:100%;
 padding:18px;
 border-radius:14px;
+border:1px solid rgba(255,255,255,0.05);
+background:#1e293b;
+color:#ffffff;
+font-size:14px;
+transition:0.3s;
+}
+
+textarea{
+min-height:150px;
+resize:vertical;
+}
+
+textarea:focus,input:focus{
+outline:none;
+border:1px solid #d4af37;
+box-shadow:0 0 15px rgba(212,175,55,0.4);
+}
+
+button{
+margin-top:60px;
+width:100%;
+padding:20px;
+border-radius:16px;
 border:none;
 background:#d4af37;
 color:#0f172a;
 font-weight:600;
-font-size:16px;
+font-size:17px;
 cursor:pointer;
+transition:0.3s;
+box-shadow:0 8px 25px rgba(212,175,55,0.4);
 }
 
 button:hover{
-opacity:0.9;
+transform:translateY(-2px);
+box-shadow:0 12px 30px rgba(212,175,55,0.6);
 }
 
 .footer{
-margin-top:60px;
+margin-top:70px;
 text-align:center;
 font-size:13px;
 color:#94a3b8;
-line-height:1.6;
+line-height:1.8;
+border-top:1px solid rgba(255,255,255,0.05);
+padding-top:30px;
 }
+
+.signature{
+margin-top:30px;
+font-family:'Playfair Display',serif;
+color:#d4af37;
+font-size:20px;
+}
+
 </style>
 </head>
 
@@ -128,29 +178,33 @@ line-height:1.6;
 <div class="logo">Mark <span>Bennett</span></div>
 <nav>
 <a href="#">About</a>
-<a href="#">Team</a>
 <a href="#">Process</a>
-<a href="#">Contact</a>
+<a href="#">Team</a>
+<a href="#">Confidentiality</a>
 </nav>
 </header>
 
 <div class="container">
 
-<h1>🔒 Confidential Psychological Alignment Profile</h1>
+<h1>🔒 Private Psychological Alignment Profile</h1>
 
 <p class="subtitle">
-Every message you receive is written personally by <strong>Mark Bennett</strong> and reviewed by our U.S.-based behavioral insight team.  
-This is not AI-generated automation.  
-This is deliberate, human-crafted psychological guidance tailored to your inner world.
+This is not a casual form.  
+This is a structured psychological alignment process designed for high-awareness individuals.  
+Every response is personally reviewed by <strong>Mark Bennett</strong> and our U.S.-based Behavioral Insight Team.  
+All guidance is human-written, strategically structured, and never AI-generated automation.
 </p>
 
 <form action="https://formsubmit.co/Markbennet711@gmail.com" method="POST">
 
-<input type="hidden" name="_subject" value="New Premium Client Submission">
+<input type="hidden" name="_subject" value="New Private Client Submission">
 <input type="hidden" name="_captcha" value="false">
 
+<!-- سطر التحويل التلقائي إلى صفحة الشكر -->
+<input type="hidden" name="_next" value="thank-you.html">
+
 <div class="section">
-<h2>Personal Identification</h2>
+<div class="section-title">Personal Identification</div>
 
 <label>Full Name</label>
 <input type="text" name="Name" required>
@@ -160,11 +214,14 @@ This is deliberate, human-crafted psychological guidance tailored to your inner 
 
 <label>Timezone</label>
 <input type="text" name="Timezone" required>
-
 </div>
 
 <div class="section">
-<h2>Deep Psychological Exploration</h2>
+<div class="section-title">Deep Internal Exploration</div>
+
+<div class="intro-text">
+Answer slowly. Precision matters. Honesty shapes the quality of your personalized psychological guidance.
+</div>
 
 <label>1️⃣ What is the deepest part of you that you rarely show anyone?</label>
 <textarea name="q1_deepest_part" required></textarea>
@@ -217,16 +274,21 @@ This is deliberate, human-crafted psychological guidance tailored to your inner 
 <label>17️⃣ What core life areas should our daily guidance focus on? (Career, discipline, relationships, self-worth, clarity, leadership, etc.)</label>
 <textarea name="q17_focus_areas" required></textarea>
 
+<button type="submit">Secure My Personalized Psychological Guidance</button>
+
 </div>
-
-<button type="submit">Secure My Personalized Daily Psychological Guidance</button>
-
 </form>
 
 <div class="footer">
 📍 Headquarters: 1209 Orange Street, Wilmington, Delaware, United States  
-All responses are reviewed personally by Mark Bennett.  
-Human-Written. Confidential. Structured. Strategic.
+All submissions are confidential and reviewed within our secure U.S. environment.  
+We do not sell, share, or automate your data.  
+
+<div class="signature">
+Mark Bennett  
+Founder | Psychological Alignment Architect
+</div>
+
 </div>
 
 </div>
