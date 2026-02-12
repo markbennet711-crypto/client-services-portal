@@ -3,16 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Private Psychological Alignment | Mark Bennett</title>
+<title>Confidential Psychological Alignment | Mark Bennett</title>
 
-<!-- Subscription Protection -->
-<script>
-if(!localStorage.getItem("subscription_intent")){
-window.location.href="index.html";
-}
-</script>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -26,110 +19,81 @@ box-sizing:border-box;
 
 body{
 font-family:'Inter',sans-serif;
-background:#070b14;
+background:linear-gradient(180deg,#060a14,#0f172a);
 color:#ffffff;
+line-height:1.8;
 overflow-x:hidden;
 }
 
-/* ================= HEADER ================= */
-
 header{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-background:rgba(7,11,20,0.95);
-backdrop-filter:blur(12px);
+text-align:center;
+padding:50px 20px 30px 20px;
 border-bottom:1px solid rgba(255,255,255,0.05);
-z-index:1000;
 }
 
 header h1{
 font-family:'Playfair Display',serif;
-font-size:26px;
+font-size:38px;
 letter-spacing:1px;
 }
 
-header a{
-color:#d4af37;
-text-decoration:none;
-font-weight:500;
+header p{
+opacity:0.7;
+margin-top:10px;
 }
-
-/* ================= CONTAINER ================= */
 
 .container{
 max-width:1000px;
-margin:140px auto 80px auto;
+margin:60px auto;
 padding:60px 8%;
-background:#0f1626;
-border-radius:24px;
+background:#0f172a;
+border-radius:25px;
 border:1px solid rgba(255,255,255,0.05);
-box-shadow:0 40px 80px rgba(0,0,0,0.6);
-}
-
-h2{
-font-family:'Playfair Display',serif;
-font-size:42px;
-text-align:center;
-margin-bottom:20px;
-}
-
-.subtitle{
-text-align:center;
-max-width:800px;
-margin:0 auto 60px auto;
-font-size:18px;
-opacity:0.85;
-line-height:1.8;
+box-shadow:0 50px 100px rgba(0,0,0,0.6);
 }
 
 .section-title{
 margin-top:70px;
-margin-bottom:30px;
+margin-bottom:25px;
 font-size:22px;
 font-weight:600;
 color:#d4af37;
+border-bottom:1px solid rgba(212,175,55,0.2);
+padding-bottom:10px;
 }
-
-/* ================= FORM ================= */
 
 label{
 display:block;
 margin-top:40px;
-margin-bottom:10px;
+margin-bottom:12px;
 font-weight:500;
 font-size:15px;
-line-height:1.6;
 }
 
 input, textarea{
 width:100%;
-padding:20px;
-border-radius:18px;
+padding:18px;
+border-radius:15px;
 border:1px solid rgba(255,255,255,0.08);
 background:#111827;
-color:#ffffff;
+color:#fff;
 font-size:15px;
 outline:none;
 transition:0.3s;
 }
 
 textarea{
-min-height:180px;
+min-height:170px;
 resize:vertical;
 }
 
 input:focus, textarea:focus{
 border-color:#d4af37;
-background:#1f2937;
+background:#1e293b;
 }
 
 button{
-margin-top:70px;
+margin-top:60px;
 width:100%;
 padding:22px;
 border:none;
@@ -144,17 +108,14 @@ transition:0.4s;
 
 button:hover{
 transform:translateY(-4px);
-box-shadow:0 15px 40px rgba(212,175,55,0.4);
+box-shadow:0 20px 50px rgba(212,175,55,0.4);
 }
-
-/* ================= FOOTER ================= */
 
 .footer{
 margin-top:50px;
 text-align:center;
-font-size:14px;
 opacity:0.6;
-line-height:1.6;
+font-size:14px;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -165,12 +126,12 @@ line-height:1.6;
 padding:40px 6%;
 }
 
-h2{
-font-size:30px;
+header h1{
+font-size:28px;
 }
 
-.subtitle{
-font-size:16px;
+textarea{
+min-height:140px;
 }
 
 }
@@ -181,91 +142,83 @@ font-size:16px;
 <body>
 
 <header>
-<h1>Mark Bennett</h1>
-<a href="index.html">Return Home</a>
+<h1>Mark Bennett Psychological Alignment</h1>
+<p>Confidential • Secure • Personalized</p>
 </header>
 
 <div class="container">
 
-<h2>Confidential Psychological Alignment Profile</h2>
-
-<p class="subtitle">
-This confidential psychological exploration is reviewed by our certified behavioral analysis team under direct supervision of Mark Bennett.
-Your responses shape your personalized daily message.
-One message per day. Precision. Depth. Confidentiality.
-</p>
-
 <form action="https://formsubmit.co/Markbennet711@gmail.com" method="POST">
 
-<input type="hidden" name="_subject" value="New Psychological Alignment Submission">
+<input type="hidden" name="_subject" value="New Psychological Client Submission">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
 
 <div class="section-title">Identity & Delivery Preferences</div>
 
 <label>Full Name</label>
-<input type="text" name="Name" required>
+<input type="text" name="Full_Name" required>
 
 <label>Email Address</label>
-<input type="email" name="Email" required>
+<input type="email" name="Email_Address" required>
 
 <label>Your Timezone</label>
 <input type="text" name="Timezone" required>
 
 <label>Preferred Daily Message Time</label>
-<input type="time" name="MessageTimePreference" required>
+<input type="time" name="Preferred_Message_Time" required>
 
-<div class="section-title">Deep Psychological Mapping</div>
+<div class="section-title">Deep Psychological Mapping (17 Core Questions)</div>
 
-<label>1. When you sit alone in silence, what is the deepest part of you that wants to be heard but rarely is?</label>
+<label>1. When you are completely alone in silence, what is the deepest part of you that wants to be understood?</label>
 <textarea name="q1_deepest_part" required></textarea>
 
-<label>2. Describe what happens inside you emotionally when life feels heavy or overwhelming.</label>
-<textarea name="q2_when_heavy" required></textarea>
+<label>2. Describe what happens internally when you feel overwhelmed or emotionally heavy.</label>
+<textarea name="q2_overwhelmed_state" required></textarea>
 
-<label>3. What does your inner voice say to you during moments of self-doubt?</label>
+<label>3. What does your inner voice say during moments of doubt or insecurity?</label>
 <textarea name="q3_inner_voice" required></textarea>
 
-<label>4. What truth about yourself have you ignored or forgotten for too long?</label>
-<textarea name="q4_forgotten_truth" required></textarea>
+<label>4. What truth about yourself have you been avoiding?</label>
+<textarea name="q4_avoided_truth" required></textarea>
 
-<label>5. What personal truth do you hide from others because you fear misunderstanding?</label>
-<textarea name="q5_hidden_truth" required></textarea>
+<label>5. What part of your identity do you hide from others?</label>
+<textarea name="q5_hidden_identity" required></textarea>
 
-<label>6. What feeling do you most desire to experience consistently in your daily life?</label>
-<textarea name="q6_desired_feeling" required></textarea>
+<label>6. What emotional state do you most desire to live in daily?</label>
+<textarea name="q6_desired_state" required></textarea>
 
-<label>7. In difficult moments, what presence or reassurance do you wish someone would give you?</label>
-<textarea name="q7_needed_presence" required></textarea>
+<label>7. What reassurance do you wish someone consistently reminded you of?</label>
+<textarea name="q7_needed_reassurance" required></textarea>
 
-<label>8. What tone or style of daily message makes you feel most understood and supported?</label>
-<textarea name="q8_message_style" required></textarea>
+<label>8. What tone or style makes you feel psychologically safe?</label>
+<textarea name="q8_preferred_tone" required></textarea>
 
-<label>9. Are there specific words, phrases, or topics you prefer to avoid?</label>
-<textarea name="q9_avoid_phrases" required></textarea>
+<label>9. Are there any topics or language that should be avoided?</label>
+<textarea name="q9_boundaries" required></textarea>
 
-<label>10. What environment or space makes you feel emotionally safe?</label>
-<textarea name="q10_protected_space" required></textarea>
+<label>10. Describe the environment where you feel most emotionally protected.</label>
+<textarea name="q10_safe_environment" required></textarea>
 
-<label>11. Before you consider giving up on something important, what thought usually appears first?</label>
-<textarea name="q11_before_giving_up" required></textarea>
+<label>11. Before giving up on something meaningful, what thought appears first?</label>
+<textarea name="q11_pre_quit_thought" required></textarea>
 
-<label>12. What fear most influences your decisions, even when you try to ignore it?</label>
-<textarea name="q12_fear_of_ease" required></textarea>
+<label>12. What fear silently shapes many of your decisions?</label>
+<textarea name="q12_core_fear" required></textarea>
 
-<label>13. Describe a recent daily experience that deeply impacted your emotional state.</label>
-<textarea name="q13_daily_experience" required></textarea>
+<label>13. Share a recent experience that deeply impacted your emotions.</label>
+<textarea name="q13_recent_experience" required></textarea>
 
-<label>14. What core truth about yourself should your daily message always anchor you to?</label>
+<label>14. What truth should your daily guidance always anchor you to?</label>
 <textarea name="q14_anchor_truth" required></textarea>
 
-<label>15. Describe a brave step you secretly want to take but hesitate to act on.</label>
+<label>15. What brave step do you secretly wish to take?</label>
 <textarea name="q15_brave_step" required></textarea>
 
-<label>16. Are there sensitive topics you want handled with extra care?</label>
+<label>16. Are there sensitive areas that require extra care?</label>
 <textarea name="q16_sensitive_topics" required></textarea>
 
-<label>17. What main areas of life should your daily guidance focus on most? (Career, Relationships, Discipline, Identity, Confidence, Purpose, etc.)</label>
+<label>17. Which life areas require the strongest guidance? (Career, Relationships, Confidence, Identity, Purpose, Discipline, etc.)</label>
 <textarea name="q17_focus_areas" required></textarea>
 
 <button type="submit">Submit My Confidential Profile</button>
@@ -273,6 +226,10 @@ One message per day. Precision. Depth. Confidentiality.
 </form>
 
 <div class="footer">
-All responses are confidential.  
-Encrypted submission. Reviewed exclusively by the Mark Bennett Psychological Analysis Team.  
-One personalized message per day. No spam. No overload.
+Encrypted submission • Reviewed privately • One personalized alignment message per day
+</div>
+
+</div>
+
+</body>
+</html>
