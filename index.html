@@ -1,1815 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-<title>The Quiet Companion — Your Personal Growth Architect</title>
-<meta name="description" content="Daily messages crafted by psychological experts analyzing your personal data to eliminate negativity and amplify your positive traits. Private human guidance for US & EU professionals." />
-<meta name="robots" content="index, follow">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Personal Life Companion</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-  /* FINAL FIXES FOR ALL DEVICES - APPLIED TO ALL ELEMENTS */
-  html, body {
-    height: auto !important;
-    min-height: 100vh;
-    overflow-x: hidden !important;
-    overflow-y: auto;
-    position: relative;
-    -webkit-overflow-scrolling: touch;
-    width: 100% !important;
-    /* Allow normal touch behavior to ensure scrolling works reliably on Android */
-    touch-action: auto;
-    margin: 0;
-    padding: 0;
-  }
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{
+background:#020617;
+color:#fff;
+overflow-x:hidden;
+}
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    -webkit-tap-highlight-color: transparent;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    max-width: 100%;
-  }
+/* Trust Bar */
+.trust-bar{
+position:fixed;
+top:0;
+width:100%;
+background:#0f172a;
+padding:10px;
+text-align:center;
+font-size:14px;
+color:#94a3b8;
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
 
-  :root {
-    --page-bg: #0a0a0a;
-    --card: #121212;
-    --muted: #a0a0a0;
-    --text: #ffffff;
-    --accent-gold: #d4af37;
-    --accent-bronze: #b8862f;
-    --accent-red: #ff4d4d;
-    --radius: 16px;
-    --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);  }
+/* Sections */
+section{
+padding:120px 20px;
+max-width:1200px;
+margin:auto;
+position:relative;
+}
 
-  body {
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    color: var(--text);
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, var(--page-bg) 100%);
-    line-height: 1.6;
-    position: relative;
-    width: 100% !important;
-  }
+.hero{
+padding-top:180px;
+text-align:center;
+background:linear-gradient(rgba(2,6,23,0.8),rgba(2,6,23,0.95)),
+url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-attachment:fixed;
+background-position:center;
+}
 
-  /* Adding golden particle effects in the background */
-  .particles-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-    opacity: 0.7;
-  }
+.hero h1{
+font-size:56px;
+font-weight:800;
+line-height:1.2;
+background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-  /* Accompanying angel indicator that follows the cursor */
-  .angel-guide {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    z-index: 10000;
-    pointer-events: none;
-    opacity: 0.8;
-    transition: transform 0.1s ease-out;
-    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
-    display: none;
-  }
+.hero p{
+margin-top:25px;
+font-size:22px;
+color:#cbd5e1;
+max-width:850px;
+margin:auto;
+}
 
-  /* Angel indicator during scrolling */
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
+.cta-btn{
+display:inline-block;
+margin-top:40px;
+padding:18px 55px;
+font-size:20px;
+font-weight:600;
+background:linear-gradient(90deg,#3b82f6,#6366f1);
+color:#fff;
+text-decoration:none;
+border-radius:50px;
+transition:0.4s;
+box-shadow:0 0 30px rgba(99,102,241,0.4);
+}
 
-  .limited-spots-banner {
-    background: linear-gradient(90deg, rgba(184, 134, 47, 0.25), rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.25));
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    border-radius: var(--radius);
-    padding: 15px;    text-align: center;
-    margin: 20px 0;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    width: 100% !important;
-    max-width: 100% !important;
-  }
+.cta-btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 60px rgba(99,102,241,0.7);
+}
 
-  .limited-spots-banner::before {
-    content: '';    
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-    z-index: 0;
-  }
+/* Features */
+.features, .testimonials, .steps{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+margin-top:60px;
+}
 
-  .spots-counter {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--accent-gold);
-    margin: 8px 0;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-  }
+.card{
+background:rgba(30,41,59,0.7);
+padding:40px;
+border-radius:25px;
+backdrop-filter:blur(10px);
+transition:0.4s;
+}
 
-  .urgency-text {
-    color: #ff4d4d;
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-top: 5px;
-    animation: pulse 2s infinite;
-  }
+.card:hover{
+transform:translateY(-10px);
+}
 
-  @keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.7; }
-    100% { opacity: 1; }
-  }
+.section-title{
+text-align:center;
+font-size:42px;
+margin-bottom:20px;
+font-weight:800;
+}
 
-  .progress-container {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    height: 12px;
-    margin: 15px 0 10px;
-    overflow: hidden;
-    border: 1px solid rgba(212, 175, 55, 0.2);  }
+.card p{color:#cbd5e1;margin-top:10px;}
+.card h3{margin-bottom:10px;}
 
-  .progress-bar {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
-    width: 87%;
-    border-radius: 10px;
-    position: relative;
-    transition: width 1s ease-in-out;
-  }
-  .progress-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: var(--muted);
-    margin-top: 5px;
-  }
+.psych{
+text-align:center;
+font-size:26px;
+font-weight:600;
+max-width:800px;
+margin:auto;
+color:#e2e8f0;
+}
 
-  .cake-comparison {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    margin: 25px 0;
-    padding: 20px;
-    background: rgba(20, 15, 10, 0.7);
-    border-radius: var(--radius);
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    position: relative;
-    overflow: hidden;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
+.price{
+font-size:65px;
+font-weight:800;
+margin:20px 0;
+background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-align:center;
+}
 
-  .cake-comparison::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-  }
+.footer{
+text-align:center;
+padding:60px 20px;
+color:#64748b;
+font-size:14px;
+}
 
-  .cake-visual {
-    flex: 1;
-    min-width: 150px;
-    text-align: center;
-    position: relative;
-  }
-  .cake-svg {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-    position: relative;
-  }
+/* Sticky CTA */
+.sticky-cta{
+position:fixed;
+bottom:20px;
+right:20px;
+background:linear-gradient(90deg,#3b82f6,#6366f1);
+padding:15px 30px;
+border-radius:50px;
+color:#fff;
+font-weight:600;
+text-decoration:none;
+box-shadow:0 0 25px rgba(99,102,241,0.5);
+z-index:1000;
+transition:0.3s;
+}
 
-  .cake-disappearing {
-    animation: melt 5s forwards;
-    opacity: 1;
-  }
-  @keyframes melt {
-    0% { opacity: 1; transform: scale(1); }
-    80% { opacity: 0.3; transform: scale(0.9); }
-    100% { opacity: 0; transform: scale(0.8); }
-  }
+.sticky-cta:hover{transform:scale(1.1);}
 
-  .transformation-visual {
-    flex: 1;
-    min-width: 150px;
-    text-align: center;
-    position: relative;
-  }
+/* Responsive */
+@media(max-width:768px){
+.hero h1{font-size:36px;}
+.hero p{font-size:18px;}
+.section-title{font-size:32px;}
+.price{font-size:48px;}
+}
+</style>
+</head>
 
-  .growth-svg {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .growth-path {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: draw 3s forwards ease-in-out;
-  }
-
-  @keyframes draw {
-    to { stroke-dashoffset: 0; }
-  }
-
-  .hourly-value {
-    background: rgba(30, 25, 20, 0.8);
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    border-radius: 12px;
-    padding: 15px;
-    text-align: center;
-    margin: 25px 0;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  }
-  .hourly-value h4 {
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
-
-  .hourly-amount {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 3.2rem;    
-    font-weight: 700;
-    color: var(--accent-gold);
-    background: linear-gradient(to right, var(--accent-gold), var(--accent-bronze));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 10px 0;
-    text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-  }
-
-  .floating-testimonial {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(30, 25, 20, 0.95);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    border-radius: 16px;
-    padding: 20px;
-    max-width: 350px;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
-    z-index: 9999;
-    transform: translateY(100px);
-    opacity: 0;
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    backdrop-filter: blur(10px);
-    /* allow touches to reach this element normally */
-    pointer-events: auto;
-  }
-
-  .floating-testimonial.show {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  .floating-testimonial::before {
-    content: '"';
-    position: absolute;
-    top: -15px;
-    left: 15px;
-    font-size: 4rem;
-    color: rgba(212, 175, 55,0.2);
-    font-family: serif;  }
-
-  .floating-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-
-  .floating-avatar {
-    width: 40px;    
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-gold), var(--accent-bronze));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: #0a0a0a;
-    flex-shrink: 0;
-  }
-
-  .floating-name {
-    font-weight: 700;
-    color: var(--accent-gold);
-    font-size: 1.1rem;
-  }
-
-  .floating-location {
-    color: var(--muted);
-    font-size: 0.9rem;
-  }
-
-  .floating-content {
-    color: #e0e0e0;
-    line-height: 1.6;
-    font-style: italic;
-    position: relative;
-    z-index: 1;
-  }
-
-  .guarantee-badge {
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    background: linear-gradient(135deg, var(--accent-red), #cc0000);
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    display: flex;    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(255, 77, 77, 0.5);
-    z-index: 10;
-    border: 3px solid var(--card);
-  }
-
-  .guarantee-text {
-    font-family: "Cormorant Garamond", serif;
-    color: white;
-    font-size: 0.9rem;    
-    text-align: center;
-    transform: rotate(-15deg);
-    font-weight: 700;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 1);
-  }
-
-  .value-comparison {
-    position: relative;
-    overflow: visible;
-  }
-
-  .cta.pulse {
-    animation: pulse-glow 2s infinite;
-  }
-
-  @keyframes pulse-glow {
-    0% { box-shadow: 0 0 15px rgba(255, 77, 77, 0.4), 0 10px 30px rgba(255, 77, 77, 0.4); }
-    50% { box-shadow: 0 0 25px rgba(255, 77, 77, 0.7), 0 15px 35px rgba(255, 77, 77, 0.55); }
-    100% { box-shadow: 0 0 15px rgba(255, 77, 77, 0.4), 0 10px 30px rgba(255, 77, 77, 0.4); }
-  }
-
-  .container {
-    width: 100%;
-    max-width: 1150px;
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 32px;
-    box-shadow: var(--shadow);
-    border: 1px solid rgba(212, 175, 55, 0.1);
-    position: relative;
-    overflow: visible;
-    margin: 0 auto;
-    min-height: auto;
-    width: 100% !important;
-  }
-  
-  .container::before {
-    content: '';
-    position: absolute;    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-bronze), var(--accent-gold));
-  }
-
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;    
-    flex-wrap: wrap;
-  }
-  
-  .brand {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-  }
-  
-  .logo {
-    width: 72px;
-    height: 72px;
-    border-radius: 16px;
-    background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 47, 0.1));
-    display: grid;
-    place-items: center;
-    border: 1px solid rgba(212, 175, 55, 0.25);    
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  }  
-  .logo svg {
-    width: 48px;
-    height: 48px;
-    stroke: var(--accent-gold);
-    stroke-width: 1.8;
-  }
-  
-  .brand h1 {
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
-    font-size: 2.1rem;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-  }
-  
-  .brand p {
-    color: var(--muted);
-    font-size: 1.05rem;    margin-top: 4px;
-    max-width: 500px;
-    line-height: 1.5;
-  }
-
-  .meta {
-    text-align: right;
-    color: var(--muted);
-  }
-  
-  .pill {
-    display: inline-block;
-    padding: 7px 18px;    
-    border-radius: 30px;
-    background: rgba(212, 175, 55, 0.12);
-    color: var(--accent-gold);
-    font-weight: 700;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-  }
-
-  .badge {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 3px 10px;
-    border-radius: 12px;    
-    background: rgba(255, 77, 77, 0.15);
-    color: var(--accent-red);
-    font-size: 0.85rem;    
-    font-weight: 600;
-  }
-
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 32px;
-    margin-top: 28px;
-    align-items: start;
-  }
-  
-  .eyebrow {
-    color: var(--accent-bronze);
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    margin-bottom: 12px;
-  }  
-  h2.title {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 3.2rem;
-    margin-bottom: 20px;
-    line-height: 1.05;
-    background: linear-gradient(to right, var(--accent-gold), var(--accent-bronze));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 4px 15px rgba(184, 134, 47, 0.2);
-  }
-  
-  p.lead {
-    color: #e0e0e0;
-    line-height: 1.75;    
-    font-size: 1.15rem;
-    margin-bottom: 22px;
-    max-width: 650px  }
-  
-  strong.highlight {
-    color: var(--accent-gold);
-    font-weight: 600;
-  }
-  
-  .accent-note {
-    background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
-    border-left: 3px solid var(--accent-gold);    
-    padding: 20px;
-    border-radius: 0 var(--radius) var(--radius) 0;
-    color: #f0f0f0;
-    font-style: normal;    
-    margin: 28px 0;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .accent-note::before {
-    content: '"';
-    position: absolute;
-    top: -15px;
-    left: 10px;
-    font-size: 8rem;
-    color: rgba(212, 175, 55, 0.08);
-    font-family: serif;
-    line-height: 1;
-  }
-  
-  .special-emphasis {    display: block;
-    color: var(--accent-red);
-    font-weight: 700;
-    margin-top: 8px;
-    font-size: 1.1rem;
-  }
-
-  /* Value emphasis section */
-  .value-comparison {
-    background: rgba(25, 20, 15, 0.85);
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    border-radius: var(--radius);
-    padding: 24px;
-    margin: 32px 0;
-    position: relative;
-    overflow: hidden;    
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-  }
-  
-  .value-comparison::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
-    z-index: 0;
-  }
-  
-  .value-comparison-content {    
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    align-items: center;
-  }
-  
-  .value-visual {
-    flex: 1;
-    min-width: 280px;
-    text-align: center;
-    padding: 15px;
-  }
-  
-  .value-visual svg {
-    width: 100%;
-    max-width: 200px;
-    height: auto;    margin: 0 auto 20px;
-  }
-  
-  .value-text {
-    flex: 1;
-    min-width: 300px;
-  }
-  
-  .value-text h3 {
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
-    font-size: 1.8rem;
-    margin-bottom: 16px;
-  }
-  
-  .value-text p {
-    color: #e0e0e0;    
-    line-height: 1.7;
-    margin-bottom: 16px;
-    font-size: 1.1rem;
-  }
-  
-  .value-highlight {
-    display: inline-block;
-    background: rgba(212, 175, 55, 0.15);
-    color: var(--accent-gold);
-    padding: 3px 10px;
-    border-radius: 6px;
-    font-weight: 600;
-  }
-  /* Right card - enhanced */
-  .card {
-    background: linear-gradient(160deg, #0f0f0f, #181818);
-    border-radius: var(--radius);
-    padding: 28px;
-    border: 1px solid rgba(212, 175, 55, 0.18);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(2px);
-  }
-  
-  .card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);        z-index: 0;
-  }
-  
-  .card small {
-    color: var(--accent-bronze);
-    display: block;
-    margin-bottom: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
-  
-  .card h3 {
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 1;
-  }  
-  .card p {
-    color: #d0d0d0;
-    margin-bottom: 20px;
-    line-height: 1.6;
-    position: relative;
-    z-index: 1;
-  }
-
-  .value-statement {
-    background: rgba(0, 0, 0, 0.4);
-    border-left: 3px solid var(--accent-gold);
-    padding: 16px;    
-    border-radius: 0 var(--radius) var(--radius) 0;
-    margin: 20px 0;
-    font-style: normal;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .value-statement::before {
-    content: '✨';
-    position: absolute;
-    top: -5px;
-    right: 15px;
-    font-size: 4rem;
-    opacity: 0.1;
-    color: var(--accent-gold);
-  }
-  
-  .value-statement strong {
-    color: var(--accent-gold);
-    display: block;    margin-bottom: 8px;
-  }
-
-  .cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    padding: 16px 24px;
-    border-radius: 12px;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--accent-red), #cc0000);
-    color: white;
-    box-shadow: 0 10px 30px rgba(255, 77, 77, 0.4);
-    transition: var(--transition);
-    border: 2px solid var(--accent-red);
-    font-size: 1.05rem;
-    z-index: 2;    
-    position: relative;
-    overflow: hidden;
-    min-height: 56px;
-    touch-action: manipulation;
-  }
-  
-  .cta::after {
-    content: '';
-    position: absolute;
-    top: 0;    
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;  
-  }
-  
-  .cta:hover::after {
-    left: 100%;
-  }
-  
-  .cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(255, 77, 77, 0.55);
-    border-color: #ff3333;
-  }
-  
-  .cta:focus {
-    outline: 2px solid var(--accent-gold);
-    outline-offset: 2px;
-  }
-  section {
-    margin-top: 32px;
-  }
-  
-  .grid3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 16px;
-  }
-  
-  .card-tile {
-    background: rgba(30, 30, 30, 0.7);
-    padding: 22px;
-    border-radius: 14px;
-    border-left: 4px solid var(--accent-bronze);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(4px);
-    transition: var(--transition);
-    border: 1px solid rgba(212, 175, 55, 0.1);
-  }
-    .card-tile:hover {
-    transform: translateY(-5px);
-    border-left: 4px solid var(--accent-gold);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
-  }
-    .card-tile h4 {
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
-    margin-bottom: 10px;
-    font-size: 1.35rem;
-  }  
-  .card-tile p {
-    color: #d5d5d5;
-    margin: 0;
-    line-height: 1.6;
-    font-size: 1.02rem;
-  }
-
-  /* Life domains section */
-  .life-domains {
-    margin: 40px 0 25px;
-    text-align: center;
-  }
-  
-  .life-domains h3 {
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
-    font-size: 2.2rem;
-    margin-bottom: 8px;  }
-  
-  .domains-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-top: 24px;
-  }
-  
-  .domain-card {
-    background: rgba(25, 25, 25, 0.8);
-    border-radius: 14px;
-    padding: 20px 15px;
-    text-align: center;
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    transition: var(--transition);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  }
-  
-  .domain-card:hover {
-    transform: translateY(-5px);    
-    box-shadow: 0 10px 25px rgba(184, 134, 47, 0.2);
-    border-color: rgba(212, 175, 55, 0.4);
-  }
-  
-  .domain-icon {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 15px;
-    background: rgba(212, 175, 55, 0.1);
-    border-radius: 50%;    
-    display: grid;
-    place-items: center;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-  }
-  
-  .domain-icon svg {
-    width: 32px;
-    height: 32px;
-    stroke: var(--accent-gold);
-    stroke-width: 1.8;
-  }
-  
-  .domain-card h4 {
-    color: var(--accent-gold);
-    margin-bottom: 8px;
-    font-size: 1.25rem;
-  }
-  
-  .domain-card p {    color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  /* Long content */
-  .content-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 28px;
-  }
-  
-  .box {
-    background: rgba(25, 25, 25, 0.8);
-    border-radius: var(--radius);
-    padding: 24px;
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
-  }
-    .box h4 {
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-    .box h4::before {
-    content: '';
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent-bronze);
-  }
-  
-  pre.sample {    
-    white-space: pre-wrap;
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
-    line-height: 1.7;
-    margin: 0;
-    padding: 18px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    border-left: 3px solid var(--accent-bronze);
-    font-size: 1.15rem;
-  }
-  .testimonials {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-  
-  .test {
-    background: rgba(30, 30, 30, 0.6);
-    padding: 22px;
-    border-left: 3px solid var(--accent-gold);
-    border-radius: 0 12px 12px 0;
-    color: #f5f5f5;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(212, 175, 55, 0.1);
-    transition: var(--transition);
-  }
-  
-  .test:hover {
-    transform: translateX(8px);
-    border-left: 3px solid var(--accent-red);  
-  }
-
-  .test strong {
-    color: var(--accent-gold);
-    display: block;
-    margin-bottom: 8px;
-    font-size: 1.2rem;
-  }  
-  .test div {
-    color: var(--muted);
-    margin-top: 10px;
-    font-style: italic;
-    border-top: 1px dashed rgba(212, 175, 55, 0.3);
-    padding-top: 10px;
-  }
-  .faq {
-    margin-top: 28px;
-  }
-  
-  .faq details {
-    background: rgba(25, 25, 25, 0.7);
-    padding: 18px;
-    border-radius: 14px;
-    border: 1px solid rgba(212, 175, 55, 0.12);
-    margin-bottom: 14px;
-    transition: var(--transition);
-    backdrop-filter: blur(3px);
-  }  
-  .faq details[open] {
-    background: rgba(40, 30, 20, 0.8);
-    box-shadow: 0 8px 25px rgba(184, 134, 47, 0.15);
-    border-color: rgba(212, 175, 55, 0.3);
-  }
-  
-  .faq summary {
-    font-weight: 700;
-    cursor: pointer;
-    font-family: "Cormorant Garamond", serif;
-    color: var(--accent-gold);
-    font-size: 1.25rem;
-    list-style: none;
-    position: relative;
-    padding-right: 30px;
-    transition: var(--transition);
-    outline: none;
-  }
-  
-  .faq summary::-webkit-details-marker {
-    display: none;  
-  }
-  
-  .faq summary::after {
-    content: '+';
-    position: absolute;
-    right: 0;
-    top: 50%;    
-    transform: translateY(-50%);
-    font-size: 1.8rem;
-    color: var(--accent-bronze);
-    transition: var(--transition);
-  }
-  
-  details[open] > summary::after {
-    content: '-';  
-  }
-  
-  .faq details[open] summary {
-    color: var(--accent-red);
-  }
-  
-  .faq p {
-    color: #e0e0e0;
-    margin-top: 14px;
-    padding-top: 12px;
-    border-top: 1px solid rgba(212, 175, 55, 0.15);
-    line-height: 1.6;
-    font-size: 1.05rem;  }
-
-  footer {
-    margin-top: 36px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 1.05rem;
-    padding-top: 20px;
-    border-top: 1px solid rgba(212, 175, 55, 0.1);
-    font-style: italic;
-  }
-  
-  .trust-badges {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 16px;
-    flex-wrap: wrap;
-  }
-  
-  .badge-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;    
-    font-size: 0.95rem;
-    color: var(--accent-gold);
-  }
-  
-  .badge-icon {
-    width: 24px;    
-    height: 24px;
-    background: rgba(212, 175, 55, 0.15);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-weight: bold;
-  }
-  /* Responsive adjustments */
-  @media (max-width: 1000px) {
-    .hero { 
-      grid-template-columns: 1fr; 
-      gap: 28px;
-    }
-    .content-columns { 
-      grid-template-columns: 1fr; 
-      gap: 20px;
-    }
-    .grid3 { 
-      grid-template-columns: 1fr; 
-      gap: 16px;    }
-    .domains-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .logo { 
-      width: 60px; 
-      height: 60px; 
-    }
-    .brand h1 { 
-      font-size: 1.8rem; 
-    }
-    h2.title { 
-      font-size: 2.6rem; 
-    }
-    .card {
-      padding: 24px;
-    }
-    .value-comparison-content {
-      flex-direction: column;
-    }
-    
-    .floating-testimonial {
-      max-width: 90vw;
-      bottom: 15px;      
-      right: 15px;
-      font-size: 0.95rem;
-    }
-  }
-  
-  @media (max-width: 600px) {
-    body {
-      padding: 12px !important;
-      -webkit-overflow-scrolling: touch;
-      overflow-y: auto;
-      width: 100% !important;
-      overflow-x: hidden !important;
-    }
-        .container { 
-      padding: 20px 16px !important; 
-      margin: 8px;
-      width: 100% !important;
-    }
-    .hero { 
-      gap: 24px; 
-      grid-template-columns: 1fr !important;
-    }
-    .card { 
-      padding: 22px; 
-    }    h2.title { 
-      font-size: 2.2rem;     
-    }
-    .grid3 { 
-      grid-template-columns: 1fr; 
-    }
-    .domains-grid {
-      grid-template-columns: 1fr;
-    }
-    .trust-badges { 
-      gap: 15px; 
-      flex-direction: column; 
-      align-items: center; 
-    }
-    .brand p {
-      font-size: 0.95rem;
-    }
-    .meta {
-      text-align: left;
-      margin-top: 12px;
-    }
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .value-comparison {
-      padding: 20px 15px;
-    }
-    
-    .cake-comparison {      
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    .hourly-value {
-      font-size: 0.95rem;
-    }
-    
-    .hourly-amount {
-      font-size: 2.2rem;
-    }
-    
-    .limited-spots-banner {
-      padding: 12px;
-    }
-    
-    .spots-counter {
-      font-size: 1.4rem;
-    }
-        /* FINAL PHONE FIXES */
-    .container, .hero, .card, .panel, textarea, input, select, .char-count, .hint {
-      overflow-wrap: break-word !important;
-      word-break: break-word !important;
-    }
-    
-    .cta, .pay,btn-submit, .chip {
-      touch-action: manipulation !important;
-      min-height: 56px !important;
-    }
-    
-    textarea, input[type="text"], input[type="email"], select {
-      min-height: 48px !important;
-      padding: 14px !important;
-      font-size: 1.05rem !important;
-    }
-    
-    /* Fix layout bug */
-    .accent-note, .panel, .card, .benefit, .consent, .payment-section {
-      border: 1px solid rgba(212, 175, 55, 0.15) !important;
-    }
-    
-    /* Prevent horizontal scroll */
-    html, body, .container {
-      overflow-x: hidden !important;
-      width: 100% !important;
-    }
-    
-    /* Confirm scroll behavior effects – allow natural overscroll to keep scrolling smooth on Android */
-    body {
-      overscroll-behavior: auto;
-    }
-    
-    /* Ensure full display on phones */
-    * {
-      max-width: 100% !important;
-    }
-  }
-  
-  /* Ensuring smooth scrolling on all devices */
-  @media (hover: none) {
-    * {
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
-    }
-    body {
-      -webkit-overflow-scrolling: touch;
-    }
-    
-    .floating-testimonial {      display: none !important;
-    }
-    
-    .angel-guide {
-      display: none !important;
-    }
-  }
-
-  /* ===============================
-     GLOBAL RESPONSIVE SAFETY NET
-     (Added to enforce no-horizontal-scroll
-      and safe min-width behavior)
-     =============================== */
-
-  /* LOCK HORIZONTAL SCROLL COMPLETELY */
-  html, body {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    max-width: 100vw !important;
-  }
-
-  /* NO ELEMENT EXCEEDS SCREEN WIDTH */
-  *, *::before, *::after {
-    box-sizing: border-box !important;
-    max-width: 100% !important;
-  }
-
-  /* FIX FOR ELEMENTS WITH position: fixed
-     (Do not force them to cover the whole viewport
-      — avoid overlaying and blocking touch on mobile) */
-  .floating-testimonial,
-  .angel-guide,
-  .particles-background {
-    /* keep them within viewport but do NOT force left/right to 0 to avoid accidental overlays */
-    max-width: 100vw !important;
-    overflow: hidden !important;
-    /* preserve pointer-events behavior already set above */
-  }
-
-  /* Protect grids from stretching */
-  .hero,
-  .grid3,
-  .domains-grid,
-  .content-columns,
-  .value-comparison-content,
-  .cake-comparison {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow: hidden;
-  }
-
-  /* Remove dangerous min-width on mobile */
-  @media (max-width: 768px) {
-    [style*="min-width"] {
-      min-width: 0 !important;
-    }
-    .value-text,
-    .value-visual,
-    .cake-visual,
-    .transformation-visual {
-      min-width: 0 !important;
-    }
-  }
-
-  /* Text never overflows */
-  h1, h2, h3, h4, p, span, strong {
-    overflow-wrap: break-word !important;
-    word-break: break-word !important;
-  }
-
-  /* Smart text sizing without breaking layout */
-  h1 {
-    font-size: clamp(1.6rem, 5vw, 2.1rem);
-  }
-  h2.title {
-    font-size: clamp(2rem, 6vw, 3.2rem);
-  }
-  h3 {
-    font-size: clamp(1.4rem, 4.5vw, 2.2rem);
-  }
-  p, li {
-    font-size: clamp(0.95rem, 3.5vw, 1.15rem);
-  }
-
-  /* SVG SAFE 100% */
-  svg {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* CTA ALWAYS INSIDE SCREEN */
-  .cta {
-    max-width: 100%;
-    white-space: normal;
-    text-align: center;
-  }
-
-  /* Remove effects that cause overflow on phones */
-  @media (max-width: 600px) {
-    * {
-      filter: none !important;
-    }
-  }
-
-</style></head>
 <body>
-  <!-- Golden particles background -->
-  <div class="particles-background" id="particles-js"></div>
-  
-  <!-- Accompanying angel indicator -->
-  <div class="angel-guide" id="angel-guide">
-    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50 20c-15 0-28 8-35 20 0 0 5 5 10 3 5-2 12-3 15-3 3 0 10 1 15 3 5 2 10-3 10-3-7-12-20-20-35-20z" stroke="url(#angelGradient)" stroke-width="2.5" fill="none"/>
-      <path d="M35 60c-5 10-3 20 5 25 8 5 18 3 25-5 7-8 9-18 5-25-10-15-30-15-40 0z" stroke="url(#angelGradient)" stroke-width="2.5" fill="none"/>
-      <path d="M25 45l25 15 25-15M50 85v10" stroke="url(#angelGradient)" stroke-width="2.5" stroke-linecap="round"/>      
-      <defs>
-        <linearGradient id="angelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#d4af37"/>
-          <stop offset="100%" stop-color="#b8862f"/>
-        </linearGradient>
-      </defs>
-    </svg>
-  </div>
 
-  <div class="container" role="main" aria-labelledby="main-title">
-    <!-- Limited spots announcement banner -->
-    <div class="limited-spots-banner" aria-live="polite">
-      <div class="eyebrow" style="color: var(--accent-bronze); font-size: 0.9rem; margin-bottom: 5px;">Limited availability this month</div>
-      <div class="spots-counter">
-        <span id="spots-remaining">17</span> spots remaining
-      </div>
-      <div class="progress-container">
-        <div class="progress-bar"></div>
-      </div>
-      <div class="progress-label">
-        <span>87% filled</span>
-        <span>Spots close in: <span id="countdown">23:59:59</span></span>
-      </div>
-      <div class="urgency-text">
-        <i class="fas fa-exclamation-triangle"></i> High demand from US & EU professionals — spots filling rapidly
-      </div>
-    </div>
+<div class="trust-bar">
+100% Private & Confidential • Human Reviewed • No AI Used • Cancel Anytime
+</div>
 
-    <header>
-      <div class="brand" aria-hidden="false">
-        <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none">            <circle cx="16" cy="16" r="14" stroke="#d4af37" stroke-width="1.5" stroke-opacity="0.7" />
-            <path d="M8 16c0-4 3-7 7-7s7 3 7 7-3 7-7 7c-1.5 0-3-.5-4-1.5" stroke="#d4af37" stroke-width="2" />
-            <path d="M16 10v12" stroke="#d4af37" stroke-width="2" stroke-linecap="round" />
-          </svg>
-        </div>
-        <div>
-          <h1 id="main-title">The Quiet Companion</h1>
-          <p>Your personal growth architect — analyzing your unique data to eliminate negativity and amplify your strengths</p>
-        </div>
-      </div>
-      <div class="meta" aria-hidden="true">
-        <div class="pill">Psychologist-Crafted · Data-Powered · Daily Transformation</div>
-        <div class="badge">Trusted by 28,500+ professionals in US & EU</div>
-      </div>
-    </header>
+<section class="hero">
+<h1>This Is Built For You.<br>And Only You.</h1>
+<p>
+A fully human-crafted personal life support system designed from your own words.
+Built by specialists in psychology and behavioral science.
+No artificial intelligence. No automation. Only real human attention.
+</p>
+<a href="https://ko-fi.com/s/cd96925d8f" class="cta-btn">Begin Your Personal Support – $30/Month</a>
+</section>
 
-    <div class="hero" role="region">
-      <div>        <div class="eyebrow">Your Personal Growth Architect Awaits</div>
-        <h2 class="title">Your data becomes your transformation</h2>
-        <p class="lead">Every message is crafted by licensed psychologists who analyze <strong class="highlight">your personal writing</strong> to identify your unique strengths. They build daily guidance that <strong class="highlight">eliminates negativity</strong> and <strong class="highlight">amplifies your positive traits</strong> — like a personal doctor for your mindset, or an angel guiding you toward your best self.</p>
+<section>
+<h2 class="section-title">How It Works</h2>
+<div class="steps">
+<div class="card">
+<h3>Step 1 – Subscribe</h3>
+<p>Secure your membership through our private subscription system.</p>
+</div>
+<div class="card">
+<h3>Step 2 – Complete Your Personal Profile</h3>
+<p>You provide detailed insights about your life, goals, health, and emotional state.</p>
+</div>
+<div class="card">
+<h3>Step 3 – Receive Your Structured Plan</h3>
+<p>Your personalized human-crafted system is built specifically for you.</p>
+</div>
+</div>
+</section>
 
-        <div class="accent-note" aria-live="polite">
-          This isn't generic advice. Our experts analyze what <em>you</em> share to create messages that dissolve your specific frustrations while strengthening your natural abilities. Your words become your transformation.
-          <span class="special-emphasis">Your data stays private. Your growth is permanent.</span>
-        </div>
+<section>
+<h2 class="section-title">What Makes This Different</h2>
+<div class="features">
+<div class="card">
+<h3>Fully Personalized</h3>
+<p>Built entirely from your submitted information. Nothing generic.</p>
+</div>
+<div class="card">
+<h3>Emotional Support</h3>
+<p>Structured psychological alignment based on your personality.</p>
+</div>
+<div class="card">
+<h3>Health & Routine Guidance</h3>
+<p>Medication reminders and daily organization if needed.</p>
+</div>
+<div class="card">
+<h3>Career Structuring</h3>
+<p>Professional advice aligned with your specific field.</p>
+</div>
+</div>
+</section>
 
-        <!-- New value comparison section - added exactly as requested -->
-        <div class="value-comparison">
-          <div class="value-comparison-content">
-            <div class="value-visual">
-              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="100" cy="100" r="90" fill="none" stroke="url(#goldGradient)" stroke-width="3"/>
-                <path d="M70 130C85 145 115 145 130 130L100 100V60" stroke="url(#goldGradient)" stroke-width="4" stroke-linecap="round"/>
-                <defs>
-                  <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#d4af37"/>
-                    <stop offset="100%" stop-color="#b8862f"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); font-size: 3.5rem; font-weight: 700; margin-top: -10px">$30</div>
-            </div>            <div class="value-text">
-              <h3>Your lifelong transformation for less than a piece of cake</h3>
-              <p>Our specialized psychologists invest <strong class="value-highlight">over 12 hours monthly</strong> analyzing your personal data to craft your daily messages. For the price of a slice of cake that disappears in five minutes, you receive a <strong class="value-highlight">permanent personal angel</strong> who walks beside you through every life challenge — dissolving negativity that angers or hurts you while strengthening your unique positive traits across work, family, health, and inner peace.</p>
-              <p style="color: var(--accent-red); font-weight: 600; font-style: italic;">This isn't an app — it's your private psychological architect who knows you intimately and guides you daily toward unshakeable confidence.</p>
-            </div>
-          </div>
-        </div>
+<section>
+<div class="psych">
+“The most expensive mistake is trying to fix your life alone.”
+</div>
+</section>
 
-        <!-- Visual comparison between cake slice and permanent value -->        <div class="cake-comparison">
-          <div class="cake-visual">
-            <svg class="cake-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="cake-disappearing" d="M5020c-15 0-27 10-27 22v26c0 12 12 22 27 22s27-10 27-22V42c0-12-12-22-27-22z" fill="#ff9eaa" stroke="#ff6b8b" stroke-width="2"/>
-              <path class="cake-disappearing" d="M43 42h14v8H43z" fill="#ff6b8b"/>
-              <path class="cake-disappearing" d="M46 38h8v4h-8z" fill="#ff4d4d"/>
-              <path class="cake-disappearing" d="M50 22v16M38 30h24" stroke="#ff4d4d" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--accent-red); margin-top: 10px; font-weight: 600;">$30 piece of cake</div>
-            <div style="color: var(--muted); margin-top: 5px; font-size: 0.95rem;">Gone in 5 minutes</div>
-          </div>
-          
-          <div class="transformation-visual">
-            <svg class="growth-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="50" r="40" stroke="url(#growthGradient)" stroke-width="2.5" fill="none" opacity="0.7"/>
-              <path class="growth-path" d="M50 20c12 0 22 8 25 18 3 10-2 22-12 28-10 6-22 8-33 3-11-5-18-18-18-30C22 28 34 20 50 20z" stroke="url(#growthGradient)" stroke-width="3.5" fill="none"/>
-              <path class="growth-path" d="M50 30c8 0 15 4 18 10 3 6 2 13-3 18-5 5-12 7-18 5-6-2-11-7-14-13-3-6-1-13 4-18 5-5 12-7 18-5 5 2 9 7 11 12" stroke="url(#growthGradient)" stroke-width="2.5" fill="none"/>              
-              <defs>
-                <linearGradient id="growthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#d4af37"/>
-                  <stop offset="100%" stop-color="#b8862f"/>
-                </linearGradient>
-              </defs>
-            </svg>
-            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--accent-gold); margin-top: 10px; font-weight: 600;">Your transformation</div>
-            <div style="color: var(--muted); margin-top: 5px; font-size: 0.95rem;">Lasts a lifetime</div>
-          </div>
-        </div>
+<section>
+<h2 class="section-title">What Members Say</h2>
+<div class="testimonials">
+<div class="card">
+<p>"It feels handcrafted just for me. Nothing automated."</p>
+<h3>— Daniel M., London</h3>
+</div>
+<div class="card">
+<p>"This gave structure to my entire life."</p>
+<h3>— Sophia L., New York</h3>
+</div>
+<div class="card">
+<p>"Finally something that feels human."</p>
+<h3>— Marcus T., Berlin</h3>
+</div>
+</div>
+</section>
 
-        <!-- Hourly value calculation -->
-        <div class="hourly-value">
-          <h4>Your investment breaks down to:</h4>
-          <div class="hourly-amount">$0.04 per hour</div>
-          <p style="color: #e0e0e0; line-height: 1.6;">
-            For less than the cost of a <strong style="color: var(--accent-gold);">single sip of coffee</strong>, you receive 24/7 guidance from your personal psychological architect — a value that compounds daily across every area of your life.
-          </p>
-        </div>
+<section>
+<h2 class="section-title">Invest In Your Stability</h2>
+<div class="price">$30 / Month</div>
+<p style="text-align:center;color:#cbd5e1;max-width:700px;margin:auto;">
+Less than a small indulgence — for 30 days of structured human support.
+</p>
+<div style="text-align:center;">
+<a href="https://ko-fi.com/s/cd96925d8f" class="cta-btn">Subscribe Now</a>
+</div>
+</section>
 
-        <section aria-labelledby="what">
-          <h3 id="what" style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); margin-top: 24px; font-size: 1.9rem">Your transformation pathway</h3>
-          <div class="grid3" role="list">
-            <div class="card-tile" role="listitem">
-              <h4>Negativity Dissolution</h4>
-              <p>Experts identify negative patterns in your writing and craft precise interventions to dissolve them at the source.</p>
-            </div>
-            <div class="card-tile" role="listitem">
-              <h4>Strength Amplification</h4>
-              <p>We isolate your authentic positive traits and design daily actions to strengthen them in high-stakes situations.</p>
-            </div>
-            <div class="card-tile" role="listitem">              <h4>Life Integration</h4>
-              <p>Personalized guidance for work decisions, family dynamics, health routines, and inner peace — all connected to your core growth.</p>
-            </div>
-          </div>
-        </section>
+<div class="footer">
+© 2026 Personal Life Companion — Human Crafted Support.
+</div>
 
-        <!-- New life domains section - added exactly as requested -->
-        <div class="life-domains">
-          <h3>Your personal angel in every life domain</h3>
-          <p style="color: #e0e0e0; max-width: 800px; margin: 12px auto 0; line-height: 1.7">
-            Our psychologists craft messages that transform your experience across all dimensions of life — like a trusted doctor who knows your history and an angel who anticipates your needs before you do.
-          </p>
-          
-          <div class="domains-grid">
-            <div class="domain-card">
-              <div class="domain-icon">
-                <svg viewBox="0 0 24 24" fill="none">                  
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <h4>Work & Career</h4>
-              <p>Dissolve decision paralysis and amplify strategic confidence</p>
-            </div>
-            <div class="domain-card">
-              <div class="domain-icon">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2a10 10 0 00-10 10c0 4.4 2.9 8.1 6.9 9.5l.4.2.4-.2c4-.9 6.9-4.7 6.9-9.5a10 10 0 00-10-10z" stroke="currentColor" stroke-width="1.8"/>
-                  <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="1.8"/>
-                </svg>
-              </div>              
-              <h4>Family & Relationships</h4>
-              <p>Transform conflicts into connection and deepen emotional bonds</p>
-            </div>
-            <div class="domain-card">
-              <div class="domain-icon">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10z" stroke="currentColor" stroke-width="1.8"/>
-                  <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <h4>Health & Vitality</h4>
-              <p>Build sustainable routines that honor your body's unique needs</p>
-            </div>
-            <div class="domain-card">
-              <div class="domain-icon">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="currentColor" stroke-width="1.8" fill="none"/>
-                  <path d="M12 7v6l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
-              </div>              <h4>Inner Peace</h4>
-              <p>Dissolve anxiety and build unshakeable emotional resilience</p>
-            </div>
-          </div>
-        </div>
-      </div>
+<a href="https://ko-fi.com/s/cd96925d8f" class="sticky-cta">Subscribe</a>
 
-      <aside class="card" aria-labelledby="cta-title">
-        <div class="guarantee-badge" title="100% Money-Back Guarantee">
-          <div class="guarantee-text">365<br>Days</div>
-        </div>
-        
-        <small>Begin your transformation</small>
-        <h3 id="cta-title">Activate Your Personal Growth Architect</h3>
-        <p>Complete a 5-minute onboarding. Our psychologists will analyze your responses to build your first personalized message within 24 hours.</p>
-        
-        <!-- New value statement in CTA card - added exactly as requested -->
-        <div class="value-statement">          <strong>For less than a piece of cake that vanishes in 5 minutes...</strong>
-          Our specialized psychologists provide your lifelong transformation — analyzing your personal data to eliminate negativity and amplify your positive traits across all life domains. This is your private angel, always walking beside you.
-        </div>
-
-        <!-- FIXED CTA BUTTON: Absolute path to onboarding page -->
-        <a class="cta pulse" 
-           href="/onboarding-individual.html" 
-           id="register-link" 
-           aria-label="Begin your transformation journey - opens secure onboarding form">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 2v20" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
-            <path d="M5 9c1.333-2 4-3 7-3s5.667 1 7 3" stroke="#2b1b05" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-          Begin Your Transformation
-        </a>
-        <p style="margin-top:16px; color: #d0d0d0; font-size:1.05rem; line-height:1.6">
-          <strong style="color: var(--accent-gold);">Your privacy is sacred:</strong> Data is encrypted and analyzed only by our vetted psychologists. You own your information — delete anytime.
-        </p>
-        
-        <div style="background: rgba(0, 30, 0, 0.4); border-left: 3px solid #4ade80; padding: 15px; border-radius: 0 var(--radius) var(--radius) 0; margin-top: 20px;">
-          <div style="font-family: 'Cormorant Garamond', serif; color: #4ade80; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-            <i class="fas fa-shield-alt"></i> Risk-Free Investment
-          </div>
-          <p style="color: #d0d0d0; font-size: 0.95rem; line-height: 1.6;">
-            If your first month doesn't transform at least one area of your life, receive a full refund — no questions asked. We only succeed when you do.
-          </p>
-        </div>
-      </aside>    </div>
-
-    <!-- Examples and approach -->
-    <div class="content-columns" role="region" aria-label="Personalization Process">
-      <div class="box">
-        <h4>How psychologists transform your data</h4>        <pre class="sample">Your onboarding entry:
-"I feel overwhelmed making career decisions. I overthink options but fear missing opportunities."
-
-→ Expert analysis identifies:
-✓ Strength: Deep consideration of options
-✓ Growth area: Decision paralysis from fear
-
-Daily message crafted for you:
-"Before your next decision, write ONE core value this choice must honor. Then set a 24-hour deadline. Your thoroughness is strength — deadlines transform it into power."</pre>
-      </div>
-
-      <div class="box">
-        <h4>Why professionals can't quit</h4>
-        <p style="color:#e0e0e0;line-height:1.7;margin:0">
-          "This feels like having a world-class psychologist living in my pocket. They don't just give advice — they <em>know</em> my patterns because I've shared them. When stress hits, their message dissolves my anxiety before it takes root. I've tried therapy, apps, coaches — nothing created this permanent shift." 
-          <br><br>
-          <strong style="color: var(--accent-gold);">— Senior Director, Financial Services (New York)</strong>
-        </p>
-      </div>
-    </div>
-    <div class="testimonials" aria-label="Client Transformations">
-      <div class="test">
-        <strong>"After 3 weeks, my chronic indecision vanished. My psychologist crafted messages that turned my 'overthinking' into strategic advantage."</strong>
-        <div>— Lead, Tech Startup (Berlin)</div>
-      </div>
-      <div class="test">
-        <strong>"Messages arrive precisely when I need them most — like my personal angel knows my stress patterns before I do. My relationships transformed."</strong>
-        <div>— Healthcare Executive (London)</div>
-      </div>
-      <!-- New testimonial emphasizing value and angel metaphor - added exactly as requested -->
-      <div class="test">
-        <strong>"I used to buy $30 cakes that were gone in minutes. Now I invest $30/month in my permanent growth angel — a doctor for my soul who erases what hurts me and builds what makes me strong across every area of life. I'd pay 10x this value."</strong>
-        <div>— Marketing Director (Los Angeles)</div>
-      </div>
-    </div>
-
-    <div class="faq" aria-label="Personalization Process">
-      <h3 style="font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); margin-top: 28px; font-size: 2rem">Your growth questions</h3>
-      <details>
-        <summary>How do psychologists use my personal data?</summary>
-        <p>Our licensed experts analyze ONLY what you share in your secure onboarding. They identify your unique strengths and growth areas, then craft messages that target your specific negativity patterns while amplifying your natural abilities. We never share or sell your data — it exists solely to build your transformation.</p>
-      </details>
-      <details>        <summary>Is this like therapy or coaching?</summary>        <p>This is your personal growth architect — more strategic than therapy, more personalized than coaching. We focus exclusively on transforming your daily experience through precisely targeted messages based on your data. Think of it as having a psychologist who only works on dissolving your specific frustrations and building your unique strengths.</p>
-      </details>
-      <details>
-        <summary>How quickly will I feel changes?</summary>
-        <p>87% of members report reduced anxiety around their growth areas within 10 days. Our psychologists design "micro-transformations" — small daily shifts that compound into permanent change. Many describe it as "waking up with my personal angel having already cleared my mental obstacles."</p>
-      </details>
-      <!-- New FAQ item about value - added exactly as requested -->
-      <details>        <summary>Why is this only $30 when it provides such deep transformation?</summary>
-        <p>Our specialized psychologists dedicate over 12 hours monthly to your personal transformation — analyzing your data, identifying negativity patterns, and crafting life-changing messages across all domains. For less than a piece of cake that lasts five minutes, you receive a permanent personal angel who dissolves what angers and hurts you while strengthening your core in work, family, health, and inner peace. This human expertise is priceless, yet we keep it accessible because your growth matters more than profit.</p>
-      </details>
-    </div>
-
-    <footer>
-      <div>Your private growth ecosystem — where your words become your transformation</div>
-      <div class="trust-badges">
-        <div class="badge-item">
-          <div class="badge-icon">🔒</div>
-          <span>Bank-Grade Encryption</span>
-        </div>
-        <div class="badge-item">
-          <div class="badge-icon">🧠</div>
-          <span>PhD Psychologists Only</span>
-        </div>
-        <div class="badge-item">
-          <div class="badge-icon">🇪🇺</div>
-          <span>GDPR & CCPA Compliant</span>        </div>
-        <!-- New trust badge - added exactly as requested -->
-        <div class="badge-item">
-          <div class="badge-icon" style="background: rgba(255, 77, 77, 0.15); color: var(--accent-red);">❤️</div>
-          <span>Human Experts Only (No AI)</span>
-        </div>
-        <div class="badge-item">
-          <div class="badge-icon" style="background: rgba(74, 222, 128, 0.15); color: #4ade80;">
-            <i class="fas fa-money-bill-wave"></i>
-          </div>
-          <span>365-Day Money-Back Guarantee</span>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <!-- Floating testimonial that appears during scrolling -->
-  <div class="floating-testimonial" id="floating-testimonial">
-    <div class="floating-header">
-      <div class="floating-avatar">S</div>
-      <div>
-        <div class="floating-name">Sarah Mitchell</div>
-        <div class="floating-location">VP of Operations, Silicon Valley</div>
-      </div>
-    </div>
-    <div class="floating-content">
-      "I almost skipped this because $30 seemed too good to be true. After 47 days, I've saved over $2,000 by avoiding one bad business decision my psychologist helped me see clearly. This isn't an expense — it's the highest ROI investment I've ever made."
-    </div>
-  </div>
-
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>  // Ensuring the link works normally with absolute path
-  document.addEventListener('DOMContentLoaded', function() {
-    // Fixing smooth scrolling for anchor links, but do not block default behavior on touch devices
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        // If the link points to an element on the page, perform smooth scroll.
-        // We still allow default behavior for non-internal links.
-        const targetSelector = this.getAttribute('href');
-        const target = document.querySelector(targetSelector);
-        if (target) {
-          e.preventDefault();
-          // Use smooth scroll but avoid forcing layout thrashing
-          target.scrollIntoView({
-            behavior: 'smooth'
-          });
-        }
-      }, { passive: true });
-    });
-    
-    // Ensuring the onboarding link works normally without obstacles
-    const registerLink = document.getElementById('register-link');
-    if (registerLink) {
-      registerLink.addEventListener('click', function(e) {
-        console.info('✅ Navigating to /onboarding-individual.html');
-        // We do NOT prevent default behavior - link works normally
-      }, { passive: true });
-    }
-    
-    // FAQ animation — keep it light and non-blocking
-    document.querySelectorAll('details').forEach(details => {
-      details.addEventListener('toggle', () => {
-        const summary = details.querySelector('summary');
-        if (details.open) {
-          setTimeout(() => {
-            if (summary && typeof summary.scrollIntoView === 'function') {
-              summary.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'nearest'
-              });
-            }
-          }, 100);
-        }
-      }, { passive: true });
-    });
-
-    // Subtle entrance animations for desktop only
-    if (window.innerWidth > 768) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.card-tile, .box, .test, .faq details, .value-comparison, .life-domains').forEach(el => {
-        el.style.opacity = 0;        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-      });
-    }
-
-    // Ensure smooth scrolling on all devices
-    // Note: setting this helps native smooth scroll; keep it, but don't make scroll handlers blocking.
-    try {
-      document.body.style.scrollBehavior = 'smooth';
-    } catch (e) {
-      // ignore if not supported
-    }
-    
-    // Accompanying angel indicator (desktop only)
-    const angelGuide = document.getElementById('angel-guide');
-    if (angelGuide && window.innerWidth > 768) {
-      angelGuide.style.display = 'block';
-      
-      // Move handler is desktop-only and kept lightweight
-      document.addEventListener('mousemove', (e) => {
-        const mouseX = e.clientX;
-        const mouseY = e.clientY;
-        
-        angelGuide.style.left = `${mouseX + 15}px`;
-        angelGuide.style.top = `${mouseY + 15}px`;
-                // Adding subtle dynamic effect
-        const offset = 20;
-        const moveX = (mouseX / window.innerWidth - 0.5) * offset;
-        const moveY = (mouseY / window.innerHeight - 0.5) * offset;
-        angelGuide.style.transform = `translate(${moveX}px, ${moveY}px)`;
-      }, { passive: true });
-    }
-    
-    // Countdown timer for offers
-    let countdownTime = 24 * 60 * 60; // 24 hours in seconds
-    const countdownElement = document.getElementById('countdown');
-    
-    function updateCountdown() {
-      countdownTime--;
-      const hours = Math.floor(countdownTime / 3600);
-      const minutes = Math.floor((countdownTime % 3600) / 60);
-      const seconds = countdownTime % 60;
-      
-      if (countdownElement) {
-        countdownElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-      }
-      
-      if (countdownTime <= 0) {
-        countdownTime = 24 * 60 * 60;
-      }
-    }
-    
-    setInterval(updateCountdown, 1000);
-    
-    // Update remaining spots
-    let spots = 17;
-    const spotsElement = document.getElementById('spots-remaining');    
-    function updateSpots() {
-      spots--;
-      if (spots < 1) spots = 42;
-      
-      if (spotsElement) spotsElement.textContent = spots;
-      
-      // Update progress bar
-      const progressBar = document.querySelector('.progress-bar');
-      const percentage = ((42 - spots) / 42) * 100;
-      if (progressBar) progressBar.style.width = `${Math.min(percentage, 95)}%`;
-      
-      // Update text
-      const firstLabel = document.querySelector('.progress-label span:first-child');
-      if (firstLabel) firstLabel.textContent = `${Math.round(percentage)}% filled`;
-    }
-    
-    // Automatic update every 1-3 minutes
-    setInterval(updateSpots, 60000 + Math.random() * 120000);
-    
-    // Show floating testimonial after scrolling — using passive listener to avoid blocking scroll on mobile
-    let hasShownTestimonial = false;
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 800 && !hasShownTestimonial) {
-        const ft = document.getElementById('floating-testimonial');
-        if (ft) ft.classList.add('show');
-        hasShownTestimonial = true;
-        
-        // Auto-hide after 15 seconds
-        setTimeout(() => {
-          const ft2 = document.getElementById('floating-testimonial');
-          if (ft2) ft2.classList.remove('show');
-        }, 15000);
-      }
-    }, { passive: true });
-    
-    // Initialize golden background particles (kept lightweight and pointer-events disabled)
-    if (typeof particlesJS !== 'undefined') {
-      particlesJS('particles-js', {
-        particles: {
-          number: { value: 15, density: { enable: true, value_area: 800 } },
-          color: { value: "#d4af37" },
-          shape: { type: "circle" },
-          opacity: { value: 0.2, random: true },
-          size: { value: 3, random: true },
-          line_linked: { enable: false },
-          move: {
-            enable: true,
-            speed: 1,
-            direction: "top-right",
-            random: true,
-            straight: false,
-            out_mode: "out",            bounce: false
-          }
-        },
-        interactivity: { 
-          detect_on: "canvas", 
-          events: { onhover: { enable: false }, onclick: { enable: false } } 
-        },
-        retina_detect: true
-      });
-    }
-
-    // Add a passive touchstart listener to hint to the browser that touch won't be prevented (improves scroll performance on mobile)
-    document.addEventListener('touchstart', function(){}, { passive: true });
-  });
-
-  // Adjust font size appropriately on mobile devices
-  function adjustFontSize() {
-    if (window.innerWidth < 480) {
-      document.documentElement.style.fontSize = '90%';    } else {
-      document.documentElement.style.fontSize = '100%';
-    }
-  }
-
-  // Apply adjustments on load and resize
-  window.addEventListener('load', adjustFontSize);
-  window.addEventListener('resize', adjustFontSize);
-</script>
 </body>
-  </html>
+</html>
