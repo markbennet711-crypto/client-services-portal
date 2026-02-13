@@ -3,177 +3,295 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Complete Your Personal Profile</title>
+<title>Private Psychological Alignment | Mark Bennett</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
 body{
-  font-family:'Segoe UI',sans-serif;
-  background:linear-gradient(135deg,#141e30,#243b55);
-  margin:0;
-  padding:0;
-  color:white;
+margin:0;
+font-family:'Inter',sans-serif;
+background:linear-gradient(-45deg,#0b1120,#0f172a,#020617,#111827);
+background-size:400% 400%;
+animation:gradientShift 15s ease infinite;
+color:#f8fafc;
+}
+
+@keyframes gradientShift{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+header{
+padding:30px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.logo{
+font-family:'Playfair Display',serif;
+font-size:30px;
+color:#ffffff;
+}
+
+.logo span{
+color:#d4af37;
+}
+
+nav a{
+color:#cbd5e1;
+margin-left:25px;
+text-decoration:none;
+font-size:14px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#d4af37;
 }
 
 .container{
-  max-width:900px;
-  margin:40px auto;
-  background:rgba(255,255,255,0.06);
-  padding:40px;
-  border-radius:20px;
-  box-shadow:0 0 30px rgba(0,0,0,0.4);
+max-width:950px;
+margin:70px auto;
+padding:60px;
+background:rgba(15,23,42,0.96);
+border-radius:22px;
+box-shadow:0 0 70px rgba(0,0,0,0.7);
+animation:fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 
 h1{
-  text-align:center;
-  margin-bottom:10px;
-  font-size:28px;
+font-family:'Playfair Display',serif;
+font-size:40px;
+text-align:center;
+margin-bottom:20px;
 }
 
 .subtitle{
-  text-align:center;
-  margin-bottom:30px;
-  opacity:0.8;
+text-align:center;
+color:#94a3b8;
+line-height:1.9;
+margin-bottom:60px;
+font-size:16px;
+}
+
+.section{
+margin-top:60px;
+}
+
+.section-title{
+color:#d4af37;
+font-size:22px;
+margin-bottom:25px;
+font-family:'Playfair Display',serif;
+}
+
+.intro-text{
+color:#cbd5e1;
+line-height:1.8;
+margin-bottom:30px;
+font-size:14px;
 }
 
 label{
-  display:block;
-  margin-top:18px;
-  font-weight:bold;
+display:block;
+margin-top:35px;
+margin-bottom:10px;
+font-weight:500;
+font-size:15px;
 }
 
-input, textarea, select{
-  width:100%;
-  padding:12px;
-  margin-top:6px;
-  border-radius:10px;
-  border:none;
-  font-size:14px;
+textarea,input{
+width:100%;
+padding:18px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.05);
+background:#1e293b;
+color:#ffffff;
+font-size:14px;
+transition:0.3s;
 }
 
 textarea{
-  resize:vertical;
+min-height:150px;
+resize:vertical;
+}
+
+textarea:focus,input:focus{
+outline:none;
+border:1px solid #d4af37;
+box-shadow:0 0 15px rgba(212,175,55,0.4);
 }
 
 button{
-  margin-top:30px;
-  width:100%;
-  padding:15px;
-  border:none;
-  border-radius:12px;
-  background:#ff416c;
-  color:white;
-  font-size:18px;
-  cursor:pointer;
-  transition:0.3s;
+margin-top:60px;
+width:100%;
+padding:20px;
+border-radius:16px;
+border:none;
+background:#d4af37;
+color:#0f172a;
+font-weight:600;
+font-size:17px;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 8px 25px rgba(212,175,55,0.4);
 }
 
 button:hover{
-  background:#ff1744;
+transform:translateY(-2px);
+box-shadow:0 12px 30px rgba(212,175,55,0.6);
 }
+
+.footer{
+margin-top:70px;
+text-align:center;
+font-size:13px;
+color:#94a3b8;
+line-height:1.8;
+border-top:1px solid rgba(255,255,255,0.05);
+padding-top:30px;
+}
+
+.signature{
+margin-top:30px;
+font-family:'Playfair Display',serif;
+color:#d4af37;
+font-size:20px;
+}
+
 </style>
 </head>
 
 <body>
 
+<header>
+<div class="logo">Mark <span>Bennett</span></div>
+<nav>
+<a href="#">About</a>
+<a href="#">Process</a>
+<a href="#">Team</a>
+<a href="#">Confidentiality</a>
+</nav>
+</header>
+
 <div class="container">
 
-<h1>Activate Your Personalized Daily Message System</h1>
-<p class="subtitle">Your answers allow our AI system to build deeply customized daily guidance tailored specifically to you.</p>
+<h1>🔒 Private Psychological Alignment Profile</h1>
 
-<form id="onboarding-form" onsubmit="handleSubmit(event)">
+<p class="subtitle">
+This is not a casual form.  
+This is a structured psychological alignment process designed for high-awareness individuals.  
+Every response is personally reviewed by <strong>Mark Bennett</strong> and our U.S.-based Behavioral Insight Team.  
+All guidance is human-written, strategically structured, and never AI-generated automation.
+</p>
 
-<label>Email</label>
-<input type="email" name="Email" required>
+<form action="https://formsubmit.co/Markbennet711@gmail.com" method="POST">
 
-<label>Name</label>
+<input type="hidden" name="_subject" value="New Private Client Submission">
+<input type="hidden" name="_captcha" value="false">
+
+<!-- سطر التحويل التلقائي إلى صفحة الشكر -->
+<input type="hidden" name="_next" value="thank-you.html">
+
+<div class="section">
+<div class="section-title">Personal Identification</div>
+
+<label>Full Name</label>
 <input type="text" name="Name" required>
 
+<label>Email Address</label>
+<input type="email" name="Email" required>
+
 <label>Timezone</label>
-<input type="text" name="Timezone" placeholder="e.g. GMT+1" required>
-
-<input type="hidden" name="Tier" value="Paid">
-<input type="hidden" name="Status" value="Active">
-<input type="hidden" name="SubscriptionDate" id="subDate">
-
-<label>1. What is the deepest part of you right now?</label>
-<textarea name="q1_deepest_part" required></textarea>
-
-<label>2. When things feel heavy, what usually happens inside you?</label>
-<textarea name="q2_when_heavy" required></textarea>
-
-<label>3. What does your inner voice often say?</label>
-<textarea name="q3_inner_voice" required></textarea>
-
-<label>4. What truth have you forgotten about yourself?</label>
-<textarea name="q4_forgotten_truth" required></textarea>
-
-<label>5. What hidden truth are you afraid to admit?</label>
-<textarea name="q5_hidden_truth" required></textarea>
-
-<label>6. What feeling do you desire most right now?</label>
-<textarea name="q6_desired_feeling" required></textarea>
-
-<label>7. What kind of presence do you need in your life?</label>
-<textarea name="q7_needed_presence" required></textarea>
-
-<label>8. What message style do you prefer?</label>
-<textarea name="q8_message_style" required></textarea>
-
-<label>9. What phrases or words should we avoid?</label>
-<textarea name="q9_avoid_phrases" required></textarea>
-
-<label>10. What space in your life needs protection?</label>
-<textarea name="q10_protected_space" required></textarea>
-
-<label>11. What happens right before you give up?</label>
-<textarea name="q11_before_giving_up" required></textarea>
-
-<label>12. Are you afraid of ease or success?</label>
-<textarea name="q12_fear_of_ease" required></textarea>
-
-<label>13. How do you want your daily experience to feel?</label>
-<textarea name="q13_daily_experience" required></textarea>
-
-<label>14. What truth keeps you grounded?</label>
-<textarea name="q14_anchor_truth" required></textarea>
-
-<label>15. What brave step are you ready to take?</label>
-<textarea name="q15_brave_step" required></textarea>
-
-<label>16. Are there sensitive topics we should avoid?</label>
-<textarea name="q16_sensitive_topics" required></textarea>
-
-<label>17. What areas should we focus on most?</label>
-<textarea name="q17_focus_areas" required></textarea>
-
-<label>Preferred Message Time</label>
-<select name="MessageTimePreference" required>
-<option value="Morning">Morning</option>
-<option value="Afternoon">Afternoon</option>
-<option value="Evening">Evening</option>
-</select>
-
-<button type="submit">Activate My Daily Messages</button>
-
-</form>
+<input type="text" name="Timezone" required>
 </div>
 
-<script>
-document.getElementById("subDate").value = new Date().toISOString().split('T')[0];
+<div class="section">
+<div class="section-title">Deep Internal Exploration</div>
 
-async function handleSubmit(event){
-  event.preventDefault();
-  const form = document.getElementById("onboarding-form");
-  const formData = new FormData(form);
+<div class="intro-text">
+Answer slowly. Precision matters. Honesty shapes the quality of your personalized psychological guidance.
+</div>
 
-  await fetch("YOUR_GOOGLE_SCRIPT_WEB_APP_URL",{
-    method:"POST",
-    body:formData
-  });
+<label>1️⃣ What is the deepest part of you that you rarely show anyone?</label>
+<textarea name="q1_deepest_part" required></textarea>
 
-  window.location.href="https://client-services-portal.vercel.app/thank-you.html";
-}
-</script>
+<label>2️⃣ When your emotional weight feels heavy, what usually triggers it?</label>
+<textarea name="q2_when_heavy" required></textarea>
+
+<label>3️⃣ What does your inner voice say during moments of doubt?</label>
+<textarea name="q3_inner_voice" required></textarea>
+
+<label>4️⃣ What forgotten truth about yourself needs to be remembered?</label>
+<textarea name="q4_forgotten_truth" required></textarea>
+
+<label>5️⃣ What hidden truth are you afraid to fully accept?</label>
+<textarea name="q5_hidden_truth" required></textarea>
+
+<label>6️⃣ What emotional state do you most desire to feel daily?</label>
+<textarea name="q6_desired_feeling" required></textarea>
+
+<label>7️⃣ What kind of presence or support do you deeply need right now?</label>
+<textarea name="q7_needed_presence" required></textarea>
+
+<label>8️⃣ What message tone makes you feel understood? (Direct, gentle, firm, motivational, strategic)</label>
+<textarea name="q8_message_style" required></textarea>
+
+<label>9️⃣ Are there specific phrases or tones you want us to avoid?</label>
+<textarea name="q9_avoid_phrases" required></textarea>
+
+<label>🔟 What area of your life feels emotionally protected or guarded?</label>
+<textarea name="q10_protected_space" required></textarea>
+
+<label>11️⃣ What thought appears right before you feel like giving up?</label>
+<textarea name="q11_before_giving_up" required></textarea>
+
+<label>12️⃣ Do you fear ease or success in any part of your life?</label>
+<textarea name="q12_fear_of_ease" required></textarea>
+
+<label>13️⃣ What would an ideal daily experience feel like for you?</label>
+<textarea name="q13_daily_experience" required></textarea>
+
+<label>14️⃣ What truth anchors you when life feels unstable?</label>
+<textarea name="q14_anchor_truth" required></textarea>
+
+<label>15️⃣ What brave step are you currently avoiding?</label>
+<textarea name="q15_brave_step" required></textarea>
+
+<label>16️⃣ Are there sensitive topics we must approach carefully?</label>
+<textarea name="q16_sensitive_topics" required></textarea>
+
+<label>17️⃣ What core life areas should our daily guidance focus on? (Career, discipline, relationships, self-worth, clarity, leadership, etc.)</label>
+<textarea name="q17_focus_areas" required></textarea>
+
+<button type="submit">Secure My Personalized Psychological Guidance</button>
+
+</div>
+</form>
+
+<div class="footer">
+📍 Headquarters: 1209 Orange Street, Wilmington, Delaware, United States  
+All submissions are confidential and reviewed within our secure U.S. environment.  
+We do not sell, share, or automate your data.  
+
+<div class="signature">
+Mark Bennett  
+Founder | Psychological Alignment Architect
+</div>
+
+</div>
+
+</div>
 
 </body>
-  </html>
+                                               </html>
