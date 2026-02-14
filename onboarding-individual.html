@@ -195,13 +195,7 @@ Every response is personally reviewed by <strong>Mark Bennett</strong> and our U
 All guidance is human-written, strategically structured, and never AI-generated automation.
 </p>
 
-<form action="https://formsubmit.co/Markbennet711@gmail.com" method="POST">
-
-<input type="hidden" name="_subject" value="New Private Client Submission">
-<input type="hidden" name="_captcha" value="false">
-
-<!-- سطر التحويل التلقائي إلى صفحة الشكر -->
-<input type="hidden" name="_next" value="thank-you.html">
+<form id="onboarding-form">
 
 <div class="section">
 <div class="section-title">Personal Identification</div>
@@ -293,5 +287,28 @@ Founder | Psychological Alignment Architect
 
 </div>
 
+<script>
+document.getElementById("onboarding-form").addEventListener("submit", async function(e){
+e.preventDefault();
+
+const form = document.getElementById("onboarding-form");
+const formData = new FormData(form);
+
+try{
+
+await fetch("YOUR_GOOGLE_SCRIPT_WEB_APP_URL",{
+method:"POST",
+body:formData
+});
+
+window.location.href="https://client-services-portal.vercel.app/thank-you.html";
+
+}catch(error){
+alert("Submission failed. Please try again.");
+}
+
+});
+</script>
+
 </body>
-                                               </html>
+</html>
